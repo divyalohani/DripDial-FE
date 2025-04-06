@@ -41,24 +41,16 @@ export default function Footer() {
             <h4 className="font-medium text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2 opacity-80">
               <li>
-                <Link href="/#features">
-                  <a className="hover:text-plum transition-colors">Features</a>
-                </Link>
+                <Link href="/#features" className="hover:text-plum transition-colors">Features</Link>
               </li>
               <li>
-                <Link href="/#examples">
-                  <a className="hover:text-plum transition-colors">Newsletter Examples</a>
-                </Link>
+                <Link href="/#examples" className="hover:text-plum transition-colors">Newsletter Examples</Link>
               </li>
               <li>
-                <Link href="/#pricing">
-                  <a className="hover:text-plum transition-colors">Pricing</a>
-                </Link>
+                <Link href="/#pricing" className="hover:text-plum transition-colors">Pricing</Link>
               </li>
               <li>
-                <Link href="/#faq">
-                  <a className="hover:text-plum transition-colors">FAQ</a>
-                </Link>
+                <Link href="/#faq" className="hover:text-plum transition-colors">FAQ</Link>
               </li>
             </ul>
           </motion.div>

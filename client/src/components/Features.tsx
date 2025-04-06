@@ -128,10 +128,8 @@ export default function Features() {
               </div>
             </div>
             <div>
-              <Link href="#subscribe">
-                <a className="inline-block bg-white text-plum px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all hover:shadow-md transform hover:-translate-y-1">
-                  Join Waitlist
-                </a>
+              <Link href="#subscribe" className="inline-block bg-white text-plum px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all hover:shadow-md transform hover:-translate-y-1">
+                Join Waitlist
               </Link>
             </div>
           </div>

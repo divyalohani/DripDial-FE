@@ -117,10 +117,8 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
             >
-              <Link href="#subscribe">
-                <a className="bg-[#3D2C35] text-white px-8 py-4 rounded-full font-bold text-center hover:bg-opacity-90 transition-all hover:shadow-lg transform hover:-translate-y-1 inline-block">
-                  Subscribe Now – Be First to Slay
-                </a>
+              <Link href="#subscribe" className="bg-[#3D2C35] text-white px-8 py-4 rounded-full font-bold text-center hover:bg-opacity-90 transition-all hover:shadow-lg transform hover:-translate-y-1 inline-block">
+                Subscribe Now – Be First to Slay
               </Link>
             </motion.div>
           </motion.div>
