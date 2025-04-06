@@ -315,7 +315,7 @@ const TrendingNowVideo = () => {
 
 // TikTok/Instagram video feed for the 3rd grid cell - featuring influencers and their outfits
 const VideoFeedCell = () => {
-  // Array of influencer content
+  // Array of influencer content with fixed image URLs to prevent empty slides
   const influencerPosts = [
     { 
       id: 1, 
@@ -323,7 +323,8 @@ const VideoFeedCell = () => {
       delay: 0,
       username: "sophia_styles",
       outfit: "Linen co-ord set",
-      caption: "Summer staple you NEED 😍 This linen set is perfect for hot days! #SummerFit #LinenLove",
+      views: "436K",
+      imageUrl: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
       location: "Miami",
       likes: "42.3k",
       comments: "1.2k",
@@ -335,7 +336,8 @@ const VideoFeedCell = () => {
       delay: 0.4,
       username: "alex_fashion",
       outfit: "Oversized blazer + cargo pants",
-      caption: "Business casual with an edge! Obsessed with this blazer combo 🔥 #OOTD #LayeringGame",
+      views: "212K",
+      imageUrl: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
       location: "New York",
       likes: "38.6k",
       comments: "856",
@@ -347,7 +349,8 @@ const VideoFeedCell = () => {
       delay: 0.8,
       username: "trendyemma",
       outfit: "Platform boots + slip dress",
-      caption: "The contrast of feminine and edgy is EVERYTHING! 💯 #StyleHack #FashionTok",
+      views: "768K",
+      imageUrl: "https://images.unsplash.com/photo-1618721405821-45c8247bcc4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
       location: "London",
       likes: "76.4k",
       comments: "2.4k",
@@ -410,9 +413,9 @@ const VideoFeedCell = () => {
               }}
             >
               <div className="w-full h-full">
-                {/* Background gradient - simulating influencer outfit photo/video */}
+                {/* Overlay gradient effects for videos */}
                 <motion.div
-                  className="absolute inset-0 opacity-90"
+                  className="absolute inset-0 opacity-60"
                   animate={{
                     backgroundPosition: ["0% 0%", "100% 100%"]
                   }}
@@ -424,7 +427,8 @@ const VideoFeedCell = () => {
                   }}
                   style={{
                     backgroundImage: post.gradient,
-                    backgroundSize: "200% 200%"
+                    backgroundSize: "200% 200%",
+                    mixBlendMode: "soft-light"
                   }}
                 />
                 
@@ -467,35 +471,15 @@ const VideoFeedCell = () => {
                   {/* Light gradient overlay at top and bottom to enhance readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 z-10" />
                   
-                  {/* Fashion model images */}
-                  {index === 0 ? (
-                    <motion.div 
-                      className="absolute inset-0 bg-center bg-cover"
-                      style={{ 
-                        backgroundImage: "url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=800&q=80')",
-                      }}
-                      animate={{ scale: [1, 1.05, 1] }}
-                      transition={{ duration: 8, repeat: Infinity }}
-                    />
-                  ) : index === 1 ? (
-                    <motion.div 
-                      className="absolute inset-0 bg-center bg-cover"
-                      style={{ 
-                        backgroundImage: "url('https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80')",
-                      }}
-                      animate={{ scale: [1, 1.05, 1] }}
-                      transition={{ duration: 8, repeat: Infinity }}
-                    />
-                  ) : (
-                    <motion.div 
-                      className="absolute inset-0 bg-center bg-cover"
-                      style={{ 
-                        backgroundImage: "url('https://images.unsplash.com/photo-1618721405821-45c8247bcc4f?auto=format&fit=crop&w=800&q=80')",
-                      }}
-                      animate={{ scale: [1, 1.05, 1] }}
-                      transition={{ duration: 8, repeat: Infinity }}
-                    />
-                  )}
+                  {/* Fashion model images - using the imageUrl directly from data */}
+                  <motion.div 
+                    className="absolute inset-0 bg-center bg-cover"
+                    style={{ 
+                      backgroundImage: `url('${post.imageUrl}')`
+                    }}
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 8, repeat: Infinity }}
+                  />
                   
                   {/* Video effect overlay */}
                   <motion.div
