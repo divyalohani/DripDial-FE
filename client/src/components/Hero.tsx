@@ -33,7 +33,7 @@ const FloatingElement = ({ delay, duration, size, left, top, color, className }:
 
 // Animated shapes that float in the background
 const ShapeElement = ({ shape, delay, duration, size, left, top, rotation = 0, className }: any) => {
-  const shapes = {
+  const shapes: Record<string, string> = {
     circle: "rounded-full",
     square: "rounded-lg",
     triangle: "clip-path-triangle", // We'll create this with a clip-path
@@ -98,6 +98,132 @@ const MovingDots = () => {
   );
 };
 
+// TikTok/Instagram-like video feed component
+const VideoFeed = () => {
+  // Mock data for the video feed
+  const videoItems = [
+    { id: 1, duration: 7, borderColor: "border-pink-500", delay: 0 },
+    { id: 2, duration: 8, borderColor: "border-blue-400", delay: 0.3 },
+    { id: 3, duration: 10, borderColor: "border-purple-500", delay: 0.6 },
+    { id: 4, duration: 6, borderColor: "border-red-400", delay: 0.9 },
+    { id: 5, duration: 9, borderColor: "border-yellow-500", delay: 1.2 }
+  ];
+
+  return (
+    <motion.div 
+      className="absolute top-10 right-10 z-20 hidden md:block"
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, delay: 1 }}
+    >
+      <div className="w-[120px] overflow-hidden rounded-2xl shadow-2xl bg-black">
+        <div className="flex items-center justify-between px-2 py-1">
+          <div className="w-20 h-1 bg-gray-700 rounded-full overflow-hidden">
+            <motion.div 
+              className="h-full bg-white"
+              animate={{ width: ["0%", "100%"] }}
+              transition={{ 
+                duration: 10, 
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+          </div>
+          <div className="text-white text-xs">
+            <i className="fas fa-times"></i>
+          </div>
+        </div>
+        <div className="relative h-[200px]">
+          {videoItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              className={`absolute inset-0 border-2 ${item.borderColor} rounded-b-xl overflow-hidden`}
+              initial={{ y: "100%" }}
+              animate={{ 
+                y: [index === 0 ? "0%" : "100%", "0%", "-100%"],
+                zIndex: [10 - index, 10 - index, 0]
+              }}
+              transition={{
+                duration: item.duration,
+                delay: index === 0 ? 0 : item.delay,
+                repeat: Infinity,
+                repeatDelay: 6,
+                times: [0, 0.1, 1],
+                ease: "easeInOut"
+              }}
+            >
+              <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black">
+                <motion.div
+                  className="absolute inset-0 opacity-40"
+                  animate={{
+                    backgroundPosition: ["0% 0%", "100% 100%"]
+                  }}
+                  transition={{
+                    duration: item.duration / 2,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "linear"
+                  }}
+                  style={{
+                    backgroundImage: "url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=200&q=60')",
+                    backgroundSize: "cover"
+                  }}
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-2 text-white">
+                  <motion.div 
+                    className="flex items-center space-x-1"
+                    animate={{ y: [20, 0] }}
+                    transition={{ duration: 0.3, delay: item.delay + 0.2 }}
+                  >
+                    <div className="w-4 h-4 rounded-full bg-white flex-shrink-0"></div>
+                    <div className="text-[8px] truncate font-medium">fashion_trends</div>
+                  </motion.div>
+                  <motion.div 
+                    className="text-[7px] mt-1 line-clamp-2"
+                    animate={{ opacity: [0, 1] }}
+                    transition={{ duration: 0.3, delay: item.delay + 0.3 }}
+                  >
+                    These Y2K trends are making a comeback for summer #fashion #trends
+                  </motion.div>
+                </div>
+                
+                {/* Animated likes, comments count */}
+                <motion.div
+                  className="absolute right-2 bottom-10 flex flex-col items-center space-y-2"
+                  animate={{ opacity: [0, 1] }}
+                  transition={{ duration: 0.3, delay: item.delay + 0.4 }}
+                >
+                  <div className="flex flex-col items-center">
+                    <i className="fas fa-heart text-[8px]"></i>
+                    <span className="text-[6px]">24.5k</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <i className="fas fa-comment text-[8px]"></i>
+                    <span className="text-[6px]">1.2k</span>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          ))}
+          
+          {/* Feed scrolling indicator */}
+          <motion.div
+            className="absolute top-2 left-2 right-2 h-1 bg-gray-800 rounded-full overflow-hidden z-30"
+            animate={{ opacity: [0, 1] }}
+            transition={{ delay: 1 }}
+          >
+            <motion.div
+              className="h-full bg-white"
+              animate={{ width: ["0%", "100%"] }}
+              transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+            />
+          </motion.div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 // Animated fashion tag that floats in from the side
 const FashionTag = ({ text, delay, left, top, color = "black" }: any) => (
   <motion.div
@@ -154,11 +280,8 @@ export default function Hero() {
       <FloatingElement delay={1.2} duration={8} size="120px" left={65} top={60} color="linear-gradient(135deg, rgba(143, 138, 149, 0.1), rgba(143, 138, 149, 0.05))" className="hidden md:block" />
       <FloatingElement delay={0.5} duration={10} size="180px" left={20} top={75} color="linear-gradient(135deg, rgba(61, 44, 53, 0.1), rgba(61, 44, 53, 0.05))" className="hidden md:block" />
       
-      {/* Fashion floating tags */}
-      <FashionTag text="Y2K Revival" delay={1.3} left={20} top={25} color="black" />
-      <FashionTag text="Coastal Grandma" delay={1.5} left={75} top={45} color="black" />
-      <FashionTag text="Dark Academia" delay={1.7} left={25} top={65} color="black" />
-      <FashionTag text="Clean Girl Aesthetic" delay={1.9} left={70} top={15} color="black" />
+      {/* Add TikTok/Instagram-like video feed */}
+      <VideoFeed />
       
       <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
