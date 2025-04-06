@@ -191,12 +191,23 @@ export default function NewsletterExamples() {
                 }}
               >
                 <div className="relative">
-                  <div className="w-full h-48 bg-[#F4F2EE] flex items-center justify-center">
+                  <div className="w-full h-48 bg-gradient-to-br from-[#C4B7BD]/40 to-[#F8F6F3] flex items-center justify-center overflow-hidden">
+                    {/* Add stylish fallback content when image fails to load */}
+                    <div className="absolute inset-0 flex items-center justify-center text-[#3D2C35]">
+                      <div className="text-center px-4 bg-white/30 backdrop-blur-sm py-3 rounded-lg shadow-sm w-5/6">
+                        <div className="text-xl font-bold mb-1 uppercase tracking-wider">{newsletter.category}</div>
+                        <div className="text-sm font-medium">{newsletter.title}</div>
+                      </div>
+                    </div>
                     <img 
                       src={newsletter.imageUrl} 
                       alt={newsletter.title} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover relative z-10"
                       loading="lazy"
+                      onError={(e) => {
+                        // Hide the image on error and show the fallback content
+                        e.currentTarget.style.display = 'none';
+                      }}
                     />
                   </div>
                   {/* Clean overlay */}
