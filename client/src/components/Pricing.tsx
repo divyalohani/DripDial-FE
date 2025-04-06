@@ -75,14 +75,13 @@ export default function Pricing() {
               ))}
             </ul>
             
-            <Link href="#subscribe">
-              <motion.a 
-                className="block w-full bg-[#3D2C35] text-white text-center px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all"
-                whileHover={{ y: -3, boxShadow: "0 5px 15px rgba(61, 44, 53, 0.2)" }}
-              >
+            <motion.div
+              whileHover={{ y: -3, boxShadow: "0 5px 15px rgba(61, 44, 53, 0.2)" }}
+            >
+              <Link href="#subscribe" className="block w-full bg-[#3D2C35] text-white text-center px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all">
                 Subscribe Now
-              </motion.a>
-            </Link>
+              </Link>
+            </motion.div>
             
             <p className="text-center text-sm text-[#8F8A95] mt-4">No contracts. Cancel anytime.</p>
           </div>
