@@ -48,16 +48,16 @@ export default function Navigation() {
   const getLinkStyles = (section: string) => {
     let baseStyles = "font-medium transition-all relative py-2 px-1";
     if (activeSection === section) {
-      return `${baseStyles} text-plum after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-plum after:rounded-full`;
+      return `${baseStyles} text-[#3D2C35] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#3D2C35] after:rounded-full`;
     }
-    return `${baseStyles} hover:text-plum`;
+    return `${baseStyles} hover:text-[#3D2C35]`;
   };
 
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-white/90 backdrop-blur-md shadow-md py-2" 
+          ? "bg-[#F8F6F3]/90 backdrop-blur-md shadow-md py-2" 
           : "bg-transparent py-4"
       }`}
     >
@@ -70,15 +70,15 @@ export default function Navigation() {
         >
           <div onClick={() => window.location.href = '/'} className="flex items-center cursor-pointer group">
             <div className="relative">
-              <span className="text-plum font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">D</span>
-              <span className="text-amber-700 font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">D</span>
+              <span className="text-[#3D2C35] font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">D</span>
+              <span className="text-[#C4B7BD] font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">D</span>
             </div>
             <div className="ml-[11px] relative">
-              <span className="text-plum font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">ripDial</span>
-              <span className="text-amber-700 font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">ripDial</span>
+              <span className="text-[#3D2C35] font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">ripDial</span>
+              <span className="text-[#C4B7BD] font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">ripDial</span>
             </div>
           </div>
-          <div className="ml-2 relative overflow-hidden rounded-full bg-gradient-to-r from-amber-700 to-amber-500 p-0.5">
+          <div className="ml-2 relative overflow-hidden rounded-full bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] p-0.5">
             <div className="px-2 py-0.5 text-xs font-medium text-white">
               AI-Powered
             </div>
@@ -115,7 +115,7 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
           >
             <Link href="/#subscribe">
-              <a className="bg-gradient-to-r from-amber-700 to-amber-500 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-sm hover:shadow-md">
+              <a className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-sm hover:shadow-md">
                 <span className="flex items-center">
                   Subscribe Now <i className="fas fa-chevron-right ml-2 text-xs"></i>
                 </span>
@@ -126,7 +126,7 @@ export default function Navigation() {
         
         {/* Mobile Menu Button */}
         <motion.button 
-          className="md:hidden text-plum p-2"
+          className="md:hidden text-[#3D2C35] p-2"
           onClick={toggleMenu}
           aria-label="Toggle menu"
           initial={{ opacity: 0 }}
@@ -142,7 +142,7 @@ export default function Navigation() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            className="md:hidden bg-white/95 backdrop-blur-md absolute w-full"
+            className="md:hidden bg-[#F8F6F3]/95 backdrop-blur-md absolute w-full"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0, transition: { duration: 0.2 } }}
@@ -151,44 +151,44 @@ export default function Navigation() {
             <div className="flex flex-col space-y-4 p-6">
               <Link href="/#features">
                 <a 
-                  className="font-medium px-4 py-3 hover:bg-amber-50 rounded-lg transition-colors flex items-center"
+                  className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <i className="fas fa-star-half-alt mr-3 text-amber-600"></i>
+                  <i className="fas fa-star-half-alt mr-3 text-[#3D2C35]"></i>
                   Features
                 </a>
               </Link>
               <Link href="/#examples">
                 <a 
-                  className="font-medium px-4 py-3 hover:bg-amber-50 rounded-lg transition-colors flex items-center"
+                  className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <i className="fas fa-tshirt mr-3 text-amber-600"></i>
+                  <i className="fas fa-tshirt mr-3 text-[#3D2C35]"></i>
                   Style Gallery
                 </a>
               </Link>
               <Link href="/#pricing">
                 <a 
-                  className="font-medium px-4 py-3 hover:bg-amber-50 rounded-lg transition-colors flex items-center"
+                  className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <i className="fas fa-tag mr-3 text-amber-600"></i>
+                  <i className="fas fa-tag mr-3 text-[#3D2C35]"></i>
                   Pricing
                 </a>
               </Link>
               <Link href="/#faq">
                 <a 
-                  className="font-medium px-4 py-3 hover:bg-amber-50 rounded-lg transition-colors flex items-center"
+                  className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <i className="fas fa-question-circle mr-3 text-amber-600"></i>
+                  <i className="fas fa-question-circle mr-3 text-[#3D2C35]"></i>
                   FAQ
                 </a>
               </Link>
               <div className="pt-2">
                 <Link href="/#subscribe">
                   <a 
-                    className="bg-gradient-to-r from-amber-700 to-amber-500 text-white px-6 py-3 rounded-lg font-medium transition-all w-full text-center block shadow-md"
+                    className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-3 rounded-lg font-medium transition-all w-full text-center block shadow-md"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     <span className="flex items-center justify-center">
@@ -199,14 +199,14 @@ export default function Navigation() {
               </div>
               
               {/* Social Links */}
-              <div className="flex justify-center space-x-6 pt-4 border-t border-gray-100">
-                <a href="#" className="text-gray-500 hover:text-amber-600 transition-colors">
+              <div className="flex justify-center space-x-6 pt-4 border-t border-[#C4B7BD]/30">
+                <a href="#" className="text-[#8F8A95] hover:text-[#3D2C35] transition-colors">
                   <i className="fab fa-instagram text-xl"></i>
                 </a>
-                <a href="#" className="text-gray-500 hover:text-amber-600 transition-colors">
+                <a href="#" className="text-[#8F8A95] hover:text-[#3D2C35] transition-colors">
                   <i className="fab fa-tiktok text-xl"></i>
                 </a>
-                <a href="#" className="text-gray-500 hover:text-amber-600 transition-colors">
+                <a href="#" className="text-[#8F8A95] hover:text-[#3D2C35] transition-colors">
                   <i className="fab fa-pinterest text-xl"></i>
                 </a>
               </div>

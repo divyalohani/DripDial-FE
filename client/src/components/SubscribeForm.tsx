@@ -108,10 +108,10 @@ export default function SubscribeForm() {
   };
 
   return (
-    <section id="subscribe" className="py-16 md:py-24 bg-gradient-to-b from-white to-pink-50/30 relative overflow-hidden">
+    <section id="subscribe" className="py-16 md:py-24 bg-gradient-to-b from-[#F8F6F3] to-[#C4B7BD]/20 relative overflow-hidden">
       {/* Floating elements for visual interest */}
-      <div className="absolute w-64 h-64 bg-pink-200/20 rounded-full -top-20 -left-20 blur-3xl"></div>
-      <div className="absolute w-80 h-80 bg-purple-200/20 rounded-full -bottom-40 -right-40 blur-3xl"></div>
+      <div className="absolute w-64 h-64 bg-[#C4B7BD]/20 rounded-full -top-20 -left-20 blur-3xl"></div>
+      <div className="absolute w-80 h-80 bg-[#8F8A95]/20 rounded-full -bottom-40 -right-40 blur-3xl"></div>
       
       {/* Recent subscriber notification */}
       <AnimatePresence>
@@ -124,7 +124,7 @@ export default function SubscribeForm() {
             transition={{ duration: 0.4, type: "spring" }}
           >
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-400 to-purple-500 flex items-center justify-center text-white font-bold">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] flex items-center justify-center text-white font-bold">
                 {recentSubscribers[currentSubscriber].name.charAt(0)}
               </div>
               <div>
@@ -164,17 +164,17 @@ export default function SubscribeForm() {
                   transition={{ duration: 0.5 }}
                 >
                   <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">Be First to Slay</h2>
-                  <div className="h-1 w-20 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full mb-4"></div>
+                  <div className="h-1 w-20 bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] rounded-full mb-4"></div>
                   <p className="opacity-80 mb-3">Join 2,000+ trendsetters getting AI-powered style intel delivered weekly.</p>
                   
                   {/* Countdown animation */}
-                  <div className="bg-pink-50 rounded-lg p-3 flex items-center space-x-3 mb-6">
-                    <div className="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center">
+                  <div className="bg-[#C4B7BD]/20 rounded-lg p-3 flex items-center space-x-3 mb-6">
+                    <div className="w-10 h-10 bg-[#3D2C35] rounded-full flex items-center justify-center">
                       <i className="fas fa-bolt text-white"></i>
                     </div>
                     <div>
                       <p className="text-sm font-medium">Founding member spots are running out!</p>
-                      <p className="text-xs font-bold text-pink-600">Only {remainingSpots} spots left at $5/month pricing</p>
+                      <p className="text-xs font-bold text-[#3D2C35]">Only {remainingSpots} spots left at $5/month pricing</p>
                     </div>
                   </div>
                 </motion.div>
@@ -196,7 +196,7 @@ export default function SubscribeForm() {
                             <FormControl>
                               <Input 
                                 placeholder="What should we call you?" 
-                                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" 
+                                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3D2C35] focus:border-transparent" 
                                 {...field} 
                               />
                             </FormControl>
@@ -222,7 +222,7 @@ export default function SubscribeForm() {
                               <Input 
                                 placeholder="Where should we send your fashion intel?" 
                                 type="email"
-                                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" 
+                                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3D2C35] focus:border-transparent" 
                                 {...field} 
                               />
                             </FormControl>
@@ -252,7 +252,7 @@ export default function SubscribeForm() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.3, delay: 0.3 + (index * 0.05) }}
                               >
-                                <FormItem className="flex items-center space-x-2 bg-gray-50 hover:bg-pink-50 transition-colors p-2 rounded-lg">
+                                <FormItem className="flex items-center space-x-2 bg-gray-50 hover:bg-[#C4B7BD]/20 transition-colors p-2 rounded-lg">
                                   <FormControl>
                                     <Checkbox
                                       checked={field.value?.includes(option.id)}
@@ -262,7 +262,7 @@ export default function SubscribeForm() {
                                           : field.value?.filter((value) => value !== option.id) || [];
                                         field.onChange(updatedValue);
                                       }}
-                                      className="text-pink-500 focus:ring-pink-500"
+                                      className="text-[#3D2C35] focus:ring-[#3D2C35]"
                                     />
                                   </FormControl>
                                   <FormLabel className="text-sm font-medium cursor-pointer flex items-center">
@@ -285,7 +285,7 @@ export default function SubscribeForm() {
                     >
                       <Button 
                         type="submit" 
-                        className="w-full bg-gradient-to-r from-plum to-pink-500 text-white px-8 py-4 rounded-full font-bold hover:from-plum hover:to-plum transition-all shadow-md hover:shadow-lg"
+                        className="w-full bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-8 py-4 rounded-full font-bold hover:from-[#3D2C35] hover:to-[#3D2C35] transition-all shadow-md hover:shadow-lg"
                         disabled={isLoading}
                       >
                         {isLoading ? (
@@ -310,9 +310,9 @@ export default function SubscribeForm() {
                 </Form>
               </div>
 
-              <div className="md:w-1/2 bg-plum relative overflow-hidden">
+              <div className="md:w-1/2 bg-[#3D2C35] relative overflow-hidden">
                 {/* Overlay gradient for better readability */}
-                <div className="absolute inset-0 bg-gradient-to-br from-plum/90 to-pink-900/90 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#3D2C35]/90 to-[#8F8A95]/90 z-10"></div>
                 
                 {/* Background image collage */}
                 <div className="absolute inset-0 grid grid-cols-2 gap-1 opacity-40">
@@ -358,11 +358,11 @@ export default function SubscribeForm() {
                       transition={{ duration: 0.3, delay: 0.1 }}
                     >
                       <div className="mt-0.5">
-                        <i className="fas fa-check-circle text-pink-300 text-xl"></i>
+                        <i className="fas fa-check-circle text-[#C4B7BD] text-xl"></i>
                       </div>
                       <div>
                         <span className="font-medium">Founding member badge</span>
-                        <p className="text-sm text-pink-200">Get recognized in our community</p>
+                        <p className="text-sm text-[#C4B7BD]">Get recognized in our community</p>
                       </div>
                     </motion.li>
                     <motion.li 
@@ -373,11 +373,11 @@ export default function SubscribeForm() {
                       transition={{ duration: 0.3, delay: 0.2 }}
                     >
                       <div className="mt-0.5">
-                        <i className="fas fa-check-circle text-pink-300 text-xl"></i>
+                        <i className="fas fa-check-circle text-[#C4B7BD] text-xl"></i>
                       </div>
                       <div>
                         <span className="font-medium">$5/month forever pricing</span>
-                        <p className="text-sm text-pink-200">Price goes to $9.99 after founding period</p>
+                        <p className="text-sm text-[#C4B7BD]">Price goes to $9.99 after founding period</p>
                       </div>
                     </motion.li>
                     <motion.li 
@@ -388,11 +388,11 @@ export default function SubscribeForm() {
                       transition={{ duration: 0.3, delay: 0.3 }}
                     >
                       <div className="mt-0.5">
-                        <i className="fas fa-check-circle text-pink-300 text-xl"></i>
+                        <i className="fas fa-check-circle text-[#C4B7BD] text-xl"></i>
                       </div>
                       <div>
                         <span className="font-medium">First access to AI Stylist</span>
-                        <p className="text-sm text-pink-200">Get personalized outfit feedback</p>
+                        <p className="text-sm text-[#C4B7BD]">Get personalized outfit feedback</p>
                       </div>
                     </motion.li>
                     <motion.li 
@@ -403,11 +403,11 @@ export default function SubscribeForm() {
                       transition={{ duration: 0.3, delay: 0.4 }}
                     >
                       <div className="mt-0.5">
-                        <i className="fas fa-check-circle text-pink-300 text-xl"></i>
+                        <i className="fas fa-check-circle text-[#C4B7BD] text-xl"></i>
                       </div>
                       <div>
                         <span className="font-medium">Exclusive trend reports</span>
-                        <p className="text-sm text-pink-200">Members-only deep-dives on emerging trends</p>
+                        <p className="text-sm text-[#C4B7BD]">Members-only deep-dives on emerging trends</p>
                       </div>
                     </motion.li>
                   </ul>
@@ -421,11 +421,11 @@ export default function SubscribeForm() {
                     transition={{ duration: 0.5, delay: 0.6 }}
                   >
                     <div className="flex -space-x-2 mb-2">
-                      <div className="w-8 h-8 rounded-full border-2 border-white bg-purple-300"></div>
-                      <div className="w-8 h-8 rounded-full border-2 border-white bg-pink-300"></div>
-                      <div className="w-8 h-8 rounded-full border-2 border-white bg-blue-300"></div>
-                      <div className="w-8 h-8 rounded-full border-2 border-white bg-green-300"></div>
-                      <div className="w-8 h-8 rounded-full border-2 border-white bg-yellow-300 flex items-center justify-center text-xs font-bold">+</div>
+                      <div className="w-8 h-8 rounded-full border-2 border-white bg-[#C4B7BD]"></div>
+                      <div className="w-8 h-8 rounded-full border-2 border-white bg-[#8F8A95]"></div>
+                      <div className="w-8 h-8 rounded-full border-2 border-white bg-[#F8F6F3]"></div>
+                      <div className="w-8 h-8 rounded-full border-2 border-white bg-[#3D2C35]"></div>
+                      <div className="w-8 h-8 rounded-full border-2 border-white bg-[#C4B7BD]/70 flex items-center justify-center text-xs font-bold">+</div>
                     </div>
                     <p className="text-sm text-white">
                       <span className="font-bold">137 new members</span> joined in the last 24 hours

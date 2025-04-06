@@ -93,19 +93,19 @@ export default function NewsletterExamples() {
   };
 
   return (
-    <section id="examples" className="py-16 md:py-24 bg-gradient-to-b from-white to-amber-50/30">
+    <section id="examples" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <motion.h2 
-            className="font-display text-3xl md:text-5xl font-bold mb-4 relative inline-block"
+            className="font-display text-3xl md:text-4xl font-bold mb-4 relative inline-block"
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="relative z-10">See What You'll Get</span>
+            <span className="relative z-10 text-[#1A1A1A]">See What You'll Get</span>
             <motion.div 
-              className="absolute bottom-2 left-0 right-0 h-3 bg-amber-200/50 -z-10"
+              className="absolute bottom-2 left-0 right-0 h-3 bg-[#B4B4A4]/30 -z-10"
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
               viewport={{ once: true }}
@@ -113,9 +113,9 @@ export default function NewsletterExamples() {
             ></motion.div>
           </motion.h2>
           <motion.p 
-            className="text-lg opacity-80"
+            className="text-lg text-[#7A7A7A]"
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 0.8 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
@@ -123,19 +123,19 @@ export default function NewsletterExamples() {
           </motion.p>
         </div>
 
-        {/* TikTok-style reaction bubbles */}
+        {/* Simplified reaction bubbles */}
         <motion.div 
-          className="relative mb-12 hidden md:block" 
+          className="relative mb-10 hidden md:block" 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <div className="flex justify-between max-w-5xl mx-auto">
+          <div className="flex justify-center gap-8 max-w-4xl mx-auto">
             {reactions.map((reaction, index) => (
               <motion.div 
                 key={index}
-                className="bg-white rounded-xl shadow-lg p-4 max-w-[250px] relative"
+                className="bg-white rounded-xl shadow-md p-4 max-w-[250px] border border-[#E0DED9]"
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -143,25 +143,22 @@ export default function NewsletterExamples() {
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
                 <div className="flex space-x-3 items-start">
-                  <img 
-                    src={reaction.avatar} 
-                    alt={reaction.name} 
-                    className="w-10 h-10 rounded-full object-cover border-2 border-amber-200"
-                  />
+                  <div className="w-10 h-10 rounded-full bg-[#C6BEB2] flex items-center justify-center text-white">
+                    {reaction.name.charAt(0).toUpperCase()}
+                  </div>
                   <div>
-                    <p className="text-sm leading-tight mb-1">{reaction.text}</p>
-                    <span className="text-xs text-gray-500">{reaction.name}</span>
+                    <p className="text-sm leading-tight mb-1 text-[#4F4F4F]">"{reaction.text}"</p>
+                    <span className="text-xs text-[#7A7A7A] font-medium">{reaction.name}</span>
                   </div>
                 </div>
-                <div className="absolute -bottom-2 left-5 w-4 h-4 bg-white rotate-45 transform"></div>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        <div className="relative overflow-hidden py-8">
+        <div className="relative overflow-visible py-8">
           <motion.button 
-            className="absolute top-1/2 -translate-y-1/2 left-4 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm shadow-lg rounded-full flex items-center justify-center hover:bg-amber-700 hover:text-white transition-colors md:flex hidden"
+            className="absolute top-1/2 -translate-y-1/2 left-4 z-10 w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center hover:bg-[#6C5F5B] hover:text-white transition-colors md:flex hidden"
             onClick={prevSlide}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.2 }}
@@ -170,7 +167,7 @@ export default function NewsletterExamples() {
           </motion.button>
           
           <motion.button 
-            className="absolute top-1/2 -translate-y-1/2 right-4 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm shadow-lg rounded-full flex items-center justify-center hover:bg-amber-700 hover:text-white transition-colors md:flex hidden"
+            className="absolute top-1/2 -translate-y-1/2 right-4 z-10 w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center hover:bg-[#6C5F5B] hover:text-white transition-colors md:flex hidden"
             onClick={nextSlide}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.2 }}
@@ -182,61 +179,47 @@ export default function NewsletterExamples() {
             {newsletterExamples.map((newsletter, index) => (
               <motion.div 
                 key={newsletter.id}
-                className="newsletter-preview bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"
+                className="newsletter-preview bg-white rounded-xl overflow-hidden shadow-md border border-[#E0DED9]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{
                   y: -8,
-                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.08)",
                   transition: { duration: 0.3 }
                 }}
               >
                 <div className="relative">
-                  <img 
-                    src={newsletter.imageUrl} 
-                    alt={newsletter.title} 
-                    className="w-full h-48 object-cover"
-                  />
-                  {/* TikTok-style overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-3">
+                  <div className="w-full h-48 bg-[#F4F2EE] flex items-center justify-center">
+                    <img 
+                      src={newsletter.imageUrl} 
+                      alt={newsletter.title} 
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  {/* Clean overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-3">
                     <div className="flex justify-between items-center">
-                      <span className={`text-xs font-bold ${
-                        newsletter.category === "TRENDING NOW" ? "bg-amber-600" : 
-                        newsletter.category === "BUDGET SLAY" ? "bg-green-600" : 
-                        newsletter.category === "STYLE HACK" ? "bg-amber-800" :
-                        "bg-amber-500"
-                      } text-white px-2 py-1 rounded-full`}>
+                      <span className="text-xs font-bold bg-[#6C5F5B] text-white px-2 py-1 rounded-full">
                         {newsletter.category}
                       </span>
-                      <span className="text-xs text-white font-medium bg-black/40 px-2 py-1 rounded-full">{newsletter.date}</span>
-                    </div>
-                  </div>
-                  
-                  {/* TikTok-style engagement metrics */}
-                  <div className="absolute right-3 top-3 flex flex-col space-y-2">
-                    <div className="bg-black/40 backdrop-blur-sm w-8 h-8 rounded-full flex items-center justify-center text-white">
-                      <i className="fas fa-heart"></i>
-                    </div>
-                    <div className="bg-black/40 backdrop-blur-sm px-2 py-1 rounded-full text-white text-xs font-medium text-center">
-                      {newsletter.stats.saves}
+                      <span className="text-xs text-white font-medium">{newsletter.date}</span>
                     </div>
                   </div>
                 </div>
                 
                 <div className="p-4">
-                  <h3 className="font-display text-lg font-semibold mb-2">{newsletter.title}</h3>
-                  <p className="text-sm opacity-80 mb-3 line-clamp-2">{newsletter.description}</p>
+                  <h3 className="font-display text-lg font-semibold mb-2 text-[#1A1A1A]">{newsletter.title}</h3>
+                  <p className="text-sm text-[#7A7A7A] mb-3 line-clamp-2">{newsletter.description}</p>
                   
-                  <div className="flex items-center justify-between">
-                    <div className="flex space-x-1">
-                      {newsletter.tags.map((tag, i) => (
-                        <span key={i} className="text-xs px-2 py-1 bg-amber-100 text-amber-800 rounded-full whitespace-nowrap">{tag}</span>
-                      ))}
-                    </div>
-                    <span className="text-xs text-gray-500 flex items-center">
-                      <i className="fas fa-eye mr-1"></i> {newsletter.stats.views}
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {newsletter.tags.slice(0, 1).map((tag, i) => (
+                      <span key={i} className="text-xs px-2 py-1 bg-[#F4F2EE] text-[#4F4F4F] rounded-full">{tag}</span>
+                    ))}
+                    <span className="text-xs text-[#7A7A7A] ml-auto flex items-center">
+                      <i className="fas fa-heart mr-1"></i> {newsletter.stats.saves}
                     </span>
                   </div>
                 </div>
@@ -249,7 +232,7 @@ export default function NewsletterExamples() {
             {newsletterExamples.map((_, index) => (
               <button 
                 key={index}
-                className={`w-2 h-2 rounded-full ${index === activeSlide ? 'bg-amber-700' : 'bg-gray-300'}`}
+                className={`w-2 h-2 rounded-full ${index === activeSlide ? 'bg-[#6C5F5B]' : 'bg-gray-300'}`}
                 onClick={() => goToSlide(index)}
               ></button>
             ))}
@@ -265,8 +248,8 @@ export default function NewsletterExamples() {
         >
           <Link href="/newsletter-preview">
             <motion.a 
-              className="inline-block bg-white/80 backdrop-blur-sm text-amber-700 border border-amber-700 px-6 py-3 rounded-full font-medium hover:bg-amber-700 hover:text-white transition-all mr-4"
-              whileHover={{ y: -3, boxShadow: "0 5px 15px rgba(180, 83, 9, 0.2)" }}
+              className="inline-block bg-white text-[#6C5F5B] border border-[#6C5F5B] px-6 py-3 rounded-full font-medium hover:bg-[#6C5F5B] hover:text-white transition-all mr-4"
+              whileHover={{ y: -3, boxShadow: "0 5px 15px rgba(108, 95, 91, 0.2)" }}
             >
               <i className="fas fa-envelope-open mr-2"></i>
               See More Newsletter Examples
@@ -274,8 +257,8 @@ export default function NewsletterExamples() {
           </Link>
           <Link href="#subscribe">
             <motion.a 
-              className="inline-block bg-amber-700 text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all"
-              whileHover={{ y: -3, boxShadow: "0 10px 25px rgba(180, 83, 9, 0.3)" }}
+              className="inline-block bg-[#6C5F5B] text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all"
+              whileHover={{ y: -3, boxShadow: "0 10px 25px rgba(108, 95, 91, 0.3)" }}
             >
               <i className="fas fa-arrow-right mr-2"></i>
               Subscribe Now – Join 2K+ Trendsetters
