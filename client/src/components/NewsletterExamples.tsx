@@ -246,24 +246,23 @@ export default function NewsletterExamples() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Link href="/newsletter-preview">
-            <motion.a 
-              className="inline-block bg-white text-[#6C5F5B] border border-[#6C5F5B] px-6 py-3 rounded-full font-medium hover:bg-[#6C5F5B] hover:text-white transition-all mr-4"
-              whileHover={{ y: -3, boxShadow: "0 5px 15px rgba(108, 95, 91, 0.2)" }}
-            >
+          <motion.div
+            whileHover={{ y: -3, boxShadow: "0 5px 15px rgba(108, 95, 91, 0.2)" }}
+          >
+            <Link href="/newsletter-preview" className="inline-block bg-white text-[#6C5F5B] border border-[#6C5F5B] px-6 py-3 rounded-full font-medium hover:bg-[#6C5F5B] hover:text-white transition-all mr-4">
               <i className="fas fa-envelope-open mr-2"></i>
               See More Newsletter Examples
-            </motion.a>
-          </Link>
-          <Link href="#subscribe">
-            <motion.a 
-              className="inline-block bg-[#6C5F5B] text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all"
-              whileHover={{ y: -3, boxShadow: "0 10px 25px rgba(108, 95, 91, 0.3)" }}
-            >
+            </Link>
+          </motion.div>
+          <motion.div
+            whileHover={{ y: -3, boxShadow: "0 10px 25px rgba(108, 95, 91, 0.3)" }}
+            className="inline-block"
+          >
+            <Link href="#subscribe" className="inline-block bg-[#6C5F5B] text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all">
               <i className="fas fa-arrow-right mr-2"></i>
               Subscribe Now – Join 2K+ Trendsetters
-            </motion.a>
-          </Link>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>
