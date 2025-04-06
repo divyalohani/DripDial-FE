@@ -56,10 +56,14 @@ export default function Navigation() {
               <motion.a 
                 className="font-medium text-amber-900/80 hover:text-amber-600 transition-colors"
                 whileHover={{ y: -2 }}
-                transition={{ type: "spring", stiffness: 400 }}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 * i }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 400,
+                  duration: 0.3, 
+                  delay: 0.1 * i
+                }}
               >
                 {item}
               </motion.a>
