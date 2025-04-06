@@ -103,7 +103,7 @@ export default function Features() {
         </motion.div>
 
         <motion.div 
-          className="mt-12 bg-[#3D2C35] text-white p-8 md:p-10 rounded-xl"
+          className="mt-12 bg-[#3D2C35] text-white p-8 md:p-10 rounded-xl shadow-lg"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -113,7 +113,7 @@ export default function Features() {
             <div className="mb-6 md:mb-0 md:mr-8">
               <div className="flex items-center mb-3">
                 <span className="bg-white text-[#3D2C35] text-xs font-bold px-3 py-1 rounded-full mr-3">COMING SOON</span>
-                <h3 className="font-display text-2xl font-semibold">AI Stylist Add-on</h3>
+                <h3 className="font-display text-2xl font-semibold text-white">AI Stylist Add-on</h3>
               </div>
               <p className="text-white text-opacity-90 mb-4">Send a photo of yourself or your outfit and get personalized feedback, suggestions, and styling tips from our AI stylist.</p>
               <div className="flex items-center space-x-3">
@@ -124,7 +124,7 @@ export default function Features() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="text-sm italic">"Just like having a personal stylist in your pocket!"</p>
+                <p className="text-sm italic text-white">"Just like having a personal stylist in your pocket!"</p>
               </div>
             </div>
             <div>
