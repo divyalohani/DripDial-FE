@@ -641,7 +641,7 @@ export default function Hero() {
   }, [controlsTitle]);
 
   return (
-    <section className="relative hero-gradient min-h-[85vh] flex items-center overflow-hidden pt-[35px] md:pt-[35px] pb-20 md:pb-32" ref={containerRef}>
+    <section className="relative hero-gradient min-h-[90vh] flex items-center overflow-hidden pt-[45px] md:pt-[35px] pb-24 md:pb-32" ref={containerRef}>
       {/* Enhanced background animation */}
       <MovingDots />
       
@@ -659,8 +659,8 @@ export default function Hero() {
       
       {/* No more floating fashion trends badge - moved to grid cell */}
       
-      <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div className="container mx-auto px-4 py-14 md:py-20 relative z-10">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <motion.div 
             className="space-y-7"
             initial={{ opacity: 0, y: 20 }}
@@ -668,13 +668,13 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
           >
             <motion.div 
-              className="inline-flex space-x-2 items-center"
+              className="flex flex-wrap gap-2 items-center"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <motion.span
-                className="inline-block px-3 py-1.5 bg-black text-white text-sm font-semibold rounded-full flex items-center space-x-2"
+                className="inline-block px-3 py-1.5 bg-black text-white text-xs md:text-sm font-semibold rounded-full flex items-center space-x-2"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -749,7 +749,7 @@ export default function Hero() {
                 </motion.div>
               </div>
               <div>
-                <span className="font-semibold text-black">2,000+ trendsetters already subscribed</span>
+                <span className="font-semibold text-black text-sm md:text-base">2,000+ trendsetters already subscribed</span>
                 <div className="flex items-center">
                   <div className="text-yellow-500 text-xs">
                     <i className="fas fa-star"></i>
@@ -771,10 +771,10 @@ export default function Hero() {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 whileHover={{ x: 5 }}
               >
-                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center">
+                <div className="w-7 md:w-8 h-7 md:h-8 rounded-full bg-black flex items-center justify-center">
                   <i className="fas fa-bolt text-white text-xs"></i>
                 </div>
-                <p className="text-gray-700">Weekly trend forecasts from TikTok & Instagram</p>
+                <p className="text-gray-700 text-sm md:text-base">Weekly trend forecasts from TikTok & Instagram</p>
               </motion.div>
               
               <motion.div 
@@ -784,10 +784,10 @@ export default function Hero() {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 whileHover={{ x: 5 }}
               >
-                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center">
+                <div className="w-7 md:w-8 h-7 md:h-8 rounded-full bg-black flex items-center justify-center">
                   <i className="fas fa-tshirt text-white text-xs"></i>
                 </div>
-                <p className="text-gray-700">AI-curated outfit inspiration for your style</p>
+                <p className="text-gray-700 text-sm md:text-base">AI-curated outfit inspiration for your style</p>
               </motion.div>
               
               <motion.div 
@@ -797,10 +797,10 @@ export default function Hero() {
                 transition={{ duration: 0.5, delay: 1 }}
                 whileHover={{ x: 5 }}
               >
-                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center">
+                <div className="w-7 md:w-8 h-7 md:h-8 rounded-full bg-black flex items-center justify-center">
                   <i className="fas fa-tags text-white text-xs"></i>
                 </div>
-                <p className="text-gray-700">Budget-friendly shopping picks under $30</p>
+                <p className="text-gray-700 text-sm md:text-base">Budget-friendly shopping picks under $30</p>
               </motion.div>
             </div>
             
@@ -812,7 +812,7 @@ export default function Hero() {
             >
               <Link href="#subscribe">
                 <motion.button
-                  className="bg-black text-white px-8 py-4 rounded-full font-bold text-center shadow-lg inline-flex items-center space-x-2"
+                  className="bg-black text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-center shadow-lg inline-flex items-center space-x-2 text-sm md:text-base"
                   whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.15)" }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -931,19 +931,19 @@ export default function Hero() {
               
               {/* Animated trend alert badge */}
               <motion.div 
-                className="absolute -bottom-2 md:-bottom-6 -left-2 md:-left-6 bg-white p-2 md:p-4 rounded-xl shadow-xl max-w-[180px] md:max-w-[240px] z-30 scale-75 md:scale-100"
+                className="absolute -bottom-2 md:-bottom-6 -left-2 md:-left-6 bg-white p-2 md:p-4 rounded-xl shadow-xl max-w-[170px] md:max-w-[240px] z-30 scale-75 md:scale-100"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 1 }}
                 whileHover={{ y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.15)" }}
               >
-                <div className="flex space-x-3 items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center">
-                    <i className="fas fa-bolt text-sm"></i>
+                <div className="flex space-x-2 md:space-x-3 items-center mb-2">
+                  <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-black text-white flex items-center justify-center">
+                    <i className="fas fa-bolt text-xs md:text-sm"></i>
                   </div>
-                  <span className="font-bold text-black">AI Trend Alert</span>
+                  <span className="font-bold text-black text-sm md:text-base">AI Trend Alert</span>
                 </div>
-                <p className="text-sm text-gray-600">Cargo pants + crop tops trending on TikTok with +245% engagement this week!</p>
+                <p className="text-xs md:text-sm text-gray-600">Cargo pants + crop tops trending on TikTok with +245% engagement this week!</p>
                 <motion.div 
                   className="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden"
                   initial={{ width: "100%" }}
@@ -963,19 +963,19 @@ export default function Hero() {
               
               {/* Animated style tip badge */}
               <motion.div 
-                className="absolute -top-2 md:-top-4 -right-2 md:-right-4 bg-white p-2 md:p-4 rounded-xl shadow-xl max-w-[180px] md:max-w-[240px] z-30 scale-75 md:scale-100"
+                className="absolute -top-2 md:-top-4 -right-2 md:-right-4 bg-white p-2 md:p-4 rounded-xl shadow-xl max-w-[170px] md:max-w-[240px] z-30 scale-75 md:scale-100"
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 1.2 }}
                 whileHover={{ y: 5, boxShadow: "0 15px 30px rgba(0,0,0,0.15)" }}
               >
-                <div className="flex space-x-3 items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center">
-                    <i className="fas fa-tshirt text-sm"></i>
+                <div className="flex space-x-2 md:space-x-3 items-center mb-2">
+                  <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-black text-white flex items-center justify-center">
+                    <i className="fas fa-tshirt text-xs md:text-sm"></i>
                   </div>
-                  <span className="font-bold text-black">Style Hack</span>
+                  <span className="font-bold text-black text-sm md:text-base">Style Hack</span>
                 </div>
-                <p className="text-sm text-gray-600">Layer oversized blazers over mini dresses for instant fall transition vibes!</p>
+                <p className="text-xs md:text-sm text-gray-600">Layer oversized blazers over mini dresses for instant fall transition vibes!</p>
               </motion.div>
             </div>
           </motion.div>
@@ -989,7 +989,7 @@ export default function Hero() {
           fill="none" 
           xmlns="http://www.w3.org/2000/svg" 
           preserveAspectRatio="none"
-          className="w-full h-[80px] md:h-[100px]"
+          className="w-full h-[60px] md:h-[80px] lg:h-[100px]"
         >
           <path 
             d="M0,25 C320,90 480,10 720,30 C960,50 1120,75 1440,20 L1440,100 L0,100 Z" 
