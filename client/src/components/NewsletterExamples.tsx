@@ -93,7 +93,7 @@ export default function NewsletterExamples() {
   };
 
   return (
-    <section id="examples" className="py-16 md:py-24 bg-gradient-to-b from-white to-pink-50/30">
+    <section id="examples" className="py-16 md:py-24 bg-gradient-to-b from-white to-amber-50/30">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2 
@@ -105,7 +105,7 @@ export default function NewsletterExamples() {
           >
             <span className="relative z-10">See What You'll Get</span>
             <motion.div 
-              className="absolute bottom-2 left-0 right-0 h-3 bg-pink-200/50 -z-10"
+              className="absolute bottom-2 left-0 right-0 h-3 bg-amber-200/50 -z-10"
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
               viewport={{ once: true }}
@@ -146,7 +146,7 @@ export default function NewsletterExamples() {
                   <img 
                     src={reaction.avatar} 
                     alt={reaction.name} 
-                    className="w-10 h-10 rounded-full object-cover border-2 border-pink-200"
+                    className="w-10 h-10 rounded-full object-cover border-2 border-amber-200"
                   />
                   <div>
                     <p className="text-sm leading-tight mb-1">{reaction.text}</p>
@@ -161,7 +161,7 @@ export default function NewsletterExamples() {
 
         <div className="relative overflow-hidden py-8">
           <motion.button 
-            className="absolute top-1/2 -translate-y-1/2 left-4 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm shadow-lg rounded-full flex items-center justify-center hover:bg-plum hover:text-white transition-colors md:flex hidden"
+            className="absolute top-1/2 -translate-y-1/2 left-4 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm shadow-lg rounded-full flex items-center justify-center hover:bg-amber-700 hover:text-white transition-colors md:flex hidden"
             onClick={prevSlide}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.2 }}
@@ -170,7 +170,7 @@ export default function NewsletterExamples() {
           </motion.button>
           
           <motion.button 
-            className="absolute top-1/2 -translate-y-1/2 right-4 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm shadow-lg rounded-full flex items-center justify-center hover:bg-plum hover:text-white transition-colors md:flex hidden"
+            className="absolute top-1/2 -translate-y-1/2 right-4 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm shadow-lg rounded-full flex items-center justify-center hover:bg-amber-700 hover:text-white transition-colors md:flex hidden"
             onClick={nextSlide}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.2 }}
@@ -203,10 +203,10 @@ export default function NewsletterExamples() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-3">
                     <div className="flex justify-between items-center">
                       <span className={`text-xs font-bold ${
-                        newsletter.category === "TRENDING NOW" ? "bg-pink-500" : 
-                        newsletter.category === "BUDGET SLAY" ? "bg-green-500" : 
-                        newsletter.category === "STYLE HACK" ? "bg-purple-500" :
-                        "bg-blue-500"
+                        newsletter.category === "TRENDING NOW" ? "bg-amber-600" : 
+                        newsletter.category === "BUDGET SLAY" ? "bg-green-600" : 
+                        newsletter.category === "STYLE HACK" ? "bg-amber-800" :
+                        "bg-amber-500"
                       } text-white px-2 py-1 rounded-full`}>
                         {newsletter.category}
                       </span>
@@ -232,7 +232,7 @@ export default function NewsletterExamples() {
                   <div className="flex items-center justify-between">
                     <div className="flex space-x-1">
                       {newsletter.tags.map((tag, i) => (
-                        <span key={i} className="text-xs px-2 py-1 bg-pink-100 text-pink-800 rounded-full whitespace-nowrap">{tag}</span>
+                        <span key={i} className="text-xs px-2 py-1 bg-amber-100 text-amber-800 rounded-full whitespace-nowrap">{tag}</span>
                       ))}
                     </div>
                     <span className="text-xs text-gray-500 flex items-center">
@@ -249,7 +249,7 @@ export default function NewsletterExamples() {
             {newsletterExamples.map((_, index) => (
               <button 
                 key={index}
-                className={`w-2 h-2 rounded-full ${index === activeSlide ? 'bg-plum' : 'bg-gray-300'}`}
+                className={`w-2 h-2 rounded-full ${index === activeSlide ? 'bg-amber-700' : 'bg-gray-300'}`}
                 onClick={() => goToSlide(index)}
               ></button>
             ))}
@@ -265,8 +265,8 @@ export default function NewsletterExamples() {
         >
           <Link href="/newsletter-preview">
             <motion.a 
-              className="inline-block bg-white/80 backdrop-blur-sm text-plum border border-plum px-6 py-3 rounded-full font-medium hover:bg-plum hover:text-white transition-all mr-4"
-              whileHover={{ y: -3, boxShadow: "0 5px 15px rgba(66, 3, 44, 0.1)" }}
+              className="inline-block bg-white/80 backdrop-blur-sm text-amber-700 border border-amber-700 px-6 py-3 rounded-full font-medium hover:bg-amber-700 hover:text-white transition-all mr-4"
+              whileHover={{ y: -3, boxShadow: "0 5px 15px rgba(180, 83, 9, 0.2)" }}
             >
               <i className="fas fa-envelope-open mr-2"></i>
               See More Newsletter Examples
@@ -274,8 +274,8 @@ export default function NewsletterExamples() {
           </Link>
           <Link href="#subscribe">
             <motion.a 
-              className="inline-block bg-plum text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all"
-              whileHover={{ y: -3, boxShadow: "0 10px 25px rgba(66, 3, 44, 0.2)" }}
+              className="inline-block bg-amber-700 text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all"
+              whileHover={{ y: -3, boxShadow: "0 10px 25px rgba(180, 83, 9, 0.3)" }}
             >
               <i className="fas fa-arrow-right mr-2"></i>
               Subscribe Now – Join 2K+ Trendsetters

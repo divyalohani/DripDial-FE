@@ -12,7 +12,7 @@ const features = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-16 md:py-24 bg-plum text-white">
+    <section id="pricing" className="py-16 md:py-24 bg-amber-800 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2 
@@ -49,7 +49,7 @@ export default function Pricing() {
                 <p className="text-gray-500">Weekly fashion intelligence</p>
               </div>
               <div className="ai-badge text-white px-3 py-1 rounded-full text-sm font-medium"
-                   style={{ background: "linear-gradient(90deg, #42032C, #6E0550)" }}>
+                   style={{ background: "linear-gradient(90deg, #7C4A30, #B86D37)" }}>
                 AI-Powered
               </div>
             </div>
@@ -77,8 +77,8 @@ export default function Pricing() {
             
             <Link href="#subscribe">
               <motion.a 
-                className="block w-full bg-plum text-white text-center px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all"
-                whileHover={{ y: -3, boxShadow: "0 5px 15px rgba(66, 3, 44, 0.2)" }}
+                className="block w-full bg-amber-700 text-white text-center px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all"
+                whileHover={{ y: -3, boxShadow: "0 5px 15px rgba(124, 74, 48, 0.2)" }}
               >
                 Subscribe Now
               </motion.a>
@@ -87,15 +87,15 @@ export default function Pricing() {
             <p className="text-center text-sm text-gray-500 mt-4">No contracts. Cancel anytime.</p>
           </div>
           
-          <div className="bg-beige px-8 py-6 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 bg-plum transform rotate-45 translate-x-8 -translate-y-8"></div>
+          <div className="bg-amber-50 px-8 py-6 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-20 h-20 bg-amber-700 transform rotate-45 translate-x-8 -translate-y-8"></div>
             <div className="absolute top-2 right-2 text-white transform rotate-45 text-xs font-bold">NEW</div>
             
             <h4 className="font-display font-bold text-lg mb-2">Founding Member Offer</h4>
             <p className="text-sm">Join now to lock in current pricing forever and get priority access to the AI Stylist feature when it launches.</p>
             
             <motion.div 
-              className="mt-4 inline-block px-3 py-1 bg-plum text-white text-sm font-bold rounded-full"
+              className="mt-4 inline-block px-3 py-1 bg-amber-700 text-white text-sm font-bold rounded-full"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ repeat: Infinity, duration: 2 }}
             >

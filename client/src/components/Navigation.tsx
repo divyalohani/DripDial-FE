@@ -68,19 +68,17 @@ export default function Navigation() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link href="/">
-            <div className="flex items-center cursor-pointer group">
-              <div className="relative">
-                <span className="text-plum font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">D</span>
-                <span className="text-pink-500 font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">D</span>
-              </div>
-              <div className="ml-[11px] relative">
-                <span className="text-plum font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">ripDial</span>
-                <span className="text-pink-500 font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">ripDial</span>
-              </div>
+          <div onClick={() => window.location.href = '/'} className="flex items-center cursor-pointer group">
+            <div className="relative">
+              <span className="text-plum font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">D</span>
+              <span className="text-amber-700 font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">D</span>
             </div>
-          </Link>
-          <div className="ml-2 relative overflow-hidden rounded-full bg-gradient-to-r from-plum to-pink-500 p-0.5">
+            <div className="ml-[11px] relative">
+              <span className="text-plum font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">ripDial</span>
+              <span className="text-amber-700 font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">ripDial</span>
+            </div>
+          </div>
+          <div className="ml-2 relative overflow-hidden rounded-full bg-gradient-to-r from-amber-700 to-amber-500 p-0.5">
             <div className="px-2 py-0.5 text-xs font-medium text-white">
               AI-Powered
             </div>
@@ -117,7 +115,7 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
           >
             <Link href="/#subscribe">
-              <a className="bg-gradient-to-r from-plum to-pink-500 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-sm hover:shadow-md">
+              <a className="bg-gradient-to-r from-amber-700 to-amber-500 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-sm hover:shadow-md">
                 <span className="flex items-center">
                   Subscribe Now <i className="fas fa-chevron-right ml-2 text-xs"></i>
                 </span>
@@ -153,44 +151,44 @@ export default function Navigation() {
             <div className="flex flex-col space-y-4 p-6">
               <Link href="/#features">
                 <a 
-                  className="font-medium px-4 py-3 hover:bg-pink-50 rounded-lg transition-colors flex items-center"
+                  className="font-medium px-4 py-3 hover:bg-amber-50 rounded-lg transition-colors flex items-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <i className="fas fa-star-half-alt mr-3 text-pink-500"></i>
+                  <i className="fas fa-star-half-alt mr-3 text-amber-600"></i>
                   Features
                 </a>
               </Link>
               <Link href="/#examples">
                 <a 
-                  className="font-medium px-4 py-3 hover:bg-pink-50 rounded-lg transition-colors flex items-center"
+                  className="font-medium px-4 py-3 hover:bg-amber-50 rounded-lg transition-colors flex items-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <i className="fas fa-tshirt mr-3 text-pink-500"></i>
+                  <i className="fas fa-tshirt mr-3 text-amber-600"></i>
                   Style Gallery
                 </a>
               </Link>
               <Link href="/#pricing">
                 <a 
-                  className="font-medium px-4 py-3 hover:bg-pink-50 rounded-lg transition-colors flex items-center"
+                  className="font-medium px-4 py-3 hover:bg-amber-50 rounded-lg transition-colors flex items-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <i className="fas fa-tag mr-3 text-pink-500"></i>
+                  <i className="fas fa-tag mr-3 text-amber-600"></i>
                   Pricing
                 </a>
               </Link>
               <Link href="/#faq">
                 <a 
-                  className="font-medium px-4 py-3 hover:bg-pink-50 rounded-lg transition-colors flex items-center"
+                  className="font-medium px-4 py-3 hover:bg-amber-50 rounded-lg transition-colors flex items-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <i className="fas fa-question-circle mr-3 text-pink-500"></i>
+                  <i className="fas fa-question-circle mr-3 text-amber-600"></i>
                   FAQ
                 </a>
               </Link>
               <div className="pt-2">
                 <Link href="/#subscribe">
                   <a 
-                    className="bg-gradient-to-r from-plum to-pink-500 text-white px-6 py-3 rounded-lg font-medium transition-all w-full text-center block shadow-md"
+                    className="bg-gradient-to-r from-amber-700 to-amber-500 text-white px-6 py-3 rounded-lg font-medium transition-all w-full text-center block shadow-md"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     <span className="flex items-center justify-center">
@@ -202,13 +200,13 @@ export default function Navigation() {
               
               {/* Social Links */}
               <div className="flex justify-center space-x-6 pt-4 border-t border-gray-100">
-                <a href="#" className="text-gray-500 hover:text-pink-500 transition-colors">
+                <a href="#" className="text-gray-500 hover:text-amber-600 transition-colors">
                   <i className="fab fa-instagram text-xl"></i>
                 </a>
-                <a href="#" className="text-gray-500 hover:text-pink-500 transition-colors">
+                <a href="#" className="text-gray-500 hover:text-amber-600 transition-colors">
                   <i className="fab fa-tiktok text-xl"></i>
                 </a>
-                <a href="#" className="text-gray-500 hover:text-pink-500 transition-colors">
+                <a href="#" className="text-gray-500 hover:text-amber-600 transition-colors">
                   <i className="fab fa-pinterest text-xl"></i>
                 </a>
               </div>

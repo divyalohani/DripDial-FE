@@ -44,7 +44,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
           >
             <motion.span 
-              className="inline-block px-3 py-1 bg-plum text-white text-sm rounded-full"
+              className="inline-block px-3 py-1 bg-amber-700 text-white text-sm rounded-full"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -74,7 +74,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
             >
-              <span className="font-semibold text-pink-600">2,000+ trendsetters already subscribed</span>
+              <span className="font-semibold text-amber-700">2,000+ trendsetters already subscribed</span>
               <div className="flex -space-x-2">
                 <div className="w-6 h-6 rounded-full border-2 border-white bg-gray-200"></div>
                 <div className="w-6 h-6 rounded-full border-2 border-white bg-gray-300"></div>
@@ -89,7 +89,7 @@ export default function Hero() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <i className="fas fa-bolt text-pink-500"></i>
+                <i className="fas fa-bolt text-amber-600"></i>
                 <p>Weekly trend forecasts from TikTok & Instagram</p>
               </motion.div>
               <motion.div 
@@ -98,7 +98,7 @@ export default function Hero() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <i className="fas fa-tshirt text-pink-500"></i>
+                <i className="fas fa-tshirt text-amber-600"></i>
                 <p>AI-curated outfit inspiration for your style</p>
               </motion.div>
               <motion.div 
@@ -107,7 +107,7 @@ export default function Hero() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
               >
-                <i className="fas fa-tags text-pink-500"></i>
+                <i className="fas fa-tags text-amber-600"></i>
                 <p>Budget-friendly shopping picks under $30</p>
               </motion.div>
             </div>
@@ -118,7 +118,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.9 }}
             >
               <Link href="#subscribe">
-                <a className="bg-plum text-white px-8 py-4 rounded-full font-bold text-center hover:bg-opacity-90 transition-all hover:shadow-lg transform hover:-translate-y-1 inline-block">
+                <a className="bg-amber-700 text-white px-8 py-4 rounded-full font-bold text-center hover:bg-opacity-90 transition-all hover:shadow-lg transform hover:-translate-y-1 inline-block">
                   Subscribe Now – Be First to Slay
                 </a>
               </Link>
@@ -204,7 +204,7 @@ export default function Hero() {
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <div className="flex space-x-2 items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-pink-500 text-white flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-amber-600 text-white flex items-center justify-center">
                     <i className="fas fa-bolt"></i>
                   </div>
                   <span className="font-medium">AI Trend Alert</span>
@@ -220,7 +220,7 @@ export default function Hero() {
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
                 <div className="flex space-x-2 items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-amber-700 text-white flex items-center justify-center">
                     <i className="fas fa-tshirt"></i>
                   </div>
                   <span className="font-medium">Style Tip</span>

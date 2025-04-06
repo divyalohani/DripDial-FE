@@ -20,7 +20,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-16 md:py-24 bg-beige">
+    <section className="py-16 md:py-24 bg-amber-50">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2 
@@ -54,7 +54,7 @@ export default function HowItWorks() {
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               <motion.div 
-                className="w-16 h-16 bg-plum text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold"
+                className="w-16 h-16 bg-amber-700 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
