@@ -146,19 +146,19 @@ export default function Hero() {
                 </div>
               </motion.div>
               
-              {/* Top right image - Office chic */}
+              {/* Top right image - Shopping style */}
               <motion.div 
                 className="overflow-hidden rounded-xl shadow-xl"
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3 }}
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1603205319065-6c611f3c6e23?auto=format&fit=crop&w=600&h=800&q=80" 
-                  alt="Office chic fashion inspiration" 
+                  src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&h=800&q=80" 
+                  alt="Shopping style fashion inspiration" 
                   className="w-full h-[250px] md:h-[280px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                  <span className="text-white text-xs font-semibold">office chic</span>
+                  <span className="text-white text-xs font-semibold">shopping style</span>
                 </div>
               </motion.div>
               
