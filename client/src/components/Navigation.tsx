@@ -1,6 +1,25 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
+
+// Define a HashLink component for smooth scrolling
+function HashLink({ href, children, className, onClick }: { href: string, children: React.ReactNode, className?: string, onClick?: () => void }) {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const targetId = href.replace('/#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      window.history.pushState(null, "", href);
+      if (onClick) onClick();
+    }
+  };
+
+  return (
+    <a href={href} onClick={handleClick} className={className}>
+      {children}
+    </a>
+  );
+}
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,13 +88,15 @@ export default function Navigation() {
           transition={{ duration: 0.5 }}
         >
           <div onClick={() => window.location.href = '/'} className="flex items-center cursor-pointer group">
-            <div className="relative">
-              <span className="text-[#3D2C35] font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">D</span>
-              <span className="text-[#C4B7BD] font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">D</span>
-            </div>
-            <div className="ml-[11px] relative">
-              <span className="text-[#3D2C35] font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">ripDial</span>
-              <span className="text-[#C4B7BD] font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">ripDial</span>
+            <div className="flex items-center h-8">
+              <div className="relative inline-block w-[1.5rem] h-[1.5rem] flex items-center justify-center">
+                <span className="text-[#3D2C35] font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">D</span>
+                <span className="text-[#C4B7BD] font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">D</span>
+              </div>
+              <div className="relative inline-block h-[1.5rem] flex items-center">
+                <span className="text-[#3D2C35] font-display text-2xl font-bold group-hover:opacity-0 transition-opacity duration-300 absolute">ripDial</span>
+                <span className="text-[#C4B7BD] font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">ripDial</span>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -88,18 +109,18 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Link href="/#features" className={getLinkStyles("features")}>
+            <HashLink href="/#features" className={getLinkStyles("features")}>
               Features
-            </Link>
-            <Link href="/#examples" className={getLinkStyles("examples")}>
+            </HashLink>
+            <HashLink href="/#examples" className={getLinkStyles("examples")}>
               Style Gallery
-            </Link>
-            <Link href="/#pricing" className={getLinkStyles("pricing")}>
+            </HashLink>
+            <HashLink href="/#pricing" className={getLinkStyles("pricing")}>
               Pricing
-            </Link>
-            <Link href="/#faq" className={getLinkStyles("faq")}>
+            </HashLink>
+            <HashLink href="/#faq" className={getLinkStyles("faq")}>
               FAQ
-            </Link>
+            </HashLink>
           </motion.div>
           
           <motion.div
@@ -108,11 +129,11 @@ export default function Navigation() {
             transition={{ duration: 0.5, delay: 0.2 }}
             whileHover={{ scale: 1.05 }}
           >
-            <Link href="/#subscribe" className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-sm hover:shadow-md flex">
+            <HashLink href="/#subscribe" className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-sm hover:shadow-md flex">
               <span className="flex items-center">
                 Subscribe Now <i className="fas fa-chevron-right ml-2 text-xs"></i>
               </span>
-            </Link>
+            </HashLink>
           </motion.div>
         </div>
         
@@ -141,40 +162,40 @@ export default function Navigation() {
             transition={{ duration: 0.3 }}
           >
             <div className="flex flex-col space-y-4 p-6">
-              <Link 
+              <HashLink 
                 href="/#features" 
                 className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <i className="fas fa-star-half-alt mr-3 text-[#3D2C35]"></i>
                 Features
-              </Link>
-              <Link 
+              </HashLink>
+              <HashLink 
                 href="/#examples" 
                 className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <i className="fas fa-tshirt mr-3 text-[#3D2C35]"></i>
                 Style Gallery
-              </Link>
-              <Link 
+              </HashLink>
+              <HashLink 
                 href="/#pricing" 
                 className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <i className="fas fa-tag mr-3 text-[#3D2C35]"></i>
                 Pricing
-              </Link>
-              <Link 
+              </HashLink>
+              <HashLink 
                 href="/#faq" 
                 className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <i className="fas fa-question-circle mr-3 text-[#3D2C35]"></i>
                 FAQ
-              </Link>
+              </HashLink>
               <div className="pt-2">
-                <Link 
+                <HashLink 
                   href="/#subscribe"
                   className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-3 rounded-lg font-medium transition-all w-full text-center flex justify-center shadow-md"
                   onClick={() => setIsMenuOpen(false)}
@@ -182,7 +203,7 @@ export default function Navigation() {
                   <span className="flex items-center justify-center">
                     Subscribe Now <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </Link>
+                </HashLink>
               </div>
               
               {/* Social Links */}
