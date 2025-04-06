@@ -28,11 +28,6 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section className="py-16 md:py-28 bg-[#F8F6F3] relative overflow-hidden">
-      {/* Decorative top gradient line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#C4B7BD] via-[#3D2C35] to-[#8F8A95]"></div>
-      
-      {/* Decorative bottom gradient line */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#8F8A95] via-[#C4B7BD] to-[#3D2C35]"></div>
       
       {/* Background decorative elements */}
       <div className="absolute top-[5%] left-[5%] w-40 h-40 rounded-full bg-[#C4B7BD]/5 blur-3xl"></div>
