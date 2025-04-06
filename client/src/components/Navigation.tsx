@@ -94,17 +94,17 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Link href="/#features">
-              <a className={getLinkStyles("features")}>Features</a>
+            <Link href="/#features" className={getLinkStyles("features")}>
+              Features
             </Link>
-            <Link href="/#examples">
-              <a className={getLinkStyles("examples")}>Style Gallery</a>
+            <Link href="/#examples" className={getLinkStyles("examples")}>
+              Style Gallery
             </Link>
-            <Link href="/#pricing">
-              <a className={getLinkStyles("pricing")}>Pricing</a>
+            <Link href="/#pricing" className={getLinkStyles("pricing")}>
+              Pricing
             </Link>
-            <Link href="/#faq">
-              <a className={getLinkStyles("faq")}>FAQ</a>
+            <Link href="/#faq" className={getLinkStyles("faq")}>
+              FAQ
             </Link>
           </motion.div>
           
@@ -114,12 +114,10 @@ export default function Navigation() {
             transition={{ duration: 0.5, delay: 0.2 }}
             whileHover={{ scale: 1.05 }}
           >
-            <Link href="/#subscribe">
-              <a className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-sm hover:shadow-md">
-                <span className="flex items-center">
-                  Subscribe Now <i className="fas fa-chevron-right ml-2 text-xs"></i>
-                </span>
-              </a>
+            <Link href="/#subscribe" className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-sm hover:shadow-md">
+              <span className="flex items-center">
+                Subscribe Now <i className="fas fa-chevron-right ml-2 text-xs"></i>
+              </span>
             </Link>
           </motion.div>
         </div>
@@ -149,52 +147,47 @@ export default function Navigation() {
             transition={{ duration: 0.3 }}
           >
             <div className="flex flex-col space-y-4 p-6">
-              <Link href="/#features">
-                <a 
-                  className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <i className="fas fa-star-half-alt mr-3 text-[#3D2C35]"></i>
-                  Features
-                </a>
+              <Link 
+                href="/#features" 
+                className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <i className="fas fa-star-half-alt mr-3 text-[#3D2C35]"></i>
+                Features
               </Link>
-              <Link href="/#examples">
-                <a 
-                  className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <i className="fas fa-tshirt mr-3 text-[#3D2C35]"></i>
-                  Style Gallery
-                </a>
+              <Link 
+                href="/#examples" 
+                className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <i className="fas fa-tshirt mr-3 text-[#3D2C35]"></i>
+                Style Gallery
               </Link>
-              <Link href="/#pricing">
-                <a 
-                  className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <i className="fas fa-tag mr-3 text-[#3D2C35]"></i>
-                  Pricing
-                </a>
+              <Link 
+                href="/#pricing" 
+                className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <i className="fas fa-tag mr-3 text-[#3D2C35]"></i>
+                Pricing
               </Link>
-              <Link href="/#faq">
-                <a 
-                  className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <i className="fas fa-question-circle mr-3 text-[#3D2C35]"></i>
-                  FAQ
-                </a>
+              <Link 
+                href="/#faq" 
+                className="font-medium px-4 py-3 hover:bg-[#C4B7BD]/20 rounded-lg transition-colors flex items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <i className="fas fa-question-circle mr-3 text-[#3D2C35]"></i>
+                FAQ
               </Link>
               <div className="pt-2">
-                <Link href="/#subscribe">
-                  <a 
-                    className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-3 rounded-lg font-medium transition-all w-full text-center block shadow-md"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="flex items-center justify-center">
-                      Subscribe Now <i className="fas fa-arrow-right ml-2"></i>
-                    </span>
-                  </a>
+                <Link 
+                  href="/#subscribe"
+                  className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-3 rounded-lg font-medium transition-all w-full text-center block shadow-md"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <span className="flex items-center justify-center">
+                    Subscribe Now <i className="fas fa-arrow-right ml-2"></i>
+                  </span>
                 </Link>
               </div>
               
