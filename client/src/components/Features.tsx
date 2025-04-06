@@ -57,7 +57,7 @@ const itemVariants = {
 
 export default function Features() {
   return (
-    <section id="features" className="py-16 md:py-24 bg-[#F8F6F3] relative overflow-hidden">
+    <section id="features" className="py-16 md:py-24 bg-[#F8F6F3] relative overflow-hidden z-10">
       {/* Background decorative elements - responsive sizing */}
       <div className="absolute top-20 -left-[10%] md:left-0 w-[80vw] md:w-72 h-[80vw] md:h-72 rounded-full bg-gradient-to-br from-[#C4B7BD]/15 to-transparent blur-[60px] md:blur-3xl"></div>
       <div className="absolute bottom-32 -right-[10%] md:right-0 w-[80vw] md:w-80 h-[80vw] md:h-80 rounded-full bg-gradient-to-tl from-[#3D2C35]/10 to-transparent blur-[60px] md:blur-3xl"></div>
