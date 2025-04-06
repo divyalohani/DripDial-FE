@@ -834,11 +834,11 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {/* Enhanced collage with parallax effect and improved layout */}
-            <div className="relative grid grid-cols-12 grid-rows-6 md:grid-rows-12 gap-2 md:gap-2 h-[600px] md:h-[550px] lg:h-[650px]">
-              {/* Main image - Contemporary chic */}
+            {/* Enhanced collage following the provided design */}
+            <div className="relative flex flex-col md:grid md:grid-cols-12 md:grid-rows-12 gap-3 md:gap-2 w-full md:h-[550px] lg:h-[650px]">
+              {/* Main image - Contemporary chic (Mobile & Desktop) */}
               <motion.div 
-                className="col-span-12 sm:col-span-8 md:col-span-8 row-span-3 md:row-span-8 col-start-1 row-start-1 overflow-hidden rounded-xl shadow-xl relative z-20"
+                className="w-full h-[300px] md:col-span-8 md:row-span-8 md:col-start-1 md:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-20"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y1 }}
@@ -869,9 +869,9 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
-              {/* Mobile - Y2K Aesthetic */}
+              {/* Y2K Aesthetic - Mobile & Desktop */}
               <motion.div 
-                className="col-span-12 row-span-2 col-start-1 row-start-4 sm:hidden overflow-hidden rounded-xl shadow-xl relative z-10"
+                className="w-full h-[180px] mt-3 md:mt-0 md:col-span-4 md:row-span-5 md:col-start-9 md:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-10"
                 whileHover={{ scale: 1.04, zIndex: 30 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y2 }}
@@ -894,39 +894,41 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
-              {/* Desktop - Y2K Aesthetic */}
-              <motion.div 
-                className="hidden sm:block col-span-4 md:col-span-4 row-span-5 col-start-9 md:col-start-9 row-start-1 md:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-10"
-                whileHover={{ scale: 1.04, zIndex: 30 }}
-                transition={{ duration: 0.3 }}
-                style={{ y: y2 }}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=400&q=80" 
-                  alt="Y2K fashion inspiration" 
-                  className="w-full h-full object-cover"
-                />
-                <motion.div 
-                  className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-3"
-                  whileHover={{ opacity: 0.9 }}
-                >
-                  <motion.span 
-                    className="text-white text-xs font-semibold bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm"
-                    whileHover={{ scale: 1.05 }}
+              {/* AI Trend Alert - Mobile & Desktop */}
+              <div className="w-full h-[100px] relative mt-3 md:hidden flex items-start rounded-xl shadow-xl z-20">
+                <div className="absolute -top-3 -left-1 bg-white p-2 md:p-4 rounded-xl shadow-xl z-30 flex items-center space-x-2">
+                  <div className="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center">
+                    <i className="fas fa-bolt text-xs"></i>
+                  </div>
+                  <span className="font-bold text-black text-sm">AI Trend Alert</span>
+                </div>
+                <div className="bg-neutral-100 w-full h-full rounded-xl p-3 pt-5">
+                  <p className="text-xs text-gray-600 mt-2">Cargo pants + crop tops trending on TikTok with +245% engagement this week!</p>
+                  <motion.div 
+                    className="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden"
                   >
-                    Y2K AESTHETIC
-                  </motion.span>
-                </motion.div>
-              </motion.div>
+                    <motion.div 
+                      className="h-full bg-black" 
+                      initial={{ width: "0%" }}
+                      animate={{ width: "75%" }}
+                      transition={{ duration: 1.5, delay: 0.5 }}
+                    />
+                  </motion.div>
+                  <div className="flex justify-between mt-1">
+                    <span className="text-[10px] text-gray-500">Last week</span>
+                    <span className="text-[10px] font-medium text-black">This week</span>
+                  </div>
+                </div>
+              </div>
               
-              {/* Desktop Video Feed Cell */}
-              <div className="hidden sm:block col-span-4 md:col-span-4 row-span-4 col-start-9 md:col-start-9 row-start-3 md:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
+              {/* Video feed - Desktop only */}
+              <div className="hidden md:block md:col-span-4 md:row-span-4 md:col-start-9 md:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
                 <VideoFeedCell />
               </div>
               
-              {/* Desktop Luxury inspired */}
+              {/* Luxury inspired - Desktop only */}
               <motion.div 
-                className="hidden md:block col-span-8 row-span-4 col-start-1 row-start-9 overflow-hidden rounded-xl shadow-xl relative z-10"
+                className="hidden md:block md:col-span-8 md:row-span-4 md:col-start-1 md:row-start-9 overflow-hidden rounded-xl shadow-xl relative z-10"
                 whileHover={{ scale: 1.02, zIndex: 30 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y4 }}
@@ -949,33 +951,26 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
-              {/* Mobile TikTok style feed */}
-              <div className="col-span-12 row-span-1 col-start-1 row-start-6 sm:hidden overflow-hidden rounded-xl shadow-xl relative z-20 h-20">
-                <div className="h-full">
-                  <VideoFeedCell />
-                </div>
-              </div>
-              
               {/* Desktop trending video */}
-              <div className="hidden md:block col-span-4 row-span-3 col-start-9 row-start-10 overflow-hidden rounded-xl shadow-xl relative z-20">
+              <div className="hidden md:block md:col-span-4 md:row-span-3 md:col-start-9 md:row-start-10 overflow-hidden rounded-xl shadow-xl relative z-20">
                 <TrendingNowVideo />
               </div>
               
-              {/* Animated trend alert badge */}
+              {/* Animated trend alert badge - desktop only */}
               <motion.div 
-                className="absolute -bottom-2 sm:-bottom-6 left-2 sm:-left-6 bg-white p-2 md:p-4 rounded-xl shadow-xl max-w-[170px] md:max-w-[240px] z-30 scale-75 md:scale-100"
+                className="hidden md:block absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl max-w-[240px] z-30"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 1 }}
                 whileHover={{ y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.15)" }}
               >
-                <div className="flex space-x-2 md:space-x-3 items-center mb-2">
-                  <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-black text-white flex items-center justify-center">
-                    <i className="fas fa-bolt text-xs md:text-sm"></i>
+                <div className="flex space-x-3 items-center mb-2">
+                  <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center">
+                    <i className="fas fa-bolt text-sm"></i>
                   </div>
-                  <span className="font-bold text-black text-sm md:text-base">AI Trend Alert</span>
+                  <span className="font-bold text-black text-base">AI Trend Alert</span>
                 </div>
-                <p className="text-xs md:text-sm text-gray-600">Cargo pants + crop tops trending on TikTok with +245% engagement this week!</p>
+                <p className="text-sm text-gray-600">Cargo pants + crop tops trending on TikTok with +245% engagement this week!</p>
                 <motion.div 
                   className="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden"
                   initial={{ width: "100%" }}
@@ -993,9 +988,9 @@ export default function Hero() {
                 </div>
               </motion.div>
               
-              {/* Animated style tip badge */}
+              {/* Animated style tip badge - desktop only */}
               <motion.div 
-                className="absolute top-2 sm:-top-4 right-2 sm:-right-4 bg-white p-2 md:p-4 rounded-xl shadow-xl max-w-[170px] md:max-w-[240px] z-30 scale-75 md:scale-100"
+                className="hidden md:block absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-xl max-w-[240px] z-30"
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 1.2 }}
