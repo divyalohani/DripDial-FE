@@ -165,53 +165,90 @@ export default function HowItWorks() {
               }}
             >
               <motion.div 
-                className="w-24 h-24 relative mx-auto mb-6 transform -mt-16"
-                whileHover={{ scale: 1.05, rotate: 5 }}
+                className="w-28 h-28 relative mx-auto mb-8 transform -mt-16"
+                whileHover={{ scale: 1.08, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 {/* Multiple decorative rings with different speeds */}
-                <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#C4B7BD] opacity-30 animate-[spin_20s_linear_infinite]"></div>
-                <div className="absolute inset-[0.2rem] rounded-full border border-dotted border-[#3D2C35] opacity-20 animate-[spin_15s_linear_infinite_reverse]"></div>
+                <div className="absolute inset-[-10px] rounded-full border-[2.5px] border-dashed border-[#C4B7BD] opacity-40 animate-[spin_25s_linear_infinite]"></div>
+                <div className="absolute inset-[-5px] rounded-full border-[1.5px] border-dotted border-[#3D2C35] opacity-30 animate-[spin_18s_linear_infinite_reverse]"></div>
+                <div className="absolute inset-0 rounded-full border border-[#C4B7BD]/40 opacity-70 shadow-[0_0_15px_rgba(196,183,189,0.3)] animate-pulse"></div>
+                
+                {/* Outer glow effect */}
+                <motion.div 
+                  className="absolute inset-[1px] rounded-full bg-gradient-to-br from-white/50 to-transparent opacity-40 blur-[1px]"
+                  animate={{ opacity: [0.4, 0.8, 0.4] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
                 
                 {/* Sparkle elements */}
                 <motion.div 
-                  className="absolute w-2 h-2 rounded-full bg-white shadow-sm top-[10%] right-[15%]"
-                  animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.4, 1, 0.4] }}
+                  className="absolute w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_5px_rgba(255,255,255,0.8)] top-[8%] right-[12%]"
+                  animate={{ scale: [0.8, 1.4, 0.8], opacity: [0.6, 1, 0.6] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 />
                 
                 <motion.div 
-                  className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-sm bottom-[20%] left-[15%]"
-                  animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.4, 1, 0.4] }}
+                  className="absolute w-2 h-2 rounded-full bg-white shadow-[0_0_5px_rgba(255,255,255,0.7)] bottom-[18%] left-[10%]"
+                  animate={{ scale: [0.8, 1.3, 0.8], opacity: [0.5, 1, 0.5] }}
                   transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                 />
                 
-                {/* Background gradient circle with pulse effect */}
+                <motion.div 
+                  className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_3px_rgba(255,255,255,0.6)] top-[30%] left-[12%]"
+                  animate={{ scale: [0.9, 1.2, 0.9], opacity: [0.4, 0.9, 0.4] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                />
+                
+                {/* Background gradient circle with enhanced pulse effect */}
                 <motion.div
-                  className={`absolute inset-1.5 bg-gradient-to-br ${step.bgGradient} rounded-full shadow-lg flex items-center justify-center overflow-hidden`}
-                  animate={{ boxShadow: ["0 0 0 rgba(61, 44, 53, 0.3)", "0 0 10px rgba(61, 44, 53, 0.4)", "0 0 0 rgba(61, 44, 53, 0.3)"] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className={`absolute inset-3 bg-gradient-to-br ${step.bgGradient} rounded-full shadow-lg flex items-center justify-center overflow-hidden`}
+                  animate={{ 
+                    boxShadow: [
+                      "0 0 0 rgba(61, 44, 53, 0.3)", 
+                      "0 0 15px rgba(61, 44, 53, 0.6)", 
+                      "0 0 5px rgba(61, 44, 53, 0.4)",
+                      "0 0 0 rgba(61, 44, 53, 0.3)"
+                    ]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  {/* Subtle background shine effect */}
+                  {/* Enhanced shine effect */}
                   <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-10"
-                    animate={{ x: ["-100%", "100%"] }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+                    animate={{ x: ["-120%", "120%"] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                   />
                   
-                  {/* Icon */}
+                  {/* Secondary subtle radial highlights */}
+                  <div className="absolute inset-0 bg-gradient-radial from-white/30 via-transparent to-transparent opacity-30"></div>
+                  
+                  {/* Icon with enhanced animation */}
                   <motion.div
-                    animate={{ scale: [1, 1.03, 1], rotate: [0, -1, 0, 1, 0] }}
+                    animate={{ 
+                      scale: [1, 1.06, 1, 1.03, 1], 
+                      rotate: [0, -2, 0, 2, 0],
+                      y: [0, -1, 0, 1, 0]
+                    }}
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    className="relative z-10"
                   >
-                    <step.icon className="w-8 h-8 text-white relative z-10" />
+                    <step.icon className="w-10 h-10 text-white drop-shadow-[0_0_3px_rgba(255,255,255,0.5)]" />
                   </motion.div>
                 </motion.div>
                 
-                {/* Step number badge with subtle animation */}
+                {/* Step number badge with enhanced animation */}
                 <motion.div 
-                  className="absolute -right-1 -bottom-1 w-8 h-8 bg-white text-[#3D2C35] rounded-full border-2 border-[#C4B7BD] flex items-center justify-center font-bold text-sm shadow-md"
-                  animate={{ y: [0, -2, 0], x: [0, 1, 0, -1, 0] }}
+                  className="absolute -right-1 -bottom-1 w-9 h-9 bg-white text-[#3D2C35] rounded-full border-2 border-[#C4B7BD] flex items-center justify-center font-bold text-sm shadow-[0_4px_10px_rgba(61,44,53,0.2)]"
+                  animate={{ 
+                    y: [0, -3, 0, -2, 0], 
+                    x: [0, 2, 0, -2, 0],
+                    boxShadow: [
+                      "0 4px 10px rgba(61, 44, 53, 0.2)",
+                      "0 6px 15px rgba(61, 44, 53, 0.3)",
+                      "0 4px 10px rgba(61, 44, 53, 0.2)"
+                    ]
+                  }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 >
                   {step.number}
