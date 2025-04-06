@@ -315,16 +315,16 @@ const TrendingNowVideo = () => {
 
 // TikTok/Instagram video feed for the 3rd grid cell - featuring influencers and their outfits
 const VideoFeedCell = () => {
-  // Array of influencer content with fixed image URLs to prevent empty slides
+  // Array of influencer content with actual video URLs
   const influencerPosts = [
     { 
       id: 1, 
-      duration: 6.5, 
+      duration: 10, 
       delay: 0,
       username: "sophia_styles",
       outfit: "Linen co-ord set",
       views: "436K",
-      imageUrl: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-woman-wearing-an-elegant-dress-walking-in-an-aisle-4820-large.mp4",
       location: "Miami",
       likes: "42.3k",
       comments: "1.2k",
@@ -332,12 +332,12 @@ const VideoFeedCell = () => {
     },
     { 
       id: 2, 
-      duration: 7, 
+      duration: 12, 
       delay: 0.4,
       username: "alex_fashion",
       outfit: "Oversized blazer + cargo pants",
       views: "212K",
-      imageUrl: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-man-under-multicolored-lights-1237-large.mp4",
       location: "New York",
       likes: "38.6k",
       comments: "856",
@@ -345,12 +345,12 @@ const VideoFeedCell = () => {
     },
     { 
       id: 3, 
-      duration: 8, 
+      duration: 15, 
       delay: 0.8,
       username: "trendyemma",
       outfit: "Platform boots + slip dress",
       views: "768K",
-      imageUrl: "https://images.unsplash.com/photo-1618721405821-45c8247bcc4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
       location: "London",
       likes: "76.4k",
       comments: "2.4k",
@@ -471,14 +471,15 @@ const VideoFeedCell = () => {
                   {/* Light gradient overlay at top and bottom to enhance readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 z-10" />
                   
-                  {/* Fashion model images - using the imageUrl directly from data */}
-                  <motion.div 
-                    className="absolute inset-0 bg-center bg-cover"
-                    style={{ 
-                      backgroundImage: `url('${post.imageUrl}')`
-                    }}
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 8, repeat: Infinity }}
+                  {/* Fashion model videos - using actual video elements for TikTok/Reel style content */}
+                  <video 
+                    className="absolute inset-0 w-full h-full object-cover"
+                    src={post.videoUrl}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    key={post.id}
                   />
                   
                   {/* Video effect overlay */}
