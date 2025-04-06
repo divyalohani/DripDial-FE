@@ -142,8 +142,8 @@ export default function NewsletterExamples() {
                 transition={{ delay: 0.2 + (index * 0.2), duration: 0.5 }}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <div className="flex space-x-3 items-start">
-                  <div className="w-10 h-10 rounded-full bg-[#C4B7BD] flex items-center justify-center text-white overflow-hidden">
+                <div className="flex gap-3 items-start">
+                  <div className="min-w-8 w-8 h-8 rounded-full bg-[#C4B7BD]/90 flex items-center justify-center text-white shadow-sm">
                     {reaction.name.charAt(0).toUpperCase()}
                   </div>
                   <div>
