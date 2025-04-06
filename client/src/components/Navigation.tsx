@@ -114,7 +114,7 @@ export default function Navigation() {
             transition={{ duration: 0.5, delay: 0.2 }}
             whileHover={{ scale: 1.05 }}
           >
-            <Link href="/#subscribe" className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-sm hover:shadow-md">
+            <Link href="/#subscribe" className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-sm hover:shadow-md flex">
               <span className="flex items-center">
                 Subscribe Now <i className="fas fa-chevron-right ml-2 text-xs"></i>
               </span>
@@ -182,7 +182,7 @@ export default function Navigation() {
               <div className="pt-2">
                 <Link 
                   href="/#subscribe"
-                  className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-3 rounded-lg font-medium transition-all w-full text-center block shadow-md"
+                  className="bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] text-white px-6 py-3 rounded-lg font-medium transition-all w-full text-center flex justify-center shadow-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="flex items-center justify-center">
