@@ -982,8 +982,21 @@ export default function Hero() {
         </div>
       </div>
       
-      {/* Smooth wave divider with perfect background match */}
-      <div className="w-full h-24 md:h-32 bg-[#F8F6F3] absolute -bottom-1 left-0 right-0" style={{ clipPath: "ellipse(70% 100% at 50% 100%)" }}></div>
+      {/* Wave divider with proper shape and color */}
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden">
+        <svg 
+          viewBox="0 0 1440 120" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg" 
+          preserveAspectRatio="none"
+          className="w-full h-[60px] md:h-[80px]"
+        >
+          <path 
+            d="M0 120L48 108C96 96 192 72 288 60C384 48 480 48 576 54C672 60 768 72 864 78C960 84 1056 84 1152 72C1248 60 1344 36 1392 24L1440 12V120H0Z" 
+            fill="#F8F6F3"
+          />
+        </svg>
+      </div>
     </section>
   );
 }
