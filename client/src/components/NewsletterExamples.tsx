@@ -251,7 +251,7 @@ export default function NewsletterExamples() {
         </div>
 
         <motion.div 
-          className="text-center mt-12"
+          className="text-center mt-12 flex flex-col items-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -259,17 +259,18 @@ export default function NewsletterExamples() {
         >
           <motion.div
             whileHover={{ y: -3, boxShadow: "0 5px 15px rgba(61, 44, 53, 0.2)" }}
+            className="w-full max-w-md"
           >
-            <Link href="/newsletter-preview" className="inline-block bg-white text-[#3D2C35] border border-[#3D2C35] px-6 py-3 rounded-full font-medium hover:bg-[#3D2C35] hover:text-white transition-all mr-4">
+            <Link href="/newsletter-preview" className="flex items-center justify-center w-full bg-white text-[#3D2C35] border border-[#3D2C35] px-6 py-3 rounded-full font-medium hover:bg-[#3D2C35] hover:text-white transition-all">
               <i className="fas fa-envelope-open mr-2"></i>
               See More Newsletter Examples
             </Link>
           </motion.div>
           <motion.div
             whileHover={{ y: -3, boxShadow: "0 10px 25px rgba(61, 44, 53, 0.3)" }}
-            className="inline-block"
+            className="w-full max-w-md"
           >
-            <Link href="#subscribe" className="inline-block bg-[#3D2C35] text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all">
+            <Link href="#subscribe" className="flex items-center justify-center w-full bg-[#3D2C35] text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all">
               <i className="fas fa-arrow-right mr-2"></i>
               Subscribe Now – Join 2K+ Trendsetters
             </Link>
