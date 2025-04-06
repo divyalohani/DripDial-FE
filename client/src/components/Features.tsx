@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import { HashLink } from "./Navigation";
 
 const featuresData = [
   {
@@ -57,8 +57,24 @@ const itemVariants = {
 
 export default function Features() {
   return (
-    <section id="features" className="py-16 md:py-24 bg-[#F8F6F3]">
-      <div className="container mx-auto px-4">
+    <section id="features" className="py-16 md:py-24 bg-[#F8F6F3] relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-20 left-0 w-72 h-72 rounded-full bg-gradient-to-br from-[#C4B7BD]/10 to-transparent blur-3xl"></div>
+      <div className="absolute bottom-32 right-0 w-80 h-80 rounded-full bg-gradient-to-tl from-[#3D2C35]/5 to-transparent blur-3xl"></div>
+      
+      {/* Floating style elements */}
+      <div className="hidden lg:block absolute top-40 right-[10%] w-24 h-24 rounded-full border border-dashed border-[#3D2C35]/20 animate-spin-slow"></div>
+      <div className="hidden lg:block absolute bottom-40 left-[15%] w-16 h-16 rounded-full border border-dotted border-[#C4B7BD]/30 animate-spin-slow-reverse"></div>
+      
+      {/* Small decorative icons */}
+      <div className="hidden lg:flex absolute top-1/4 left-[5%] w-10 h-10 rounded-full bg-white/80 shadow-sm items-center justify-center text-[#3D2C35]/70">
+        <i className="fas fa-tshirt text-sm"></i>
+      </div>
+      <div className="hidden lg:flex absolute bottom-1/3 right-[8%] w-12 h-12 rounded-full bg-white/80 shadow-sm items-center justify-center text-[#3D2C35]/70">
+        <i className="fas fa-shopping-bag text-sm"></i>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2 
             className="font-display text-3xl md:text-4xl font-bold mb-4 text-[#1D1D1F]"
@@ -128,9 +144,9 @@ export default function Features() {
               </div>
             </div>
             <div>
-              <Link href="#subscribe" className="inline-block bg-white text-[#3D2C35] px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all hover:shadow-md transform hover:-translate-y-1">
+              <HashLink href="/#subscribe" className="inline-block bg-white text-[#3D2C35] px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all hover:shadow-md transform hover:-translate-y-1">
                 Join Waitlist
-              </Link>
+              </HashLink>
             </div>
           </div>
         </motion.div>

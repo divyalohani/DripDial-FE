@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Define a HashLink component for smooth scrolling
-function HashLink({ href, children, className, onClick }: { href: string, children: React.ReactNode, className?: string, onClick?: () => void }) {
+export function HashLink({ href, children, className, onClick }: { href: string, children: React.ReactNode, className?: string, onClick?: () => void }) {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     const targetId = href.replace('/#', '');

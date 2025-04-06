@@ -127,3 +127,21 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Background pattern elements */
+.bg-pattern-grid {
+  background-image: 
+    linear-gradient(to right, rgba(196, 183, 189, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(196, 183, 189, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-pattern-dots {
+  background-image: radial-gradient(rgba(196, 183, 189, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Fashion-themed background elements */
+.bg-fashion-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' opacity='0.05'%3E%3Cdefs%3E%3Cpattern id='pattern' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 0 10 A 5 5 0 0 1 5 5 A 5 5 0 0 1 10 10 A 5 5 0 0 1 5 15 A 5 5 0 0 1 0 10 Z' fill='%233D2C35'%3E%3C/path%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23pattern)'%3E%3C/rect%3E%3C/svg%3E");
+}
