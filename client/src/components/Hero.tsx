@@ -315,16 +315,16 @@ const TrendingNowVideo = () => {
 
 // TikTok/Instagram video feed for the 3rd grid cell - featuring influencers and their outfits
 const VideoFeedCell = () => {
-  // Array of influencer content with actual video URLs
+  // Array of influencer content with actual video URLs of real faces
   const influencerPosts = [
     { 
       id: 1, 
       duration: 10, 
       delay: 0,
       username: "sophia_styles",
-      outfit: "Linen co-ord set",
+      outfit: "Summer dress collection",
       views: "436K",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-woman-wearing-an-elegant-dress-walking-in-an-aisle-4820-large.mp4",
+      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-young-woman-posing-for-the-camera-in-a-meadow-39766-large.mp4",
       location: "Miami",
       likes: "42.3k",
       comments: "1.2k",
@@ -335,9 +335,9 @@ const VideoFeedCell = () => {
       duration: 12, 
       delay: 0.4,
       username: "alex_fashion",
-      outfit: "Oversized blazer + cargo pants",
+      outfit: "Street style essentials",
       views: "212K",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-man-under-multicolored-lights-1237-large.mp4",
+      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-young-woman-talking-on-the-camera-to-promote-her-blog-40172-large.mp4",
       location: "New York",
       likes: "38.6k",
       comments: "856",
@@ -348,9 +348,9 @@ const VideoFeedCell = () => {
       duration: 15, 
       delay: 0.8,
       username: "trendyemma",
-      outfit: "Platform boots + slip dress",
+      outfit: "Autumn lookbook 2025",
       views: "768K",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
+      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-young-woman-vlogging-over-a-urban-building-32608-large.mp4",
       location: "London",
       likes: "76.4k",
       comments: "2.4k",
@@ -413,9 +413,9 @@ const VideoFeedCell = () => {
               }}
             >
               <div className="w-full h-full">
-                {/* Overlay gradient effects for videos */}
+                {/* Very subtle overlay for videos - reduced opacity to make faces clearer */}
                 <motion.div
-                  className="absolute inset-0 opacity-60"
+                  className="absolute inset-0 opacity-20"
                   animate={{
                     backgroundPosition: ["0% 0%", "100% 100%"]
                   }}
@@ -432,8 +432,8 @@ const VideoFeedCell = () => {
                   }}
                 />
                 
-                {/* Top user profile bar */}
-                <div className="absolute top-2 left-2 right-2 flex items-center space-x-2 bg-black/30 backdrop-blur-sm p-1.5 rounded-lg z-20">
+                {/* Top user profile bar - minimal design to show faces more clearly */}
+                <div className="absolute top-2 left-2 right-2 flex items-center space-x-2 bg-black/15 backdrop-blur-sm p-1.5 rounded-lg z-20">
                   <motion.div 
                     className="w-7 h-7 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold"
                     whileHover={{ scale: 1.1 }}
@@ -468,8 +468,8 @@ const VideoFeedCell = () => {
                   animate={{ scale: [1, 1.03, 1] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  {/* Light gradient overlay at top and bottom to enhance readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 z-10" />
+                  {/* Very light gradient overlay - reduced opacity to show faces clearly */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 z-10" />
                   
                   {/* Fashion model videos - using actual video elements for TikTok/Reel style content */}
                   <video 
@@ -482,21 +482,21 @@ const VideoFeedCell = () => {
                     key={post.id}
                   />
                   
-                  {/* Video effect overlay */}
+                  {/* Minimal video effect overlay - barely visible to let faces shine through */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-tr from-purple-500/5 via-pink-500/10 to-transparent mix-blend-overlay"
+                    className="absolute inset-0 bg-gradient-to-tr from-purple-500/5 via-pink-500/5 to-transparent mix-blend-overlay"
                     animate={{ 
                       backgroundPosition: ["0% 0%", "100% 100%"],
-                      opacity: [0, 0.2, 0]
+                      opacity: [0, 0.1, 0]
                     }}
                     transition={{ duration: 3, repeat: Infinity }}
                     style={{ backgroundSize: "200% 200%" }}
                   />
                 </motion.div>
                 
-                {/* Outfit tag label */}
+                {/* Outfit tag label - more transparent */}
                 <motion.div
-                  className="absolute left-3 top-[75%] z-20 bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-lg border-l-2 border-pink-500"
+                  className="absolute left-3 top-[75%] z-20 bg-black/20 backdrop-blur-sm px-3 py-1.5 rounded-lg border-l-2 border-pink-500"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: post.delay + 0.5, duration: 0.5 }}
@@ -504,9 +504,9 @@ const VideoFeedCell = () => {
                   <div className="text-white text-sm font-bold">{post.outfit}</div>
                 </motion.div>
                 
-                {/* LIVE indicator */}
+                {/* LIVE indicator - smaller and more transparent */}
                 <motion.div 
-                  className="absolute top-3 right-3 flex items-center space-x-1 px-2 py-1 bg-black/40 backdrop-blur-sm rounded-full z-20"
+                  className="absolute top-3 right-3 flex items-center space-x-1 px-2 py-0.5 bg-black/15 backdrop-blur-sm rounded-full z-20"
                   animate={{ opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
@@ -518,9 +518,9 @@ const VideoFeedCell = () => {
                   <span className="text-white text-[10px]">LIVE</span>
                 </motion.div>
                 
-                {/* Username pill at bottom */}
+                {/* Username pill at bottom - more transparent to show video content */}
                 <motion.div 
-                  className="absolute bottom-3 left-3 z-20 flex items-center space-x-2 bg-black/50 backdrop-blur-sm py-1.5 px-3 rounded-full"
+                  className="absolute bottom-3 left-3 z-20 flex items-center space-x-2 bg-black/30 backdrop-blur-sm py-1.5 px-3 rounded-full"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: post.delay + 0.2 }}
@@ -531,17 +531,17 @@ const VideoFeedCell = () => {
                   <div className="text-white text-sm font-semibold">{post.username}</div>
                 </motion.div>
                 
-                {/* Shop button */}
+                {/* Shop button - smaller and more transparent */}
                 <motion.div 
-                  className="absolute bottom-3 right-3 bg-pink-500 text-white px-3 py-1.5 rounded-full font-bold text-sm z-20 flex items-center space-x-1"
-                  whileHover={{ scale: 1.05, backgroundColor: "#db2777" }}
+                  className="absolute bottom-3 right-3 bg-black/50 text-white px-3 py-1 rounded-full font-medium text-xs z-20 flex items-center space-x-1"
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.7)" }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  animate={{ opacity: 0.8, y: 0 }}
                   transition={{ delay: post.delay + 0.4 }}
                 >
-                  <i className="fas fa-shopping-bag text-xs" />
-                  <span>Shop Now</span>
+                  <i className="fas fa-shopping-bag text-[10px]" />
+                  <span>Shop</span>
                 </motion.div>
                 
                 {/* Animated hearts/likes floating up */}
@@ -585,12 +585,12 @@ const VideoFeedCell = () => {
           </motion.div>
         </div>
         
-        {/* App interface buttons at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 flex justify-around items-center py-1.5 border-t border-gray-800 bg-black/70 backdrop-blur-sm z-20">
+        {/* App interface buttons at bottom - more transparent */}
+        <div className="absolute bottom-0 left-0 right-0 flex justify-around items-center py-1 border-t border-gray-800/50 bg-black/30 backdrop-blur-sm z-20">
           {["home", "search", "plus", "inbox", "user"].map((icon, i) => (
             <motion.div 
               key={icon}
-              className="text-gray-400 text-xs"
+              className="text-gray-300 text-[10px]"
               whileHover={{ scale: 1.2, color: "#fff" }}
               animate={icon === "home" ? { color: "#fff" } : {}}
             >
