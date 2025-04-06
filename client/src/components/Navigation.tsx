@@ -78,12 +78,6 @@ export default function Navigation() {
               <span className="text-[#C4B7BD] font-display text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute">ripDial</span>
             </div>
           </div>
-          <div className="ml-2 relative overflow-hidden rounded-full bg-gradient-to-r from-[#3D2C35] to-[#8F8A95] p-0.5">
-            <div className="px-2 py-0.5 text-xs font-medium text-white">
-              AI-Powered
-            </div>
-            <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 shimmer"></div>
-          </div>
         </motion.div>
         
         {/* Desktop Navigation */}
