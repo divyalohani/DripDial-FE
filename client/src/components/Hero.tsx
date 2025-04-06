@@ -28,15 +28,15 @@ const FloatingElement = ({ delay, duration, size, left, top, className }: any) =
 
 export default function Hero() {
   return (
-    <section className="relative hero-gradient min-h-[80vh] flex items-center overflow-visible">
+    <section className="relative hero-gradient min-h-[80vh] flex items-center overflow-visible pt-24 md:pt-28">
       {/* Animated background elements */}
       <FloatingElement delay={0} duration={5} size="120px" left={10} top={30} className="hidden md:block" />
       <FloatingElement delay={1} duration={7} size="180px" left={85} top={20} className="hidden md:block" />
       <FloatingElement delay={2} duration={6} size="100px" left={60} top={70} className="hidden md:block" />
       <FloatingElement delay={0.5} duration={8} size="150px" left={20} top={80} className="hidden md:block" />
       
-      <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+      <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <motion.div 
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
@@ -129,7 +129,7 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative grid grid-cols-2 gap-3">
+            <div className="relative grid grid-cols-2 gap-4 md:gap-5">
               {/* Top left image - Streetwear */}
               <motion.div 
                 className="overflow-hidden rounded-xl shadow-xl"
@@ -139,7 +139,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Streetwear fashion inspiration" 
-                  className="w-full h-[210px] md:h-[230px] object-cover"
+                  className="w-full h-[240px] md:h-[260px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">street vibes</span>
@@ -155,7 +155,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1603205319065-6c611f3c6e23?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Office chic fashion inspiration" 
-                  className="w-full h-[210px] md:h-[230px] object-cover"
+                  className="w-full h-[240px] md:h-[260px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">office chic</span>
@@ -171,7 +171,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Fall fits fashion inspiration" 
-                  className="w-full h-[210px] md:h-[230px] object-cover"
+                  className="w-full h-[240px] md:h-[260px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">trend alert</span>
@@ -187,7 +187,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Runway inspired fashion" 
-                  className="w-full h-[210px] md:h-[230px] object-cover"
+                  className="w-full h-[240px] md:h-[260px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">runway style</span>
