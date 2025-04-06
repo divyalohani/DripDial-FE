@@ -13,16 +13,16 @@ const features = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-16 md:py-24 relative overflow-hidden">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#F8F6F3] to-[#F0EEE9] -z-10"></div>
+    <section id="pricing" className="py-10 md:py-16 relative overflow-hidden">
+      {/* Solid background color */}
+      <div className="absolute inset-0 bg-white -z-10"></div>
       
       {/* Decorative elements */}
       <div className="absolute top-[10%] left-[5%] w-64 h-64 rounded-full bg-[#C4B7BD]/5 blur-3xl"></div>
       <div className="absolute bottom-[15%] right-[5%] w-72 h-72 rounded-full bg-[#3D2C35]/5 blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <motion.h2 
             className="font-display text-4xl md:text-5xl font-bold mb-4 text-[#3D2C35]"
             initial={{ opacity: 0, y: -10 }}
@@ -39,19 +39,19 @@ export default function Pricing() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Fashion intelligence that won't break the bank. Cancel anytime.
+            Fashion intelligence that won't break the bank.
           </motion.p>
         </div>
 
         <motion.div 
-          className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg border border-[#C4B7BD]/20"
+          className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-md"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           whileHover={{ 
-            y: -5,
-            boxShadow: "0 25px 50px -12px rgba(61, 44, 53, 0.15)",
+            y: -3,
+            boxShadow: "0 20px 40px -10px rgba(61, 44, 53, 0.12)",
             transition: { duration: 0.4 }
           }}
         >
@@ -113,7 +113,7 @@ export default function Pricing() {
               </Link>
             </motion.div>
             
-            <p className="text-center text-sm text-[#8F8A95] mt-4">No contracts. Cancel anytime.</p>
+            {/* Removed "No contracts. Cancel anytime." text */}
           </div>
           
           {/* Social proof */}
