@@ -16,28 +16,28 @@ export default function Pricing() {
     <section id="pricing" className="py-10 md:py-16 relative overflow-hidden">
       {/* Background color and pattern */}
       <div className="absolute inset-0 bg-white -z-10"></div>
-      <div className="absolute inset-0 bg-pattern-dots opacity-[0.04] -z-10"></div>
+      <div className="absolute inset-0 bg-pattern-grid opacity-[0.2] -z-10"></div>
       
       {/* Decorative gradient blobs */}
-      <div className="absolute top-[10%] left-[5%] w-64 h-64 rounded-full bg-[#C4B7BD]/5 blur-3xl"></div>
-      <div className="absolute bottom-[15%] right-[5%] w-72 h-72 rounded-full bg-[#3D2C35]/5 blur-3xl"></div>
+      <div className="absolute top-[10%] left-[5%] w-64 h-64 rounded-full bg-[#C4B7BD]/20 blur-3xl"></div>
+      <div className="absolute bottom-[15%] right-[5%] w-72 h-72 rounded-full bg-[#3D2C35]/15 blur-3xl"></div>
       
       {/* Fashion-themed decorative elements */}
-      <div className="hidden lg:block absolute left-[15%] top-[25%] opacity-[0.04] w-20 h-20">
-        <Shirt strokeWidth={1.5} className="w-full h-full" />
+      <div className="block absolute left-[15%] top-[25%] opacity-[0.15] w-24 h-24">
+        <Shirt strokeWidth={1.5} className="w-full h-full text-[#3D2C35]" />
       </div>
       
-      <div className="hidden lg:block absolute right-[12%] top-[20%] opacity-[0.03] w-16 h-16">
-        <ShoppingBag strokeWidth={1.5} className="w-full h-full" />
+      <div className="block absolute right-[12%] top-[20%] opacity-[0.15] w-20 h-20">
+        <ShoppingBag strokeWidth={1.5} className="w-full h-full text-[#3D2C35]" />
       </div>
       
-      <div className="hidden lg:block absolute left-[10%] bottom-[15%] opacity-[0.03] w-16 h-16">
-        <Tag strokeWidth={1.5} className="w-full h-full" />
+      <div className="block absolute left-[10%] bottom-[15%] opacity-[0.15] w-20 h-20">
+        <Tag strokeWidth={1.5} className="w-full h-full text-[#3D2C35]" />
       </div>
       
       {/* Animated decorative rings */}
-      <div className="hidden lg:block absolute right-[20%] top-[15%] w-32 h-32 rounded-full border border-dashed border-[#3D2C35]/10 animate-spin-slow"></div>
-      <div className="hidden lg:block absolute left-[18%] bottom-[25%] w-20 h-20 rounded-full border border-dotted border-[#C4B7BD]/15 animate-spin-slow-reverse"></div>
+      <div className="block absolute right-[20%] top-[15%] w-40 h-40 rounded-full border-2 border-dashed border-[#3D2C35]/25 animate-spin-slow"></div>
+      <div className="block absolute left-[18%] bottom-[25%] w-32 h-32 rounded-full border-2 border-dotted border-[#C4B7BD]/30 animate-spin-slow-reverse"></div>
       
       <div className="container mx-auto px-4 relative">
         <div className="text-center max-w-3xl mx-auto mb-10">
