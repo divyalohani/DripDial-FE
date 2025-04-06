@@ -124,7 +124,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div 
-            className="relative mx-auto max-w-[90%] md:max-w-[85%]"
+            className="relative mx-auto max-w-[95%] md:max-w-[90%]"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -139,7 +139,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Streetwear fashion inspiration" 
-                  className="w-full h-[180px] md:h-[200px] object-cover"
+                  className="w-full h-[210px] md:h-[230px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">street vibes</span>
@@ -155,7 +155,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1603205319065-6c611f3c6e23?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Office chic fashion inspiration" 
-                  className="w-full h-[180px] md:h-[200px] object-cover"
+                  className="w-full h-[210px] md:h-[230px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">office chic</span>
@@ -171,7 +171,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Fall fits fashion inspiration" 
-                  className="w-full h-[180px] md:h-[200px] object-cover"
+                  className="w-full h-[210px] md:h-[230px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">trend alert</span>
@@ -187,7 +187,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Runway inspired fashion" 
-                  className="w-full h-[180px] md:h-[200px] object-cover"
+                  className="w-full h-[210px] md:h-[230px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">runway style</span>
@@ -231,7 +231,7 @@ export default function Hero() {
       </div>
       
       {/* Peeking element from next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-[#F8F6F3] rounded-t-[50px] shadow-lg"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-8 bg-[#F8F6F3] rounded-t-[100px] shadow-sm"></div>
     </section>
   );
 }
