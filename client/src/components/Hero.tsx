@@ -28,12 +28,12 @@ const FloatingElement = ({ delay, duration, size, left, top, className }: any) =
 
 export default function Hero() {
   return (
-    <section className="relative hero-gradient min-h-screen flex items-center overflow-hidden">
+    <section className="relative hero-gradient min-h-[90vh] flex items-center overflow-hidden">
       {/* Animated background elements */}
-      <FloatingElement delay={0} duration={5} size="100px" left={10} top={30} className="hidden md:block" />
-      <FloatingElement delay={1} duration={7} size="150px" left={85} top={20} className="hidden md:block" />
-      <FloatingElement delay={2} duration={6} size="80px" left={60} top={70} className="hidden md:block" />
-      <FloatingElement delay={0.5} duration={8} size="120px" left={20} top={80} className="hidden md:block" />
+      <FloatingElement delay={0} duration={5} size="120px" left={10} top={30} className="hidden md:block" />
+      <FloatingElement delay={1} duration={7} size="180px" left={85} top={20} className="hidden md:block" />
+      <FloatingElement delay={2} duration={6} size="100px" left={60} top={70} className="hidden md:block" />
+      <FloatingElement delay={0.5} duration={8} size="150px" left={20} top={80} className="hidden md:block" />
       
       <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
