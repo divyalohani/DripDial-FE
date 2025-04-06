@@ -15,18 +15,18 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-10 md:py-16 relative overflow-hidden">
       {/* Background color */}
-      <div className="absolute inset-0 bg-white -z-10"></div>
+      <div className="absolute inset-0 bg-[#FAFAFA] -z-10"></div>
       
-      {/* Subtle decorative gradient elements, similar to hero section */}
-      <div className="absolute -top-[10%] -left-[10%] w-[45%] h-[60%] bg-[#C4B7BD]/5 rounded-full blur-[120px]"></div>
-      <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[65%] bg-[#3D2C35]/3 rounded-full blur-[130px]"></div>
+      {/* More visible decorative gradient elements */}
+      <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[70%] bg-[#C4B7BD]/15 rounded-full blur-[80px]"></div>
+      <div className="absolute -bottom-[10%] -right-[10%] w-[60%] h-[70%] bg-[#3D2C35]/10 rounded-full blur-[100px]"></div>
       
-      {/* Subtle animated background elements */}
+      {/* More visible animated background elements */}
       <motion.div 
-        className="absolute left-[5%] top-[15%] w-72 h-72 bg-[#C4B7BD]/3 rounded-full blur-[80px]"
+        className="absolute left-[5%] top-[15%] w-[500px] h-[500px] bg-gradient-to-r from-[#C4B7BD]/20 to-transparent rounded-full blur-[60px]"
         animate={{
-          scale: [1, 1.05, 1],
-          opacity: [0.3, 0.2, 0.3],
+          scale: [1, 1.1, 1],
+          opacity: [0.4, 0.3, 0.4],
         }}
         transition={{
           duration: 8,
@@ -36,10 +36,10 @@ export default function Pricing() {
       ></motion.div>
       
       <motion.div 
-        className="absolute right-[5%] bottom-[10%] w-80 h-80 bg-[#3D2C35]/3 rounded-full blur-[90px]"
+        className="absolute right-[5%] bottom-[10%] w-[500px] h-[500px] bg-gradient-to-l from-[#3D2C35]/15 to-transparent rounded-full blur-[70px]"
         animate={{
-          scale: [1, 1.08, 1],
-          opacity: [0.3, 0.15, 0.3],
+          scale: [1, 1.15, 1],
+          opacity: [0.4, 0.25, 0.4],
         }}
         transition={{
           duration: 10,

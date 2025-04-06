@@ -95,19 +95,20 @@ export default function NewsletterExamples() {
 
   return (
     <section id="examples" className="py-16 md:py-24 bg-white relative overflow-hidden">
-      {/* Subtle gradient background elements that match the hero section style */}
-      <div className="absolute top-0 left-0 w-full h-[60%] bg-gradient-to-b from-white to-white/0 -z-10"></div>
+      {/* Background color and gradient overlay */}
+      <div className="absolute inset-0 bg-[#FAFAFA] -z-10"></div>
+      <div className="absolute top-0 left-0 w-full h-[70%] bg-gradient-to-b from-white to-transparent -z-9"></div>
       
-      {/* Large subtle gradient blobs */}
-      <div className="absolute -left-[15%] top-[5%] w-[60%] h-[40%] bg-[#C4B7BD]/3 rounded-full blur-[120px] -z-5"></div>
-      <div className="absolute -right-[20%] bottom-[10%] w-[70%] h-[45%] bg-[#3D2C35]/2 rounded-full blur-[150px] -z-5"></div>
+      {/* Large more visible gradient blobs */}
+      <div className="absolute -left-[10%] top-[5%] w-[70%] h-[50%] bg-[#C4B7BD]/15 rounded-full blur-[80px] -z-5"></div>
+      <div className="absolute -right-[10%] bottom-[5%] w-[70%] h-[50%] bg-[#3D2C35]/10 rounded-full blur-[90px] -z-5"></div>
       
-      {/* Animated gradient elements */}
+      {/* More visible animated gradient elements */}
       <motion.div 
-        className="absolute right-[10%] top-[20%] w-96 h-96 bg-[#C4B7BD]/3 rounded-full blur-[100px]"
+        className="absolute right-[5%] top-[15%] w-[600px] h-[600px] bg-gradient-to-tr from-[#C4B7BD]/20 to-transparent rounded-full blur-[70px]"
         animate={{
           scale: [1, 1.1, 1],
-          opacity: [0.2, 0.1, 0.2],
+          opacity: [0.35, 0.2, 0.35],
         }}
         transition={{
           duration: 12,
@@ -117,16 +118,29 @@ export default function NewsletterExamples() {
       ></motion.div>
       
       <motion.div 
-        className="absolute left-[5%] bottom-[15%] w-80 h-80 bg-[#3D2C35]/2 rounded-full blur-[90px]"
+        className="absolute left-[5%] bottom-[10%] w-[550px] h-[550px] bg-gradient-to-bl from-[#3D2C35]/15 to-transparent rounded-full blur-[70px]"
         animate={{
           scale: [1, 1.15, 1],
-          opacity: [0.15, 0.08, 0.15],
+          opacity: [0.3, 0.15, 0.3],
         }}
         transition={{
           duration: 15,
           repeat: Infinity,
           ease: "easeInOut",
           delay: 2
+        }}
+      ></motion.div>
+      
+      {/* Extra accent element */}
+      <motion.div
+        className="absolute left-1/2 top-[30%] transform -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-r from-[#C4B7BD]/5 via-[#3D2C35]/5 to-[#C4B7BD]/5 rounded-full blur-[120px]"
+        animate={{
+          opacity: [0.2, 0.15, 0.2],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
         }}
       ></motion.div>
       
