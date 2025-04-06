@@ -14,30 +14,40 @@ const features = [
 export default function Pricing() {
   return (
     <section id="pricing" className="py-10 md:py-16 relative overflow-hidden">
-      {/* Background color and pattern */}
+      {/* Background color */}
       <div className="absolute inset-0 bg-white -z-10"></div>
-      <div className="absolute inset-0 bg-pattern-grid opacity-[0.2] -z-10"></div>
       
-      {/* Decorative gradient blobs */}
-      <div className="absolute top-[10%] left-[5%] w-64 h-64 rounded-full bg-[#C4B7BD]/20 blur-3xl"></div>
-      <div className="absolute bottom-[15%] right-[5%] w-72 h-72 rounded-full bg-[#3D2C35]/15 blur-3xl"></div>
+      {/* Subtle decorative gradient elements, similar to hero section */}
+      <div className="absolute -top-[10%] -left-[10%] w-[45%] h-[60%] bg-[#C4B7BD]/5 rounded-full blur-[120px]"></div>
+      <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[65%] bg-[#3D2C35]/3 rounded-full blur-[130px]"></div>
       
-      {/* Fashion-themed decorative elements */}
-      <div className="block absolute left-[15%] top-[25%] opacity-[0.15] w-24 h-24">
-        <Shirt strokeWidth={1.5} className="w-full h-full text-[#3D2C35]" />
-      </div>
+      {/* Subtle animated background elements */}
+      <motion.div 
+        className="absolute left-[5%] top-[15%] w-72 h-72 bg-[#C4B7BD]/3 rounded-full blur-[80px]"
+        animate={{
+          scale: [1, 1.05, 1],
+          opacity: [0.3, 0.2, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      ></motion.div>
       
-      <div className="block absolute right-[12%] top-[20%] opacity-[0.15] w-20 h-20">
-        <ShoppingBag strokeWidth={1.5} className="w-full h-full text-[#3D2C35]" />
-      </div>
-      
-      <div className="block absolute left-[10%] bottom-[15%] opacity-[0.15] w-20 h-20">
-        <Tag strokeWidth={1.5} className="w-full h-full text-[#3D2C35]" />
-      </div>
-      
-      {/* Animated decorative rings */}
-      <div className="block absolute right-[20%] top-[15%] w-40 h-40 rounded-full border-2 border-dashed border-[#3D2C35]/25 animate-spin-slow"></div>
-      <div className="block absolute left-[18%] bottom-[25%] w-32 h-32 rounded-full border-2 border-dotted border-[#C4B7BD]/30 animate-spin-slow-reverse"></div>
+      <motion.div 
+        className="absolute right-[5%] bottom-[10%] w-80 h-80 bg-[#3D2C35]/3 rounded-full blur-[90px]"
+        animate={{
+          scale: [1, 1.08, 1],
+          opacity: [0.3, 0.15, 0.3],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      ></motion.div>
       
       <div className="container mx-auto px-4 relative">
         <div className="text-center max-w-3xl mx-auto mb-10">

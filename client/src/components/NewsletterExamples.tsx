@@ -95,29 +95,40 @@ export default function NewsletterExamples() {
 
   return (
     <section id="examples" className="py-16 md:py-24 bg-white relative overflow-hidden">
-      {/* Background pattern elements */}
-      <div className="absolute inset-0 opacity-[0.03] bg-pattern-grid"></div>
+      {/* Subtle gradient background elements that match the hero section style */}
+      <div className="absolute top-0 left-0 w-full h-[60%] bg-gradient-to-b from-white to-white/0 -z-10"></div>
       
-      {/* Floating fashion elements */}
-      <div className="absolute top-1/3 right-0 w-64 h-64 -rotate-6 opacity-[0.03]">
-        <svg className="w-full h-full" viewBox="0 0 24 24" fill="none">
-          <path d="M12 6.44v10.5M20.25 12.75H22.5V18c0 .414-.336.75-.75.75H2.25c-.414 0-.75-.336-.75-.75v-5.25h2.25m16.5 0c0-2.485-2.015-4.5-4.5-4.5-1.033 0-1.987.348-2.75.932m7.25 3.568H3.75m0 0c0-2.485 2.015-4.5 4.5-4.5 1.033 0 1.987.348 2.75.932m-7.25 3.568L12 6.44l8.25 6.31M9.75 15.75h4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-        </svg>
-      </div>
+      {/* Large subtle gradient blobs */}
+      <div className="absolute -left-[15%] top-[5%] w-[60%] h-[40%] bg-[#C4B7BD]/3 rounded-full blur-[120px] -z-5"></div>
+      <div className="absolute -right-[20%] bottom-[10%] w-[70%] h-[45%] bg-[#3D2C35]/2 rounded-full blur-[150px] -z-5"></div>
       
-      <div className="absolute bottom-1/4 left-10 w-32 h-32 rotate-12 opacity-[0.03]">
-        <svg className="w-full h-full" viewBox="0 0 24 24" fill="none">
-          <path d="M3 6.25h18M3 6.25c-.552 0-1-.448-1-1V4c0-.552.448-1 1-1h18c.552 0 1 .448 1 1v1.25c0 .552-.448 1-1 1M3 6.25l.333 3M21 6.25l-.333 3m-17.334 0-.583 5.25M20.667 9.25l-.584 5.25m-16.916 0A.834.834 0 0 0 4 15.334v.416c0 .46.373.834.833.834h14.334c.46 0 .833-.373.833-.834v-.416c0-.46-.373-.834-.833-.834M3.167 14.5l-.5-4.5m18.666 0-.5 4.5M9 20.25v-3.666m6 0v3.666" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-        </svg>
-      </div>
+      {/* Animated gradient elements */}
+      <motion.div 
+        className="absolute right-[10%] top-[20%] w-96 h-96 bg-[#C4B7BD]/3 rounded-full blur-[100px]"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.2, 0.1, 0.2],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      ></motion.div>
       
-      {/* Animated circles */}
-      <div className="hidden lg:block absolute left-[5%] top-40 w-40 h-40 border border-dashed border-[#C4B7BD]/20 rounded-full animate-spin-slow"></div>
-      <div className="hidden lg:block absolute right-[8%] bottom-60 w-24 h-24 border border-dotted border-[#3D2C35]/10 rounded-full animate-spin-slow-reverse"></div>
-      
-      {/* Gradient blobs */}
-      <div className="absolute left-0 top-1/3 w-96 h-96 bg-gradient-to-r from-[#C4B7BD]/5 to-transparent rounded-full blur-3xl opacity-50"></div>
-      <div className="absolute right-0 bottom-0 w-80 h-80 bg-gradient-to-l from-[#3D2C35]/5 to-transparent rounded-full blur-3xl opacity-50"></div>
+      <motion.div 
+        className="absolute left-[5%] bottom-[15%] w-80 h-80 bg-[#3D2C35]/2 rounded-full blur-[90px]"
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.15, 0.08, 0.15],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+      ></motion.div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12">
