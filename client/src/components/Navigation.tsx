@@ -5,12 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 export function HashLink({ href, children, className, onClick }: { href: string, children: React.ReactNode, className?: string, onClick?: () => void }) {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
+    
+    // Handle mobile menu closing first if onClick is provided
+    if (onClick) {
+      onClick();
+    }
+    
+    // Extract ID from href and scroll to it
     const targetId = href.replace('/#', '');
     const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      window.history.pushState(null, "", href);
-      if (onClick) onClick();
+      // Small delay to allow mobile menu to close first
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, "", href);
+      }, 100);
     }
   };
 
@@ -58,6 +67,24 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  // Handle clicks outside the menu to close it
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      // Check if click is outside the menu and not on the toggle button
+      const isOutsideMenu = !target.closest('.mobile-menu') && !target.closest('.menu-toggle');
+      
+      if (isMenuOpen && isOutsideMenu) {
+        setIsMenuOpen(false);
+      }
+    };
+    
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -139,7 +166,7 @@ export default function Navigation() {
         
         {/* Mobile Menu Button */}
         <motion.button 
-          className="md:hidden text-[#3D2C35] p-2"
+          className="md:hidden text-[#3D2C35] p-2 menu-toggle"
           onClick={toggleMenu}
           aria-label="Toggle menu"
           initial={{ opacity: 0 }}
@@ -155,10 +182,10 @@ export default function Navigation() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            className="md:hidden bg-[#F8F6F3]/95 backdrop-blur-md absolute w-full"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0, transition: { duration: 0.2 } }}
+            className="md:hidden bg-[#F8F6F3] backdrop-blur-xl fixed top-16 left-0 right-0 shadow-lg z-40 mobile-menu"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
             transition={{ duration: 0.3 }}
           >
             <div className="flex flex-col space-y-4 p-6">
