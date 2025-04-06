@@ -57,11 +57,11 @@ const itemVariants = {
 
 export default function Features() {
   return (
-    <section id="features" className="py-16 md:py-24 bg-beige">
+    <section id="features" className="py-16 md:py-24 bg-[#F8F6F3]">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2 
-            className="font-display text-3xl md:text-4xl font-bold mb-4"
+            className="font-display text-3xl md:text-4xl font-bold mb-4 text-[#1D1D1F]"
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -70,9 +70,9 @@ export default function Features() {
             What You'll Get
           </motion.h2>
           <motion.p 
-            className="text-lg opacity-80"
+            className="text-lg text-[#8F8A95]"
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 0.8 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
@@ -93,17 +93,17 @@ export default function Features() {
               className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
               variants={itemVariants}
             >
-              <div className="w-12 h-12 bg-plum bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                <i className={`fas ${feature.icon} text-plum text-xl`}></i>
+              <div className="w-12 h-12 bg-[#C4B7BD] bg-opacity-10 rounded-full flex items-center justify-center mb-4">
+                <i className={`fas ${feature.icon} text-[#3D2C35] text-xl`}></i>
               </div>
-              <h3 className="font-display text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="opacity-80">{feature.description}</p>
+              <h3 className="font-display text-xl font-semibold mb-3 text-[#1D1D1F]">{feature.title}</h3>
+              <p className="text-[#8F8A95]">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>
 
         <motion.div 
-          className="mt-12 bg-plum text-white p-8 md:p-10 rounded-xl"
+          className="mt-12 bg-[#3D2C35] text-white p-8 md:p-10 rounded-xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -112,7 +112,7 @@ export default function Features() {
           <div className="md:flex justify-between items-center">
             <div className="mb-6 md:mb-0 md:mr-8">
               <div className="flex items-center mb-3">
-                <span className="bg-white text-plum text-xs font-bold px-3 py-1 rounded-full mr-3">COMING SOON</span>
+                <span className="bg-white text-[#3D2C35] text-xs font-bold px-3 py-1 rounded-full mr-3">COMING SOON</span>
                 <h3 className="font-display text-2xl font-semibold">AI Stylist Add-on</h3>
               </div>
               <p className="text-white text-opacity-90 mb-4">Send a photo of yourself or your outfit and get personalized feedback, suggestions, and styling tips from our AI stylist.</p>
@@ -128,7 +128,7 @@ export default function Features() {
               </div>
             </div>
             <div>
-              <Link href="#subscribe" className="inline-block bg-white text-plum px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all hover:shadow-md transform hover:-translate-y-1">
+              <Link href="#subscribe" className="inline-block bg-white text-[#3D2C35] px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all hover:shadow-md transform hover:-translate-y-1">
                 Join Waitlist
               </Link>
             </div>
