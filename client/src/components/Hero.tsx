@@ -88,7 +88,7 @@ const FloatingElement = ({ delay, duration, size, left, top, color, className = 
   );
 };
 
-// This is a smaller trending now video for the last grid cell
+// This is a smaller trending now video for the last grid cell - styled after the screenshot
 const TrendingNowVideo = () => {
   return (
     <motion.div 
@@ -96,52 +96,74 @@ const TrendingNowVideo = () => {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.5 }}
-      whileHover={{ scale: 1.05, rotate: -1 }}
+      whileHover={{ scale: 1.05 }}
     >
-      <div className="w-full h-full overflow-hidden rounded-xl shadow-lg bg-black relative">
-        <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 px-2 py-1 flex items-center justify-between">
-          <span className="text-white text-xs font-bold">Trending</span>
-          <motion.i 
-            className="fas fa-fire text-white text-xs"
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
+      <div className="w-full h-full overflow-hidden rounded-xl shadow-lg bg-white relative">
+        <div className="absolute -top-4 -right-2 bg-black text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+          HOT!
         </div>
-        <div className="relative h-full">
-          <motion.div 
-            className="absolute inset-0"
-            animate={{ 
-              background: [
-                "linear-gradient(45deg, #ff3cab 0%, #784BA0 50%, #2B86C5 100%)",
-                "linear-gradient(45deg, #2B86C5 0%, #784BA0 50%, #ff3cab 100%)"
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-          />
-          
-          <div className="absolute inset-0 flex flex-col justify-center items-center p-3">
-            <motion.div
-              className="flex flex-col items-center"
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <motion.div 
-                className="w-10 h-10 rounded-full bg-white flex items-center justify-center"
-                animate={{ scale: [1, 1.1, 1] }}
+        <div className="p-3 flex flex-col h-full">
+          <div className="flex items-center space-x-3 mb-3">
+            <div className="w-12 h-12 flex-shrink-0 rounded-xl bg-purple-500 flex items-center justify-center text-white">
+              <motion.i 
+                className="fas fa-chart-line text-xl"
+                animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
+              />
+            </div>
+            <div>
+              <h3 className="font-bold text-black text-base">Trending Now</h3>
+              <div className="text-xs text-gray-500">Updated 2 hours ago</div>
+            </div>
+          </div>
+          
+          <div className="space-y-3 mt-1">
+            <motion.div 
+              className="flex items-center space-x-2 border-l-2 border-pink-500 pl-2"
+              whileHover={{ x: 5 }}
+              animate={{ y: [0, 3, 0] }}
+              transition={{ duration: 3, delay: 0.1, repeat: Infinity }}
+            >
+              <span className="text-sm font-medium text-gray-600">Platform Boots</span>
+              <motion.span 
+                className="text-xs text-green-500 font-bold"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
               >
-                <i className="fas fa-chart-line text-pink-500 text-xs"></i>
-              </motion.div>
-              <span className="text-[10px] font-bold text-white mt-2">HOTTEST TREND</span>
+                +165%
+              </motion.span>
             </motion.div>
             
             <motion.div 
-              className="mt-3 text-center text-white text-xs font-medium"
-              animate={{ opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              className="flex items-center space-x-2 border-l-2 border-blue-500 pl-2"
+              whileHover={{ x: 5 }}
+              animate={{ y: [0, 3, 0] }}
+              transition={{ duration: 3, delay: 0.3, repeat: Infinity }}
             >
-              Cargo Pants
-              <span className="block text-[10px] text-green-300">+124% this week</span>
+              <span className="text-sm font-medium text-gray-600">Cargo Pants</span>
+              <motion.span 
+                className="text-xs text-green-500 font-bold"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                +124%
+              </motion.span>
+            </motion.div>
+            
+            <motion.div 
+              className="flex items-center space-x-2 border-l-2 border-yellow-500 pl-2"
+              whileHover={{ x: 5 }}
+              animate={{ y: [0, 3, 0] }}
+              transition={{ duration: 3, delay: 0.5, repeat: Infinity }}
+            >
+              <span className="text-sm font-medium text-gray-600">Baggy Jeans</span>
+              <motion.span 
+                className="text-xs text-green-500 font-bold"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                +98%
+              </motion.span>
             </motion.div>
           </div>
         </div>
@@ -427,95 +449,7 @@ export default function Hero() {
       <FloatingElement delay={1.2} duration={8} size="120px" left={65} top={60} color="linear-gradient(135deg, rgba(143, 138, 149, 0.1), rgba(143, 138, 149, 0.05))" className="hidden md:block" />
       <FloatingElement delay={0.5} duration={10} size="180px" left={20} top={75} color="linear-gradient(135deg, rgba(61, 44, 53, 0.1), rgba(61, 44, 53, 0.05))" className="hidden md:block" />
       
-      {/* Large floating fashion trends badge */}
-      <motion.div 
-        className="absolute left-[8%] bottom-[10%] bg-white p-4 rounded-2xl shadow-xl z-30 max-w-[250px] hidden md:block"
-        initial={{ opacity: 0, y: 50, rotate: -5 }}
-        animate={{ 
-          opacity: 1, 
-          y: 0, 
-          rotate: [-5, 5, -5],
-          boxShadow: ["0 10px 25px rgba(0,0,0,0.1)", "0 20px 35px rgba(0,0,0,0.2)", "0 10px 25px rgba(0,0,0,0.1)"]
-        }}
-        transition={{ 
-          duration: 8,
-          repeat: Infinity, 
-          delay: 0.5 
-        }}
-      >
-        <div className="relative">
-          <div className="absolute -top-7 -right-5 bg-black text-white text-sm px-3 py-1 rounded-full transform rotate-12 font-bold">
-            HOT!
-          </div>
-          <div className="flex items-center space-x-3 mb-3">
-            <motion.div 
-              className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center text-white"
-              animate={{ rotate: [0, 10, 0, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity }}
-            >
-              <motion.i 
-                className="fas fa-chart-line text-xl"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-            </motion.div>
-            <div>
-              <h3 className="font-bold text-black">Trending Now</h3>
-              <div className="text-xs text-gray-500">Updated 2 hours ago</div>
-            </div>
-          </div>
-          
-          <div className="space-y-3">
-            <motion.div 
-              className="flex items-center space-x-2 border-l-2 border-pink-500 pl-2"
-              whileHover={{ x: 5 }}
-              animate={{ y: [0, 3, 0] }}
-              transition={{ duration: 3, delay: 0.1, repeat: Infinity }}
-            >
-              <span className="text-sm font-medium">Platform Boots</span>
-              <motion.span 
-                className="text-xs text-green-500 font-bold"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                +165%
-              </motion.span>
-            </motion.div>
-            
-            <motion.div 
-              className="flex items-center space-x-2 border-l-2 border-blue-500 pl-2"
-              whileHover={{ x: 5 }}
-              animate={{ y: [0, 3, 0] }}
-              transition={{ duration: 3, delay: 0.3, repeat: Infinity }}
-            >
-              <span className="text-sm font-medium">Cargo Pants</span>
-              <motion.span 
-                className="text-xs text-green-500 font-bold"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                +124%
-              </motion.span>
-            </motion.div>
-            
-            <motion.div 
-              className="flex items-center space-x-2 border-l-2 border-yellow-500 pl-2"
-              whileHover={{ x: 5 }}
-              animate={{ y: [0, 3, 0] }}
-              transition={{ duration: 3, delay: 0.5, repeat: Infinity }}
-            >
-              <span className="text-sm font-medium">Baggy Jeans</span>
-              <motion.span 
-                className="text-xs text-green-500 font-bold"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                +98%
-              </motion.span>
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
+      {/* No more floating fashion trends badge - moved to grid cell */}
       
       <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
