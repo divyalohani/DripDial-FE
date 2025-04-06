@@ -94,10 +94,10 @@ export default function NewsletterExamples() {
   };
 
   return (
-    <section id="examples" className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section id="examples" className="py-16 md:py-24 bg-[#F8F8F9] relative overflow-hidden">
       {/* Background color and gradient overlay */}
-      <div className="absolute inset-0 bg-[#FAFAFA] -z-10"></div>
-      <div className="absolute top-0 left-0 w-full h-[70%] bg-gradient-to-b from-white to-transparent -z-9"></div>
+      <div className="absolute inset-0 bg-[#F8F8F9] -z-10"></div>
+      <div className="absolute top-0 left-0 w-full h-[70%] bg-gradient-to-b from-[#F8F8F9] to-transparent -z-9"></div>
       
       {/* Large more visible gradient blobs - responsive sizing */}
       <div className="absolute -left-[15%] top-[5%] w-[80%] md:w-[70%] h-[40%] md:h-[50%] bg-[#C4B7BD]/15 rounded-full blur-[60px] md:blur-[80px] -z-5"></div>
