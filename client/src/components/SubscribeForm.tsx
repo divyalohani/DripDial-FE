@@ -195,7 +195,7 @@ export default function SubscribeForm() {
                             <FormControl>
                               <Input 
                                 placeholder="What should we call you?" 
-                                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" 
+                                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent bg-white" 
                                 {...field} 
                               />
                             </FormControl>
@@ -221,7 +221,7 @@ export default function SubscribeForm() {
                               <Input 
                                 placeholder="Where should we send your fashion intel?" 
                                 type="email"
-                                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" 
+                                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent bg-white" 
                                 {...field} 
                               />
                             </FormControl>

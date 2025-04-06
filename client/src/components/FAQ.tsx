@@ -55,7 +55,7 @@ export default function FAQ() {
           </motion.p>
         </div>
 
-        <div className="max-w-3xl mx-auto divide-y">
+        <div className="max-w-3xl mx-auto divide-y divide-gray-200">
           {faqItems.map((item, index) => (
             <div key={index} className="py-6">
               <button 
@@ -64,7 +64,7 @@ export default function FAQ() {
               >
                 <h3 className="font-display text-xl font-semibold">{item.question}</h3>
                 <motion.i 
-                  className={`fas ${openItem === index ? 'fa-chevron-up' : 'fa-chevron-down'} text-plum`}
+                  className={`fas ${openItem === index ? 'fa-chevron-up' : 'fa-chevron-down'} text-black`}
                   animate={{ rotate: openItem === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 ></motion.i>
