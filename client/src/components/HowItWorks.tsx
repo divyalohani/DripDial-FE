@@ -65,7 +65,7 @@ export default function HowItWorks() {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12 relative">
+        <div className="grid md:grid-cols-3 gap-16 md:gap-12 relative">
           {/* Enhanced connecting elements */}
           <div className="hidden md:block absolute top-[4.5rem] left-[10%] right-[10%] z-0">
             {/* Main connecting path */}
@@ -153,7 +153,7 @@ export default function HowItWorks() {
           {steps.map((step, index) => (
             <motion.div 
               key={index} 
-              className="text-center relative z-10 bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-8 shadow-md border border-[#C4B7BD]/20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBvcGFjaXR5PSIwLjAyIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgeD0iMCIgeT0iMCIgd2lkdGg9IjE1IiBoZWlnaHQ9IjE1IiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDAgNSBDIDAgMy45IDEuNCAzIDIuNSAzIEMgMy42IDMgNSAzLjkgNSA1IEMgNSA2LjEgMy42IDcgMi41IDcgQyAxLjQgNyAwIDYuMSAwIDUgWiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIj48L3JlY3Q+PC9zdmc+')]"
+              className="text-center relative z-10 bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-8 pt-20 shadow-md border border-[#C4B7BD]/20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBvcGFjaXR5PSIwLjAyIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgeD0iMCIgeT0iMCIgd2lkdGg9IjE1IiBoZWlnaHQ9IjE1IiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDAgNSBDIDAgMy45IDEuNCAzIDIuNSAzIEMgMy42IDMgNSAzLjkgNSA1IEMgNSA2LjEgMy42IDcgMi41IDcgQyAxLjQgNyAwIDYuMSAwIDUgWiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIj48L3JlY3Q+PC9zdmc+')]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -165,7 +165,7 @@ export default function HowItWorks() {
               }}
             >
               <motion.div 
-                className="w-28 h-28 relative mx-auto mb-8 transform -mt-16"
+                className="w-28 h-28 relative mx-auto mb-12 transform -mt-20"
                 whileHover={{ scale: 1.08, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >

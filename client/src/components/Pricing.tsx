@@ -83,7 +83,7 @@ export default function Pricing() {
             transition: { duration: 0.4 }
           }}
         >
-          <div className="p-8 md:p-8">
+          <div className="p-6 md:p-8">
             <div className="flex justify-between items-start mb-6">
               <div>
                 <h3 className="font-display text-2xl font-bold mb-1 text-[#3D2C35]">DripDial Newsletter</h3>
@@ -143,7 +143,7 @@ export default function Pricing() {
           </div>
           
           {/* Social proof */}
-          <div className="border-t border-[#F0EEE9] px-8 py-4 flex items-center">
+          <div className="border-t border-[#F0EEE9] px-4 md:px-8 py-4 flex items-center">
             <motion.div 
               className="flex -space-x-2 mr-3"
               initial={{ opacity: 0, x: -10 }}
@@ -169,7 +169,7 @@ export default function Pricing() {
         
         {/* Limited time offer badge */}
         <motion.div
-          className="absolute md:right-1/4 md:-bottom-3 bottom-2 right-1/2 transform translate-x-1/2 md:translate-x-0"
+          className="absolute md:right-1/4 md:bottom-4 bottom-4 left-1/2 transform -translate-x-1/2 md:translate-x-0 md:left-auto z-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -181,10 +181,10 @@ export default function Pricing() {
           // Separate animation transition
           style={{ animationDuration: "6s", animationIterationCount: "infinite" }}
         >
-          <div className="bg-[#3D2C35] text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
+          <div className="bg-[#3D2C35] text-white px-4 py-2 rounded-lg shadow-lg text-xs md:text-sm font-medium whitespace-nowrap">
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 rounded-full bg-[#C4B7BD] animate-pulse"></div>
-              <span>Limited Time Offer - Founding Members Only</span>
+              <span>Limited Time Offer - <span className="hidden md:inline">Founding Members Only</span><span className="inline md:hidden">Founders Only</span></span>
             </div>
           </div>
         </motion.div>
