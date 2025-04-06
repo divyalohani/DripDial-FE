@@ -226,14 +226,11 @@ export default function HowItWorks() {
               <p className="text-[#8F8A95] mb-6">{step.description}</p>
               
               <div className="pt-4 border-t border-dashed border-[#C4B7BD]/30">
-                <motion.button 
-                  className="inline-flex items-center justify-center gap-2 text-[#3D2C35] font-medium hover:text-[#3D2C35]/80 transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <span className="mr-1">Learn More</span>
-                  <ArrowRight className="w-4 h-4" />
-                </motion.button>
+                <div className="flex items-center justify-center">
+                  <div className="px-3 py-1 rounded-full bg-[#C4B7BD]/10 text-[#3D2C35] text-sm font-medium">
+                    Step {index + 1} of 3
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
