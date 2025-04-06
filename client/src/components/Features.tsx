@@ -58,19 +58,19 @@ const itemVariants = {
 export default function Features() {
   return (
     <section id="features" className="py-16 md:py-24 bg-[#F8F6F3] relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-20 left-0 w-72 h-72 rounded-full bg-gradient-to-br from-[#C4B7BD]/10 to-transparent blur-3xl"></div>
-      <div className="absolute bottom-32 right-0 w-80 h-80 rounded-full bg-gradient-to-tl from-[#3D2C35]/5 to-transparent blur-3xl"></div>
+      {/* Background decorative elements - responsive sizing */}
+      <div className="absolute top-20 -left-[10%] md:left-0 w-[80vw] md:w-72 h-[80vw] md:h-72 rounded-full bg-gradient-to-br from-[#C4B7BD]/15 to-transparent blur-[60px] md:blur-3xl"></div>
+      <div className="absolute bottom-32 -right-[10%] md:right-0 w-[80vw] md:w-80 h-[80vw] md:h-80 rounded-full bg-gradient-to-tl from-[#3D2C35]/10 to-transparent blur-[60px] md:blur-3xl"></div>
       
-      {/* Floating style elements */}
-      <div className="hidden lg:block absolute top-40 right-[10%] w-24 h-24 rounded-full border border-dashed border-[#3D2C35]/20 animate-spin-slow"></div>
-      <div className="hidden lg:block absolute bottom-40 left-[15%] w-16 h-16 rounded-full border border-dotted border-[#C4B7BD]/30 animate-spin-slow-reverse"></div>
+      {/* Floating style elements - with mobile versions */}
+      <div className="block absolute top-40 right-[5%] md:right-[10%] w-16 md:w-24 h-16 md:h-24 rounded-full border border-dashed border-[#3D2C35]/20 animate-spin-slow"></div>
+      <div className="block absolute bottom-40 left-[5%] md:left-[15%] w-12 md:w-16 h-12 md:h-16 rounded-full border border-dotted border-[#C4B7BD]/30 animate-spin-slow-reverse"></div>
       
-      {/* Small decorative icons */}
-      <div className="hidden lg:flex absolute top-1/4 left-[5%] w-10 h-10 rounded-full bg-white/80 shadow-sm items-center justify-center text-[#3D2C35]/70">
+      {/* Small decorative icons - with selective mobile display */}
+      <div className="hidden md:flex absolute top-1/4 left-[5%] w-10 h-10 rounded-full bg-white/80 shadow-sm items-center justify-center text-[#3D2C35]/70">
         <i className="fas fa-tshirt text-sm"></i>
       </div>
-      <div className="hidden lg:flex absolute bottom-1/3 right-[8%] w-12 h-12 rounded-full bg-white/80 shadow-sm items-center justify-center text-[#3D2C35]/70">
+      <div className="flex absolute bottom-1/2 right-[8%] w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/80 shadow-sm items-center justify-center text-[#3D2C35]/70">
         <i className="fas fa-shopping-bag text-sm"></i>
       </div>
       
@@ -119,7 +119,7 @@ export default function Features() {
         </motion.div>
 
         <motion.div 
-          className="mt-12 bg-[#3D2C35] text-white p-8 md:p-10 rounded-xl shadow-lg"
+          className="mt-12 bg-[#3D2C35] text-white p-6 md:p-10 rounded-xl shadow-lg"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -127,26 +127,31 @@ export default function Features() {
         >
           <div className="md:flex justify-between items-center">
             <div className="mb-6 md:mb-0 md:mr-8">
-              <div className="flex items-center mb-3">
-                <span className="bg-white text-[#3D2C35] text-xs font-bold px-3 py-1 rounded-full mr-3">COMING SOON</span>
-                <h3 className="font-display text-2xl font-semibold text-white">AI Stylist Add-on</h3>
+              <div className="flex flex-wrap items-center mb-3">
+                <span className="bg-white text-[#3D2C35] text-xs font-bold px-3 py-1 rounded-full mr-3 mb-2 md:mb-0 inline-block">COMING SOON</span>
+                <h3 className="font-display text-xl md:text-2xl font-semibold text-white">AI Stylist Add-on</h3>
               </div>
-              <p className="text-white text-opacity-90 mb-4">Send a photo of yourself or your outfit and get personalized feedback, suggestions, and styling tips from our AI stylist.</p>
+              <p className="text-white text-opacity-90 mb-4 text-sm md:text-base">Send a photo of yourself or your outfit and get personalized feedback, suggestions, and styling tips from our AI stylist.</p>
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white">
+                <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white flex-shrink-0">
                   <img 
                     src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120" 
                     alt="User" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="text-sm italic text-white">"Just like having a personal stylist in your pocket!"</p>
+                <p className="text-xs md:text-sm italic text-white">"Just like having a personal stylist in your pocket!"</p>
               </div>
             </div>
-            <div>
-              <HashLink href="/#subscribe" className="inline-block bg-white text-[#3D2C35] px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all hover:shadow-md transform hover:-translate-y-1">
-                Join Waitlist
-              </HashLink>
+            <div className="flex justify-center md:justify-start">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <HashLink href="/#subscribe" className="inline-block bg-white text-[#3D2C35] px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all shadow-md">
+                  Join Waitlist
+                </HashLink>
+              </motion.div>
             </div>
           </div>
         </motion.div>

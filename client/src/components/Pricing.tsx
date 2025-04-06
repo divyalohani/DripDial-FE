@@ -17,13 +17,13 @@ export default function Pricing() {
       {/* Background color */}
       <div className="absolute inset-0 bg-[#FAFAFA] -z-10"></div>
       
-      {/* More visible decorative gradient elements */}
-      <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[70%] bg-[#C4B7BD]/15 rounded-full blur-[80px]"></div>
-      <div className="absolute -bottom-[10%] -right-[10%] w-[60%] h-[70%] bg-[#3D2C35]/10 rounded-full blur-[100px]"></div>
+      {/* More visible decorative gradient elements - with mobile adjustments */}
+      <div className="absolute -top-[15%] -left-[15%] md:-top-[10%] md:-left-[10%] w-[80%] md:w-[60%] h-[50%] md:h-[70%] bg-[#C4B7BD]/15 rounded-full blur-[60px] md:blur-[80px]"></div>
+      <div className="absolute -bottom-[15%] -right-[15%] md:-bottom-[10%] md:-right-[10%] w-[80%] md:w-[60%] h-[50%] md:h-[70%] bg-[#3D2C35]/10 rounded-full blur-[70px] md:blur-[100px]"></div>
       
-      {/* More visible animated background elements */}
+      {/* More visible animated background elements - responsive sizing */}
       <motion.div 
-        className="absolute left-[5%] top-[15%] w-[500px] h-[500px] bg-gradient-to-r from-[#C4B7BD]/20 to-transparent rounded-full blur-[60px]"
+        className="absolute left-[2%] top-[15%] w-[80vw] md:w-[500px] h-[80vw] md:h-[500px] bg-gradient-to-r from-[#C4B7BD]/20 to-transparent rounded-full blur-[60px]"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.4, 0.3, 0.4],
@@ -36,7 +36,7 @@ export default function Pricing() {
       ></motion.div>
       
       <motion.div 
-        className="absolute right-[5%] bottom-[10%] w-[500px] h-[500px] bg-gradient-to-l from-[#3D2C35]/15 to-transparent rounded-full blur-[70px]"
+        className="absolute right-[2%] bottom-[10%] w-[90vw] md:w-[500px] h-[90vw] md:h-[500px] bg-gradient-to-l from-[#3D2C35]/15 to-transparent rounded-full blur-[50px] md:blur-[70px]"
         animate={{
           scale: [1, 1.15, 1],
           opacity: [0.4, 0.25, 0.4],

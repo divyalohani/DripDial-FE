@@ -99,13 +99,13 @@ export default function NewsletterExamples() {
       <div className="absolute inset-0 bg-[#FAFAFA] -z-10"></div>
       <div className="absolute top-0 left-0 w-full h-[70%] bg-gradient-to-b from-white to-transparent -z-9"></div>
       
-      {/* Large more visible gradient blobs */}
-      <div className="absolute -left-[10%] top-[5%] w-[70%] h-[50%] bg-[#C4B7BD]/15 rounded-full blur-[80px] -z-5"></div>
-      <div className="absolute -right-[10%] bottom-[5%] w-[70%] h-[50%] bg-[#3D2C35]/10 rounded-full blur-[90px] -z-5"></div>
+      {/* Large more visible gradient blobs - responsive sizing */}
+      <div className="absolute -left-[15%] top-[5%] w-[80%] md:w-[70%] h-[40%] md:h-[50%] bg-[#C4B7BD]/15 rounded-full blur-[60px] md:blur-[80px] -z-5"></div>
+      <div className="absolute -right-[15%] bottom-[5%] w-[80%] md:w-[70%] h-[40%] md:h-[50%] bg-[#3D2C35]/10 rounded-full blur-[60px] md:blur-[90px] -z-5"></div>
       
-      {/* More visible animated gradient elements */}
+      {/* More visible animated gradient elements - responsive sizing */}
       <motion.div 
-        className="absolute right-[5%] top-[15%] w-[600px] h-[600px] bg-gradient-to-tr from-[#C4B7BD]/20 to-transparent rounded-full blur-[70px]"
+        className="absolute right-[5%] top-[15%] w-[80vw] md:w-[600px] h-[80vw] md:h-[600px] bg-gradient-to-tr from-[#C4B7BD]/20 to-transparent rounded-full blur-[50px] md:blur-[70px]"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.35, 0.2, 0.35],
@@ -118,7 +118,7 @@ export default function NewsletterExamples() {
       ></motion.div>
       
       <motion.div 
-        className="absolute left-[5%] bottom-[10%] w-[550px] h-[550px] bg-gradient-to-bl from-[#3D2C35]/15 to-transparent rounded-full blur-[70px]"
+        className="absolute left-[2%] bottom-[10%] w-[85vw] md:w-[550px] h-[85vw] md:h-[550px] bg-gradient-to-bl from-[#3D2C35]/15 to-transparent rounded-full blur-[50px] md:blur-[70px]"
         animate={{
           scale: [1, 1.15, 1],
           opacity: [0.3, 0.15, 0.3],
@@ -131,9 +131,9 @@ export default function NewsletterExamples() {
         }}
       ></motion.div>
       
-      {/* Extra accent element */}
+      {/* Extra accent element - responsive sizing */}
       <motion.div
-        className="absolute left-1/2 top-[30%] transform -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-r from-[#C4B7BD]/5 via-[#3D2C35]/5 to-[#C4B7BD]/5 rounded-full blur-[120px]"
+        className="absolute left-1/2 top-[30%] transform -translate-x-1/2 w-[100vw] md:w-[800px] h-[200px] md:h-[300px] bg-gradient-to-r from-[#C4B7BD]/5 via-[#3D2C35]/5 to-[#C4B7BD]/5 rounded-full blur-[80px] md:blur-[120px]"
         animate={{
           opacity: [0.2, 0.15, 0.2],
         }}
@@ -207,6 +207,30 @@ export default function NewsletterExamples() {
         </motion.div>
 
         <div className="relative overflow-visible py-8">
+          {/* Mobile carousel nav buttons */}
+          <div className="flex justify-between items-center mb-4 md:hidden">
+            <motion.button 
+              className="w-9 h-9 bg-white shadow-md rounded-full flex items-center justify-center text-[#3D2C35] hover:bg-[#3D2C35] hover:text-white transition-colors"
+              onClick={prevSlide}
+              whileTap={{ scale: 0.95 }}
+            >
+              <i className="fas fa-chevron-left"></i>
+            </motion.button>
+            
+            <span className="text-xs font-medium text-[#8F8A95]">
+              Swipe to explore
+            </span>
+            
+            <motion.button 
+              className="w-9 h-9 bg-white shadow-md rounded-full flex items-center justify-center text-[#3D2C35] hover:bg-[#3D2C35] hover:text-white transition-colors"
+              onClick={nextSlide}
+              whileTap={{ scale: 0.95 }}
+            >
+              <i className="fas fa-chevron-right"></i>
+            </motion.button>
+          </div>
+          
+          {/* Desktop nav buttons */}
           <motion.button 
             className="absolute top-1/2 -translate-y-1/2 left-4 z-10 w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center hover:bg-[#3D2C35] hover:text-white transition-colors md:flex hidden"
             onClick={prevSlide}
@@ -225,11 +249,12 @@ export default function NewsletterExamples() {
             <i className="fas fa-chevron-right"></i>
           </motion.button>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Mobile horizontal scroll for cards */}
+          <div className="md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 flex flex-nowrap overflow-x-auto pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible md:pb-0 snap-x snap-mandatory no-scrollbar">
             {newsletterExamples.map((newsletter, index) => (
               <motion.div 
                 key={newsletter.id}
-                className="newsletter-preview bg-white rounded-xl overflow-hidden shadow-md border border-[#E0DED9]"
+                className="newsletter-preview bg-white rounded-xl overflow-hidden shadow-md border border-[#E0DED9] flex-shrink-0 w-[85%] md:w-auto mr-4 md:mr-0 snap-start snap-always"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -289,11 +314,11 @@ export default function NewsletterExamples() {
           </div>
 
           {/* Mobile indicators */}
-          <div className="flex justify-center space-x-2 mt-8 md:hidden">
+          <div className="flex justify-center space-x-2 mt-6 md:hidden">
             {newsletterExamples.map((_, index) => (
               <button 
                 key={index}
-                className={`w-2 h-2 rounded-full ${index === activeSlide ? 'bg-[#3D2C35]' : 'bg-[#C4B7BD]/50'}`}
+                className={`w-2 h-2 rounded-full transition-all ${index === activeSlide ? 'bg-[#3D2C35] w-4' : 'bg-[#C4B7BD]/50'}`}
                 onClick={() => goToSlide(index)}
               ></button>
             ))}
