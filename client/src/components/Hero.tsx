@@ -88,7 +88,7 @@ const FloatingElement = ({ delay, duration, size, left, top, color, className = 
   );
 };
 
-// This is a smaller trending now video for the last grid cell - styled after the screenshot
+// This is a smaller trending now video for the last grid cell - styled as a dark theme with moving elements
 const TrendingNowVideo = () => {
   return (
     <motion.div 
@@ -98,35 +98,108 @@ const TrendingNowVideo = () => {
       transition={{ duration: 0.8, delay: 0.5 }}
       whileHover={{ scale: 1.05 }}
     >
-      <div className="w-full h-full overflow-hidden rounded-xl shadow-lg bg-white relative">
-        <div className="absolute -top-4 -right-2 bg-black text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+      <div className="w-full h-full overflow-hidden rounded-xl shadow-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-black relative">
+        {/* Animated background effects */}
+        <motion.div 
+          className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(45,45,45,0.2)_0%,transparent_50%)]"
+          animate={{ 
+            backgroundPosition: ["0% 0%", "100% 100%"],
+            opacity: [0.6, 0.2, 0.6]
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity, 
+            repeatType: "reverse" 
+          }}
+        />
+        
+        {/* Floating dots/sparkles */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`sparkle-${i}`}
+            className="absolute w-1.5 h-1.5 rounded-full bg-purple-500/70"
+            style={{ 
+              left: `${Math.random() * 100}%`, 
+              top: `${Math.random() * 100}%` 
+            }}
+            animate={{ 
+              opacity: [0, 0.7, 0],
+              scale: [0, 1, 0],
+              y: [0, -15, 0]
+            }}
+            transition={{ 
+              duration: 3 + Math.random() * 2,
+              delay: Math.random() * 2,
+              repeat: Infinity,
+              repeatType: "loop"
+            }}
+          />
+        ))}
+        
+        <div className="absolute -top-4 -right-2 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-lg shadow-pink-500/30">
           HOT!
         </div>
-        <div className="p-3 flex flex-col h-full">
+        
+        {/* Content container */}
+        <div className="p-3 flex flex-col h-full backdrop-blur-sm relative z-10">
           <div className="flex items-center space-x-3 mb-2">
-            <div className="w-8 h-8 flex-shrink-0 rounded-md bg-purple-500 flex items-center justify-center text-white">
+            <motion.div 
+              className="w-8 h-8 flex-shrink-0 rounded-md bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center text-white shadow-lg shadow-purple-500/30"
+              animate={{ 
+                boxShadow: [
+                  "0 0 0px rgba(168, 85, 247, 0.4)",
+                  "0 0 15px rgba(168, 85, 247, 0.7)",
+                  "0 0 0px rgba(168, 85, 247, 0.4)"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
               <motion.i 
                 className="fas fa-chart-line text-sm"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-            </div>
+            </motion.div>
             <div>
-              <h3 className="font-bold text-black text-sm">Trending Now</h3>
-              <div className="text-xs text-gray-500">Updated 2 hours ago</div>
+              <h3 className="font-bold text-white text-sm">Trending Now</h3>
+              <div className="text-xs text-gray-400">Updated 2 hours ago</div>
             </div>
           </div>
           
+          {/* Animated line under the header */}
+          <motion.div 
+            className="h-0.5 w-full bg-gradient-to-r from-purple-500 via-pink-500 to-transparent mb-2.5"
+            animate={{ 
+              opacity: [0.5, 1, 0.5],
+              backgroundPosition: ["0% 0%", "100% 0%"]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          />
+          
           <div className="space-y-2 mt-1">
+            {/* Moving pulse effect behind the first item */}
             <motion.div 
-              className="flex items-center justify-between space-x-2 border-l-2 border-pink-500 pl-2"
-              whileHover={{ x: 5 }}
+              className="absolute left-1 w-3/4 h-6 rounded-md bg-pink-500/10"
+              animate={{ 
+                y: [31, 31],
+                opacity: [0, 0.5, 0]
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity,
+                repeatDelay: 6
+              }}
+            />
+            
+            <motion.div 
+              className="flex items-center justify-between space-x-2 border-l-2 border-pink-500 pl-2 relative z-20"
+              whileHover={{ x: 5, backgroundColor: "rgba(236, 72, 153, 0.1)" }}
               animate={{ y: [0, 2, 0] }}
               transition={{ duration: 3, delay: 0.1, repeat: Infinity }}
             >
-              <span className="text-xs font-medium text-gray-600">Linen Shirt</span>
+              <span className="text-xs font-medium text-gray-300">Linen Shirt</span>
               <motion.span 
-                className="text-xs text-green-500 font-bold"
+                className="text-xs text-green-400 font-bold"
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
@@ -134,15 +207,30 @@ const TrendingNowVideo = () => {
               </motion.span>
             </motion.div>
             
+            {/* Moving pulse effect behind second item */}
             <motion.div 
-              className="flex items-center justify-between space-x-2 border-l-2 border-blue-500 pl-2"
-              whileHover={{ x: 5 }}
+              className="absolute left-1 w-3/4 h-6 rounded-md bg-blue-500/10"
+              animate={{ 
+                y: [60, 60],
+                opacity: [0, 0.5, 0]
+              }}
+              transition={{ 
+                duration: 3, 
+                delay: 3,
+                repeat: Infinity,
+                repeatDelay: 6
+              }}
+            />
+            
+            <motion.div 
+              className="flex items-center justify-between space-x-2 border-l-2 border-blue-500 pl-2 relative z-20"
+              whileHover={{ x: 5, backgroundColor: "rgba(59, 130, 246, 0.1)" }}
               animate={{ y: [0, 2, 0] }}
               transition={{ duration: 3, delay: 0.2, repeat: Infinity }}
             >
-              <span className="text-xs font-medium text-gray-600">Slip Skirt</span>
+              <span className="text-xs font-medium text-gray-300">Slip Skirt</span>
               <motion.span 
-                className="text-xs text-green-500 font-bold"
+                className="text-xs text-green-400 font-bold"
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
@@ -151,14 +239,14 @@ const TrendingNowVideo = () => {
             </motion.div>
             
             <motion.div 
-              className="flex items-center justify-between space-x-2 border-l-2 border-purple-500 pl-2"
-              whileHover={{ x: 5 }}
+              className="flex items-center justify-between space-x-2 border-l-2 border-purple-500 pl-2 relative z-20"
+              whileHover={{ x: 5, backgroundColor: "rgba(168, 85, 247, 0.1)" }}
               animate={{ y: [0, 2, 0] }}
               transition={{ duration: 3, delay: 0.3, repeat: Infinity }}
             >
-              <span className="text-xs font-medium text-gray-600">Platform Boots</span>
+              <span className="text-xs font-medium text-gray-300">Platform Boots</span>
               <motion.span 
-                className="text-xs text-green-500 font-bold"
+                className="text-xs text-green-400 font-bold"
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
@@ -167,14 +255,14 @@ const TrendingNowVideo = () => {
             </motion.div>
             
             <motion.div 
-              className="flex items-center justify-between space-x-2 border-l-2 border-blue-400 pl-2"
-              whileHover={{ x: 5 }}
+              className="flex items-center justify-between space-x-2 border-l-2 border-blue-400 pl-2 relative z-20"
+              whileHover={{ x: 5, backgroundColor: "rgba(96, 165, 250, 0.1)" }}
               animate={{ y: [0, 2, 0] }}
               transition={{ duration: 3, delay: 0.4, repeat: Infinity }}
             >
-              <span className="text-xs font-medium text-gray-600">Cargo Pants</span>
+              <span className="text-xs font-medium text-gray-300">Cargo Pants</span>
               <motion.span 
-                className="text-xs text-green-500 font-bold"
+                className="text-xs text-green-400 font-bold"
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
@@ -183,14 +271,14 @@ const TrendingNowVideo = () => {
             </motion.div>
             
             <motion.div 
-              className="flex items-center justify-between space-x-2 border-l-2 border-yellow-500 pl-2"
-              whileHover={{ x: 5 }}
+              className="flex items-center justify-between space-x-2 border-l-2 border-yellow-500 pl-2 relative z-20"
+              whileHover={{ x: 5, backgroundColor: "rgba(245, 158, 11, 0.1)" }}
               animate={{ y: [0, 2, 0] }}
               transition={{ duration: 3, delay: 0.5, repeat: Infinity }}
             >
-              <span className="text-xs font-medium text-gray-600">Baggy Jeans</span>
+              <span className="text-xs font-medium text-gray-300">Baggy Jeans</span>
               <motion.span 
-                className="text-xs text-green-500 font-bold"
+                className="text-xs text-green-400 font-bold"
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
@@ -198,6 +286,27 @@ const TrendingNowVideo = () => {
               </motion.span>
             </motion.div>
           </div>
+          
+          {/* Animated trend indicator */}
+          <motion.div 
+            className="absolute bottom-3 right-3 w-8 h-8 rounded-full overflow-hidden border border-gray-700 shadow-inner"
+            whileHover={{ scale: 1.2 }}
+          >
+            <motion.div 
+              className="h-full w-full bg-gradient-to-t from-green-500 to-gray-800"
+              animate={{ 
+                y: ["50%", "0%"],
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "loop"
+              }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center text-[8px] text-white font-semibold">
+              RISING
+            </div>
+          </motion.div>
         </div>
       </div>
     </motion.div>
