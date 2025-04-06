@@ -111,29 +111,51 @@ const VideoFeed = () => {
 
   return (
     <motion.div 
-      className="absolute top-10 right-10 z-20 hidden md:block"
+      className="absolute top-[90px] right-[35px] z-50 block"
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 1 }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+      drag
+      dragConstraints={{ top: 0, left: 0, right: 100, bottom: 100 }}
+      whileDrag={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05, boxShadow: "0 25px 30px rgba(0,0,0,0.3)" }}
     >
-      <div className="w-[120px] overflow-hidden rounded-2xl shadow-2xl bg-black">
-        <div className="flex items-center justify-between px-2 py-1">
+      <div className="w-[160px] overflow-hidden rounded-2xl shadow-2xl bg-black relative">
+        <motion.div 
+          className="absolute -top-3 -right-3 z-50 flex items-center justify-center w-8 h-8 rounded-full bg-black shadow-lg text-white text-xs"
+          whileHover={{ rotate: 90 }}
+          animate={{ rotate: [0, 5, 0, -5, 0] }}
+          transition={{ duration: 5, repeat: Infinity }}
+        >
+          <i className="fas fa-sync-alt"></i>
+        </motion.div>
+        
+        {/* TikTok/Instagram header */}
+        <div className="flex items-center justify-between px-3 py-2 border-b border-gray-800">
+          <div className="flex items-center space-x-2">
+            <motion.div 
+              className="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center text-white text-[10px]"
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <i className="fas fa-fire"></i>
+            </motion.div>
+            <span className="text-white text-xs font-bold">TrendFeed</span>
+          </div>
           <div className="w-20 h-1 bg-gray-700 rounded-full overflow-hidden">
             <motion.div 
-              className="h-full bg-white"
+              className="h-full bg-gradient-to-r from-pink-500 to-purple-500"
               animate={{ width: ["0%", "100%"] }}
               transition={{ 
-                duration: 10, 
+                duration: 8, 
                 repeat: Infinity,
                 ease: "linear"
               }}
             />
           </div>
-          <div className="text-white text-xs">
-            <i className="fas fa-times"></i>
-          </div>
         </div>
-        <div className="relative h-[200px]">
+        
+        <div className="relative h-[280px]">
           {videoItems.map((item, index) => (
             <motion.div
               key={item.id}
@@ -147,14 +169,14 @@ const VideoFeed = () => {
                 duration: item.duration,
                 delay: index === 0 ? 0 : item.delay,
                 repeat: Infinity,
-                repeatDelay: 6,
+                repeatDelay: 4,
                 times: [0, 0.1, 1],
                 ease: "easeInOut"
               }}
             >
               <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black">
                 <motion.div
-                  className="absolute inset-0 opacity-40"
+                  className="absolute inset-0 opacity-70"
                   animate={{
                     backgroundPosition: ["0% 0%", "100% 100%"]
                   }}
@@ -169,38 +191,124 @@ const VideoFeed = () => {
                     backgroundSize: "cover"
                   }}
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-2 text-white">
+                
+                {/* Moving Fashion elements */}
+                <motion.div
+                  className="absolute w-12 h-12 rounded-full bg-pink-500/20 backdrop-blur-sm z-10"
+                  style={{ top: '15%', left: '15%' }}
+                  animate={{ 
+                    scale: [1, 1.5, 1],
+                    x: [0, 20, 0],
+                    y: [0, -10, 0],
+                  }}
+                  transition={{ 
+                    duration: 4, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                <motion.div
+                  className="absolute w-8 h-8 rounded-md bg-blue-500/30 backdrop-blur-sm rotate-45 z-10"
+                  style={{ top: '50%', right: '15%' }}
+                  animate={{ 
+                    rotate: [45, 90, 45],
+                    scale: [1, 1.2, 1],
+                    y: [0, 15, 0]
+                  }}
+                  transition={{ 
+                    duration: 6, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
                   <motion.div 
                     className="flex items-center space-x-1"
                     animate={{ y: [20, 0] }}
                     transition={{ duration: 0.3, delay: item.delay + 0.2 }}
                   >
-                    <div className="w-4 h-4 rounded-full bg-white flex-shrink-0"></div>
-                    <div className="text-[8px] truncate font-medium">fashion_trends</div>
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex-shrink-0 flex items-center justify-center">
+                      <motion.i 
+                        className="fas fa-bolt text-[8px] text-white"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      />
+                    </div>
+                    <div className="text-xs truncate font-medium">fashion_trends</div>
                   </motion.div>
+                  
                   <motion.div 
-                    className="text-[7px] mt-1 line-clamp-2"
+                    className="text-[11px] mt-2 line-clamp-2 bg-black/20 backdrop-blur-sm p-2 rounded-md"
                     animate={{ opacity: [0, 1] }}
                     transition={{ duration: 0.3, delay: item.delay + 0.3 }}
                   >
-                    These Y2K trends are making a comeback for summer #fashion #trends
+                    These Y2K trends are making a comeback for summer! 🔥 #fashion #trends
                   </motion.div>
+                  
+                  {/* Animated hearts floating up */}
+                  <div className="absolute left-[30%] bottom-16 h-20">
+                    {[1, 2, 3, 4].map((i) => (
+                      <motion.div
+                        key={`heart-${i}`}
+                        className="absolute text-pink-500 text-[8px]"
+                        initial={{ opacity: 0, y: 0 }}
+                        animate={{ 
+                          opacity: [0, 1, 0],
+                          y: -30,
+                          x: Math.random() * 10 - 5
+                        }}
+                        transition={{ 
+                          duration: 2,
+                          delay: item.delay + i * 0.5,
+                          repeat: Infinity,
+                          repeatDelay: item.duration - 2
+                        }}
+                      >
+                        <i className="fas fa-heart" />
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
                 
                 {/* Animated likes, comments count */}
                 <motion.div
-                  className="absolute right-2 bottom-10 flex flex-col items-center space-y-2"
+                  className="absolute right-3 bottom-16 flex flex-col items-center space-y-4"
                   animate={{ opacity: [0, 1] }}
                   transition={{ duration: 0.3, delay: item.delay + 0.4 }}
                 >
-                  <div className="flex flex-col items-center">
-                    <i className="fas fa-heart text-[8px]"></i>
-                    <span className="text-[6px]">24.5k</span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <i className="fas fa-comment text-[8px]"></i>
-                    <span className="text-[6px]">1.2k</span>
-                  </div>
+                  <motion.div 
+                    className="flex flex-col items-center"
+                    whileHover={{ scale: 1.2 }}
+                  >
+                    <motion.div
+                      className="w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      <i className="fas fa-heart text-pink-500 text-xs"></i>
+                    </motion.div>
+                    <span className="text-[10px] font-medium text-white mt-1">24.5k</span>
+                  </motion.div>
+                  
+                  <motion.div className="flex flex-col items-center">
+                    <div className="w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center">
+                      <i className="fas fa-comment text-white text-xs"></i>
+                    </div>
+                    <span className="text-[10px] font-medium text-white mt-1">1.2k</span>
+                  </motion.div>
+                  
+                  <motion.div className="flex flex-col items-center">
+                    <motion.div
+                      className="w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
+                      animate={{ rotate: [0, 360] }}
+                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                    >
+                      <i className="fas fa-share text-white text-xs"></i>
+                    </motion.div>
+                    <span className="text-[10px] font-medium text-white mt-1">342</span>
+                  </motion.div>
                 </motion.div>
               </div>
             </motion.div>
@@ -208,18 +316,43 @@ const VideoFeed = () => {
           
           {/* Feed scrolling indicator */}
           <motion.div
-            className="absolute top-2 left-2 right-2 h-1 bg-gray-800 rounded-full overflow-hidden z-30"
+            className="absolute top-2 left-2 right-2 h-1.5 bg-gray-800 rounded-full overflow-hidden z-30"
             animate={{ opacity: [0, 1] }}
             transition={{ delay: 1 }}
           >
             <motion.div
-              className="h-full bg-white"
+              className="h-full bg-gradient-to-r from-pink-500 to-purple-500"
               animate={{ width: ["0%", "100%"] }}
-              transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
             />
           </motion.div>
         </div>
+        
+        {/* App interface buttons at bottom */}
+        <div className="flex justify-around items-center py-1.5 border-t border-gray-800">
+          {["home", "search", "plus", "inbox", "user"].map((icon, i) => (
+            <motion.div 
+              key={icon}
+              className="text-gray-500 text-xs"
+              whileHover={{ scale: 1.2, color: "#fff" }}
+              animate={icon === "home" ? { color: "#fff" } : {}}
+            >
+              <i className={`fas fa-${icon === "plus" ? "plus-square" : icon}`}></i>
+            </motion.div>
+          ))}
+        </div>
       </div>
+      
+      {/* Floating badge with "drag me" hint */}
+      <motion.div
+        className="absolute -top-6 -right-2 bg-black text-white text-xs px-2 py-1 rounded-full shadow-lg"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2 }}
+        exit={{ opacity: 0, y: 10 }}
+      >
+        Drag me! <i className="fas fa-arrows-alt ml-1"></i>
+      </motion.div>
     </motion.div>
   );
 };
@@ -283,6 +416,96 @@ export default function Hero() {
       {/* Add TikTok/Instagram-like video feed */}
       <VideoFeed />
       
+      {/* Large floating fashion trends badge */}
+      <motion.div 
+        className="absolute left-[8%] bottom-[10%] bg-white p-4 rounded-2xl shadow-xl z-30 max-w-[250px] hidden md:block"
+        initial={{ opacity: 0, y: 50, rotate: -5 }}
+        animate={{ 
+          opacity: 1, 
+          y: 0, 
+          rotate: [-5, 5, -5],
+          boxShadow: ["0 10px 25px rgba(0,0,0,0.1)", "0 20px 35px rgba(0,0,0,0.2)", "0 10px 25px rgba(0,0,0,0.1)"]
+        }}
+        transition={{ 
+          duration: 8,
+          repeat: Infinity, 
+          delay: 0.5 
+        }}
+      >
+        <div className="relative">
+          <div className="absolute -top-7 -right-5 bg-black text-white text-sm px-3 py-1 rounded-full transform rotate-12 font-bold">
+            HOT!
+          </div>
+          <div className="flex items-center space-x-3 mb-3">
+            <motion.div 
+              className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center text-white"
+              animate={{ rotate: [0, 10, 0, -10, 0] }}
+              transition={{ duration: 5, repeat: Infinity }}
+            >
+              <motion.i 
+                className="fas fa-chart-line text-xl"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </motion.div>
+            <div>
+              <h3 className="font-bold text-black">Trending Now</h3>
+              <div className="text-xs text-gray-500">Updated 2 hours ago</div>
+            </div>
+          </div>
+          
+          <div className="space-y-3">
+            <motion.div 
+              className="flex items-center space-x-2 border-l-2 border-pink-500 pl-2"
+              whileHover={{ x: 5 }}
+              animate={{ y: [0, 3, 0] }}
+              transition={{ duration: 3, delay: 0.1, repeat: Infinity }}
+            >
+              <span className="text-sm font-medium">Platform Boots</span>
+              <motion.span 
+                className="text-xs text-green-500 font-bold"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                +165%
+              </motion.span>
+            </motion.div>
+            
+            <motion.div 
+              className="flex items-center space-x-2 border-l-2 border-blue-500 pl-2"
+              whileHover={{ x: 5 }}
+              animate={{ y: [0, 3, 0] }}
+              transition={{ duration: 3, delay: 0.3, repeat: Infinity }}
+            >
+              <span className="text-sm font-medium">Cargo Pants</span>
+              <motion.span 
+                className="text-xs text-green-500 font-bold"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                +124%
+              </motion.span>
+            </motion.div>
+            
+            <motion.div 
+              className="flex items-center space-x-2 border-l-2 border-yellow-500 pl-2"
+              whileHover={{ x: 5 }}
+              animate={{ y: [0, 3, 0] }}
+              transition={{ duration: 3, delay: 0.5, repeat: Infinity }}
+            >
+              <span className="text-sm font-medium">Baggy Jeans</span>
+              <motion.span 
+                className="text-xs text-green-500 font-bold"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                +98%
+              </motion.span>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+      
       <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <motion.div 
@@ -326,13 +549,6 @@ export default function Hero() {
                 <br/>
                 <motion.span
                   className="relative inline-block"
-                  animate={controlsTitle}
-                  style={{
-                    backgroundImage: "linear-gradient(90deg, #000, #000)",
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "0 90%",
-                    backgroundSize: "0% 6px",
-                  }}
                 >
                   Before They Explode
                 </motion.span>
