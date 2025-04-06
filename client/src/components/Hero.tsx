@@ -313,12 +313,46 @@ const TrendingNowVideo = () => {
   );
 };
 
-// TikTok/Instagram video feed for the 3rd grid cell
+// TikTok/Instagram video feed for the 3rd grid cell - featuring influencers and their outfits
 const VideoFeedCell = () => {
-  const videoItems = [
-    { id: 1, duration: 6, delay: 0 },
-    { id: 2, duration: 7, delay: 0.3 },
-    { id: 3, duration: 8, delay: 0.6 }
+  // Array of influencer content
+  const influencerPosts = [
+    { 
+      id: 1, 
+      duration: 6.5, 
+      delay: 0,
+      username: "sophia_styles",
+      outfit: "Linen co-ord set",
+      caption: "Summer staple you NEED 😍 This linen set is perfect for hot days! #SummerFit #LinenLove",
+      location: "Miami",
+      likes: "42.3k",
+      comments: "1.2k",
+      gradient: "linear-gradient(45deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)"
+    },
+    { 
+      id: 2, 
+      duration: 7, 
+      delay: 0.4,
+      username: "alex_fashion",
+      outfit: "Oversized blazer + cargo pants",
+      caption: "Business casual with an edge! Obsessed with this blazer combo 🔥 #OOTD #LayeringGame",
+      location: "New York",
+      likes: "38.6k",
+      comments: "856",
+      gradient: "linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%)"
+    },
+    { 
+      id: 3, 
+      duration: 8, 
+      delay: 0.8,
+      username: "trendyemma",
+      outfit: "Platform boots + slip dress",
+      caption: "The contrast of feminine and edgy is EVERYTHING! 💯 #StyleHack #FashionTok",
+      location: "London",
+      likes: "76.4k",
+      comments: "2.4k",
+      gradient: "linear-gradient(45deg, #8c1bab 0%, #F953C6 50%, #ff8787 100%)"
+    }
   ];
 
   return (
@@ -331,30 +365,35 @@ const VideoFeedCell = () => {
       transition={{ duration: 0.3 }}
     >
       <div className="w-full h-full bg-gradient-to-br from-gray-900 via-pink-900 to-black overflow-hidden rounded-xl relative">
-        <div className="flex items-center justify-between px-3 py-2 border-b border-gray-800">
+        <div className="flex items-center justify-between px-3 py-2 border-b border-gray-800 relative z-20">
           <div className="flex items-center space-x-2">
             <motion.div 
-              className="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center text-white text-[10px]"
-              animate={{ scale: [1, 1.1, 1] }}
+              className="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center text-white text-[10px] shadow-lg shadow-pink-500/30"
+              animate={{ 
+                scale: [1, 1.1, 1],
+                boxShadow: [
+                  "0 0 0px rgba(236, 72, 153, 0.3)",
+                  "0 0 10px rgba(236, 72, 153, 0.6)",
+                  "0 0 0px rgba(236, 72, 153, 0.3)"
+                ]
+              }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
               <i className="fas fa-fire"></i>
             </motion.div>
-            <span className="text-white text-xs font-bold">TrendFeed</span>
+            <span className="text-white text-xs font-bold">StyleFeed</span>
           </div>
-          <div className="w-14 h-1 bg-gray-700 rounded-full overflow-hidden">
-            <motion.div 
-              className="h-full bg-gradient-to-r from-pink-500 to-purple-500"
-              animate={{ width: ["0%", "100%"] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            />
+          
+          <div className="flex items-center space-x-2">
+            <i className="fas fa-caret-down text-white text-[10px]"></i>
+            <i className="fas fa-ellipsis-v text-white text-[10px]"></i>
           </div>
         </div>
         
         <div className="relative flex-1" style={{ height: "calc(100% - 60px)" }}>
-          {videoItems.map((item, index) => (
+          {influencerPosts.map((post, index) => (
             <motion.div
-              key={item.id}
+              key={post.id}
               className="absolute inset-0 overflow-hidden"
               initial={{ y: "100%" }}
               animate={{ 
@@ -362,8 +401,8 @@ const VideoFeedCell = () => {
                 zIndex: [10 - index, 10 - index, 0]
               }}
               transition={{
-                duration: item.duration,
-                delay: index === 0 ? 0 : item.delay,
+                duration: post.duration,
+                delay: index === 0 ? 0 : post.delay,
                 repeat: Infinity,
                 repeatDelay: 2,
                 times: [0, 0.1, 1],
@@ -371,131 +410,173 @@ const VideoFeedCell = () => {
               }}
             >
               <div className="w-full h-full">
+                {/* Background gradient - simulating influencer outfit photo/video */}
                 <motion.div
                   className="absolute inset-0 opacity-90"
                   animate={{
                     backgroundPosition: ["0% 0%", "100% 100%"]
                   }}
                   transition={{
-                    duration: item.duration / 2,
+                    duration: post.duration / 2,
                     repeat: Infinity,
                     repeatType: "reverse",
                     ease: "linear"
                   }}
                   style={{
-                    backgroundImage: index % 2 === 0 ? 
-                      "linear-gradient(45deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)" :
-                      "linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%)",
+                    backgroundImage: post.gradient,
                     backgroundSize: "200% 200%"
                   }}
                 />
                 
-                {/* Moving Fashion elements */}
-                <motion.div
-                  className="absolute w-8 h-8 rounded-full bg-pink-500/20 backdrop-blur-sm z-10"
-                  style={{ top: '15%', left: '15%' }}
-                  animate={{ 
-                    scale: [1, 1.5, 1],
-                    x: [0, 15, 0],
-                    y: [0, -10, 0],
-                  }}
-                  transition={{ 
-                    duration: 4, 
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
+                {/* Top user profile bar */}
+                <div className="absolute top-2 left-2 right-2 flex items-center space-x-2 bg-black/30 backdrop-blur-sm p-1.5 rounded-lg z-20">
                   <motion.div 
-                    className="flex items-center space-x-1"
-                    animate={{ y: [20, 0] }}
-                    transition={{ duration: 0.3, delay: item.delay + 0.2 }}
+                    className="w-7 h-7 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold"
+                    whileHover={{ scale: 1.1 }}
                   >
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex-shrink-0 flex items-center justify-center">
-                      <motion.i 
-                        className="fas fa-bolt text-[8px] text-white"
+                    {post.username.charAt(0).toUpperCase()}
+                  </motion.div>
+                  <div className="flex-1">
+                    <div className="text-white text-xs font-semibold flex items-center">
+                      {post.username}
+                      <motion.div 
+                        className="ml-1 w-3 h-3 rounded-full bg-blue-500 flex items-center justify-center"
                         animate={{ scale: [1, 1.2, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
-                      />
-                    </div>
-                    <div className="text-xs truncate font-medium">fashion_trends</div>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="text-[11px] mt-2 line-clamp-2 bg-black/30 backdrop-blur-sm p-2 rounded-md"
-                    animate={{ opacity: [0, 1] }}
-                    transition={{ duration: 0.3, delay: item.delay + 0.3 }}
-                  >
-                    {index % 3 === 0 ? 
-                      "OMG these cut-out dresses are EVERYTHING! 💖 #TrendAlert #MustHave" : 
-                      index % 3 === 1 ? 
-                      "Platform boots + baggy jeans = iconic combo!! 🔥 #StyleHack #OOTD" : 
-                      "Obsessed with this color-block aesthetic! 🤩 #FashionTok #Viral"
-                    }
-                  </motion.div>
-                  
-                  {/* Animated hearts floating up */}
-                  <div className="absolute left-[30%] bottom-16 h-20">
-                    {[1, 2, 3, 4].map((i) => (
-                      <motion.div
-                        key={`heart-${i}`}
-                        className="absolute text-pink-500 text-[8px]"
-                        initial={{ opacity: 0, y: 0 }}
-                        animate={{ 
-                          opacity: [0, 1, 0],
-                          y: -30,
-                          x: Math.random() * 10 - 5
-                        }}
-                        transition={{ 
-                          duration: 2,
-                          delay: item.delay + i * 0.5,
-                          repeat: Infinity,
-                          repeatDelay: item.duration - 2
-                        }}
                       >
-                        <i className="fas fa-heart" />
+                        <i className="fas fa-check text-[6px] text-white"></i>
                       </motion.div>
-                    ))}
+                    </div>
+                    <div className="text-[9px] text-gray-300">{post.location}</div>
+                  </div>
+                  <motion.button 
+                    className="text-white bg-pink-500 text-[10px] px-2 py-0.5 rounded-full font-medium"
+                    whileHover={{ scale: 1.05, backgroundColor: "#db2777" }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Follow
+                  </motion.button>
+                </div>
+                
+                {/* Outfit tags */}
+                <motion.div
+                  className="absolute left-3 top-16 z-20 bg-black/40 backdrop-blur-sm px-2 py-1 rounded-lg border-l-2 border-pink-500"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: post.delay + 0.5, duration: 0.5 }}
+                >
+                  <div className="text-white text-[10px] font-semibold">TODAY'S FIT:</div>
+                  <div className="text-white/90 text-[9px]">{post.outfit}</div>
+                </motion.div>
+                
+                {/* Fashion outfit elements - simulating actual outfit elements being shown */}
+                <motion.div
+                  className="absolute w-full h-full flex items-center justify-center"
+                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                >
+                  {/* Center outfit silhouette - outlined to represent the outfit */}
+                  <motion.div
+                    className="relative w-[100px] h-[230px] border-2 border-white/30 rounded-2xl overflow-hidden"
+                    animate={{ scale: [1, 1.05, 1], borderColor: ["rgba(255,255,255,0.2)", "rgba(255,255,255,0.4)", "rgba(255,255,255,0.2)"] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  >
+                    {/* Animated highlight to simulate outfit movement */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0"
+                      animate={{ 
+                        backgroundPosition: ["0% 0%", "100% 100%"],
+                        opacity: [0, 0.5, 0]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      style={{ backgroundSize: "200% 200%" }}
+                    />
+                  </motion.div>
+                </motion.div>
+                
+                {/* Bottom content - caption, likes, etc. */}
+                <div className="absolute bottom-0 left-0 right-0 p-3 text-white z-20">
+                  <motion.div 
+                    className="text-[11px] mb-2 line-clamp-2 bg-black/40 backdrop-blur-sm p-2 rounded-lg"
+                    animate={{ opacity: [0, 1] }}
+                    transition={{ duration: 0.3, delay: post.delay + 0.3 }}
+                  >
+                    {post.caption}
+                  </motion.div>
+                  
+                  {/* Social interaction stats */}
+                  <div className="flex justify-between items-center">
+                    <motion.div className="flex space-x-3">
+                      <motion.div 
+                        className="flex items-center space-x-1"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <motion.i 
+                          className="fas fa-heart text-pink-500 text-sm"
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        />
+                        <span className="text-[10px] font-medium">{post.likes}</span>
+                      </motion.div>
+                      
+                      <motion.div 
+                        className="flex items-center space-x-1"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <i className="fas fa-comment text-blue-400 text-sm" />
+                        <span className="text-[10px] font-medium">{post.comments}</span>
+                      </motion.div>
+                      
+                      <motion.div 
+                        className="flex items-center space-x-1"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <i className="fas fa-share text-white text-sm" />
+                      </motion.div>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="text-[10px] bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded-full text-yellow-400 flex items-center"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <i className="fas fa-shopping-bag text-[8px] mr-1" />
+                      Shop Look
+                    </motion.div>
                   </div>
                 </div>
                 
-                {/* Animated likes, comments count */}
-                <motion.div
-                  className="absolute right-3 bottom-16 flex flex-col items-center space-y-4"
-                  animate={{ opacity: [0, 1] }}
-                  transition={{ duration: 0.3, delay: item.delay + 0.4 }}
-                >
-                  <motion.div 
-                    className="flex flex-col items-center"
-                    whileHover={{ scale: 1.2 }}
-                  >
+                {/* Animated hearts/likes floating up */}
+                <div className="absolute left-[20%] bottom-16 h-20">
+                  {[1, 2, 3, 4].map((i) => (
                     <motion.div
-                      className="w-6 h-6 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
+                      key={`heart-${post.id}-${i}`}
+                      className="absolute text-pink-500 text-xs"
+                      initial={{ opacity: 0, y: 0 }}
+                      animate={{ 
+                        opacity: [0, 1, 0],
+                        y: -50,
+                        x: Math.random() * 20 - 10
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        delay: post.delay + i * 0.5,
+                        repeat: Infinity,
+                        repeatDelay: post.duration - 2
+                      }}
                     >
-                      <i className="fas fa-heart text-pink-500 text-xs"></i>
+                      <i className="fas fa-heart" />
                     </motion.div>
-                    <span className="text-[10px] font-medium text-white mt-1">24.5k</span>
-                  </motion.div>
-                  
-                  <motion.div className="flex flex-col items-center">
-                    <div className="w-6 h-6 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center">
-                      <i className="fas fa-share text-white text-xs"></i>
-                    </div>
-                    <span className="text-[10px] font-medium text-white mt-1">342</span>
-                  </motion.div>
-                </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
           
           {/* Feed scrolling indicator */}
           <motion.div
-            className="absolute top-2 left-2 right-2 h-1.5 bg-gray-800 rounded-full overflow-hidden z-30"
+            className="absolute top-0 left-0 right-0 h-1 bg-gray-700 overflow-hidden z-30"
             animate={{ opacity: [0, 1] }}
-            transition={{ delay: 1 }}
+            transition={{ delay: 0.5 }}
           >
             <motion.div
               className="h-full bg-gradient-to-r from-pink-500 to-purple-500"
@@ -506,11 +587,11 @@ const VideoFeedCell = () => {
         </div>
         
         {/* App interface buttons at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 flex justify-around items-center py-1.5 border-t border-gray-800">
+        <div className="absolute bottom-0 left-0 right-0 flex justify-around items-center py-1.5 border-t border-gray-800 bg-black/70 backdrop-blur-sm z-20">
           {["home", "search", "plus", "inbox", "user"].map((icon, i) => (
             <motion.div 
               key={icon}
-              className="text-gray-500 text-xs"
+              className="text-gray-400 text-xs"
               whileHover={{ scale: 1.2, color: "#fff" }}
               animate={icon === "home" ? { color: "#fff" } : {}}
             >
