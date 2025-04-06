@@ -458,144 +458,106 @@ const VideoFeedCell = () => {
                   </motion.button>
                 </div>
                 
-                {/* Outfit tags */}
+                {/* Influencer model showcasing fashion outfit */}
                 <motion.div
-                  className="absolute left-3 top-16 z-20 bg-black/40 backdrop-blur-sm px-2 py-1 rounded-lg border-l-2 border-pink-500"
+                  className="absolute inset-0 overflow-hidden"
+                  animate={{ scale: [1, 1.03, 1] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  {/* Light gradient overlay at top and bottom to enhance readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 z-10" />
+                  
+                  {/* Fashion model images */}
+                  {index === 0 ? (
+                    <motion.div 
+                      className="absolute inset-0 bg-center bg-cover"
+                      style={{ 
+                        backgroundImage: "url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=800&q=80')",
+                      }}
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ duration: 8, repeat: Infinity }}
+                    />
+                  ) : index === 1 ? (
+                    <motion.div 
+                      className="absolute inset-0 bg-center bg-cover"
+                      style={{ 
+                        backgroundImage: "url('https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80')",
+                      }}
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ duration: 8, repeat: Infinity }}
+                    />
+                  ) : (
+                    <motion.div 
+                      className="absolute inset-0 bg-center bg-cover"
+                      style={{ 
+                        backgroundImage: "url('https://images.unsplash.com/photo-1618721405821-45c8247bcc4f?auto=format&fit=crop&w=800&q=80')",
+                      }}
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ duration: 8, repeat: Infinity }}
+                    />
+                  )}
+                  
+                  {/* Video effect overlay */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-tr from-purple-500/5 via-pink-500/10 to-transparent mix-blend-overlay"
+                    animate={{ 
+                      backgroundPosition: ["0% 0%", "100% 100%"],
+                      opacity: [0, 0.2, 0]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    style={{ backgroundSize: "200% 200%" }}
+                  />
+                </motion.div>
+                
+                {/* Outfit tag label */}
+                <motion.div
+                  className="absolute left-3 top-[75%] z-20 bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-lg border-l-2 border-pink-500"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: post.delay + 0.5, duration: 0.5 }}
                 >
-                  <div className="text-white text-[10px] font-semibold">TODAY'S FIT:</div>
-                  <div className="text-white/90 text-[9px]">{post.outfit}</div>
+                  <div className="text-white text-sm font-bold">{post.outfit}</div>
                 </motion.div>
                 
-                {/* Actual influencer models in video content */}
-                <motion.div
-                  className="absolute w-full h-full flex items-center justify-center"
-                  animate={{ opacity: [0.9, 1, 0.9] }}
-                  transition={{ duration: 4, repeat: Infinity }}
+                {/* LIVE indicator */}
+                <motion.div 
+                  className="absolute top-3 right-3 flex items-center space-x-1 px-2 py-1 bg-black/40 backdrop-blur-sm rounded-full z-20"
+                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 2, repeat: Infinity }}
                 >
-                  {/* Using a div to simulate the influencer video/image with pseudo gradient overlay */}
-                  <motion.div
-                    className="absolute inset-0 overflow-hidden"
-                    animate={{ scale: [1, 1.03, 1] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    {/* Overlay to make text readable */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 z-10" />
-                    
-                    {index === 0 ? (
-                      /* First influencer - doing a linen co-ord set pose */
-                      <motion.div 
-                        className="absolute inset-0 bg-center bg-cover"
-                        style={{ 
-                          backgroundImage: "url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=800&q=80')",
-                          filter: "brightness(0.9) contrast(1.1)"
-                        }}
-                        animate={{ scale: [1, 1.05, 1] }}
-                        transition={{ duration: 10, repeat: Infinity }}
-                      />
-                    ) : index === 1 ? (
-                      /* Second influencer - showing off the blazer + cargo pants */
-                      <motion.div 
-                        className="absolute inset-0 bg-center bg-cover"
-                        style={{ 
-                          backgroundImage: "url('https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80')",
-                          filter: "brightness(0.9) contrast(1.1)"
-                        }}
-                        animate={{ scale: [1, 1.05, 1] }}
-                        transition={{ duration: 10, repeat: Infinity }}
-                      />
-                    ) : (
-                      /* Third influencer - platform boots + slip dress */
-                      <motion.div 
-                        className="absolute inset-0 bg-center bg-cover"
-                        style={{ 
-                          backgroundImage: "url('https://images.unsplash.com/photo-1618721405821-45c8247bcc4f?auto=format&fit=crop&w=800&q=80')",
-                          filter: "brightness(0.9) contrast(1.1)"
-                        }}
-                        animate={{ scale: [1, 1.05, 1] }}
-                        transition={{ duration: 10, repeat: Infinity }}
-                      />
-                    )}
-                    
-                    {/* Animated overlay effect to make it look like a video */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 via-pink-500/5 to-transparent mix-blend-overlay"
-                      animate={{ 
-                        backgroundPosition: ["0% 0%", "100% 100%"],
-                        opacity: [0, 0.3, 0]
-                      }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                      style={{ backgroundSize: "200% 200%" }}
-                    />
-                  </motion.div>
-                  
-                  {/* Video recording indicator */}
                   <motion.div 
-                    className="absolute top-14 right-3 flex items-center space-x-1 px-2 py-0.5 bg-black/40 backdrop-blur-sm rounded-full z-20"
-                    animate={{ opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <motion.div 
-                      className="w-2 h-2 bg-red-500 rounded-full"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                    />
-                    <span className="text-white text-[8px]">LIVE</span>
-                  </motion.div>
+                    className="w-2 h-2 bg-red-500 rounded-full"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 1, repeat: Infinity }}
+                  />
+                  <span className="text-white text-[10px]">LIVE</span>
                 </motion.div>
                 
-                {/* Bottom content - caption, likes, etc. */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-white z-20">
-                  <motion.div 
-                    className="text-[11px] mb-2 line-clamp-2 bg-black/40 backdrop-blur-sm p-2 rounded-lg"
-                    animate={{ opacity: [0, 1] }}
-                    transition={{ duration: 0.3, delay: post.delay + 0.3 }}
-                  >
-                    {post.caption}
-                  </motion.div>
-                  
-                  {/* Social interaction stats */}
-                  <div className="flex justify-between items-center">
-                    <motion.div className="flex space-x-3">
-                      <motion.div 
-                        className="flex items-center space-x-1"
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        <motion.i 
-                          className="fas fa-heart text-pink-500 text-sm"
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
-                        <span className="text-[10px] font-medium">{post.likes}</span>
-                      </motion.div>
-                      
-                      <motion.div 
-                        className="flex items-center space-x-1"
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        <i className="fas fa-comment text-blue-400 text-sm" />
-                        <span className="text-[10px] font-medium">{post.comments}</span>
-                      </motion.div>
-                      
-                      <motion.div 
-                        className="flex items-center space-x-1"
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        <i className="fas fa-share text-white text-sm" />
-                      </motion.div>
-                    </motion.div>
-                    
-                    <motion.div 
-                      className="text-[10px] bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded-full text-yellow-400 flex items-center"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      <i className="fas fa-shopping-bag text-[8px] mr-1" />
-                      Shop Look
-                    </motion.div>
+                {/* Username pill at bottom */}
+                <motion.div 
+                  className="absolute bottom-3 left-3 z-20 flex items-center space-x-2 bg-black/50 backdrop-blur-sm py-1.5 px-3 rounded-full"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: post.delay + 0.2 }}
+                >
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
+                    {post.username.charAt(0).toUpperCase()}
                   </div>
-                </div>
+                  <div className="text-white text-sm font-semibold">{post.username}</div>
+                </motion.div>
+                
+                {/* Shop button */}
+                <motion.div 
+                  className="absolute bottom-3 right-3 bg-pink-500 text-white px-3 py-1.5 rounded-full font-bold text-sm z-20 flex items-center space-x-1"
+                  whileHover={{ scale: 1.05, backgroundColor: "#db2777" }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: post.delay + 0.4 }}
+                >
+                  <i className="fas fa-shopping-bag text-xs" />
+                  <span>Shop Now</span>
+                </motion.div>
                 
                 {/* Animated hearts/likes floating up */}
                 <div className="absolute left-[20%] bottom-16 h-20">
