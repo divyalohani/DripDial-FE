@@ -103,28 +103,60 @@ const TrendingNowVideo = () => {
           HOT!
         </div>
         <div className="p-3 flex flex-col h-full">
-          <div className="flex items-center space-x-3 mb-3">
-            <div className="w-12 h-12 flex-shrink-0 rounded-xl bg-purple-500 flex items-center justify-center text-white">
+          <div className="flex items-center space-x-3 mb-2">
+            <div className="w-8 h-8 flex-shrink-0 rounded-md bg-purple-500 flex items-center justify-center text-white">
               <motion.i 
-                className="fas fa-chart-line text-xl"
+                className="fas fa-chart-line text-sm"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
             </div>
             <div>
-              <h3 className="font-bold text-black text-base">Trending Now</h3>
+              <h3 className="font-bold text-black text-sm">Trending Now</h3>
               <div className="text-xs text-gray-500">Updated 2 hours ago</div>
             </div>
           </div>
           
-          <div className="space-y-3 mt-1">
+          <div className="space-y-2 mt-1">
             <motion.div 
-              className="flex items-center space-x-2 border-l-2 border-pink-500 pl-2"
+              className="flex items-center justify-between space-x-2 border-l-2 border-pink-500 pl-2"
               whileHover={{ x: 5 }}
-              animate={{ y: [0, 3, 0] }}
+              animate={{ y: [0, 2, 0] }}
               transition={{ duration: 3, delay: 0.1, repeat: Infinity }}
             >
-              <span className="text-sm font-medium text-gray-600">Platform Boots</span>
+              <span className="text-xs font-medium text-gray-600">Linen Shirt</span>
+              <motion.span 
+                className="text-xs text-green-500 font-bold"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                +182%
+              </motion.span>
+            </motion.div>
+            
+            <motion.div 
+              className="flex items-center justify-between space-x-2 border-l-2 border-blue-500 pl-2"
+              whileHover={{ x: 5 }}
+              animate={{ y: [0, 2, 0] }}
+              transition={{ duration: 3, delay: 0.2, repeat: Infinity }}
+            >
+              <span className="text-xs font-medium text-gray-600">Slip Skirt</span>
+              <motion.span 
+                className="text-xs text-green-500 font-bold"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                +145%
+              </motion.span>
+            </motion.div>
+            
+            <motion.div 
+              className="flex items-center justify-between space-x-2 border-l-2 border-purple-500 pl-2"
+              whileHover={{ x: 5 }}
+              animate={{ y: [0, 2, 0] }}
+              transition={{ duration: 3, delay: 0.3, repeat: Infinity }}
+            >
+              <span className="text-xs font-medium text-gray-600">Platform Boots</span>
               <motion.span 
                 className="text-xs text-green-500 font-bold"
                 animate={{ opacity: [0.5, 1, 0.5] }}
@@ -135,12 +167,12 @@ const TrendingNowVideo = () => {
             </motion.div>
             
             <motion.div 
-              className="flex items-center space-x-2 border-l-2 border-blue-500 pl-2"
+              className="flex items-center justify-between space-x-2 border-l-2 border-blue-400 pl-2"
               whileHover={{ x: 5 }}
-              animate={{ y: [0, 3, 0] }}
-              transition={{ duration: 3, delay: 0.3, repeat: Infinity }}
+              animate={{ y: [0, 2, 0] }}
+              transition={{ duration: 3, delay: 0.4, repeat: Infinity }}
             >
-              <span className="text-sm font-medium text-gray-600">Cargo Pants</span>
+              <span className="text-xs font-medium text-gray-600">Cargo Pants</span>
               <motion.span 
                 className="text-xs text-green-500 font-bold"
                 animate={{ opacity: [0.5, 1, 0.5] }}
@@ -151,12 +183,12 @@ const TrendingNowVideo = () => {
             </motion.div>
             
             <motion.div 
-              className="flex items-center space-x-2 border-l-2 border-yellow-500 pl-2"
+              className="flex items-center justify-between space-x-2 border-l-2 border-yellow-500 pl-2"
               whileHover={{ x: 5 }}
-              animate={{ y: [0, 3, 0] }}
+              animate={{ y: [0, 2, 0] }}
               transition={{ duration: 3, delay: 0.5, repeat: Infinity }}
             >
-              <span className="text-sm font-medium text-gray-600">Baggy Jeans</span>
+              <span className="text-xs font-medium text-gray-600">Baggy Jeans</span>
               <motion.span 
                 className="text-xs text-green-500 font-bold"
                 animate={{ opacity: [0.5, 1, 0.5] }}
