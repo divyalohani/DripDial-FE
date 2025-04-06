@@ -313,9 +313,9 @@ const TrendingNowVideo = () => {
   );
 };
 
-// TikTok/Instagram video feed for the 3rd grid cell - featuring influencers and their outfits
+// TikTok/Instagram video feed for the 3rd grid cell - featuring models clearly showing fashion outfits
 const VideoFeedCell = () => {
-  // Array of influencer content with actual video URLs of real faces
+  // Array of model content with fashion videos - NO GRADIENT EFFECTS, CLEAR FACES
   const influencerPosts = [
     { 
       id: 1, 
@@ -324,37 +324,37 @@ const VideoFeedCell = () => {
       username: "sophia_styles",
       outfit: "Summer dress collection",
       views: "436K",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-young-woman-posing-for-the-camera-in-a-meadow-39766-large.mp4",
+      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-with-silver-makeup-39875-large.mp4",
       location: "Miami",
       likes: "42.3k",
       comments: "1.2k",
-      gradient: "linear-gradient(45deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)"
+      gradient: "none" // No gradient
     },
     { 
       id: 2, 
       duration: 12, 
       delay: 0.4,
       username: "alex_fashion",
-      outfit: "Street style essentials",
+      outfit: "Spring lookbook 2025",
       views: "212K",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-young-woman-talking-on-the-camera-to-promote-her-blog-40172-large.mp4",
+      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-fashion-model-with-a-black-and-white-outfit-34489-large.mp4",
       location: "New York",
       likes: "38.6k",
       comments: "856",
-      gradient: "linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%)"
+      gradient: "none" // No gradient
     },
     { 
       id: 3, 
       duration: 15, 
       delay: 0.8,
       username: "trendyemma",
-      outfit: "Autumn lookbook 2025",
+      outfit: "Designer collection",
       views: "768K",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-young-woman-vlogging-over-a-urban-building-32608-large.mp4",
+      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-woman-modeling-for-a-clothing-company-34404-large.mp4",
       location: "London",
       likes: "76.4k",
       comments: "2.4k",
-      gradient: "linear-gradient(45deg, #8c1bab 0%, #F953C6 50%, #ff8787 100%)"
+      gradient: "none" // No gradient
     }
   ];
 
@@ -367,7 +367,7 @@ const VideoFeedCell = () => {
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="w-full h-full bg-gradient-to-br from-gray-900 via-pink-900 to-black overflow-hidden rounded-xl relative">
+      <div className="w-full h-full bg-black overflow-hidden rounded-xl relative">
         <div className="flex items-center justify-between px-3 py-2 border-b border-gray-800 relative z-20">
           <div className="flex items-center space-x-2">
             <motion.div 
@@ -413,27 +413,10 @@ const VideoFeedCell = () => {
               }}
             >
               <div className="w-full h-full">
-                {/* Very subtle overlay for videos - reduced opacity to make faces clearer */}
-                <motion.div
-                  className="absolute inset-0 opacity-20"
-                  animate={{
-                    backgroundPosition: ["0% 0%", "100% 100%"]
-                  }}
-                  transition={{
-                    duration: post.duration / 2,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    ease: "linear"
-                  }}
-                  style={{
-                    backgroundImage: post.gradient,
-                    backgroundSize: "200% 200%",
-                    mixBlendMode: "soft-light"
-                  }}
-                />
+                {/* No overlay - pure video content */}
                 
-                {/* Top user profile bar - minimal design to show faces more clearly */}
-                <div className="absolute top-2 left-2 right-2 flex items-center space-x-2 bg-black/15 backdrop-blur-sm p-1.5 rounded-lg z-20">
+                {/* Top user profile bar - very minimal design to show faces more clearly */}
+                <div className="absolute top-2 left-2 right-2 flex items-center space-x-2 bg-black/5 p-1.5 rounded-lg z-20">
                   <motion.div 
                     className="w-7 h-7 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold"
                     whileHover={{ scale: 1.1 }}
@@ -468,10 +451,7 @@ const VideoFeedCell = () => {
                   animate={{ scale: [1, 1.03, 1] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  {/* Very light gradient overlay - reduced opacity to show faces clearly */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 z-10" />
-                  
-                  {/* Fashion model videos - using actual video elements for TikTok/Reel style content */}
+                  {/* NO GRADIENT OVERLAYS - Just pure video content */}
                   <video 
                     className="absolute inset-0 w-full h-full object-cover"
                     src={post.videoUrl}
@@ -480,17 +460,6 @@ const VideoFeedCell = () => {
                     loop
                     playsInline
                     key={post.id}
-                  />
-                  
-                  {/* Minimal video effect overlay - barely visible to let faces shine through */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-tr from-purple-500/5 via-pink-500/5 to-transparent mix-blend-overlay"
-                    animate={{ 
-                      backgroundPosition: ["0% 0%", "100% 100%"],
-                      opacity: [0, 0.1, 0]
-                    }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                    style={{ backgroundSize: "200% 200%" }}
                   />
                 </motion.div>
                 
