@@ -71,35 +71,94 @@ export default function HowItWorks() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 md:gap-12 relative">
-          {/* Decorative elements */}
+          {/* Enhanced connecting elements */}
           <div className="hidden md:block absolute top-[4.5rem] left-[10%] right-[10%] z-0">
-            <svg height="2" width="100%" className="absolute top-0">
+            {/* Main connecting path */}
+            <svg height="4" width="100%" className="absolute top-0">
               <defs>
                 <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="#C4B7BD" stopOpacity="0.4" />
                   <stop offset="50%" stopColor="#3D2C35" />
                   <stop offset="100%" stopColor="#C4B7BD" stopOpacity="0.4" />
                 </linearGradient>
+                
+                {/* Moving dash animation */}
+                <pattern id="moving-dash" x="0" y="0" width="20" height="4" patternUnits="userSpaceOnUse">
+                  <animateTransform 
+                    attributeName="patternTransform"
+                    type="translate"
+                    from="0 0"
+                    to="20 0"
+                    dur="1.5s"
+                    repeatCount="indefinite"
+                  />
+                  <rect x="0" y="0" width="10" height="2" fill="#3D2C35" fillOpacity="0.3" />
+                </pattern>
               </defs>
+              
+              {/* Base path */}
               <path 
-                d="M0,1 C150,1 150,1 300,0.5 S450,0 600,0.5 S750,1 900,1" 
+                d="M0,2 C150,3 150,1 300,1.5 S450,2 600,1.5 S750,1 900,2" 
                 stroke="url(#lineGradient)" 
-                strokeWidth="2" 
-                fill="none" 
-                strokeDasharray="8 4"
+                strokeWidth="1.5" 
+                fill="none"
+              />
+              
+              {/* Animated overlay */}
+              <path 
+                d="M0,2 C150,3 150,1 300,1.5 S450,2 600,1.5 S750,1 900,2" 
+                stroke="url(#moving-dash)" 
+                strokeWidth="1.5" 
+                fill="none"
+                strokeOpacity="0.6"
               />
             </svg>
             
-            {/* Small decorative circles */}
-            <div className="absolute top-[-4px] left-[25%] w-2 h-2 rounded-full bg-[#3D2C35]"></div>
-            <div className="absolute top-[-4px] left-[50%] w-2 h-2 rounded-full bg-[#3D2C35]"></div>
-            <div className="absolute top-[-4px] left-[75%] w-2 h-2 rounded-full bg-[#3D2C35]"></div>
+            {/* Decorative animated dots/circles */}
+            <motion.div 
+              className="absolute top-[-5px] left-[25%] w-3 h-3 rounded-full bg-gradient-to-br from-[#C4B7BD] to-[#3D2C35] shadow-sm"
+              animate={{ 
+                y: [0, -4, 0],
+                boxShadow: [
+                  "0 0 0 rgba(61, 44, 53, 0.2)",
+                  "0 0 8px rgba(61, 44, 53, 0.4)",
+                  "0 0 0 rgba(61, 44, 53, 0.2)"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            />
+            
+            <motion.div 
+              className="absolute top-[-5px] left-[50%] w-3 h-3 rounded-full bg-gradient-to-br from-[#3D2C35] to-[#8F8A95] shadow-sm"
+              animate={{ 
+                y: [0, -4, 0],
+                boxShadow: [
+                  "0 0 0 rgba(61, 44, 53, 0.2)",
+                  "0 0 8px rgba(61, 44, 53, 0.4)",
+                  "0 0 0 rgba(61, 44, 53, 0.2)"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            />
+            
+            <motion.div 
+              className="absolute top-[-5px] left-[75%] w-3 h-3 rounded-full bg-gradient-to-br from-[#8F8A95] to-[#C4B7BD] shadow-sm"
+              animate={{ 
+                y: [0, -4, 0],
+                boxShadow: [
+                  "0 0 0 rgba(61, 44, 53, 0.2)",
+                  "0 0 8px rgba(61, 44, 53, 0.4)",
+                  "0 0 0 rgba(61, 44, 53, 0.2)"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            />
           </div>
 
           {steps.map((step, index) => (
             <motion.div 
               key={index} 
-              className="text-center relative z-10 bg-white bg-opacity-90 backdrop-blur-sm rounded-xl p-8 shadow-md border border-[#C4B7BD]/20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgb3BhY2l0eT0iMC4wNSI+PGRlZnM+PHBhdHRlcm4gaWQ9InBhdHRlcm4iIHg9IjAiIHk9IjAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDUgQyAwIDMuOSAxLjQgMyAyLjUgMyBDIDMuNiAzIDUgMy45IDUgNSBDIDUgNi4xIDMuNiA3IDIuNSA3IEMgMS40IDcgMCA2LjEgMCA1IFoiIGZpbGw9ImN1cnJlbnRDb2xvciI+PC9wYXRoPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSI+PC9yZWN0Pjwvc3ZnPg==')]"
+              className="text-center relative z-10 bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-8 shadow-md border border-[#C4B7BD]/20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBvcGFjaXR5PSIwLjAyIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgeD0iMCIgeT0iMCIgd2lkdGg9IjE1IiBoZWlnaHQ9IjE1IiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDAgNSBDIDAgMy45IDEuNCAzIDIuNSAzIEMgMy42IDMgNSAzLjkgNSA1IEMgNSA2LjEgMy42IDcgMi41IDcgQyAxLjQgNyAwIDYuMSAwIDUgWiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIj48L3JlY3Q+PC9zdmc+')]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -115,21 +174,53 @@ export default function HowItWorks() {
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                {/* Outer decorative ring */}
-                <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#C4B7BD] opacity-50 animate-[spin_20s_linear_infinite]"></div>
+                {/* Multiple decorative rings with different speeds */}
+                <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#C4B7BD] opacity-30 animate-[spin_20s_linear_infinite]"></div>
+                <div className="absolute inset-[0.2rem] rounded-full border border-dotted border-[#3D2C35] opacity-20 animate-[spin_15s_linear_infinite_reverse]"></div>
                 
-                {/* Background gradient circle */}
-                <div className={`absolute inset-1 bg-gradient-to-br ${step.bgGradient} rounded-full shadow-lg flex items-center justify-center`}>
-                  <step.icon className="w-8 h-8 text-white" />
-                </div>
+                {/* Sparkle elements */}
+                <motion.div 
+                  className="absolute w-2 h-2 rounded-full bg-white shadow-sm top-[10%] right-[15%]"
+                  animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.4, 1, 0.4] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                />
                 
-                {/* Small accent dot */}
-                <div className="absolute top-1 right-2 w-3 h-3 bg-white rounded-full shadow-md"></div>
+                <motion.div 
+                  className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-sm bottom-[20%] left-[15%]"
+                  animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.4, 1, 0.4] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                />
                 
-                {/* Step number badge */}
-                <div className="absolute -right-1 -bottom-1 w-8 h-8 bg-white text-[#3D2C35] rounded-full border-2 border-[#C4B7BD] flex items-center justify-center font-bold text-sm shadow-md">
+                {/* Background gradient circle with pulse effect */}
+                <motion.div
+                  className={`absolute inset-1.5 bg-gradient-to-br ${step.bgGradient} rounded-full shadow-lg flex items-center justify-center overflow-hidden`}
+                  animate={{ boxShadow: ["0 0 0 rgba(61, 44, 53, 0.3)", "0 0 10px rgba(61, 44, 53, 0.4)", "0 0 0 rgba(61, 44, 53, 0.3)"] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  {/* Subtle background shine effect */}
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-10"
+                    animate={{ x: ["-100%", "100%"] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  
+                  {/* Icon */}
+                  <motion.div
+                    animate={{ scale: [1, 1.03, 1], rotate: [0, -1, 0, 1, 0] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <step.icon className="w-8 h-8 text-white relative z-10" />
+                  </motion.div>
+                </motion.div>
+                
+                {/* Step number badge with subtle animation */}
+                <motion.div 
+                  className="absolute -right-1 -bottom-1 w-8 h-8 bg-white text-[#3D2C35] rounded-full border-2 border-[#C4B7BD] flex items-center justify-center font-bold text-sm shadow-md"
+                  animate={{ y: [0, -2, 0], x: [0, 1, 0, -1, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                >
                   {step.number}
-                </div>
+                </motion.div>
               </motion.div>
               <h3 className="font-display text-2xl font-semibold mb-3 text-[#3D2C35]">{step.title}</h3>
               <p className="text-[#8F8A95] mb-6">{step.description}</p>
