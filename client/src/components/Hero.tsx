@@ -28,7 +28,7 @@ const FloatingElement = ({ delay, duration, size, left, top, className }: any) =
 
 export default function Hero() {
   return (
-    <section className="relative hero-gradient min-h-[80vh] flex items-center overflow-visible pt-[15px] md:pt-[15px]">
+    <section className="relative hero-gradient min-h-[80vh] flex items-center overflow-visible pt-[35px] md:pt-[35px]">
       {/* Animated background elements */}
       <FloatingElement delay={0} duration={5} size="120px" left={10} top={30} className="hidden md:block" />
       <FloatingElement delay={1} duration={7} size="180px" left={85} top={20} className="hidden md:block" />
