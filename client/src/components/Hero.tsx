@@ -313,47 +313,47 @@ const TrendingNowVideo = () => {
   );
 };
 
-// TikTok/Instagram video feed for the 3rd grid cell - featuring models clearly showing fashion outfits
+// TikTok/Instagram video feed for the 3rd grid cell - featuring fashion brand videos
 const VideoFeedCell = () => {
-  // Array of model content with fashion videos - NO GRADIENT EFFECTS, CLEAR FACES
+  // Array of brand fashion videos - using direct embed videos from trusted sources
   const influencerPosts = [
     { 
       id: 1, 
       duration: 10, 
       delay: 0,
-      username: "sophia_styles",
-      outfit: "Summer dress collection",
-      views: "436K",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-with-silver-makeup-39875-large.mp4",
-      location: "Miami",
-      likes: "42.3k",
-      comments: "1.2k",
+      username: "vogue_style",
+      outfit: "Runway Collection",
+      views: "1.2M",
+      videoUrl: "https://cdn.coverr.co/videos/coverr-a-fashion-shoot-in-a-studio-5172/1080p.mp4",
+      location: "Paris",
+      likes: "342.3k",
+      comments: "8.7k",
       gradient: "none" // No gradient
     },
     { 
       id: 2, 
       duration: 12, 
       delay: 0.4,
-      username: "alex_fashion",
-      outfit: "Spring lookbook 2025",
-      views: "212K",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-fashion-model-with-a-black-and-white-outfit-34489-large.mp4",
-      location: "New York",
-      likes: "38.6k",
-      comments: "856",
+      username: "elle_fashion",
+      outfit: "Summer Essentials",
+      views: "872K",
+      videoUrl: "https://cdn.coverr.co/videos/coverr-models-during-photoshoot-4733/1080p.mp4",
+      location: "Milan",
+      likes: "238.6k",
+      comments: "5.2k",
       gradient: "none" // No gradient
     },
     { 
       id: 3, 
       duration: 15, 
       delay: 0.8,
-      username: "trendyemma",
-      outfit: "Designer collection",
-      views: "768K",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-woman-modeling-for-a-clothing-company-34404-large.mp4",
-      location: "London",
-      likes: "76.4k",
-      comments: "2.4k",
+      username: "fashion_daily",
+      outfit: "Street Style 2025",
+      views: "968K",
+      videoUrl: "https://cdn.coverr.co/videos/coverr-models-runway-during-fashion-week-4703/1080p.mp4",
+      location: "New York",
+      likes: "176.4k",
+      comments: "4.3k",
       gradient: "none" // No gradient
     }
   ];
