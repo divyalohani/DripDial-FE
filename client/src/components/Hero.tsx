@@ -1,136 +1,173 @@
-import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
-import { Link } from "wouter";
-import { useEffect, useRef } from "react";
+import React, { useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform, useAnimation } from 'framer-motion';
+import { Link } from 'wouter';
 
-// Animated floating elements with improved visual effects
-const FloatingElement = ({ delay, duration, size, left, top, color, className }: any) => (
-  <motion.div
-    className={`absolute rounded-full backdrop-blur-md ${className}`}
-    style={{ 
-      width: size, 
-      height: size,
-      left: `${left}%`,
-      top: `${top}%`,
-      background: color || `linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1))`,
-      boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-      border: "1px solid rgba(255, 255, 255, 0.2)"
-    }}
-    animate={{
-      y: [0, -20, 0],
-      x: [0, 10, 0],
-      scale: [1, 1.05, 1],
-      opacity: [0.3, 0.5, 0.3],
-      rotate: [0, 5, 0],
-    }}
-    transition={{
-      repeat: Infinity,
-      duration: duration,
-      delay: delay,
-      ease: "easeInOut"
-    }}
-  />
-);
-
-// Animated shapes that float in the background
-const ShapeElement = ({ shape, delay, duration, size, left, top, rotation = 0, className }: any) => {
-  const shapes: Record<string, string> = {
-    circle: "rounded-full",
-    square: "rounded-lg",
-    triangle: "clip-path-triangle", // We'll create this with a clip-path
-    diamond: "rotate-45 rounded-lg"
-  };
-
-  return (
-    <motion.div
-      className={`absolute ${shapes[shape]} ${className}`}
-      style={{ 
-        width: size, 
-        height: size,
-        left: `${left}%`,
-        top: `${top}%`,
-        background: `linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05))`,
-        backdropFilter: "blur(5px)",
-        transform: `rotate(${rotation}deg)`,
-        clipPath: shape === 'triangle' ? 'polygon(50% 0%, 0% 100%, 100% 100%)' : 'none'
-      }}
-      animate={{
-        y: [0, -15, 0],
-        rotate: [rotation, rotation + 10, rotation],
-        opacity: [0.15, 0.25, 0.15]
-      }}
-      transition={{
-        repeat: Infinity,
-        duration: duration,
-        delay: delay,
-        ease: "easeInOut"
-      }}
-    />
-  );
-};
-
-// Moving dots in background
+// Animated moving dots background
 const MovingDots = () => {
   return (
-    <div className="absolute inset-0 overflow-hidden opacity-20">
-      {Array.from({ length: 50 }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full bg-white"
-          style={{
-            width: Math.random() * 4 + 1 + "px",
-            height: Math.random() * 4 + 1 + "px",
-            top: Math.random() * 100 + "%",
-            left: Math.random() * 100 + "%",
-          }}
-          animate={{
-            y: [0, -(Math.random() * 150 + 50)],
-            opacity: [0, 0.7, 0]
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: Math.random() * 10 + 10,
-            delay: Math.random() * 10,
-            ease: "linear"
-          }}
-        />
-      ))}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIG9wYWNpdHk9IjAuMSI+CiAgICA8Y2lyY2xlIGN4PSIzIiBjeT0iMyIgcj0iMiIgZmlsbD0iIzAwMCIvPgogIDwvZz4KPC9zdmc+')] [animation:grain_7s_steps(10)_infinite]"></div>
     </div>
   );
 };
 
-// TikTok/Instagram-like video feed component
-const VideoFeed = () => {
-  // Mock data for the video feed
+// Animated geometric shapes that float around
+const ShapeElement = ({ shape, delay, duration, size, left, top, rotation = 0, className = "" }: any) => {
+  let shapeContent;
+  
+  switch (shape) {
+    case "circle":
+      shapeContent = <div className="w-full h-full rounded-full bg-gradient-to-tr from-pink-500/5 to-purple-500/5"></div>;
+      break;
+    case "square":
+      shapeContent = <div className="w-full h-full bg-gradient-to-tr from-blue-500/5 to-teal-500/5"></div>;
+      break;
+    case "triangle":
+      shapeContent = <div className="w-0 h-0 border-l-[50px] border-r-[50px] border-b-[86px] border-l-transparent border-r-transparent border-b-purple-500/5"></div>;
+      break;
+    case "diamond":
+      shapeContent = <div className="w-full h-full bg-gradient-to-tr from-yellow-500/5 to-orange-500/5 rotate-45"></div>;
+      break;
+    default:
+      shapeContent = <div className="w-full h-full rounded-full bg-gradient-to-tr from-pink-500/5 to-purple-500/5"></div>;
+  }
+
+  return (
+    <motion.div
+      className={`absolute z-10 ${className}`}
+      style={{ 
+        width: size, 
+        height: size, 
+        left: `${left}%`, 
+        top: `${top}%`,
+        rotate: `${rotation}deg`
+      }}
+      initial={{ opacity: 0 }}
+      animate={{ 
+        opacity: [0, 1, 0.5, 1],
+        y: [0, -20, 10, 0],
+        rotate: rotation + 5
+      }}
+      transition={{ 
+        delay, 
+        duration, 
+        repeat: Infinity,
+        repeatType: "reverse"
+      }}
+    >
+      {shapeContent}
+    </motion.div>
+  );
+};
+
+// Animated floating bubbles effect
+const FloatingElement = ({ delay, duration, size, left, top, color, className = "" }: any) => {
+  return (
+    <motion.div
+      className={`absolute z-10 rounded-full ${className}`}
+      style={{ 
+        width: size, 
+        height: size, 
+        left: `${left}%`, 
+        top: `${top}%`,
+        background: color
+      }}
+      initial={{ opacity: 0 }}
+      animate={{ 
+        opacity: [0, 0.2, 0.1, 0.2],
+        y: [0, -30, 0, 30, 0],
+        scale: [1, 1.05, 1, 0.95, 1]
+      }}
+      transition={{ 
+        delay, 
+        duration, 
+        repeat: Infinity,
+        repeatType: "reverse" 
+      }}
+    ></motion.div>
+  );
+};
+
+// This is a smaller trending now video for the last grid cell
+const TrendingNowVideo = () => {
+  return (
+    <motion.div 
+      className="w-full h-full"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, delay: 0.5 }}
+      whileHover={{ scale: 1.05, rotate: -1 }}
+    >
+      <div className="w-full h-full overflow-hidden rounded-xl shadow-lg bg-black relative">
+        <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 px-2 py-1 flex items-center justify-between">
+          <span className="text-white text-xs font-bold">Trending</span>
+          <motion.i 
+            className="fas fa-fire text-white text-xs"
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          />
+        </div>
+        <div className="relative h-full">
+          <motion.div 
+            className="absolute inset-0"
+            animate={{ 
+              background: [
+                "linear-gradient(45deg, #ff3cab 0%, #784BA0 50%, #2B86C5 100%)",
+                "linear-gradient(45deg, #2B86C5 0%, #784BA0 50%, #ff3cab 100%)"
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+          />
+          
+          <div className="absolute inset-0 flex flex-col justify-center items-center p-3">
+            <motion.div
+              className="flex flex-col items-center"
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <motion.div 
+                className="w-10 h-10 rounded-full bg-white flex items-center justify-center"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <i className="fas fa-chart-line text-pink-500 text-xs"></i>
+              </motion.div>
+              <span className="text-[10px] font-bold text-white mt-2">HOTTEST TREND</span>
+            </motion.div>
+            
+            <motion.div 
+              className="mt-3 text-center text-white text-xs font-medium"
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              Cargo Pants
+              <span className="block text-[10px] text-green-300">+124% this week</span>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// TikTok/Instagram video feed for the 3rd grid cell
+const VideoFeedCell = () => {
   const videoItems = [
-    { id: 1, duration: 7, borderColor: "border-pink-500", delay: 0 },
-    { id: 2, duration: 8, borderColor: "border-blue-400", delay: 0.3 },
-    { id: 3, duration: 10, borderColor: "border-purple-500", delay: 0.6 },
-    { id: 4, duration: 6, borderColor: "border-red-400", delay: 0.9 },
-    { id: 5, duration: 9, borderColor: "border-yellow-500", delay: 1.2 }
+    { id: 1, duration: 6, delay: 0 },
+    { id: 2, duration: 7, delay: 0.3 },
+    { id: 3, duration: 8, delay: 0.6 }
   ];
 
   return (
     <motion.div 
-      className="absolute top-[90px] right-[35px] z-50 block"
-      initial={{ opacity: 0, x: 100 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.3 }}
+      className="w-full h-full overflow-hidden rounded-xl shadow-xl relative"
       drag
-      dragConstraints={{ top: 0, left: 0, right: 100, bottom: 100 }}
-      whileDrag={{ scale: 1.05 }}
-      whileHover={{ scale: 1.05, boxShadow: "0 25px 30px rgba(0,0,0,0.3)" }}
+      dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+      whileDrag={{ scale: 1.02, zIndex: 40 }}
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
     >
-      <div className="w-[160px] overflow-hidden rounded-2xl shadow-2xl bg-black relative">
-        <motion.div 
-          className="absolute -top-3 -right-3 z-50 flex items-center justify-center w-8 h-8 rounded-full bg-black shadow-lg text-white text-xs"
-          whileHover={{ rotate: 90 }}
-          animate={{ rotate: [0, 5, 0, -5, 0] }}
-          transition={{ duration: 5, repeat: Infinity }}
-        >
-          <i className="fas fa-sync-alt"></i>
-        </motion.div>
-        
-        {/* TikTok/Instagram header */}
+      <div className="w-full h-full bg-gradient-to-br from-gray-900 via-pink-900 to-black overflow-hidden rounded-xl relative">
         <div className="flex items-center justify-between px-3 py-2 border-b border-gray-800">
           <div className="flex items-center space-x-2">
             <motion.div 
@@ -142,24 +179,20 @@ const VideoFeed = () => {
             </motion.div>
             <span className="text-white text-xs font-bold">TrendFeed</span>
           </div>
-          <div className="w-20 h-1 bg-gray-700 rounded-full overflow-hidden">
+          <div className="w-14 h-1 bg-gray-700 rounded-full overflow-hidden">
             <motion.div 
               className="h-full bg-gradient-to-r from-pink-500 to-purple-500"
               animate={{ width: ["0%", "100%"] }}
-              transition={{ 
-                duration: 8, 
-                repeat: Infinity,
-                ease: "linear"
-              }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
             />
           </div>
         </div>
         
-        <div className="relative h-[280px]">
+        <div className="relative flex-1" style={{ height: "calc(100% - 60px)" }}>
           {videoItems.map((item, index) => (
             <motion.div
               key={item.id}
-              className={`absolute inset-0 border-2 ${item.borderColor} rounded-b-xl overflow-hidden`}
+              className="absolute inset-0 overflow-hidden"
               initial={{ y: "100%" }}
               animate={{ 
                 y: [index === 0 ? "0%" : "100%", "0%", "-100%"],
@@ -169,14 +202,14 @@ const VideoFeed = () => {
                 duration: item.duration,
                 delay: index === 0 ? 0 : item.delay,
                 repeat: Infinity,
-                repeatDelay: 4,
+                repeatDelay: 2,
                 times: [0, 0.1, 1],
                 ease: "easeInOut"
               }}
             >
-              <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black">
+              <div className="w-full h-full">
                 <motion.div
-                  className="absolute inset-0 opacity-70"
+                  className="absolute inset-0 opacity-90"
                   animate={{
                     backgroundPosition: ["0% 0%", "100% 100%"]
                   }}
@@ -187,37 +220,24 @@ const VideoFeed = () => {
                     ease: "linear"
                   }}
                   style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=200&q=60')",
-                    backgroundSize: "cover"
+                    backgroundImage: index % 2 === 0 ? 
+                      "linear-gradient(45deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)" :
+                      "linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%)",
+                    backgroundSize: "200% 200%"
                   }}
                 />
                 
                 {/* Moving Fashion elements */}
                 <motion.div
-                  className="absolute w-12 h-12 rounded-full bg-pink-500/20 backdrop-blur-sm z-10"
+                  className="absolute w-8 h-8 rounded-full bg-pink-500/20 backdrop-blur-sm z-10"
                   style={{ top: '15%', left: '15%' }}
                   animate={{ 
                     scale: [1, 1.5, 1],
-                    x: [0, 20, 0],
+                    x: [0, 15, 0],
                     y: [0, -10, 0],
                   }}
                   transition={{ 
                     duration: 4, 
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                
-                <motion.div
-                  className="absolute w-8 h-8 rounded-md bg-blue-500/30 backdrop-blur-sm rotate-45 z-10"
-                  style={{ top: '50%', right: '15%' }}
-                  animate={{ 
-                    rotate: [45, 90, 45],
-                    scale: [1, 1.2, 1],
-                    y: [0, 15, 0]
-                  }}
-                  transition={{ 
-                    duration: 6, 
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
@@ -240,11 +260,16 @@ const VideoFeed = () => {
                   </motion.div>
                   
                   <motion.div 
-                    className="text-[11px] mt-2 line-clamp-2 bg-black/20 backdrop-blur-sm p-2 rounded-md"
+                    className="text-[11px] mt-2 line-clamp-2 bg-black/30 backdrop-blur-sm p-2 rounded-md"
                     animate={{ opacity: [0, 1] }}
                     transition={{ duration: 0.3, delay: item.delay + 0.3 }}
                   >
-                    These Y2K trends are making a comeback for summer! 🔥 #fashion #trends
+                    {index % 3 === 0 ? 
+                      "OMG these cut-out dresses are EVERYTHING! 💖 #TrendAlert #MustHave" : 
+                      index % 3 === 1 ? 
+                      "Platform boots + baggy jeans = iconic combo!! 🔥 #StyleHack #OOTD" : 
+                      "Obsessed with this color-block aesthetic! 🤩 #FashionTok #Viral"
+                    }
                   </motion.div>
                   
                   {/* Animated hearts floating up */}
@@ -283,7 +308,7 @@ const VideoFeed = () => {
                     whileHover={{ scale: 1.2 }}
                   >
                     <motion.div
-                      className="w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
+                      className="w-6 h-6 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
                     >
@@ -293,20 +318,9 @@ const VideoFeed = () => {
                   </motion.div>
                   
                   <motion.div className="flex flex-col items-center">
-                    <div className="w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center">
-                      <i className="fas fa-comment text-white text-xs"></i>
-                    </div>
-                    <span className="text-[10px] font-medium text-white mt-1">1.2k</span>
-                  </motion.div>
-                  
-                  <motion.div className="flex flex-col items-center">
-                    <motion.div
-                      className="w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    >
+                    <div className="w-6 h-6 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center">
                       <i className="fas fa-share text-white text-xs"></i>
-                    </motion.div>
+                    </div>
                     <span className="text-[10px] font-medium text-white mt-1">342</span>
                   </motion.div>
                 </motion.div>
@@ -323,13 +337,13 @@ const VideoFeed = () => {
             <motion.div
               className="h-full bg-gradient-to-r from-pink-500 to-purple-500"
               animate={{ width: ["0%", "100%"] }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             />
           </motion.div>
         </div>
         
         {/* App interface buttons at bottom */}
-        <div className="flex justify-around items-center py-1.5 border-t border-gray-800">
+        <div className="absolute bottom-0 left-0 right-0 flex justify-around items-center py-1.5 border-t border-gray-800">
           {["home", "search", "plus", "inbox", "user"].map((icon, i) => (
             <motion.div 
               key={icon}
@@ -341,18 +355,18 @@ const VideoFeed = () => {
             </motion.div>
           ))}
         </div>
+        
+        {/* Floating badge with "drag me" hint */}
+        <motion.div
+          className="absolute -top-6 -right-2 bg-black text-white text-xs px-2 py-1 rounded-full shadow-lg"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2 }}
+          exit={{ opacity: 0, y: 10 }}
+        >
+          Drag me! <i className="fas fa-arrows-alt ml-1"></i>
+        </motion.div>
       </div>
-      
-      {/* Floating badge with "drag me" hint */}
-      <motion.div
-        className="absolute -top-6 -right-2 bg-black text-white text-xs px-2 py-1 rounded-full shadow-lg"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2 }}
-        exit={{ opacity: 0, y: 10 }}
-      >
-        Drag me! <i className="fas fa-arrows-alt ml-1"></i>
-      </motion.div>
     </motion.div>
   );
 };
@@ -412,9 +426,6 @@ export default function Hero() {
       <FloatingElement delay={1.8} duration={9} size="200px" left={80} top={25} color="linear-gradient(135deg, rgba(196, 183, 189, 0.1), rgba(196, 183, 189, 0.05))" className="hidden md:block" />
       <FloatingElement delay={1.2} duration={8} size="120px" left={65} top={60} color="linear-gradient(135deg, rgba(143, 138, 149, 0.1), rgba(143, 138, 149, 0.05))" className="hidden md:block" />
       <FloatingElement delay={0.5} duration={10} size="180px" left={20} top={75} color="linear-gradient(135deg, rgba(61, 44, 53, 0.1), rgba(61, 44, 53, 0.05))" className="hidden md:block" />
-      
-      {/* Add TikTok/Instagram-like video feed */}
-      <VideoFeed />
       
       {/* Large floating fashion trends badge */}
       <motion.div 
@@ -741,30 +752,10 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
-              {/* Bottom right top - Street style */}
-              <motion.div 
-                className="col-span-4 row-span-4 col-start-9 row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20"
-                whileHover={{ scale: 1.04, zIndex: 30 }}
-                transition={{ duration: 0.3 }}
-                style={{ y: y3 }}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=400&q=80" 
-                  alt="Street style fashion inspiration" 
-                  className="w-full h-full object-cover"
-                />
-                <motion.div 
-                  className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-3"
-                  whileHover={{ opacity: 0.9 }}
-                >
-                  <motion.span 
-                    className="text-white text-xs font-semibold bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    STREET VIBES
-                  </motion.span>
-                </motion.div>
-              </motion.div>
+              {/* Bottom right top - Video Feed Cell */}
+              <div className="col-span-4 row-span-4 col-start-9 row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
+                <VideoFeedCell />
+              </div>
               
               {/* Bottom left image - Luxury inspired */}
               <motion.div 
@@ -791,29 +782,10 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
-              {/* Bottom right bottom - Minimalist */}
-              <motion.div 
-                className="col-span-4 row-span-3 col-start-9 row-start-10 overflow-hidden rounded-xl shadow-xl relative z-20"
-                whileHover={{ scale: 1.04, zIndex: 30 }}
-                transition={{ duration: 0.3 }}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" 
-                  alt="Minimalist fashion inspiration" 
-                  className="w-full h-full object-cover"
-                />
-                <motion.div 
-                  className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-3"
-                  whileHover={{ opacity: 0.9 }}
-                >
-                  <motion.span 
-                    className="text-white text-xs font-semibold bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    MINIMALIST
-                  </motion.span>
-                </motion.div>
-              </motion.div>
+              {/* Bottom right bottom - Trending Now Video */}
+              <div className="col-span-4 row-span-3 col-start-9 row-start-10 overflow-hidden rounded-xl shadow-xl relative z-20">
+                <TrendingNowVideo />
+              </div>
               
               {/* Animated trend alert badge */}
               <motion.div 
@@ -870,8 +842,8 @@ export default function Hero() {
       
       {/* Enhanced wavy divider at the bottom */}
       <div className="absolute bottom-0 left-0 right-0 overflow-hidden h-16 z-10">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="absolute bottom-0 w-full h-16 text-[#F8F6F3]" style={{ transform: 'rotate(180deg)' }}>
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="absolute bottom-0 w-full h-16 text-[#F8F8F9]">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.44,118.92,130.09,111.31,186.84,99.57Z" className="fill-current"></path>
         </svg>
       </div>
     </section>
