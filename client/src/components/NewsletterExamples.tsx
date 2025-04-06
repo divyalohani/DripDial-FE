@@ -250,11 +250,11 @@ export default function NewsletterExamples() {
           </motion.button>
 
           {/* Mobile horizontal scroll for cards */}
-          <div className="md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 flex flex-nowrap overflow-x-auto pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible md:pb-0 snap-x snap-mandatory no-scrollbar">
+          <div className="md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 flex flex-nowrap overflow-x-auto pb-4 -mx-1 px-1 md:mx-0 md:px-0 md:overflow-x-visible md:pb-0 snap-x snap-mandatory no-scrollbar">
             {newsletterExamples.map((newsletter, index) => (
               <motion.div 
                 key={newsletter.id}
-                className="newsletter-preview bg-white rounded-xl overflow-hidden shadow-md border border-[#E0DED9] flex-shrink-0 w-[85%] md:w-auto mr-6 md:mr-0 snap-start snap-always"
+                className="newsletter-preview bg-white rounded-xl overflow-hidden shadow-md border border-[#E0DED9] flex-shrink-0 w-[97%] md:w-auto mr-[1.5%] md:mr-0 snap-start snap-always"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
