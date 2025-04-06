@@ -834,11 +834,11 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {/* Enhanced collage following the provided design */}
-            <div className="relative flex flex-col md:grid md:grid-cols-12 md:grid-rows-12 gap-3 md:gap-2 w-full md:h-[550px] lg:h-[650px]">
-              {/* Main image - Contemporary chic (Mobile & Desktop) */}
+            {/* Enhanced collage with grid layout for both mobile and desktop */}
+            <div className="relative grid grid-cols-12 grid-rows-12 gap-2 h-[650px] sm:h-[700px] md:h-[550px] lg:h-[650px]">
+              {/* Main image - Contemporary chic */}
               <motion.div 
-                className="w-full h-[300px] md:col-span-8 md:row-span-8 md:col-start-1 md:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-20"
+                className="col-span-12 sm:col-span-8 row-span-6 sm:row-span-8 col-start-1 row-start-1 overflow-hidden rounded-xl shadow-xl relative z-20"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y1 }}
@@ -869,9 +869,9 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
-              {/* Y2K Aesthetic - Mobile & Desktop */}
+              {/* Y2K Aesthetic */}
               <motion.div 
-                className="w-full h-[180px] mt-3 md:mt-0 md:col-span-4 md:row-span-5 md:col-start-9 md:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-10"
+                className="col-span-12 sm:col-span-4 row-span-3 sm:row-span-5 col-start-1 row-start-7 sm:col-start-9 sm:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-10"
                 whileHover={{ scale: 1.04, zIndex: 30 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y2 }}
@@ -894,41 +894,14 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
-              {/* AI Trend Alert - Mobile & Desktop */}
-              <div className="w-full h-[100px] relative mt-3 md:hidden flex items-start rounded-xl shadow-xl z-20">
-                <div className="absolute -top-3 -left-1 bg-white p-2 md:p-4 rounded-xl shadow-xl z-30 flex items-center space-x-2">
-                  <div className="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center">
-                    <i className="fas fa-bolt text-xs"></i>
-                  </div>
-                  <span className="font-bold text-black text-sm">AI Trend Alert</span>
-                </div>
-                <div className="bg-neutral-100 w-full h-full rounded-xl p-3 pt-5">
-                  <p className="text-xs text-gray-600 mt-2">Cargo pants + crop tops trending on TikTok with +245% engagement this week!</p>
-                  <motion.div 
-                    className="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden"
-                  >
-                    <motion.div 
-                      className="h-full bg-black" 
-                      initial={{ width: "0%" }}
-                      animate={{ width: "75%" }}
-                      transition={{ duration: 1.5, delay: 0.5 }}
-                    />
-                  </motion.div>
-                  <div className="flex justify-between mt-1">
-                    <span className="text-[10px] text-gray-500">Last week</span>
-                    <span className="text-[10px] font-medium text-black">This week</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Video feed - Desktop only */}
-              <div className="hidden md:block md:col-span-4 md:row-span-4 md:col-start-9 md:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
+              {/* Video Feed Cell */}
+              <div className="col-span-12 sm:col-span-4 row-span-2 sm:row-span-4 col-start-1 row-start-10 sm:col-start-9 sm:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
                 <VideoFeedCell />
               </div>
               
               {/* Luxury inspired - Desktop only */}
               <motion.div 
-                className="hidden md:block md:col-span-8 md:row-span-4 md:col-start-1 md:row-start-9 overflow-hidden rounded-xl shadow-xl relative z-10"
+                className="hidden md:block col-span-8 row-span-4 col-start-1 row-start-9 overflow-hidden rounded-xl shadow-xl relative z-10"
                 whileHover={{ scale: 1.02, zIndex: 30 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y4 }}
@@ -952,8 +925,37 @@ export default function Hero() {
               </motion.div>
               
               {/* Desktop trending video */}
-              <div className="hidden md:block md:col-span-4 md:row-span-3 md:col-start-9 md:row-start-10 overflow-hidden rounded-xl shadow-xl relative z-20">
+              <div className="hidden md:block col-span-4 row-span-3 col-start-9 row-start-10 overflow-hidden rounded-xl shadow-xl relative z-20">
                 <TrendingNowVideo />
+              </div>
+              
+              {/* AI Trend Alert Badge - Mobile */}
+              <div className="sm:hidden absolute bottom-[310px] left-3 bg-white p-2 rounded-xl shadow-lg max-w-[180px] z-40">
+                <div className="flex space-x-1.5 items-center mb-1">
+                  <div className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center">
+                    <i className="fas fa-bolt text-xs"></i>
+                  </div>
+                  <span className="font-bold text-black text-sm">AI Trend Alert</span>
+                </div>
+                <p className="text-xs text-gray-600">Cargo pants + crop tops trending on TikTok with +245% engagement this week!</p>
+                <div className="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                  <div className="h-full bg-black w-[75%]"></div>
+                </div>
+                <div className="flex justify-between mt-1">
+                  <span className="text-[10px] text-gray-500">Last week</span>
+                  <span className="text-[10px] font-medium text-black">This week</span>
+                </div>
+              </div>
+              
+              {/* Style Hack Badge - Mobile */}
+              <div className="sm:hidden absolute top-3 right-3 bg-white p-2 rounded-xl shadow-lg max-w-[180px] z-40">
+                <div className="flex space-x-1.5 items-center mb-1">
+                  <div className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center">
+                    <i className="fas fa-tshirt text-xs"></i>
+                  </div>
+                  <span className="font-bold text-black text-sm">Style Hack</span>
+                </div>
+                <p className="text-xs text-gray-600">Layer oversized blazers over mini dresses for instant fall transition vibes!</p>
               </div>
               
               {/* Animated trend alert badge - desktop only */}
