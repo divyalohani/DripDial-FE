@@ -434,408 +434,161 @@ const VideoFeedCell = () => {
               }}
             >
               <div className="w-full h-full">
-                {/* No overlay - pure video content */}
+                <img 
+                  src={post.imageUrl} 
+                  alt={post.outfit} 
+                  className="w-full h-[90%] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-70"></div>
                 
-                {/* Top user profile bar - almost invisible */}
-                <div className="absolute top-2 left-2 right-2 flex items-center space-x-2 bg-transparent p-1.5 rounded-lg z-20">
-                  <motion.div 
-                    className="w-7 h-7 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    {post.username.charAt(0).toUpperCase()}
-                  </motion.div>
-                  <div className="flex-1">
-                    <div className="text-white text-xs font-semibold flex items-center">
-                      {post.username}
-                      <motion.div 
-                        className="ml-1 w-3 h-3 rounded-full bg-blue-500 flex items-center justify-center"
-                        animate={{ scale: [1, 1.2, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        <i className="fas fa-check text-[6px] text-white"></i>
-                      </motion.div>
+                <div className="absolute bottom-0 left-0 right-0 p-2 text-white">
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center space-x-1.5">
+                      <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500"></div>
+                      <div className="text-xs font-semibold">{post.username}</div>
+                      <i className="fas fa-check-circle text-[10px] text-blue-400"></i>
                     </div>
-                    <div className="text-[9px] text-gray-300">{post.location}</div>
+                    <div className="text-[10px] font-medium">
+                      <i className="fas fa-map-marker-alt mr-0.5"></i>
+                      {post.location}
+                    </div>
                   </div>
-                  <motion.button 
-                    className="text-white bg-pink-500 text-[10px] px-2 py-0.5 rounded-full font-medium"
-                    whileHover={{ scale: 1.05, backgroundColor: "#db2777" }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Follow
-                  </motion.button>
-                </div>
-                
-                {/* Fashion model showcasing outfit - USING IMAGES INSTEAD OF VIDEOS */}
-                <motion.div
-                  className="absolute inset-0 overflow-hidden"
-                  animate={{ scale: [1, 1.03, 1] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  {/* Using high-quality fashion images */}
-                  <img 
-                    className="absolute inset-0 w-full h-full object-cover"
-                    src={post.imageUrl}
-                    alt={post.outfit}
-                    key={post.id}
-                  />
-                </motion.div>
-                
-                {/* Outfit tag label - very minimal */}
-                <motion.div
-                  className="absolute left-3 top-[75%] z-20 bg-black/10 px-3 py-1.5 rounded-lg border-l-2 border-pink-500"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 0.9, x: 0 }}
-                  transition={{ delay: post.delay + 0.5, duration: 0.5 }}
-                >
-                  <div className="text-white text-sm font-bold">{post.outfit}</div>
-                </motion.div>
-                
-                {/* LIVE indicator - very minimal */}
-                <motion.div 
-                  className="absolute top-3 right-3 flex items-center space-x-1 px-2 py-0.5 bg-transparent rounded-full z-20"
-                  animate={{ opacity: [0.5, 0.8, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <motion.div 
-                    className="w-2 h-2 bg-red-500 rounded-full"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 1, repeat: Infinity }}
-                  />
-                  <span className="text-white text-[10px] font-semibold text-shadow-sm">LIVE</span>
-                </motion.div>
-                
-                {/* Username pill at bottom - even more transparent */}
-                <motion.div 
-                  className="absolute bottom-3 left-3 z-20 flex items-center space-x-2 bg-black/15 py-1.5 px-3 rounded-full"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 0.9, y: 0 }}
-                  transition={{ delay: post.delay + 0.2 }}
-                >
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
-                    {post.username.charAt(0).toUpperCase()}
+                  
+                  <div className="text-xs font-bold mb-1.5">{post.outfit}</div>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex space-x-2.5">
+                      <div className="flex items-center space-x-1">
+                        <motion.i 
+                          className="fas fa-heart text-red-500 text-[10px]"
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        ></motion.i>
+                        <span className="text-[10px]">{post.likes}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <i className="fas fa-comment text-[10px]"></i>
+                        <span className="text-[10px]">{post.comments}</span>
+                      </div>
+                    </div>
+                    <div className="text-[10px]">
+                      <i className="fas fa-play-circle mr-0.5"></i>
+                      {post.views} views
+                    </div>
                   </div>
-                  <div className="text-white text-sm font-semibold text-shadow-sm">{post.username}</div>
-                </motion.div>
-                
-                {/* Shop button - almost invisible */}
-                <motion.div 
-                  className="absolute bottom-3 right-3 bg-black/20 text-white px-3 py-1 rounded-full font-medium text-xs z-20 flex items-center space-x-1"
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.5)" }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 0.7, y: 0 }}
-                  transition={{ delay: post.delay + 0.4 }}
-                >
-                  <i className="fas fa-shopping-bag text-[10px]" />
-                  <span className="text-shadow-sm">Shop</span>
-                </motion.div>
-                
-                {/* Animated hearts/likes floating up */}
-                <div className="absolute left-[20%] bottom-16 h-20">
-                  {[1, 2, 3, 4].map((i) => (
-                    <motion.div
-                      key={`heart-${post.id}-${i}`}
-                      className="absolute text-pink-500 text-xs"
-                      initial={{ opacity: 0, y: 0 }}
-                      animate={{ 
-                        opacity: [0, 1, 0],
-                        y: -50,
-                        x: Math.random() * 20 - 10
-                      }}
-                      transition={{ 
-                        duration: 2,
-                        delay: post.delay + i * 0.5,
-                        repeat: Infinity,
-                        repeatDelay: post.duration - 2
-                      }}
-                    >
-                      <i className="fas fa-heart" />
-                    </motion.div>
-                  ))}
                 </div>
               </div>
             </motion.div>
           ))}
-          
-          {/* Feed scrolling indicator */}
-          <motion.div
-            className="absolute top-0 left-0 right-0 h-1 bg-gray-700 overflow-hidden z-30"
-            animate={{ opacity: [0, 1] }}
-            transition={{ delay: 0.5 }}
-          >
-            <motion.div
-              className="h-full bg-gradient-to-r from-pink-500 to-purple-500"
-              animate={{ width: ["0%", "100%"] }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            />
-          </motion.div>
         </div>
-        
-        {/* App interface buttons at bottom - almost invisible */}
-        <div className="absolute bottom-0 left-0 right-0 flex justify-around items-center py-1 border-t border-gray-800/10 bg-black/15 z-20">
-          {["home", "search", "plus", "inbox", "user"].map((icon, i) => (
-            <motion.div 
-              key={icon}
-              className="text-gray-300 text-[10px]"
-              whileHover={{ scale: 1.2, color: "#fff" }}
-              animate={icon === "home" ? { color: "#fff" } : {}}
-            >
-              <i className={`fas fa-${icon === "plus" ? "plus-square" : icon}`}></i>
-            </motion.div>
-          ))}
-        </div>
-        
-        {/* Floating badge with "drag me" hint */}
-        <motion.div
-          className="absolute -top-6 -right-2 bg-black text-white text-xs px-2 py-1 rounded-full shadow-lg"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2 }}
-          exit={{ opacity: 0, y: 10 }}
-        >
-          Drag me! <i className="fas fa-arrows-alt ml-1"></i>
-        </motion.div>
       </div>
     </motion.div>
   );
 };
 
-// Animated fashion tag that floats in from the side
-const FashionTag = ({ text, delay, left, top, color = "black" }: any) => (
-  <motion.div
-    className="absolute z-10"
-    style={{ left: `${left}%`, top: `${top}%` }}
-    initial={{ opacity: 0, x: -50 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.7, delay }}
-  >
-    <div className="bg-white px-3 py-1 rounded-full shadow-lg flex items-center space-x-1 border border-gray-100">
-      <div className={`w-2 h-2 rounded-full bg-${color}`}></div>
-      <span className="text-xs font-medium">{text}</span>
-    </div>
-  </motion.div>
-);
-
 export default function Hero() {
-  // Parallax scroll effect
   const { scrollY } = useScroll();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const controlsTitle = useAnimation();
-  
-  // Create parallax effect for images
-  const y1 = useTransform(scrollY, [0, 500], [0, -50]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -30]);
-  const y3 = useTransform(scrollY, [0, 500], [0, -70]);
-  const y4 = useTransform(scrollY, [0, 500], [0, -40]);
-  
-  // Text highlight animation
-  useEffect(() => {
-    const sequence = async () => {
-      await controlsTitle.start({ 
-        backgroundSize: ["0% 6px", "100% 6px"],
-        transition: { duration: 1, delay: 1.2 }
-      });
-    };
-    sequence();
-  }, [controlsTitle]);
+  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -50]);
+  const y3 = useTransform(scrollY, [0, 500], [0, 200]);
+  const y4 = useTransform(scrollY, [0, 500], [0, 150]);
+  const scale = useTransform(scrollY, [0, 500], [1, 0.8]);
+  const opacity = useTransform(scrollY, [0, 500], [1, 0.5]);
 
   return (
-    <section className="relative hero-gradient min-h-[90vh] flex items-center overflow-hidden pt-[45px] md:pt-[35px] pb-24 md:pb-32" ref={containerRef}>
-      {/* Enhanced background animation */}
+    <section className="w-full min-h-screen bg-black text-white relative overflow-hidden" id="fashion-ai-newsletter">
+      {/* Animated background elements */}
+      <FloatingElement delay={0.2} duration={8} size="600px" left={-5} top={-10} color="radial-gradient(circle at center, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0))" />
+      <FloatingElement delay={0.5} duration={10} size="500px" left={60} top={50} color="radial-gradient(circle at center, rgba(167, 139, 250, 0.15), rgba(167, 139, 250, 0))" />
+      <FloatingElement delay={0.8} duration={9} size="400px" left={80} top={10} color="radial-gradient(circle at center, rgba(251, 146, 60, 0.15), rgba(251, 146, 60, 0))" />
       <MovingDots />
       
-      {/* Animated geometric shapes */}
-      <ShapeElement shape="circle" delay={0} duration={6} size="100px" left={8} top={20} className="hidden md:block" />
-      <ShapeElement shape="square" delay={1.5} duration={8} size="120px" left={85} top={15} rotation={20} className="hidden md:block" />
-      <ShapeElement shape="triangle" delay={0.8} duration={7} size="80px" left={75} top={65} rotation={10} className="hidden md:block" />
-      <ShapeElement shape="diamond" delay={2} duration={9} size="70px" left={15} top={70} className="hidden md:block" />
-      
-      {/* Animated floating bubbles */}
-      <FloatingElement delay={0.2} duration={7} size="150px" left={5} top={30} color="linear-gradient(135deg, rgba(61, 44, 53, 0.1), rgba(61, 44, 53, 0.05))" className="hidden md:block" />
-      <FloatingElement delay={1.8} duration={9} size="200px" left={80} top={25} color="linear-gradient(135deg, rgba(196, 183, 189, 0.1), rgba(196, 183, 189, 0.05))" className="hidden md:block" />
-      <FloatingElement delay={1.2} duration={8} size="120px" left={65} top={60} color="linear-gradient(135deg, rgba(143, 138, 149, 0.1), rgba(143, 138, 149, 0.05))" className="hidden md:block" />
-      <FloatingElement delay={0.5} duration={10} size="180px" left={20} top={75} color="linear-gradient(135deg, rgba(61, 44, 53, 0.1), rgba(61, 44, 53, 0.05))" className="hidden md:block" />
-      
-      {/* No more floating fashion trends badge - moved to grid cell */}
-      
-      <div className="container mx-auto px-4 py-14 md:py-20 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <motion.div 
-            className="space-y-7"
+      <div className="container mx-auto px-4 py-16 md:py-20 h-full relative z-20 flex flex-col">
+        <motion.div
+          className="text-center max-w-4xl mx-auto mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="relative inline-block mb-3">
+            <motion.span 
+              className="inline-block px-3 py-1 rounded-full text-xs md:text-sm bg-gradient-to-r from-pink-500/20 to-purple-500/20 text-white font-semibold backdrop-blur-sm"
+              whileHover={{ y: -3 }}
+              transition={{ duration: 0.2 }}
+            >
+              AI-Powered Fashion Discovery
+            </motion.span>
+            <motion.span 
+              className="absolute -right-2 -top-2 w-4 h-4 bg-pink-500 rounded-full"
+              animate={{ 
+                scale: [1, 1.2, 1],
+                boxShadow: [
+                  "0 0 0px rgba(236, 72, 153, 0.4)",
+                  "0 0 8px rgba(236, 72, 153, 0.7)",
+                  "0 0 0px rgba(236, 72, 153, 0.4)"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            ></motion.span>
+          </div>
+          
+          <motion.h1 
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.div 
-              className="flex flex-wrap gap-2 items-center"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+            <span className="block">Stay Ahead of the Curve with the</span>
+            <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 text-transparent bg-clip-text">
+              AI-Powered Fashion Newsletter
+            </span>
+          </motion.h1>
+          
+          <motion.p 
+            className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            Discover emerging trends before they explode. Get personalized style recommendations from our AI curators, delivered straight to your inbox every week.
+          </motion.p>
+          
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <Link href="#subscribe">
+              <motion.button
+                className="px-6 py-3 rounded-xl bg-white text-black font-bold text-lg shadow-xl hover:shadow-white/20 transition-all"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Subscribe Now
+              </motion.button>
+            </Link>
+            <motion.a 
+              href="#newsletter-examples" 
+              className="flex items-center text-gray-300 hover:text-white transition-colors"
+              whileHover={{ x: 5 }}
             >
-              <motion.span
-                className="inline-block px-3 py-1.5 bg-black text-white text-xs md:text-sm font-semibold rounded-full flex items-center space-x-2"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <i className="fas fa-bolt text-xs mr-1.5"></i>
-                <span>AI-POWERED FASHION INTEL</span>
-              </motion.span>
-              <motion.div 
-                className="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-medium rounded-full flex items-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <span className="text-xs">New issue every Monday</span>
-              </motion.div>
-            </motion.div>
-            
-            <div className="space-y-4">
-              <motion.h1 
-                className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-black"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                Discover Trends 
-                <br/>
-                <motion.span
-                  className="relative inline-block"
-                >
-                  Before They Explode
-                </motion.span>
-              </motion.h1>
-              
-              <motion.p 
-                className="text-lg md:text-xl text-gray-600 max-w-lg"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                DripDial delivers TikTok & Instagram fashion insights, curated outfits, and style analysis - all powered by AI fashion intelligence.
-              </motion.p>
-            </div>
-            
-            <motion.div 
-              className="flex items-center space-x-3 bg-white/80 backdrop-blur-sm py-3 px-4 rounded-xl border border-gray-200 shadow-sm"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-            >
-              <div className="flex -space-x-3">
-                <motion.div 
-                  className="w-8 h-8 rounded-full border-2 border-white bg-gray-300"
-                  whileHover={{ scale: 1.1, zIndex: 10 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                />
-                <motion.div 
-                  className="w-8 h-8 rounded-full border-2 border-white bg-gray-400" 
-                  whileHover={{ scale: 1.1, zIndex: 10 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                />
-                <motion.div 
-                  className="w-8 h-8 rounded-full border-2 border-white bg-gray-500" 
-                  whileHover={{ scale: 1.1, zIndex: 10 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                />
-                <motion.div 
-                  className="w-8 h-8 rounded-full border-2 border-white bg-gray-600 flex items-center justify-center text-xs font-bold text-white" 
-                  whileHover={{ scale: 1.1, zIndex: 10 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  +
-                </motion.div>
-              </div>
-              <div>
-                <span className="font-semibold text-black text-sm md:text-base">2,000+ trendsetters already subscribed</span>
-                <div className="flex items-center">
-                  <div className="text-yellow-500 text-xs">
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
-                  </div>
-                  <span className="text-xs text-gray-500 ml-1">125 reviews</span>
-                </div>
-              </div>
-            </motion.div>
-            
-            <div className="space-y-4">
-              <motion.div 
-                className="flex items-center space-x-3"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                whileHover={{ x: 5 }}
-              >
-                <div className="w-7 md:w-8 h-7 md:h-8 rounded-full bg-black flex items-center justify-center">
-                  <i className="fas fa-bolt text-white text-xs"></i>
-                </div>
-                <p className="text-gray-700 text-sm md:text-base">Weekly trend forecasts from TikTok & Instagram</p>
-              </motion.div>
-              
-              <motion.div 
-                className="flex items-center space-x-3"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                whileHover={{ x: 5 }}
-              >
-                <div className="w-7 md:w-8 h-7 md:h-8 rounded-full bg-black flex items-center justify-center">
-                  <i className="fas fa-tshirt text-white text-xs"></i>
-                </div>
-                <p className="text-gray-700 text-sm md:text-base">AI-curated outfit inspiration for your style</p>
-              </motion.div>
-              
-              <motion.div 
-                className="flex items-center space-x-3"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
-                whileHover={{ x: 5 }}
-              >
-                <div className="w-7 md:w-8 h-7 md:h-8 rounded-full bg-black flex items-center justify-center">
-                  <i className="fas fa-tags text-white text-xs"></i>
-                </div>
-                <p className="text-gray-700 text-sm md:text-base">Budget-friendly shopping picks under $30</p>
-              </motion.div>
-            </div>
-            
-            <motion.div 
-              className="pt-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
-            >
-              <Link href="#subscribe">
-                <motion.button
-                  className="bg-black text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-center shadow-lg inline-flex items-center space-x-2 text-sm md:text-base"
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.15)" }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <span>Subscribe Now – Be First to Slay</span>
-                  <motion.i 
-                    className="fas fa-arrow-right"
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  ></motion.i>
-                </motion.button>
-              </Link>
-            </motion.div>
+              <span>View Examples</span>
+              <i className="fas fa-arrow-right ml-2"></i>
+            </motion.a>
           </motion.div>
-
+        </motion.div>
+        
+        <div className="flex-1 flex items-center justify-center">
           <motion.div 
-            className="relative mx-auto max-w-full md:max-w-[95%] z-20"
+            className="w-full max-w-5xl mx-auto"
+            style={{ scale, opacity }}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {/* Enhanced collage with grid layout for both mobile and desktop */}
-            <div className="relative grid grid-cols-12 grid-rows-12 gap-2 h-[650px] sm:h-[700px] md:h-[550px] lg:h-[650px]">
+            {/* Grid-based layout that adjusts based on screen size */}
+            <div className="relative grid grid-cols-12 grid-rows-12 gap-2 h-[750px] sm:h-[700px] md:h-[550px] lg:h-[650px]">
               {/* Main image - Contemporary chic */}
               <motion.div 
                 className="col-span-12 sm:col-span-8 row-span-6 sm:row-span-8 col-start-1 row-start-1 overflow-hidden rounded-xl shadow-xl relative z-20"
@@ -894,8 +647,37 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
+              {/* AI Trend Alert Badge - Mobile Grid Cell */}
+              <div className="col-span-6 row-span-2 col-start-1 row-start-10 sm:hidden bg-white rounded-xl shadow-xl z-40 p-2 flex flex-col">
+                <div className="flex space-x-1.5 items-center mb-1">
+                  <div className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center">
+                    <i className="fas fa-bolt text-xs"></i>
+                  </div>
+                  <span className="font-bold text-black text-sm">AI Trend Alert</span>
+                </div>
+                <p className="text-xs text-gray-600">Cargo pants + crop tops trending on TikTok with +245% engagement this week!</p>
+                <div className="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
+                  <div className="h-full bg-black w-[75%]"></div>
+                </div>
+                <div className="flex justify-between mt-1">
+                  <span className="text-[10px] text-gray-500">Last week</span>
+                  <span className="text-[10px] font-medium text-black">This week</span>
+                </div>
+              </div>
+              
+              {/* Style Hack Badge - Mobile Grid Cell */}
+              <div className="col-span-6 row-span-2 col-start-7 row-start-10 sm:hidden bg-white rounded-xl shadow-xl z-40 p-2 flex flex-col">
+                <div className="flex space-x-1.5 items-center mb-1">
+                  <div className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center">
+                    <i className="fas fa-tshirt text-xs"></i>
+                  </div>
+                  <span className="font-bold text-black text-sm">Style Hack</span>
+                </div>
+                <p className="text-xs text-gray-600">Layer oversized blazers over mini dresses for instant fall transition vibes!</p>
+              </div>
+              
               {/* Video Feed Cell */}
-              <div className="col-span-12 sm:col-span-4 row-span-2 sm:row-span-4 col-start-1 row-start-10 sm:col-start-9 sm:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
+              <div className="col-span-12 sm:col-span-4 row-span-2 sm:row-span-4 col-start-1 row-start-12 sm:col-start-9 sm:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
                 <VideoFeedCell />
               </div>
               
@@ -929,15 +711,26 @@ export default function Hero() {
                 <TrendingNowVideo />
               </div>
               
-              {/* AI Trend Alert Badge - Mobile */}
-              <div className="sm:hidden absolute bottom-[310px] left-3 bg-white p-2 rounded-xl shadow-lg max-w-[180px] z-40">
-                <div className="flex space-x-1.5 items-center mb-1">
-                  <div className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center">
-                    <i className="fas fa-bolt text-xs"></i>
+              {/* Style tip badge - desktop only (grid cell) */}
+              <div className="hidden md:block col-span-2 row-span-2 col-start-11 row-start-1 bg-white rounded-xl shadow-xl z-30 p-4">
+                <div className="flex space-x-2 items-center mb-2">
+                  <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center">
+                    <i className="fas fa-tshirt text-sm"></i>
                   </div>
-                  <span className="font-bold text-black text-sm">AI Trend Alert</span>
+                  <span className="font-bold text-black text-base">Style Hack</span>
                 </div>
-                <p className="text-xs text-gray-600">Cargo pants + crop tops trending on TikTok with +245% engagement this week!</p>
+                <p className="text-sm text-gray-600">Layer oversized blazers over mini dresses for instant fall transition vibes!</p>
+              </div>
+              
+              {/* Trend alert badge - desktop only (grid cell) */}
+              <div className="hidden md:block col-span-2 row-span-2 col-start-1 row-start-11 bg-white rounded-xl shadow-xl z-30 p-4">
+                <div className="flex space-x-2 items-center mb-2">
+                  <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center">
+                    <i className="fas fa-bolt text-sm"></i>
+                  </div>
+                  <span className="font-bold text-black text-base">AI Trend Alert</span>
+                </div>
+                <p className="text-sm text-gray-600">Cargo pants + crop tops trending on TikTok with +245% engagement this week!</p>
                 <div className="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden">
                   <div className="h-full bg-black w-[75%]"></div>
                 </div>
@@ -946,66 +739,6 @@ export default function Hero() {
                   <span className="text-[10px] font-medium text-black">This week</span>
                 </div>
               </div>
-              
-              {/* Style Hack Badge - Mobile */}
-              <div className="sm:hidden absolute top-3 right-3 bg-white p-2 rounded-xl shadow-lg max-w-[180px] z-40">
-                <div className="flex space-x-1.5 items-center mb-1">
-                  <div className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center">
-                    <i className="fas fa-tshirt text-xs"></i>
-                  </div>
-                  <span className="font-bold text-black text-sm">Style Hack</span>
-                </div>
-                <p className="text-xs text-gray-600">Layer oversized blazers over mini dresses for instant fall transition vibes!</p>
-              </div>
-              
-              {/* Animated trend alert badge - desktop only */}
-              <motion.div 
-                className="hidden md:block absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl max-w-[240px] z-30"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 1 }}
-                whileHover={{ y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.15)" }}
-              >
-                <div className="flex space-x-3 items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center">
-                    <i className="fas fa-bolt text-sm"></i>
-                  </div>
-                  <span className="font-bold text-black text-base">AI Trend Alert</span>
-                </div>
-                <p className="text-sm text-gray-600">Cargo pants + crop tops trending on TikTok with +245% engagement this week!</p>
-                <motion.div 
-                  className="w-full bg-gray-200 h-1 mt-2 rounded-full overflow-hidden"
-                  initial={{ width: "100%" }}
-                >
-                  <motion.div 
-                    className="h-full bg-black" 
-                    initial={{ width: "0%" }}
-                    animate={{ width: "75%" }}
-                    transition={{ duration: 1.5, delay: 1.2 }}
-                  />
-                </motion.div>
-                <div className="flex justify-between mt-1">
-                  <span className="text-[10px] text-gray-500">Last week</span>
-                  <span className="text-[10px] font-medium text-black">This week</span>
-                </div>
-              </motion.div>
-              
-              {/* Animated style tip badge - desktop only */}
-              <motion.div 
-                className="hidden md:block absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-xl max-w-[240px] z-30"
-                initial={{ opacity: 0, y: -30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 1.2 }}
-                whileHover={{ y: 5, boxShadow: "0 15px 30px rgba(0,0,0,0.15)" }}
-              >
-                <div className="flex space-x-2 md:space-x-3 items-center mb-2">
-                  <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-black text-white flex items-center justify-center">
-                    <i className="fas fa-tshirt text-xs md:text-sm"></i>
-                  </div>
-                  <span className="font-bold text-black text-sm md:text-base">Style Hack</span>
-                </div>
-                <p className="text-xs md:text-sm text-gray-600">Layer oversized blazers over mini dresses for instant fall transition vibes!</p>
-              </motion.div>
             </div>
           </motion.div>
         </div>
