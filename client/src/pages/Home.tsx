@@ -1,6 +1,5 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import FeaturedIn from "@/components/FeaturedIn";
 import Features from "@/components/Features";
 import NewsletterExamples from "@/components/NewsletterExamples";
 import HowItWorks from "@/components/HowItWorks";
@@ -15,7 +14,6 @@ export default function Home() {
     <div className="bg-cream text-charcoal font-sans">
       <Navigation />
       <Hero />
-      <FeaturedIn />
       <Features />
       <NewsletterExamples />
       <HowItWorks />
