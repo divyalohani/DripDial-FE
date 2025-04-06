@@ -838,7 +838,7 @@ export default function Hero() {
             <div className="relative grid grid-cols-12 grid-rows-6 md:grid-rows-12 gap-1 md:gap-2 h-[450px] md:h-[550px] lg:h-[650px]">
               {/* Main image - Contemporary chic */}
               <motion.div 
-                className="col-span-8 md:col-span-8 row-span-4 md:row-span-8 col-start-1 row-start-1 overflow-hidden rounded-xl shadow-xl relative z-20"
+                className="col-span-12 sm:col-span-8 md:col-span-8 row-span-4 md:row-span-8 col-start-1 row-start-1 overflow-hidden rounded-xl shadow-xl relative z-20"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y1 }}
@@ -871,7 +871,7 @@ export default function Hero() {
               
               {/* Top right image - Y2K Aesthetic */}
               <motion.div 
-                className="col-span-4 md:col-span-4 row-span-2 md:row-span-5 col-start-9 md:col-start-9 row-start-1 md:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-10"
+                className="col-span-12 sm:col-span-4 md:col-span-4 row-span-2 md:row-span-5 col-start-1 sm:col-start-9 md:col-start-9 row-start-5 sm:row-start-1 md:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-10"
                 whileHover={{ scale: 1.04, zIndex: 30 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y2 }}
@@ -895,11 +895,36 @@ export default function Hero() {
               </motion.div>
               
               {/* Bottom right top - Video Feed Cell */}
-              <div className="col-span-4 md:col-span-4 row-span-2 md:row-span-4 col-start-9 md:col-start-9 row-start-3 md:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
+              <div className="col-span-6 sm:col-span-4 md:col-span-4 row-span-2 md:row-span-4 col-start-1 sm:col-start-9 md:col-start-9 row-start-7 sm:row-start-3 md:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
                 <VideoFeedCell />
               </div>
               
-              {/* Bottom left image - Luxury inspired */}
+              {/* Mobile version of luxury image */}
+              <motion.div 
+                className="col-span-6 row-span-2 col-start-1 row-start-9 sm:hidden overflow-hidden rounded-xl shadow-xl relative z-10"
+                whileHover={{ scale: 1.02, zIndex: 30 }}
+                transition={{ duration: 0.3 }}
+                style={{ y: y4 }}
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" 
+                  alt="Luxury fashion inspiration" 
+                  className="w-full h-full object-cover"
+                />
+                <motion.div 
+                  className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-3"
+                  whileHover={{ opacity: 0.9 }}
+                >
+                  <motion.span 
+                    className="text-white text-xs font-semibold bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    LUXURY INSPIRED
+                  </motion.span>
+                </motion.div>
+              </motion.div>
+              
+              {/* Desktop Bottom left image - Luxury inspired */}
               <motion.div 
                 className="col-span-6 md:col-span-8 row-span-3 md:row-span-4 col-start-1 row-start-1 md:row-start-9 hidden md:block overflow-hidden rounded-xl shadow-xl relative z-10"
                 whileHover={{ scale: 1.02, zIndex: 30 }}
@@ -924,7 +949,12 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
-              {/* Bottom right bottom - Trending Now Video */}
+              {/* Mobile Bottom right cell - Trending Now Video */}
+              <div className="col-span-5 row-span-2 col-start-7 row-start-9 sm:hidden overflow-hidden rounded-xl shadow-xl relative z-20">
+                <TrendingNowVideo />
+              </div>
+              
+              {/* Desktop Bottom right bottom - Trending Now Video */}
               <div className="col-span-3 md:col-span-4 row-span-2 md:row-span-3 col-start-1 md:col-start-9 row-start-1 md:row-start-10 hidden md:block overflow-hidden rounded-xl shadow-xl relative z-20">
                 <TrendingNowVideo />
               </div>
