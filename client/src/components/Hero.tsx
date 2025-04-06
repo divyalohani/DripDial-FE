@@ -835,10 +835,10 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             {/* Enhanced collage with parallax effect and improved layout */}
-            <div className="relative grid grid-cols-12 grid-rows-6 md:grid-rows-12 gap-1 md:gap-2 h-[450px] md:h-[550px] lg:h-[650px]">
+            <div className="relative grid grid-cols-12 grid-rows-6 md:grid-rows-12 gap-2 md:gap-2 h-[600px] md:h-[550px] lg:h-[650px]">
               {/* Main image - Contemporary chic */}
               <motion.div 
-                className="col-span-12 sm:col-span-8 md:col-span-8 row-span-4 md:row-span-8 col-start-1 row-start-1 overflow-hidden rounded-xl shadow-xl relative z-20"
+                className="col-span-12 sm:col-span-8 md:col-span-8 row-span-3 md:row-span-8 col-start-1 row-start-1 overflow-hidden rounded-xl shadow-xl relative z-20"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y1 }}
@@ -869,9 +869,9 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
-              {/* Top right image - Y2K Aesthetic */}
+              {/* Mobile - Y2K Aesthetic */}
               <motion.div 
-                className="col-span-12 sm:col-span-4 md:col-span-4 row-span-2 md:row-span-5 col-start-1 sm:col-start-9 md:col-start-9 row-start-5 sm:row-start-1 md:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-10"
+                className="col-span-12 row-span-2 col-start-1 row-start-4 sm:hidden overflow-hidden rounded-xl shadow-xl relative z-10"
                 whileHover={{ scale: 1.04, zIndex: 30 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y2 }}
@@ -894,14 +894,39 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
-              {/* Bottom right top - Video Feed Cell */}
-              <div className="col-span-6 sm:col-span-4 md:col-span-4 row-span-2 md:row-span-4 col-start-1 sm:col-start-9 md:col-start-9 row-start-7 sm:row-start-3 md:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
+              {/* Desktop - Y2K Aesthetic */}
+              <motion.div 
+                className="hidden sm:block col-span-4 md:col-span-4 row-span-5 col-start-9 md:col-start-9 row-start-1 md:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-10"
+                whileHover={{ scale: 1.04, zIndex: 30 }}
+                transition={{ duration: 0.3 }}
+                style={{ y: y2 }}
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=400&q=80" 
+                  alt="Y2K fashion inspiration" 
+                  className="w-full h-full object-cover"
+                />
+                <motion.div 
+                  className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-3"
+                  whileHover={{ opacity: 0.9 }}
+                >
+                  <motion.span 
+                    className="text-white text-xs font-semibold bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    Y2K AESTHETIC
+                  </motion.span>
+                </motion.div>
+              </motion.div>
+              
+              {/* Desktop Video Feed Cell */}
+              <div className="hidden sm:block col-span-4 md:col-span-4 row-span-4 col-start-9 md:col-start-9 row-start-3 md:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
                 <VideoFeedCell />
               </div>
               
-              {/* Mobile version of luxury image */}
+              {/* Desktop Luxury inspired */}
               <motion.div 
-                className="col-span-6 row-span-2 col-start-1 row-start-9 sm:hidden overflow-hidden rounded-xl shadow-xl relative z-10"
+                className="hidden md:block col-span-8 row-span-4 col-start-1 row-start-9 overflow-hidden rounded-xl shadow-xl relative z-10"
                 whileHover={{ scale: 1.02, zIndex: 30 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y4 }}
@@ -924,44 +949,21 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
               
-              {/* Desktop Bottom left image - Luxury inspired */}
-              <motion.div 
-                className="col-span-6 md:col-span-8 row-span-3 md:row-span-4 col-start-1 row-start-1 md:row-start-9 hidden md:block overflow-hidden rounded-xl shadow-xl relative z-10"
-                whileHover={{ scale: 1.02, zIndex: 30 }}
-                transition={{ duration: 0.3 }}
-                style={{ y: y4 }}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" 
-                  alt="Luxury fashion inspiration" 
-                  className="w-full h-full object-cover"
-                />
-                <motion.div 
-                  className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-3"
-                  whileHover={{ opacity: 0.9 }}
-                >
-                  <motion.span 
-                    className="text-white text-xs font-semibold bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    LUXURY INSPIRED
-                  </motion.span>
-                </motion.div>
-              </motion.div>
-              
-              {/* Mobile Bottom right cell - Trending Now Video */}
-              <div className="col-span-5 row-span-2 col-start-7 row-start-9 sm:hidden overflow-hidden rounded-xl shadow-xl relative z-20">
-                <TrendingNowVideo />
+              {/* Mobile TikTok style feed */}
+              <div className="col-span-12 row-span-1 col-start-1 row-start-6 sm:hidden overflow-hidden rounded-xl shadow-xl relative z-20 h-20">
+                <div className="h-full">
+                  <VideoFeedCell />
+                </div>
               </div>
               
-              {/* Desktop Bottom right bottom - Trending Now Video */}
-              <div className="col-span-3 md:col-span-4 row-span-2 md:row-span-3 col-start-1 md:col-start-9 row-start-1 md:row-start-10 hidden md:block overflow-hidden rounded-xl shadow-xl relative z-20">
+              {/* Desktop trending video */}
+              <div className="hidden md:block col-span-4 row-span-3 col-start-9 row-start-10 overflow-hidden rounded-xl shadow-xl relative z-20">
                 <TrendingNowVideo />
               </div>
               
               {/* Animated trend alert badge */}
               <motion.div 
-                className="absolute -bottom-2 md:-bottom-6 -left-2 md:-left-6 bg-white p-2 md:p-4 rounded-xl shadow-xl max-w-[170px] md:max-w-[240px] z-30 scale-75 md:scale-100"
+                className="absolute -bottom-2 sm:-bottom-6 left-2 sm:-left-6 bg-white p-2 md:p-4 rounded-xl shadow-xl max-w-[170px] md:max-w-[240px] z-30 scale-75 md:scale-100"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 1 }}
@@ -993,7 +995,7 @@ export default function Hero() {
               
               {/* Animated style tip badge */}
               <motion.div 
-                className="absolute -top-2 md:-top-4 -right-2 md:-right-4 bg-white p-2 md:p-4 rounded-xl shadow-xl max-w-[170px] md:max-w-[240px] z-30 scale-75 md:scale-100"
+                className="absolute top-2 sm:-top-4 right-2 sm:-right-4 bg-white p-2 md:p-4 rounded-xl shadow-xl max-w-[170px] md:max-w-[240px] z-30 scale-75 md:scale-100"
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 1.2 }}
