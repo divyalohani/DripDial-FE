@@ -469,28 +469,80 @@ const VideoFeedCell = () => {
                   <div className="text-white/90 text-[9px]">{post.outfit}</div>
                 </motion.div>
                 
-                {/* Fashion outfit elements - simulating actual outfit elements being shown */}
+                {/* Actual influencer models in video content */}
                 <motion.div
                   className="absolute w-full h-full flex items-center justify-center"
-                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  animate={{ opacity: [0.9, 1, 0.9] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
-                  {/* Center outfit silhouette - outlined to represent the outfit */}
+                  {/* Using a div to simulate the influencer video/image with pseudo gradient overlay */}
                   <motion.div
-                    className="relative w-[100px] h-[230px] border-2 border-white/30 rounded-2xl overflow-hidden"
-                    animate={{ scale: [1, 1.05, 1], borderColor: ["rgba(255,255,255,0.2)", "rgba(255,255,255,0.4)", "rgba(255,255,255,0.2)"] }}
-                    transition={{ duration: 3, repeat: Infinity }}
+                    className="absolute inset-0 overflow-hidden"
+                    animate={{ scale: [1, 1.03, 1] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                   >
-                    {/* Animated highlight to simulate outfit movement */}
+                    {/* Overlay to make text readable */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 z-10" />
+                    
+                    {index === 0 ? (
+                      /* First influencer - doing a linen co-ord set pose */
+                      <motion.div 
+                        className="absolute inset-0 bg-center bg-cover"
+                        style={{ 
+                          backgroundImage: "url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=800&q=80')",
+                          filter: "brightness(0.9) contrast(1.1)"
+                        }}
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 10, repeat: Infinity }}
+                      />
+                    ) : index === 1 ? (
+                      /* Second influencer - showing off the blazer + cargo pants */
+                      <motion.div 
+                        className="absolute inset-0 bg-center bg-cover"
+                        style={{ 
+                          backgroundImage: "url('https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80')",
+                          filter: "brightness(0.9) contrast(1.1)"
+                        }}
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 10, repeat: Infinity }}
+                      />
+                    ) : (
+                      /* Third influencer - platform boots + slip dress */
+                      <motion.div 
+                        className="absolute inset-0 bg-center bg-cover"
+                        style={{ 
+                          backgroundImage: "url('https://images.unsplash.com/photo-1618721405821-45c8247bcc4f?auto=format&fit=crop&w=800&q=80')",
+                          filter: "brightness(0.9) contrast(1.1)"
+                        }}
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 10, repeat: Infinity }}
+                      />
+                    )}
+                    
+                    {/* Animated overlay effect to make it look like a video */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0"
+                      className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 via-pink-500/5 to-transparent mix-blend-overlay"
                       animate={{ 
                         backgroundPosition: ["0% 0%", "100% 100%"],
-                        opacity: [0, 0.5, 0]
+                        opacity: [0, 0.3, 0]
                       }}
-                      transition={{ duration: 2, repeat: Infinity }}
+                      transition={{ duration: 3, repeat: Infinity }}
                       style={{ backgroundSize: "200% 200%" }}
                     />
+                  </motion.div>
+                  
+                  {/* Video recording indicator */}
+                  <motion.div 
+                    className="absolute top-14 right-3 flex items-center space-x-1 px-2 py-0.5 bg-black/40 backdrop-blur-sm rounded-full z-20"
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <motion.div 
+                      className="w-2 h-2 bg-red-500 rounded-full"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                    />
+                    <span className="text-white text-[8px]">LIVE</span>
                   </motion.div>
                 </motion.div>
                 
