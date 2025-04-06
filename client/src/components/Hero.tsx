@@ -835,10 +835,10 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             {/* Enhanced collage with parallax effect and improved layout */}
-            <div className="relative grid grid-cols-6 md:grid-cols-12 grid-rows-6 md:grid-rows-12 gap-1 md:gap-2 h-[450px] md:h-[550px] lg:h-[650px]">
+            <div className="relative grid grid-cols-12 grid-rows-6 md:grid-rows-12 gap-1 md:gap-2 h-[450px] md:h-[550px] lg:h-[650px]">
               {/* Main image - Contemporary chic */}
               <motion.div 
-                className="col-span-6 md:col-span-8 row-span-4 md:row-span-8 col-start-1 row-start-1 overflow-hidden rounded-xl shadow-xl relative z-20"
+                className="col-span-8 md:col-span-8 row-span-4 md:row-span-8 col-start-1 row-start-1 overflow-hidden rounded-xl shadow-xl relative z-20"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y1 }}
@@ -849,11 +849,11 @@ export default function Hero() {
                   className="w-full h-full object-cover"
                 />
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-6 flex flex-col justify-end"
+                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-3 md:p-6 flex flex-col justify-end"
                   whileHover={{ opacity: 0.9 }}
                 >
                   <motion.span 
-                    className="text-white text-sm font-semibold mb-2 bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm w-fit"
+                    className="text-white text-xs md:text-sm font-semibold mb-2 bg-black/30 px-2 py-1 rounded-md backdrop-blur-sm w-fit"
                     whileHover={{ scale: 1.05 }}
                   >
                     CONTEMPORARY CHIC
@@ -871,7 +871,7 @@ export default function Hero() {
               
               {/* Top right image - Y2K Aesthetic */}
               <motion.div 
-                className="col-span-3 md:col-span-4 row-span-3 md:row-span-5 col-start-1 md:col-start-9 row-start-5 md:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-10"
+                className="col-span-4 md:col-span-4 row-span-2 md:row-span-5 col-start-9 md:col-start-9 row-start-1 md:row-start-1 overflow-hidden rounded-xl shadow-xl relative z-10"
                 whileHover={{ scale: 1.04, zIndex: 30 }}
                 transition={{ duration: 0.3 }}
                 style={{ y: y2 }}
@@ -895,7 +895,7 @@ export default function Hero() {
               </motion.div>
               
               {/* Bottom right top - Video Feed Cell */}
-              <div className="col-span-3 md:col-span-4 row-span-3 md:row-span-4 col-start-4 md:col-start-9 row-start-5 md:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
+              <div className="col-span-4 md:col-span-4 row-span-2 md:row-span-4 col-start-9 md:col-start-9 row-start-3 md:row-start-6 overflow-hidden rounded-xl shadow-xl relative z-20">
                 <VideoFeedCell />
               </div>
               
