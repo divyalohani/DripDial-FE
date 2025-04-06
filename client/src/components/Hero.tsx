@@ -313,18 +313,18 @@ const TrendingNowVideo = () => {
   );
 };
 
-// TikTok/Instagram video feed for the 3rd grid cell - static images instead of videos
+// TikTok/Instagram video feed for the 3rd grid cell - colorful vibrant fashion images
 const VideoFeedCell = () => {
-  // Using static fashion images that are guaranteed to display
+  // Using bright, colorful fashion images that stand out
   const influencerPosts = [
     { 
       id: 1, 
       duration: 10, 
       delay: 0,
-      username: "vogue_style",
-      outfit: "Runway Collection",
-      views: "1.2M",
-      imageUrl: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&auto=format",
+      username: "style_queen",
+      outfit: "Bold Colorblock Look",
+      views: "1.5M",
+      imageUrl: "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?w=600&auto=format",
       location: "Paris",
       likes: "342.3k",
       comments: "8.7k"
@@ -333,11 +333,11 @@ const VideoFeedCell = () => {
       id: 2, 
       duration: 12, 
       delay: 0.4,
-      username: "elle_fashion",
-      outfit: "Summer Essentials",
+      username: "fashion_forward",
+      outfit: "Street Glam 2025",
       views: "872K",
-      imageUrl: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format",
-      location: "Milan",
+      imageUrl: "https://images.unsplash.com/photo-1475180098004-ca77a66827be?w=600&auto=format",
+      location: "Tokyo",
       likes: "238.6k",
       comments: "5.2k"
     },
@@ -345,13 +345,37 @@ const VideoFeedCell = () => {
       id: 3, 
       duration: 15, 
       delay: 0.8,
-      username: "fashion_daily",
-      outfit: "Street Style 2025",
+      username: "trendsetter",
+      outfit: "Urban Chic Collection",
       views: "968K",
-      imageUrl: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&auto=format",
-      location: "New York",
+      imageUrl: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=600&auto=format",
+      location: "London",
       likes: "176.4k",
       comments: "4.3k"
+    },
+    { 
+      id: 4, 
+      duration: 12, 
+      delay: 1.2,
+      username: "glamour_guru",
+      outfit: "Evening Elegance",
+      views: "756K",
+      imageUrl: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&auto=format",
+      location: "Milan",
+      likes: "198.4k",
+      comments: "6.1k"
+    },
+    { 
+      id: 5, 
+      duration: 13, 
+      delay: 1.6,
+      username: "fashion_icon",
+      outfit: "Summer Resort Wear",
+      views: "1.1M",
+      imageUrl: "https://images.unsplash.com/photo-1566206091558-7f218b696731?w=600&auto=format",
+      location: "Barcelona",
+      likes: "287.9k",
+      comments: "7.4k"
     }
   ];
 
@@ -412,8 +436,8 @@ const VideoFeedCell = () => {
               <div className="w-full h-full">
                 {/* No overlay - pure video content */}
                 
-                {/* Top user profile bar - very minimal design to show faces more clearly */}
-                <div className="absolute top-2 left-2 right-2 flex items-center space-x-2 bg-black/5 p-1.5 rounded-lg z-20">
+                {/* Top user profile bar - almost invisible */}
+                <div className="absolute top-2 left-2 right-2 flex items-center space-x-2 bg-transparent p-1.5 rounded-lg z-20">
                   <motion.div 
                     className="w-7 h-7 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold"
                     whileHover={{ scale: 1.1 }}
@@ -457,20 +481,20 @@ const VideoFeedCell = () => {
                   />
                 </motion.div>
                 
-                {/* Outfit tag label - more transparent */}
+                {/* Outfit tag label - very minimal */}
                 <motion.div
-                  className="absolute left-3 top-[75%] z-20 bg-black/20 backdrop-blur-sm px-3 py-1.5 rounded-lg border-l-2 border-pink-500"
+                  className="absolute left-3 top-[75%] z-20 bg-black/10 px-3 py-1.5 rounded-lg border-l-2 border-pink-500"
                   initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  animate={{ opacity: 0.9, x: 0 }}
                   transition={{ delay: post.delay + 0.5, duration: 0.5 }}
                 >
                   <div className="text-white text-sm font-bold">{post.outfit}</div>
                 </motion.div>
                 
-                {/* LIVE indicator - smaller and more transparent */}
+                {/* LIVE indicator - very minimal */}
                 <motion.div 
-                  className="absolute top-3 right-3 flex items-center space-x-1 px-2 py-0.5 bg-black/15 backdrop-blur-sm rounded-full z-20"
-                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  className="absolute top-3 right-3 flex items-center space-x-1 px-2 py-0.5 bg-transparent rounded-full z-20"
+                  animate={{ opacity: [0.5, 0.8, 0.5] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
                   <motion.div 
@@ -478,33 +502,33 @@ const VideoFeedCell = () => {
                     animate={{ scale: [1, 1.2, 1] }}
                     transition={{ duration: 1, repeat: Infinity }}
                   />
-                  <span className="text-white text-[10px]">LIVE</span>
+                  <span className="text-white text-[10px] font-semibold text-shadow-sm">LIVE</span>
                 </motion.div>
                 
-                {/* Username pill at bottom - more transparent to show video content */}
+                {/* Username pill at bottom - even more transparent */}
                 <motion.div 
-                  className="absolute bottom-3 left-3 z-20 flex items-center space-x-2 bg-black/30 backdrop-blur-sm py-1.5 px-3 rounded-full"
+                  className="absolute bottom-3 left-3 z-20 flex items-center space-x-2 bg-black/15 py-1.5 px-3 rounded-full"
                   initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  animate={{ opacity: 0.9, y: 0 }}
                   transition={{ delay: post.delay + 0.2 }}
                 >
                   <div className="w-6 h-6 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
                     {post.username.charAt(0).toUpperCase()}
                   </div>
-                  <div className="text-white text-sm font-semibold">{post.username}</div>
+                  <div className="text-white text-sm font-semibold text-shadow-sm">{post.username}</div>
                 </motion.div>
                 
-                {/* Shop button - smaller and more transparent */}
+                {/* Shop button - almost invisible */}
                 <motion.div 
-                  className="absolute bottom-3 right-3 bg-black/50 text-white px-3 py-1 rounded-full font-medium text-xs z-20 flex items-center space-x-1"
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.7)" }}
+                  className="absolute bottom-3 right-3 bg-black/20 text-white px-3 py-1 rounded-full font-medium text-xs z-20 flex items-center space-x-1"
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.5)" }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 0.8, y: 0 }}
+                  animate={{ opacity: 0.7, y: 0 }}
                   transition={{ delay: post.delay + 0.4 }}
                 >
                   <i className="fas fa-shopping-bag text-[10px]" />
-                  <span>Shop</span>
+                  <span className="text-shadow-sm">Shop</span>
                 </motion.div>
                 
                 {/* Animated hearts/likes floating up */}
@@ -548,8 +572,8 @@ const VideoFeedCell = () => {
           </motion.div>
         </div>
         
-        {/* App interface buttons at bottom - more transparent */}
-        <div className="absolute bottom-0 left-0 right-0 flex justify-around items-center py-1 border-t border-gray-800/50 bg-black/30 backdrop-blur-sm z-20">
+        {/* App interface buttons at bottom - almost invisible */}
+        <div className="absolute bottom-0 left-0 right-0 flex justify-around items-center py-1 border-t border-gray-800/10 bg-black/15 z-20">
           {["home", "search", "plus", "inbox", "user"].map((icon, i) => (
             <motion.div 
               key={icon}
