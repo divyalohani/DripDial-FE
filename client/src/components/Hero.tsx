@@ -28,7 +28,7 @@ const FloatingElement = ({ delay, duration, size, left, top, className }: any) =
 
 export default function Hero() {
   return (
-    <section className="relative hero-gradient min-h-[85vh] flex items-center overflow-visible">
+    <section className="relative hero-gradient min-h-[80vh] flex items-center overflow-visible">
       {/* Animated background elements */}
       <FloatingElement delay={0} duration={5} size="120px" left={10} top={30} className="hidden md:block" />
       <FloatingElement delay={1} duration={7} size="180px" left={85} top={20} className="hidden md:block" />
@@ -49,7 +49,7 @@ export default function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              AI-Powered Fashion
+              Fashion Newsletter
             </motion.span>
             <motion.h1 
               className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#1D1D1F]"
@@ -124,12 +124,12 @@ export default function Hero() {
           </motion.div>
 
           <motion.div 
-            className="relative"
+            className="relative mx-auto max-w-[90%] md:max-w-[85%]"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative grid grid-cols-2 gap-4">
+            <div className="relative grid grid-cols-2 gap-3">
               {/* Top left image - Streetwear */}
               <motion.div 
                 className="overflow-hidden rounded-xl shadow-xl"
@@ -139,7 +139,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Streetwear fashion inspiration" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-[180px] md:h-[200px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">street vibes</span>
@@ -155,7 +155,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1603205319065-6c611f3c6e23?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Office chic fashion inspiration" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-[180px] md:h-[200px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">office chic</span>
@@ -171,7 +171,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Fall fits fashion inspiration" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-[180px] md:h-[200px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">trend alert</span>
@@ -187,7 +187,7 @@ export default function Hero() {
                 <img 
                   src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&h=800&q=80" 
                   alt="Runway inspired fashion" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-[180px] md:h-[200px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <span className="text-white text-xs font-semibold">runway style</span>
@@ -196,34 +196,34 @@ export default function Hero() {
               
               {/* Floating badge 1 */}
               <motion.div 
-                className="absolute -bottom-12 -left-6 bg-white p-3 rounded-xl shadow-xl max-w-[220px] z-10"
+                className="absolute -bottom-8 -left-4 bg-white p-3 rounded-xl shadow-xl max-w-[200px] z-10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <div className="flex space-x-2 items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-[#3D2C35] text-white flex items-center justify-center">
-                    <i className="fas fa-bolt"></i>
+                  <div className="w-7 h-7 rounded-full bg-[#3D2C35] text-white flex items-center justify-center">
+                    <i className="fas fa-bolt text-xs"></i>
                   </div>
-                  <span className="font-medium text-[#1D1D1F]">AI Trend Alert</span>
+                  <span className="font-medium text-[#1D1D1F] text-sm">AI Trend Alert</span>
                 </div>
-                <p className="text-sm text-[#8F8A95]">Cargo pants + crop tops trending on TikTok this week!</p>
+                <p className="text-xs text-[#8F8A95]">Cargo pants + crop tops trending on TikTok this week!</p>
               </motion.div>
               
               {/* Floating badge 2 */}
               <motion.div 
-                className="absolute -top-6 -right-6 bg-white p-3 rounded-xl shadow-xl max-w-[220px] z-10"
+                className="absolute -top-4 -right-4 bg-white p-3 rounded-xl shadow-xl max-w-[200px] z-10"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
                 <div className="flex space-x-2 items-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-[#C4B7BD] text-[#3D2C35] flex items-center justify-center">
-                    <i className="fas fa-tshirt"></i>
+                  <div className="w-7 h-7 rounded-full bg-[#C4B7BD] text-[#3D2C35] flex items-center justify-center">
+                    <i className="fas fa-tshirt text-xs"></i>
                   </div>
-                  <span className="font-medium text-[#1D1D1F]">Style Tip</span>
+                  <span className="font-medium text-[#1D1D1F] text-sm">Style Tip</span>
                 </div>
-                <p className="text-sm text-[#8F8A95]">Layer oversized blazers over mini dresses for fall transition!</p>
+                <p className="text-xs text-[#8F8A95]">Layer oversized blazers over mini dresses for fall transition!</p>
               </motion.div>
             </div>
           </motion.div>
