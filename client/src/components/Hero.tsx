@@ -982,17 +982,17 @@ export default function Hero() {
         </div>
       </div>
       
-      {/* Denser wave divider positioned higher */}
-      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden translate-y-[-15px] md:translate-y-[-20px]">
+      {/* Gentle wave divider matching the screenshot */}
+      <div className="absolute bottom-[-1px] left-0 right-0 w-full overflow-hidden">
         <svg 
-          viewBox="0 0 1440 120" 
+          viewBox="0 0 1440 100" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg" 
           preserveAspectRatio="none"
-          className="w-full h-[70px] md:h-[100px]"
+          className="w-full h-[80px] md:h-[100px]"
         >
           <path 
-            d="M0 120L30 108C60 96 120 72 180 66C240 60 300 72 360 78C420 84 480 84 540 72C600 60 660 36 720 30C780 24 840 36 900 48C960 60 1020 72 1080 66C1140 60 1200 36 1260 30C1320 24 1380 36 1410 42L1440 48V120H0Z" 
+            d="M0,25 C320,90 480,10 720,30 C960,50 1120,75 1440,20 L1440,100 L0,100 Z" 
             fill="#F8F6F3"
           />
         </svg>
