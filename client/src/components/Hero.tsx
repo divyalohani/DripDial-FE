@@ -313,9 +313,9 @@ const TrendingNowVideo = () => {
   );
 };
 
-// TikTok/Instagram video feed for the 3rd grid cell - featuring fashion brand videos
+// TikTok/Instagram video feed for the 3rd grid cell - static images instead of videos
 const VideoFeedCell = () => {
-  // Array of brand fashion videos - using direct embed videos from trusted sources
+  // Using static fashion images that are guaranteed to display
   const influencerPosts = [
     { 
       id: 1, 
@@ -324,11 +324,10 @@ const VideoFeedCell = () => {
       username: "vogue_style",
       outfit: "Runway Collection",
       views: "1.2M",
-      videoUrl: "https://cdn.coverr.co/videos/coverr-a-fashion-shoot-in-a-studio-5172/1080p.mp4",
+      imageUrl: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&auto=format",
       location: "Paris",
       likes: "342.3k",
-      comments: "8.7k",
-      gradient: "none" // No gradient
+      comments: "8.7k"
     },
     { 
       id: 2, 
@@ -337,11 +336,10 @@ const VideoFeedCell = () => {
       username: "elle_fashion",
       outfit: "Summer Essentials",
       views: "872K",
-      videoUrl: "https://cdn.coverr.co/videos/coverr-models-during-photoshoot-4733/1080p.mp4",
+      imageUrl: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format",
       location: "Milan",
       likes: "238.6k",
-      comments: "5.2k",
-      gradient: "none" // No gradient
+      comments: "5.2k"
     },
     { 
       id: 3, 
@@ -350,11 +348,10 @@ const VideoFeedCell = () => {
       username: "fashion_daily",
       outfit: "Street Style 2025",
       views: "968K",
-      videoUrl: "https://cdn.coverr.co/videos/coverr-models-runway-during-fashion-week-4703/1080p.mp4",
+      imageUrl: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&auto=format",
       location: "New York",
       likes: "176.4k",
-      comments: "4.3k",
-      gradient: "none" // No gradient
+      comments: "4.3k"
     }
   ];
 
@@ -445,20 +442,17 @@ const VideoFeedCell = () => {
                   </motion.button>
                 </div>
                 
-                {/* Influencer model showcasing fashion outfit */}
+                {/* Fashion model showcasing outfit - USING IMAGES INSTEAD OF VIDEOS */}
                 <motion.div
                   className="absolute inset-0 overflow-hidden"
                   animate={{ scale: [1, 1.03, 1] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  {/* NO GRADIENT OVERLAYS - Just pure video content */}
-                  <video 
+                  {/* Using high-quality fashion images */}
+                  <img 
                     className="absolute inset-0 w-full h-full object-cover"
-                    src={post.videoUrl}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+                    src={post.imageUrl}
+                    alt={post.outfit}
                     key={post.id}
                   />
                 </motion.div>
