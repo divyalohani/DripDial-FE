@@ -149,7 +149,7 @@ export default function NewsletterPreview() {
   const [selectedPreview, setSelectedPreview] = useState(newsletterExamples[0]);
 
   return (
-    <div className="bg-cream min-h-screen">
+    <div className="bg-[var(--color-background)] min-h-screen">
       <Navigation />
       
       <div className="container mx-auto px-4 py-12">
@@ -170,7 +170,7 @@ export default function NewsletterPreview() {
             {newsletterExamples.map((example) => (
               <Card 
                 key={example.id}
-                className={`cursor-pointer transition-all hover:-translate-y-1 hover:shadow-md ${selectedPreview.id === example.id ? 'ring-2 ring-plum' : ''}`}
+                className={`cursor-pointer transition-all hover:-translate-y-1 hover:shadow-md ${selectedPreview.id === example.id ? 'ring-2 ring-[var(--color-primary)]' : ''}`}
                 onClick={() => setSelectedPreview(example)}
               >
                 <div className="h-48 overflow-hidden rounded-t-xl">
@@ -182,7 +182,7 @@ export default function NewsletterPreview() {
                 </div>
                 <CardHeader className="pb-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-xs font-medium bg-plum text-white px-2 py-1 rounded-full">{example.category}</span>
+                    <span className="text-xs font-medium bg-[var(--color-primary)] text-white px-2 py-1 rounded-full">{example.category}</span>
                     <span className="text-xs text-gray-500">{example.date}</span>
                   </div>
                   <CardTitle className="text-xl mt-2">{example.title}</CardTitle>
@@ -219,7 +219,7 @@ export default function NewsletterPreview() {
             <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: selectedPreview.content }} />
           </motion.div>
           
-          <div className="bg-plum text-white p-8 rounded-xl text-center">
+          <div className="bg-[var(--color-primary)] text-white p-8 rounded-xl text-center">
             <h3 className="font-display text-2xl font-semibold mb-4">Like What You See?</h3>
             <p className="mb-6">Subscribe to DripDial and get these insights delivered directly to your inbox every week.</p>
             <Link href="/#subscribe">
