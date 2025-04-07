@@ -161,7 +161,16 @@ const newsletterExamples = [
         </div>
       </div>
     `
-  }
+  },
+  {
+    id: 4,
+    title: "24 Hours with Bella: The Outfit That Broke Instagram",
+    category: "CELEB STYLE",
+    date: "EXCLUSIVE",
+    description: "Bella Hadid's latest look caused search spikes across 3 continents. Full breakdown inside...",
+    imageUrl: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&h=400",
+    videoUrl: "https://media.giphy.com/media/xUPGcIUJUmnZNhSuY0/giphy.gif",
+    tags: ["#BellaEffect", "#CelebStyle"],
     stats: {
       likes: "2.3M",
       shares: "450K",
@@ -213,7 +222,7 @@ const newsletterExamples = [
     `
   },
   {
-    id: 2,
+    id: 5,
     title: "TikTok's Viral 'Clean Girl' Evolution",
     category: "TREND REPORT",
     date: "VIRAL NOW",
