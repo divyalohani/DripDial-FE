@@ -16,13 +16,152 @@ import Footer from "@/components/Footer";
 const newsletterExamples = [
   {
     id: 1,
-    title: "Bella Hadid's Viral Street Style Decoded",
-    category: "CELEBRITY INTEL",
-    date: "24 HOURS AGO",
-    description: "Our AI analyzed Bella's latest viral outfit that got 2.3M likes in just 24 hours. Here's how to recreate it...",
+    title: "🔥 KENDALL'S VIRAL OUTFIT BROKE TIKTOK",
+    category: "⚡️ TRENDING NOW",
+    date: "2 HOURS AGO",
+    description: "This 15-second clip hit 12M views in 2 hours! Our AI spotted the exact pieces + budget dupes inside...",
     imageUrl: "https://images.unsplash.com/photo-1618333262707-35a5505e8613?auto=format&fit=crop&w=600&h=400",
-    videoUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGZhODIyMjZkMzA4NmRjMGJkNjE0YjY4NGQ0YTY5ZTI3NjI1YjNlNyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7btZ2VRVZxOaOikE/giphy.gif",
-    tags: ["#BellaHadid", "#StreetStyle", "#24HourFashion"],
+    videoUrl: "https://media.giphy.com/media/l0HlvFUHvDB9qWOGs/giphy.gif",
+    tags: ["#KendalEffect", "#ViralFit", "#TikTokFashion"],
+    socialProof: {
+      views: "12M",
+      saves: "890K",
+      searches: "+455%"
+    },
+    content: `
+      <div class="trending-alert bg-red-50 p-4 rounded-lg mb-6 animate-pulse">
+        <span class="font-bold text-red-500">🚨 TRENDING ALERT</span>
+        <p>This look is causing Zara crashes worldwide! Pieces selling out in minutes!</p>
+      </div>
+
+      <div class="outfit-breakdown grid gap-4">
+        <div class="piece-card bg-white p-4 rounded-lg shadow-sm">
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1551489186-cf8726f514f8?w=100&h=100&fit=crop" class="w-20 h-20 object-cover rounded"/>
+            <div>
+              <h3 class="font-bold">The Viral Cargo Pants</h3>
+              <p class="text-sm text-gray-600">+245% searches in last 2h</p>
+              <div class="mt-2">
+                <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">SELLING FAST</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="celeb-spots mt-6">
+        <h3 class="font-bold mb-3">🎯 Also Spotted On</h3>
+        <div class="flex gap-2">
+          <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">Hailey Bieber</span>
+          <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Gigi Hadid</span>
+          <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">+3 more</span>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 2,
+    title: "✨ COASTAL GRANDMA IS OUT, WEIRD GIRL IS IN",
+    category: "🎯 MICRO-TREND ALERT",
+    date: "EXCLUSIVE",
+    description: "The aesthetic that's taking over Fashion TikTok - our AI predicted this 3 weeks ago!",
+    imageUrl: "https://images.unsplash.com/photo-1550614000-4895a10e1bfd?auto=format&fit=crop&w=600&h=400",
+    videoUrl: "https://media.giphy.com/media/3oEduXsiOxVxONcmis/giphy.gif",
+    tags: ["#WeirdGirlSummer", "#AestheticShift"],
+    trendMetrics: {
+      growth: "+378%",
+      adoption: "Early Stage",
+      prediction: "Peak in 2 weeks"
+    },
+    content: `
+      <div class="trend-timeline relative p-4 bg-gradient-to-r from-violet-50 to-pink-50 rounded-lg mb-6">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-300 to-pink-300"></div>
+        <h3 class="font-bold mb-3">👁️ AI TREND PREDICTION</h3>
+        <div class="grid grid-cols-3 gap-2 text-center">
+          <div>
+            <p class="text-xs text-gray-500">WEEK 1</p>
+            <p class="font-bold">TikTok Bubbling</p>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500">WEEK 2</p>
+            <p class="font-bold">Celebrity Adoption</p>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500">WEEK 3</p>
+            <p class="font-bold text-pink-500">YOU ARE HERE</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="key-pieces grid grid-cols-2 gap-4 mb-6">
+        <div class="piece text-center">
+          <img src="https://images.unsplash.com/photo-1617059063772-34929265c80c?w=200&h=200&fit=crop" class="w-full h-32 object-cover rounded-lg mb-2"/>
+          <p class="text-sm font-medium">Layered Mesh Tops</p>
+          <p class="text-xs text-green-500">+245% searches</p>
+        </div>
+        <div class="piece text-center">
+          <img src="https://images.unsplash.com/photo-1551489186-cf8726f514f8?w=200&h=200&fit=crop" class="w-full h-32 object-cover rounded-lg mb-2"/>
+          <p class="text-sm font-medium">Platform Mary Janes</p>
+          <p class="text-xs text-green-500">+189% searches</p>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 3,
+    title: "💎 VINTAGE CARTIER WATCH PRICES SOARING",
+    category: "💰 INVESTMENT PIECE",
+    date: "MARKET INTEL",
+    description: "The specific models seeing 40%+ value increase in 6 months - full analysis inside...",
+    imageUrl: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&h=400",
+    videoUrl: "https://media.giphy.com/media/3o7btZ2VRVZxOaOikE/giphy.gif",
+    tags: ["#WatchInvestment", "#VintageCartier"],
+    marketData: {
+      avgReturn: "+42%",
+      timeframe: "6 months",
+      confidence: "High"
+    },
+    content: `
+      <div class="market-analysis bg-gradient-to-r from-amber-50 to-yellow-50 p-4 rounded-lg mb-6">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-2xl">📈</span>
+          <h3 class="font-bold">Price Trajectory</h3>
+        </div>
+        <div class="stats grid grid-cols-3 gap-4 text-center">
+          <div class="stat p-2 bg-white rounded-lg">
+            <p class="text-xs text-gray-500">6 MONTHS AGO</p>
+            <p class="font-bold">$3,200</p>
+          </div>
+          <div class="stat p-2 bg-white rounded-lg">
+            <p class="text-xs text-gray-500">NOW</p>
+            <p class="font-bold text-green-500">$4,550</p>
+          </div>
+          <div class="stat p-2 bg-white rounded-lg">
+            <p class="text-xs text-gray-500">PROJECTED</p>
+            <p class="font-bold text-blue-500">$5,800</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="buying-guide mb-6">
+        <h3 class="font-bold mb-3">🎯 Where to Hunt</h3>
+        <div class="grid gap-2">
+          <div class="venue p-3 bg-white rounded-lg">
+            <div class="flex justify-between items-center">
+              <span class="font-medium">The RealReal</span>
+              <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">BEST PRICES</span>
+            </div>
+          </div>
+          <div class="venue p-3 bg-white rounded-lg">
+            <div class="flex justify-between items-center">
+              <span class="font-medium">Vestiaire Collective</span>
+              <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">MOST AUTHENTIC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+  }
     stats: {
       likes: "2.3M",
       shares: "450K",
@@ -188,11 +327,15 @@ export default function NewsletterPreview() {
           </div>
 
           <motion.div 
-            className="bg-white p-8 rounded-xl shadow-md mb-12"
+            className="bg-white p-8 rounded-xl shadow-lg mb-12 border border-gray-100"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             key={selectedPreview.id}
+            style={{
+              background: "linear-gradient(to right bottom, #ffffff, #fafafa)",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.05)"
+            }}
           >
             <div className="md:flex md:items-center md:justify-between mb-6 pb-6 border-b">
               <div>
