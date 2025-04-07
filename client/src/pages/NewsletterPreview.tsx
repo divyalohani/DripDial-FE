@@ -614,27 +614,34 @@ export default function NewsletterPreview() {
           </div>
 
           <motion.div 
-            className="bg-white rounded-xl shadow-lg mb-12 border border-gray-100 overflow-hidden"
+            className="max-w-4xl mx-auto rounded-xl shadow-lg mb-12 overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             key={selectedPreview.id}
           >
             {/* Premium Newsletter Header */}
-            <div className="bg-gradient-to-r from-[var(--color-primary)] to-purple-600 p-6 text-white">
+            <div 
+              className="relative p-6 text-white"
+              style={{ 
+                background: "linear-gradient(to right, #8b5cf6, #c026d3)",
+                backgroundSize: "cover",
+                backgroundPosition: "center"
+              }}
+            >
               <div className="md:flex md:items-center md:justify-between">
                 <div>
                   <div className="flex items-center mb-2">
-                    <Badge variant="outline" className="bg-white/20 text-white border-white/30 mr-3">
+                    <Badge variant="outline" className="bg-black/20 text-white border-white/20 mr-3">
                       {selectedPreview.category}
                     </Badge>
-                    <span className="text-sm text-white/80">{selectedPreview.date}</span>
+                    <span className="text-sm text-white/90">{selectedPreview.date}</span>
                   </div>
                   <h2 className="font-display text-2xl md:text-3xl font-bold">{selectedPreview.title}</h2>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-4 md:mt-0">
                   {selectedPreview.tags.map((tag, index) => (
-                    <Badge key={index} variant="secondary" className="bg-white/20 text-white hover:bg-white/30 transition-colors">
+                    <Badge key={index} variant="secondary" className="bg-black/20 text-white hover:bg-black/30 transition-colors">
                       {tag}
                     </Badge>
                   ))}
@@ -643,20 +650,32 @@ export default function NewsletterPreview() {
             </div>
             
             {/* Newsletter Content */}
-            <Tabs defaultValue="content" className="w-full">
-              <div className="border-b border-gray-200">
-                <div className="px-6">
-                  <TabsList className="h-14">
-                    <TabsTrigger value="content" className="data-[state=active]:border-b-2 data-[state=active]:border-[var(--color-primary)] rounded-none px-4">
+            <Tabs defaultValue="content" className="w-full bg-white">
+              <div className="border-b border-gray-100">
+                <div className="px-2">
+                  <TabsList className="h-12 bg-transparent mt-0 p-0 w-full justify-start space-x-2">
+                    <TabsTrigger 
+                      value="content" 
+                      className="data-[state=active]:bg-[#f3e8ff] data-[state=active]:text-[#8b5cf6] rounded-t-lg rounded-b-none px-4 h-12"
+                    >
                       Newsletter Content
                     </TabsTrigger>
-                    <TabsTrigger value="insights" className="data-[state=active]:border-b-2 data-[state=active]:border-[var(--color-primary)] rounded-none px-4">
+                    <TabsTrigger 
+                      value="insights" 
+                      className="data-[state=active]:bg-[#f3e8ff] data-[state=active]:text-[#8b5cf6] rounded-t-lg rounded-b-none px-4 h-12"
+                    >
                       AI Insights
                     </TabsTrigger>
-                    <TabsTrigger value="shop" className="data-[state=active]:border-b-2 data-[state=active]:border-[var(--color-primary)] rounded-none px-4">
+                    <TabsTrigger 
+                      value="shop" 
+                      className="data-[state=active]:bg-[#f3e8ff] data-[state=active]:text-[#8b5cf6] rounded-t-lg rounded-b-none px-4 h-12"
+                    >
                       Shop The Look
                     </TabsTrigger>
-                    <TabsTrigger value="social" className="data-[state=active]:border-b-2 data-[state=active]:border-[var(--color-primary)] rounded-none px-4">
+                    <TabsTrigger 
+                      value="social" 
+                      className="data-[state=active]:bg-[#f3e8ff] data-[state=active]:text-[#8b5cf6] rounded-t-lg rounded-b-none px-4 h-12"
+                    >
                       Social Proof
                     </TabsTrigger>
                   </TabsList>
@@ -664,68 +683,68 @@ export default function NewsletterPreview() {
               </div>
               
               <TabsContent value="content" className="p-0 m-0">
-                <div className="p-8">
+                <div className="p-6">
                   <div className="prose max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: selectedPreview.content }} />
                 </div>
               </TabsContent>
               
               <TabsContent value="insights" className="p-0 m-0">
-                <div className="p-8">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-slate-50 p-5 rounded-xl">
-                      <div className="flex items-center gap-2 mb-4">
-                        <TrendingUp className="h-5 w-5 text-purple-500" />
+                <div className="p-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-[#f3e8ff] p-4 rounded-lg">
+                      <div className="flex items-center gap-2 mb-3">
+                        <TrendingUp className="h-5 w-5 text-purple-600" />
                         <h3 className="font-bold">Growth Trajectory</h3>
                       </div>
-                      <div className="space-y-4">
+                      <div className="space-y-3">
                         <div className="flex justify-between items-center">
                           <span className="text-sm font-medium">Instagram Engagement</span>
-                          <span className="text-sm font-bold text-green-500">+245%</span>
+                          <span className="text-sm font-bold text-purple-700">+245%</span>
                         </div>
-                        <div className="w-full h-2 bg-slate-200 rounded-full">
-                          <div className="h-full bg-purple-500 rounded-full" style={{width: '80%'}}></div>
+                        <div className="w-full h-1.5 bg-purple-100 rounded-full">
+                          <div className="h-full bg-purple-600 rounded-full" style={{width: '80%'}}></div>
                         </div>
                         
                         <div className="flex justify-between items-center">
                           <span className="text-sm font-medium">TikTok Adoption</span>
-                          <span className="text-sm font-bold text-green-500">+367%</span>
+                          <span className="text-sm font-bold text-purple-700">+367%</span>
                         </div>
-                        <div className="w-full h-2 bg-slate-200 rounded-full">
-                          <div className="h-full bg-purple-500 rounded-full" style={{width: '90%'}}></div>
+                        <div className="w-full h-1.5 bg-purple-100 rounded-full">
+                          <div className="h-full bg-purple-600 rounded-full" style={{width: '90%'}}></div>
                         </div>
                         
                         <div className="flex justify-between items-center">
                           <span className="text-sm font-medium">Search Volume</span>
-                          <span className="text-sm font-bold text-green-500">+128%</span>
+                          <span className="text-sm font-bold text-purple-700">+128%</span>
                         </div>
-                        <div className="w-full h-2 bg-slate-200 rounded-full">
-                          <div className="h-full bg-purple-500 rounded-full" style={{width: '60%'}}></div>
+                        <div className="w-full h-1.5 bg-purple-100 rounded-full">
+                          <div className="h-full bg-purple-600 rounded-full" style={{width: '60%'}}></div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-slate-50 p-5 rounded-xl">
-                      <div className="flex items-center gap-2 mb-4">
-                        <MapPin className="h-5 w-5 text-pink-500" />
+                    <div className="bg-[#fce7f3] p-4 rounded-lg">
+                      <div className="flex items-center gap-2 mb-3">
+                        <MapPin className="h-5 w-5 text-pink-600" />
                         <h3 className="font-bold">Geographic Hotspots</h3>
                       </div>
-                      <div className="space-y-4">
+                      <div className="space-y-3">
                         {selectedPreview.locations ? (
                           selectedPreview.locations.map((location, index) => (
-                            <div key={index} className="flex items-center gap-3">
-                              <span className="inline-flex items-center justify-center w-8 h-8 bg-pink-100 text-pink-500 rounded-full">
-                                <MapPin className="h-4 w-4" />
+                            <div key={index} className="flex items-center gap-2">
+                              <span className="inline-flex items-center justify-center w-7 h-7 bg-pink-100 text-pink-600 rounded-full">
+                                <MapPin className="h-3.5 w-3.5" />
                               </span>
                               <div className="flex-1">
                                 <div className="flex justify-between items-center">
-                                  <h3 className="font-medium">{location}</h3>
-                                  <span className="text-xs font-bold text-green-500">
+                                  <h3 className="text-sm font-medium">{location}</h3>
+                                  <span className="text-xs font-bold text-pink-600">
                                     {selectedPreview.stats?.searchSpikes && selectedPreview.stats.searchSpikes[index] 
                                       ? selectedPreview.stats.searchSpikes[index]
                                       : "+200%"}
                                   </span>
                                 </div>
-                                <div className="w-full h-1.5 bg-gray-100 rounded-full mt-1">
+                                <div className="w-full h-1.5 bg-pink-100 rounded-full mt-1">
                                   <div 
                                     className="h-full bg-pink-500 rounded-full" 
                                     style={{width: `${90 - (index * 15)}%`}}
@@ -735,24 +754,24 @@ export default function NewsletterPreview() {
                             </div>
                           ))
                         ) : (
-                          <div className="text-center py-8 text-gray-500">
-                            No location data available for this trend
+                          <div className="text-center py-4 text-gray-500 text-sm">
+                            No location data available
                           </div>
                         )}
                       </div>
                     </div>
                   </div>
                   
-                  <div className="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-100">
+                  <div className="mt-4 p-3 bg-purple-50 rounded-lg border border-purple-100">
                     <div className="flex gap-3">
-                      <div className="text-amber-500 shrink-0 mt-1">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <div className="text-purple-600 shrink-0 mt-1">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z" fill="currentColor"/>
                         </svg>
                       </div>
                       <div>
-                        <h3 className="text-sm font-bold text-amber-800 mb-1">AI-POWERED INSIGHT</h3>
-                        <p className="text-sm text-amber-700">Our algorithms predict this trend will peak in approximately 2 weeks, with an estimated 78% probability of mainstream adoption by major retailers within 45 days.</p>
+                        <h3 className="text-sm font-bold text-purple-800 mb-1">AI-POWERED INSIGHT</h3>
+                        <p className="text-xs text-purple-700">Our algorithms predict this trend will peak in 2 weeks, with 78% probability of mainstream adoption by major retailers within 45 days.</p>
                       </div>
                     </div>
                   </div>
@@ -760,37 +779,37 @@ export default function NewsletterPreview() {
               </TabsContent>
               
               <TabsContent value="shop" className="p-0 m-0">
-                <div className="p-8">
+                <div className="p-6">
                   {selectedPreview.buyLinks ? (
-                    <div className="grid gap-6">
+                    <div className="grid gap-4">
                       {selectedPreview.buyLinks.map((item, index) => (
-                        <div key={index} className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div key={index} className="bg-[#f5f3ff] rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                           <div className="md:flex">
-                            <div className="md:w-1/3 bg-gray-100 md:h-auto h-48">
+                            <div className="md:w-1/4 bg-gray-100 md:h-auto h-32">
                               <img 
                                 src={`https://source.unsplash.com/random/600x800/?fashion,${item.item.toLowerCase().replace(' ', '')}`} 
                                 alt={item.item} 
                                 className="w-full h-full object-cover"
                               />
                             </div>
-                            <div className="p-6 md:w-2/3">
-                              <div className="flex justify-between items-start mb-4">
+                            <div className="p-4 md:w-3/4">
+                              <div className="flex justify-between items-start mb-2">
                                 <div>
-                                  <h3 className="font-bold text-xl mb-1">{item.item}</h3>
-                                  <p className="text-gray-600">{item.brand}</p>
+                                  <h3 className="font-bold text-lg">{item.item}</h3>
+                                  <p className="text-xs text-gray-600">{item.brand}</p>
                                 </div>
-                                <Badge className="bg-black text-white hover:bg-black/90">{item.shopNowLabel}</Badge>
+                                <Badge className="bg-purple-600 text-white hover:bg-purple-700">{item.shopNowLabel}</Badge>
                               </div>
                               
-                              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                              <div className="grid md:grid-cols-2 gap-4 mb-3">
                                 <div>
-                                  <div className="text-sm text-gray-500 mb-1">Original Price</div>
-                                  <div className="text-2xl font-bold">{item.originalPrice}</div>
+                                  <div className="text-xs text-gray-500">Original Price</div>
+                                  <div className="text-lg font-bold">{item.originalPrice}</div>
                                 </div>
                                 <div>
-                                  <div className="text-sm text-gray-500 mb-1">DripDial Price</div>
-                                  <div className="text-2xl font-bold text-green-600">{item.dupePrice}</div>
-                                  <div className="text-sm text-green-600">Save {
+                                  <div className="text-xs text-gray-500">DripDial Price</div>
+                                  <div className="text-lg font-bold text-purple-700">{item.dupePrice}</div>
+                                  <div className="text-xs text-purple-700">Save {
                                     Math.round(
                                       (parseInt(item.originalPrice.replace('$', '').replace(',', '')) - 
                                       parseInt(item.dupePrice.replace('$', '').replace(',', ''))) /
@@ -801,13 +820,13 @@ export default function NewsletterPreview() {
                               </div>
                               
                               <div className="flex justify-between items-center">
-                                <div className="text-sm">
+                                <div className="text-xs">
                                   <span className="font-medium">Available at: </span>
                                   <span className="text-gray-600">{item.dupeStore}</span>
                                 </div>
-                                <Button className="bg-black text-white hover:bg-black/90">
+                                <Button size="sm" className="bg-purple-600 hover:bg-purple-700 h-8">
                                   Shop Now
-                                  <ExternalLink className="ml-2 h-4 w-4" />
+                                  <ExternalLink className="ml-1 h-3 w-3" />
                                 </Button>
                               </div>
                             </div>
@@ -816,55 +835,55 @@ export default function NewsletterPreview() {
                       ))}
                     </div>
                   ) : (
-                    <div className="bg-gray-50 rounded-xl p-8 text-center">
-                      <ShoppingBag className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                      <h3 className="text-xl font-bold mb-2">No Shopping Links Available</h3>
-                      <p className="text-gray-600 mb-4">This newsletter doesn't contain specific shopping recommendations.</p>
-                      <Button variant="outline">Browse Featured Items</Button>
+                    <div className="bg-[#f5f3ff] rounded-lg p-6 text-center">
+                      <ShoppingBag className="h-10 w-10 text-purple-400 mx-auto mb-3" />
+                      <h3 className="text-lg font-bold mb-2">No Shopping Links Available</h3>
+                      <p className="text-sm text-gray-600 mb-3">This newsletter doesn't contain specific shopping recommendations.</p>
+                      <Button size="sm" variant="outline" className="border-purple-300 text-purple-600 hover:bg-purple-50">Browse Featured Items</Button>
                     </div>
                   )}
                 </div>
               </TabsContent>
               
               <TabsContent value="social" className="p-0 m-0">
-                <div className="p-8">
-                  <div className="grid md:grid-cols-2 gap-8">
+                <div className="p-6">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                        <Instagram className="h-5 w-5 text-pink-500" />
+                      <h3 className="text-sm font-bold mb-3 flex items-center gap-2">
+                        <Instagram className="h-4 w-4 text-pink-600" />
                         Social Engagement
                       </h3>
                       
-                      <div className="grid grid-cols-3 gap-4 mb-6">
-                        <div className="bg-gray-50 rounded-lg p-4 text-center">
-                          <div className="text-2xl font-bold text-pink-500">
+                      <div className="grid grid-cols-3 gap-2 mb-4">
+                        <div className="bg-[#fdf2f8] rounded-lg p-3 text-center">
+                          <div className="text-lg font-bold text-pink-600">
                             {selectedPreview.stats?.likes || "1.2M"}
                           </div>
                           <div className="text-xs text-gray-500">Likes</div>
                         </div>
-                        <div className="bg-gray-50 rounded-lg p-4 text-center">
-                          <div className="text-2xl font-bold text-pink-500">
+                        <div className="bg-[#fdf2f8] rounded-lg p-3 text-center">
+                          <div className="text-lg font-bold text-pink-600">
                             {selectedPreview.stats?.shares || "230K"}
                           </div>
                           <div className="text-xs text-gray-500">Shares</div>
                         </div>
-                        <div className="bg-gray-50 rounded-lg p-4 text-center">
-                          <div className="text-2xl font-bold text-pink-500">
+                        <div className="bg-[#fdf2f8] rounded-lg p-3 text-center">
+                          <div className="text-lg font-bold text-pink-600">
                             {selectedPreview.stats?.saves || "450K"}
                           </div>
                           <div className="text-xs text-gray-500">Saves</div>
                         </div>
                       </div>
                       
-                      <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                        <h4 className="font-medium mb-3">Content Performance</h4>
-                        <div className="space-y-3">
+                      <div className="bg-[#fdf2f8] p-3 rounded-lg">
+                        <h4 className="text-sm font-medium mb-2">Content Performance</h4>
+                        <div className="space-y-2">
                           <div>
-                            <div className="flex justify-between text-sm mb-1">
+                            <div className="flex justify-between text-xs mb-1">
                               <span>Engagement Rate</span>
                               <span className="font-medium">22.4%</span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 rounded-full">
+                            <div className="w-full h-1.5 bg-pink-100 rounded-full">
                               <div 
                                 className="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" 
                                 style={{width: '85%'}}
@@ -872,11 +891,11 @@ export default function NewsletterPreview() {
                             </div>
                           </div>
                           <div>
-                            <div className="flex justify-between text-sm mb-1">
+                            <div className="flex justify-between text-xs mb-1">
                               <span>Viral Potential</span>
                               <span className="font-medium">High</span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 rounded-full">
+                            <div className="w-full h-1.5 bg-pink-100 rounded-full">
                               <div 
                                 className="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" 
                                 style={{width: '90%'}}
@@ -884,11 +903,11 @@ export default function NewsletterPreview() {
                             </div>
                           </div>
                           <div>
-                            <div className="flex justify-between text-sm mb-1">
+                            <div className="flex justify-between text-xs mb-1">
                               <span>Creator Adoption</span>
                               <span className="font-medium">Growing</span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 rounded-full">
+                            <div className="w-full h-1.5 bg-pink-100 rounded-full">
                               <div 
                                 className="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" 
                                 style={{width: '65%'}}
@@ -900,14 +919,14 @@ export default function NewsletterPreview() {
                     </div>
                     
                     <div>
-                      <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                        <Users className="h-5 w-5 text-purple-500" />
+                      <h3 className="text-sm font-bold mb-3 flex items-center gap-2">
+                        <Users className="h-4 w-4 text-purple-600" />
                         Influencer Activity
                       </h3>
                       
-                      <div className="space-y-4">
-                        <div className="bg-gray-50 rounded-lg p-4 flex items-center gap-4">
-                          <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200">
+                      <div className="space-y-3">
+                        <div className="bg-[#f5f3ff] rounded-lg p-3 flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200">
                             <img 
                               src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" 
                               alt="Influencer" 
@@ -916,16 +935,16 @@ export default function NewsletterPreview() {
                           </div>
                           <div className="flex-1">
                             <div className="flex justify-between">
-                              <h4 className="font-bold">Gigi Hadid</h4>
-                              <div className="text-xs bg-purple-100 text-purple-600 rounded-full px-2 py-0.5">24h ago</div>
+                              <h4 className="text-sm font-bold">Gigi Hadid</h4>
+                              <div className="text-xs bg-purple-100 text-purple-600 rounded-full px-1.5 py-0.5">24h</div>
                             </div>
-                            <p className="text-sm text-gray-600 mt-1">Wore similar style at Paris Fashion Week</p>
-                            <div className="mt-1 text-xs text-pink-500">3.4M likes • 240K comments</div>
+                            <p className="text-xs text-gray-600">Wore similar style at Paris Fashion Week</p>
+                            <div className="text-xs text-pink-500">3.4M likes</div>
                           </div>
                         </div>
                         
-                        <div className="bg-gray-50 rounded-lg p-4 flex items-center gap-4">
-                          <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200">
+                        <div className="bg-[#f5f3ff] rounded-lg p-3 flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200">
                             <img 
                               src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" 
                               alt="Influencer" 
@@ -934,16 +953,16 @@ export default function NewsletterPreview() {
                           </div>
                           <div className="flex-1">
                             <div className="flex justify-between">
-                              <h4 className="font-bold">Hailey Bieber</h4>
-                              <div className="text-xs bg-purple-100 text-purple-600 rounded-full px-2 py-0.5">48h ago</div>
+                              <h4 className="text-sm font-bold">Hailey Bieber</h4>
+                              <div className="text-xs bg-purple-100 text-purple-600 rounded-full px-1.5 py-0.5">48h</div>
                             </div>
-                            <p className="text-sm text-gray-600 mt-1">Posted TikTok with vintage corset</p>
-                            <div className="mt-1 text-xs text-pink-500">2.1M likes • 185K comments</div>
+                            <p className="text-xs text-gray-600">Posted TikTok with vintage corset</p>
+                            <div className="text-xs text-pink-500">2.1M likes</div>
                           </div>
                         </div>
                         
-                        <div className="bg-gray-50 rounded-lg p-4 flex items-center gap-4">
-                          <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200">
+                        <div className="bg-[#f5f3ff] rounded-lg p-3 flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200">
                             <img 
                               src="https://images.unsplash.com/photo-1517841905240-472988babdf9" 
                               alt="Influencer" 
@@ -952,11 +971,11 @@ export default function NewsletterPreview() {
                           </div>
                           <div className="flex-1">
                             <div className="flex justify-between">
-                              <h4 className="font-bold">Emma Chamberlain</h4>
-                              <div className="text-xs bg-purple-100 text-purple-600 rounded-full px-2 py-0.5">3d ago</div>
+                              <h4 className="text-sm font-bold">Emma Chamberlain</h4>
+                              <div className="text-xs bg-purple-100 text-purple-600 rounded-full px-1.5 py-0.5">3d</div>
                             </div>
-                            <p className="text-sm text-gray-600 mt-1">Featured in YouTube styling video</p>
-                            <div className="mt-1 text-xs text-pink-500">1.8M views • 156K likes</div>
+                            <p className="text-xs text-gray-600">Featured in YouTube styling video</p>
+                            <div className="text-xs text-pink-500">1.8M views</div>
                           </div>
                         </div>
                       </div>
@@ -967,14 +986,21 @@ export default function NewsletterPreview() {
             </Tabs>
           </motion.div>
 
-          <div className="bg-[var(--color-primary)] text-[var(--color-background)] p-8 rounded-xl text-center">
-            <h3 className="font-display text-2xl font-semibold mb-4 text-[var(--color-background)]">Like What You See?</h3>
-            <p className="mb-6 text-[var(--color-background)]">Subscribe to DripDial and get these insights delivered directly to your inbox every week.</p>
-            <Link href="/#subscribe">
-              <Button className="bg-[var(--color-background)] text-[var(--color-primary)] hover:bg-[var(--color-background)]/90 px-6 py-3 rounded-full font-medium transition-all">
-                Subscribe Now - Just $5/month
-              </Button>
-            </Link>
+          <div 
+            className="max-w-4xl mx-auto rounded-xl text-center overflow-hidden mb-12"
+            style={{ 
+              background: "linear-gradient(to right, #8b5cf6, #c026d3)",
+            }}
+          >
+            <div className="p-6 text-white">
+              <h3 className="font-display text-xl md:text-2xl font-semibold mb-3 text-white">Like What You See?</h3>
+              <p className="mb-4 text-white/90 text-sm md:text-base">Subscribe to DripDial and get these premium fashion insights delivered directly to your inbox every week.</p>
+              <Link href="/#subscribe">
+                <Button className="bg-white text-purple-600 hover:bg-white/90 px-6 py-2 rounded-full font-medium transition-all">
+                  Subscribe Now - Just $10/month
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
