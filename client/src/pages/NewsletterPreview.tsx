@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { MapPin, TrendingUp, ShoppingBag, Users, ExternalLink, Instagram } from "lucide-react";
+import { MapPin, TrendingUp, ShoppingBag, Users, ExternalLink, Instagram, Info as InfoIcon } from "lucide-react";
 
 const newsletterExamples = [
   {
@@ -618,125 +618,115 @@ export default function NewsletterPreview() {
     <div className="bg-[var(--color-background)] min-h-screen">
       <Navigation />
 
-      <div className="container mx-auto px-4 py-8 md:py-12">
+      <div className="container mx-auto px-4 py-6 md:py-10">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-8 text-center">
+          <div className="mb-8">
             <Link href="/">
-              <Button variant="outline" className="mb-6" size="sm">
+              <Button variant="outline" className="mb-4" size="sm">
                 ← Back to Home
               </Button>
             </Link>
-            <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 relative inline-block">
-              <span className="relative z-10">Newsletter Previews</span>
-              <span className="absolute -bottom-2 left-0 w-full h-3 bg-[var(--color-accent-3)] opacity-30 rounded-full"></span>
+            <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">
+              Newsletter Previews
             </h1>
-            <p className="text-lg opacity-80 max-w-2xl mx-auto">
+            <p className="text-base text-[var(--color-secondary-font)] max-w-2xl">
               Get a taste of what lands in your inbox when you subscribe to DripDial. Each edition is thoughtfully curated with AI-powered insights.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="grid md:grid-cols-3 gap-5 mb-10">
             {newsletterExamples.map((example) => (
               <Card 
                 key={example.id}
-                className={`cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden ${
+                className={`cursor-pointer transition-all border overflow-hidden ${
                   selectedPreview.id === example.id 
-                    ? 'ring-2 ring-[var(--color-accent-1)] shadow-lg' 
-                    : 'hover:ring-1 hover:ring-[var(--color-secondary)]'
+                    ? 'ring-1 ring-[var(--color-primary)] shadow-md' 
+                    : 'hover:shadow-md'
                 }`}
                 onClick={() => setSelectedPreview(example)}
               >
-                <div className="h-52 overflow-hidden">
+                <div className="h-48 overflow-hidden relative">
                   <img 
                     src={example.imageUrl} 
                     alt={example.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    className="w-full h-full object-cover"
                   />
                   {example.videoUrl && (
                     <video src={example.videoUrl} autoPlay loop muted className="w-full h-full object-cover" />
                   )}
+                  {example.category === "⚡️ TRENDING NOW" && (
+                    <div className="absolute top-3 left-0 bg-[#FF4D4F] text-white text-xs font-medium py-1 px-3 rounded-r-md">TRENDING NOW</div>
+                  )}
+                  {example.category === "🎯 MICRO-TREND ALERT" && (
+                    <div className="absolute top-3 left-0 bg-[#722ED1] text-white text-xs font-medium py-1 px-3 rounded-r-md">MICRO-TREND ALERT</div>
+                  )}
+                  {example.category === "💰 INVESTMENT PIECE" && (
+                    <div className="absolute top-3 left-0 bg-[#FAAD14] text-black text-xs font-medium py-1 px-3 rounded-r-md">INVESTMENT PIECE</div>
+                  )}
+                  {example.category === "CELEB STYLE" && (
+                    <div className="absolute top-3 left-0 bg-[#531DAB] text-white text-xs font-medium py-1 px-3 rounded-r-md">CELEB STYLE</div>
+                  )}
+                  <div className="absolute top-3 right-3 bg-white/90 text-xs font-medium py-1 px-2 rounded-md">{example.date}</div>
                 </div>
-                <CardHeader className="pb-2 relative">
-                  <div className="flex justify-between items-center mb-1">
-                    {example.category === "⚡️ TRENDING NOW" && (
-                      <span className="text-xs font-medium bg-[var(--color-accent-1)] text-white px-3 py-1 rounded-full">{example.category}</span>
-                    )}
-                    {example.category === "🎯 MICRO-TREND ALERT" && (
-                      <span className="text-xs font-medium bg-[var(--color-accent-2)] text-white px-3 py-1 rounded-full">{example.category}</span>
-                    )}
-                    {example.category === "💰 INVESTMENT PIECE" && (
-                      <span className="text-xs font-medium bg-[var(--color-accent-3)] text-black px-3 py-1 rounded-full">{example.category}</span>
-                    )}
-                    {example.category === "CELEB STYLE" && (
-                      <span className="text-xs font-medium bg-[var(--color-accent-4)] text-white px-3 py-1 rounded-full">{example.category}</span>
-                    )}
-                    <span className="text-xs font-semibold text-[var(--color-secondary-font)]">{example.date}</span>
-                  </div>
-                  <CardTitle className="text-xl font-bold mt-2">{example.title}</CardTitle>
+                <CardHeader className="pb-2 pt-4">
+                  <CardTitle className="text-lg font-bold">{example.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-[var(--color-secondary-font)]">{example.description}</CardDescription>
+                  <CardDescription className="text-[var(--color-secondary-font)] text-sm line-clamp-2">{example.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <motion.div 
-            className="max-w-4xl mx-auto rounded-2xl shadow-2xl mb-12 overflow-hidden relative"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+          <div 
+            className="max-w-4xl mx-auto rounded-lg shadow-md mb-10 overflow-hidden border border-gray-100"
             key={selectedPreview.id}
           >
-            {/* Decorative background elements */}
-            <div className="absolute -top-20 -right-20 w-40 h-40 bg-[var(--color-accent-3)] opacity-20 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-[var(--color-accent-1)] opacity-20 rounded-full blur-3xl"></div>
-            
             {/* Premium Newsletter Header */}
             <div 
-              className="relative p-8 text-white"
+              className="relative p-6 text-white"
               style={{ 
-                background: "linear-gradient(135deg, var(--color-primary), var(--color-accent-4))",
+                background: "#3D2C35",
                 backgroundSize: "cover",
                 backgroundPosition: "center"
               }}
             >
               {selectedPreview.category === "⚡️ TRENDING NOW" && (
-                <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden">
-                  <div className="bg-[var(--color-accent-1)] text-white text-xs font-bold py-1 px-8 absolute top-5 right-[-24px] transform rotate-45">HOT</div>
+                <div className="absolute top-0 right-0">
+                  <Badge className="bg-[#FF4D4F] text-white border-none rounded-sm text-xs">HOT</Badge>
                 </div>
               )}
               
-              <div className="md:flex md:items-center md:justify-between">
+              <div className="flex items-center justify-between">
                 <div>
-                  <div className="flex items-center mb-3">
+                  <div className="flex items-center mb-2">
                     {selectedPreview.category === "⚡️ TRENDING NOW" && (
-                      <Badge variant="outline" className="bg-[var(--color-accent-1)]/80 text-white border-white/20 mr-3 px-3 py-1">
-                        {selectedPreview.category}
+                      <Badge className="bg-[#FF4D4F] text-white border-none mr-2 text-xs px-2 rounded-sm">
+                        TRENDING NOW
                       </Badge>
                     )}
                     {selectedPreview.category === "🎯 MICRO-TREND ALERT" && (
-                      <Badge variant="outline" className="bg-[var(--color-accent-2)]/80 text-white border-white/20 mr-3 px-3 py-1">
-                        {selectedPreview.category}
+                      <Badge className="bg-[#722ED1] text-white border-none mr-2 text-xs px-2 rounded-sm">
+                        MICRO-TREND ALERT
                       </Badge>
                     )}
                     {selectedPreview.category === "💰 INVESTMENT PIECE" && (
-                      <Badge variant="outline" className="bg-[var(--color-accent-3)]/80 text-white border-white/20 mr-3 px-3 py-1">
-                        {selectedPreview.category}
+                      <Badge className="bg-[#FAAD14] text-black border-none mr-2 text-xs px-2 rounded-sm">
+                        INVESTMENT PIECE
                       </Badge>
                     )}
                     {selectedPreview.category === "CELEB STYLE" && (
-                      <Badge variant="outline" className="bg-[var(--color-accent-4)]/80 text-white border-white/20 mr-3 px-3 py-1">
-                        {selectedPreview.category}
+                      <Badge className="bg-[#531DAB] text-white border-none mr-2 text-xs px-2 rounded-sm">
+                        CELEB STYLE
                       </Badge>
                     )}
-                    <span className="text-sm text-white/90 bg-white/10 px-3 py-1 rounded-full font-medium">{selectedPreview.date}</span>
+                    <span className="text-xs text-white/80">{selectedPreview.date}</span>
                   </div>
-                  <h2 className="font-display text-2xl md:text-4xl font-bold leading-tight">{selectedPreview.title}</h2>
+                  <h2 className="font-display text-2xl md:text-3xl font-bold">{selectedPreview.title}</h2>
                 </div>
-                <div className="flex flex-wrap gap-2 mt-4 md:mt-0">
+                <div className="hidden md:flex flex-wrap gap-1">
                   {selectedPreview.tags.map((tag, index) => (
-                    <Badge key={index} variant="secondary" className="bg-white/15 text-white hover:bg-white/25 transition-colors px-3 py-1 rounded-full">
+                    <Badge key={index} variant="secondary" className="bg-black/20 text-white border-none text-xs">
                       {tag}
                     </Badge>
                   ))}
@@ -747,29 +737,29 @@ export default function NewsletterPreview() {
             {/* Newsletter Content */}
             <Tabs defaultValue="content" className="w-full bg-white">
               <div className="border-b border-gray-100">
-                <div className="px-4">
-                  <TabsList className="h-14 bg-transparent mt-0 p-0 w-full justify-start space-x-4">
+                <div className="px-2">
+                  <TabsList className="h-10 bg-gray-50 mt-0 p-0 w-full justify-start">
                     <TabsTrigger 
                       value="content" 
-                      className="data-[state=active]:bg-[var(--color-primary)] data-[state=active]:text-white rounded-t-lg rounded-b-none px-5 h-14 text-[var(--color-primary)] font-medium transition-all duration-300"
+                      className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:shadow rounded-none px-4 h-10 text-gray-800 font-medium text-sm"
                     >
                       Newsletter Content
                     </TabsTrigger>
                     <TabsTrigger 
                       value="insights" 
-                      className="data-[state=active]:bg-[var(--color-accent-2)] data-[state=active]:text-white rounded-t-lg rounded-b-none px-5 h-14 text-[var(--color-primary)] font-medium transition-all duration-300"
+                      className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:shadow rounded-none px-4 h-10 text-gray-800 font-medium text-sm"
                     >
                       AI Insights
                     </TabsTrigger>
                     <TabsTrigger 
                       value="shop" 
-                      className="data-[state=active]:bg-[var(--color-accent-3)] data-[state=active]:text-[var(--color-primary)] rounded-t-lg rounded-b-none px-5 h-14 text-[var(--color-primary)] font-medium transition-all duration-300"
+                      className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:shadow rounded-none px-4 h-10 text-gray-800 font-medium text-sm"
                     >
                       Shop The Look
                     </TabsTrigger>
                     <TabsTrigger 
                       value="social" 
-                      className="data-[state=active]:bg-[var(--color-accent-1)] data-[state=active]:text-white rounded-t-lg rounded-b-none px-5 h-14 text-[var(--color-primary)] font-medium transition-all duration-300"
+                      className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:shadow rounded-none px-4 h-10 text-gray-800 font-medium text-sm"
                     >
                       Social Proof
                     </TabsTrigger>
@@ -784,75 +774,68 @@ export default function NewsletterPreview() {
               </TabsContent>
               
               <TabsContent value="insights" className="p-0 m-0">
-                <div className="p-8">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-gradient-to-br from-[var(--color-accent-2)] to-[var(--color-accent-2)]/70 p-5 rounded-xl shadow-md">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="bg-white p-2 rounded-full shadow-sm">
-                          <TrendingUp className="h-5 w-5 text-[var(--color-accent-2)]" />
-                        </div>
-                        <h3 className="font-bold text-white text-lg">Growth Trajectory</h3>
+                <div className="p-6">
+                  <div className="grid md:grid-cols-2 gap-5">
+                    <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
+                      <div className="flex items-center gap-2 mb-3">
+                        <TrendingUp className="h-4 w-4 text-[#722ED1]" />
+                        <h3 className="font-semibold text-[var(--color-primary-font)] text-sm">Growth Trajectory</h3>
                       </div>
-                      <div className="space-y-4">
-                        <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="text-sm font-medium text-white">Instagram Engagement</span>
-                            <span className="text-sm font-bold text-white bg-white/20 px-2 py-1 rounded-full">+245%</span>
+                      <div className="space-y-3">
+                        <div>
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="text-xs font-medium text-gray-700">Instagram Engagement</span>
+                            <span className="text-xs font-bold text-[#722ED1]">+245%</span>
                           </div>
-                          <div className="w-full h-2 bg-white/30 rounded-full">
-                            <div className="h-full bg-white rounded-full" style={{width: '80%'}}></div>
-                          </div>
-                        </div>
-                        
-                        <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="text-sm font-medium text-white">TikTok Adoption</span>
-                            <span className="text-sm font-bold text-white bg-white/20 px-2 py-1 rounded-full">+367%</span>
-                          </div>
-                          <div className="w-full h-2 bg-white/30 rounded-full">
-                            <div className="h-full bg-white rounded-full" style={{width: '90%'}}></div>
+                          <div className="w-full h-1.5 bg-gray-100 rounded-sm">
+                            <div className="h-full bg-[#722ED1] rounded-sm" style={{width: '80%'}}></div>
                           </div>
                         </div>
                         
-                        <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="text-sm font-medium text-white">Search Volume</span>
-                            <span className="text-sm font-bold text-white bg-white/20 px-2 py-1 rounded-full">+128%</span>
+                        <div>
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="text-xs font-medium text-gray-700">TikTok Adoption</span>
+                            <span className="text-xs font-bold text-[#722ED1]">+367%</span>
                           </div>
-                          <div className="w-full h-2 bg-white/30 rounded-full">
-                            <div className="h-full bg-white rounded-full" style={{width: '60%'}}></div>
+                          <div className="w-full h-1.5 bg-gray-100 rounded-sm">
+                            <div className="h-full bg-[#722ED1] rounded-sm" style={{width: '90%'}}></div>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="text-xs font-medium text-gray-700">Search Volume</span>
+                            <span className="text-xs font-bold text-[#722ED1]">+128%</span>
+                          </div>
+                          <div className="w-full h-1.5 bg-gray-100 rounded-sm">
+                            <div className="h-full bg-[#722ED1] rounded-sm" style={{width: '60%'}}></div>
                           </div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-gradient-to-br from-[var(--color-accent-1)] to-[var(--color-accent-1)]/70 p-5 rounded-xl shadow-md">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="bg-white p-2 rounded-full shadow-sm">
-                          <MapPin className="h-5 w-5 text-[var(--color-accent-1)]" />
-                        </div>
-                        <h3 className="font-bold text-white text-lg">Geographic Hotspots</h3>
+                    <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
+                      <div className="flex items-center gap-2 mb-3">
+                        <MapPin className="h-4 w-4 text-[#FF4D4F]" />
+                        <h3 className="font-semibold text-[var(--color-primary-font)] text-sm">Geographic Hotspots</h3>
                       </div>
-                      <div className="space-y-4">
+                      <div className="space-y-3">
                         {selectedPreview.locations ? (
                           selectedPreview.locations.map((location, index) => (
-                            <div key={index} className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
-                              <div className="flex items-center gap-3">
-                                <span className="inline-flex items-center justify-center w-8 h-8 bg-white text-[var(--color-accent-1)] rounded-full shadow-sm">
-                                  <MapPin className="h-4 w-4" />
-                                </span>
+                            <div key={index}>
+                              <div className="flex items-center">
                                 <div className="flex-1">
                                   <div className="flex justify-between items-center">
-                                    <h3 className="text-sm font-medium text-white">{location}</h3>
-                                    <span className="text-xs font-bold text-white bg-white/20 px-2 py-1 rounded-full">
+                                    <h3 className="text-xs font-medium text-gray-700">{location}</h3>
+                                    <span className="text-xs font-bold text-[#FF4D4F]">
                                       {selectedPreview.stats?.searchSpikes && selectedPreview.stats.searchSpikes[index] 
                                         ? selectedPreview.stats.searchSpikes[index]
                                         : "+200%"}
                                     </span>
                                   </div>
-                                  <div className="w-full h-2 bg-white/30 rounded-full mt-2">
+                                  <div className="w-full h-1.5 bg-gray-100 rounded-sm mt-1">
                                     <div 
-                                      className="h-full bg-white rounded-full" 
+                                      className="h-full bg-[#FF4D4F] rounded-sm" 
                                       style={{width: `${90 - (index * 15)}%`}}
                                     ></div>
                                   </div>
@@ -861,7 +844,7 @@ export default function NewsletterPreview() {
                             </div>
                           ))
                         ) : (
-                          <div className="text-center py-8 text-white text-sm bg-white/10 rounded-lg">
+                          <div className="text-center py-4 text-gray-500 text-xs">
                             No location data available
                           </div>
                         )}
@@ -869,18 +852,14 @@ export default function NewsletterPreview() {
                     </div>
                   </div>
                   
-                  <div className="mt-6 p-4 bg-[var(--color-accent-3)]/10 rounded-xl border border-[var(--color-accent-3)]/30 shadow-sm backdrop-blur-sm">
-                    <div className="flex gap-4">
-                      <div className="shrink-0 mt-1">
-                        <div className="bg-[var(--color-accent-3)] p-3 rounded-full shadow-sm">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[var(--color-primary)]">
-                            <path d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z" fill="currentColor"/>
-                          </svg>
-                        </div>
+                  <div className="mt-4 p-4 bg-[#F9F0FF] rounded-md">
+                    <div className="flex gap-2">
+                      <div className="shrink-0">
+                        <InfoIcon className="h-4 w-4 text-[#722ED1] mt-0.5" />
                       </div>
                       <div>
-                        <h3 className="text-base font-bold text-[var(--color-primary)] mb-2">AI-POWERED INSIGHT</h3>
-                        <p className="text-sm text-[var(--color-primary-font)]">Our algorithms predict this trend will peak in 2 weeks, with 78% probability of mainstream adoption by major retailers within 45 days.</p>
+                        <h3 className="text-xs font-semibold text-gray-900 mb-1">AI-POWERED INSIGHT</h3>
+                        <p className="text-xs text-gray-700">Our algorithms predict this trend will peak in 2 weeks, with 78% probability of mainstream adoption by major retailers within 45 days.</p>
                       </div>
                     </div>
                   </div>
@@ -1136,7 +1115,7 @@ export default function NewsletterPreview() {
                 </div>
               </TabsContent>
             </Tabs>
-          </motion.div>
+          </div>
 
           <motion.div 
             className="max-w-4xl mx-auto rounded-2xl text-center overflow-hidden mb-12 relative"
