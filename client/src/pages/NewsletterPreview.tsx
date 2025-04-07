@@ -674,7 +674,7 @@ export default function NewsletterPreview() {
             <div 
               className="relative p-6 text-white"
               style={{ 
-                background: "linear-gradient(to right, #8b5cf6, #c026d3)",
+                background: "linear-gradient(to right, var(--color-primary), var(--color-secondary))",
                 backgroundSize: "cover",
                 backgroundPosition: "center"
               }}
@@ -706,25 +706,25 @@ export default function NewsletterPreview() {
                   <TabsList className="h-12 bg-transparent mt-0 p-0 w-full justify-start space-x-2">
                     <TabsTrigger 
                       value="content" 
-                      className="data-[state=active]:bg-[#f3e8ff] data-[state=active]:text-[#8b5cf6] rounded-t-lg rounded-b-none px-4 h-12"
+                      className="data-[state=active]:bg-[#f0ebe8] data-[state=active]:text-[var(--color-primary)] rounded-t-lg rounded-b-none px-4 h-12"
                     >
                       Newsletter Content
                     </TabsTrigger>
                     <TabsTrigger 
                       value="insights" 
-                      className="data-[state=active]:bg-[#f3e8ff] data-[state=active]:text-[#8b5cf6] rounded-t-lg rounded-b-none px-4 h-12"
+                      className="data-[state=active]:bg-[#f0ebe8] data-[state=active]:text-[var(--color-primary)] rounded-t-lg rounded-b-none px-4 h-12"
                     >
                       AI Insights
                     </TabsTrigger>
                     <TabsTrigger 
                       value="shop" 
-                      className="data-[state=active]:bg-[#f3e8ff] data-[state=active]:text-[#8b5cf6] rounded-t-lg rounded-b-none px-4 h-12"
+                      className="data-[state=active]:bg-[#f0ebe8] data-[state=active]:text-[var(--color-primary)] rounded-t-lg rounded-b-none px-4 h-12"
                     >
                       Shop The Look
                     </TabsTrigger>
                     <TabsTrigger 
                       value="social" 
-                      className="data-[state=active]:bg-[#f3e8ff] data-[state=active]:text-[#8b5cf6] rounded-t-lg rounded-b-none px-4 h-12"
+                      className="data-[state=active]:bg-[#f0ebe8] data-[state=active]:text-[var(--color-primary)] rounded-t-lg rounded-b-none px-4 h-12"
                     >
                       Social Proof
                     </TabsTrigger>
@@ -1039,14 +1039,14 @@ export default function NewsletterPreview() {
           <div 
             className="max-w-4xl mx-auto rounded-xl text-center overflow-hidden mb-12"
             style={{ 
-              background: "linear-gradient(to right, #8b5cf6, #c026d3)",
+              background: "linear-gradient(to right, var(--color-primary), var(--color-secondary))",
             }}
           >
             <div className="p-6 text-white">
               <h3 className="font-display text-xl md:text-2xl font-semibold mb-3 text-white">Like What You See?</h3>
               <p className="mb-4 text-white/90 text-sm md:text-base">Subscribe to DripDial and get these premium fashion insights delivered directly to your inbox every week.</p>
               <Link href="/#subscribe">
-                <Button className="bg-white text-purple-600 hover:bg-white/90 px-6 py-2 rounded-full font-medium transition-all">
+                <Button className="bg-white text-[var(--color-primary)] hover:bg-white/90 px-6 py-2 rounded-full font-medium transition-all">
                   Subscribe Now - Just $10/month
                 </Button>
               </Link>
