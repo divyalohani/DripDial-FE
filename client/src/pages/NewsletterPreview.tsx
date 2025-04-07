@@ -328,82 +328,81 @@ export default function NewsletterPreview() {
           {/* Main content area - 8 columns on large screens */}
           <div className="lg:col-span-8">
             <div 
-              className="rounded-lg shadow-md overflow-hidden border border-gray-200"
+              className="rounded-xl shadow-md overflow-hidden"
               key={selectedPreview.id}
             >
-              {/* Premium Newsletter Header */}
+              {/* Premium Newsletter Header - Updated with darker background */}
               <div 
-                className="relative p-6 text-white"
+                className="relative p-8 text-white"
                 style={{ 
-                  background: "#3D2C35",
+                  background: "#2A2127",
                   backgroundSize: "cover",
                   backgroundPosition: "center"
                 }}
               >
-                {selectedPreview.category === "⚡️ TRENDING NOW" && (
-                  <div className="absolute top-0 right-0">
-                    <Badge className="bg-[#FF4D4F] text-white border-none rounded-sm text-xs">HOT</Badge>
-                  </div>
-                )}
-                
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="flex items-center mb-2">
+                <div className="flex flex-col space-y-4">
+                  <div className="flex items-center justify-between">
+                    {/* Left side: Category badge and date */}
+                    <div className="flex items-center space-x-3">
                       {selectedPreview.category === "⚡️ TRENDING NOW" && (
-                        <Badge className="bg-[#FF4D4F] text-white border-none mr-2 text-xs px-2 rounded-sm">
-                          TRENDING NOW
+                        <Badge className="bg-[#FF4D4F] text-white hover:bg-[#FF4D4F]/90 border-none rounded-full text-xs px-3 py-1 uppercase font-semibold">
+                          Trending Now
                         </Badge>
                       )}
                       {selectedPreview.category === "🎯 MICRO-TREND ALERT" && (
-                        <Badge className="bg-[#722ED1] text-white border-none mr-2 text-xs px-2 rounded-sm">
-                          MICRO-TREND ALERT
+                        <Badge className="bg-[#722ED1] text-white hover:bg-[#722ED1]/90 border-none rounded-full text-xs px-3 py-1 uppercase font-semibold">
+                          Micro-Trend Alert
                         </Badge>
                       )}
                       {selectedPreview.category === "💰 INVESTMENT PIECE" && (
-                        <Badge className="bg-[#FAAD14] text-black border-none mr-2 text-xs px-2 rounded-sm">
-                          INVESTMENT PIECE
+                        <Badge className="bg-[#FAAD14] text-[#2A2127] hover:bg-[#FAAD14]/90 border-none rounded-full text-xs px-3 py-1 uppercase font-semibold">
+                          Investment Piece
                         </Badge>
                       )}
-                      <span className="text-xs text-white/80">{selectedPreview.date}</span>
+                      <span className="text-sm text-white/80">{selectedPreview.date}</span>
                     </div>
-                    <h2 className="font-display text-2xl md:text-3xl font-bold">{selectedPreview.title}</h2>
+                    
+                    {/* Right side: Tags */}
+                    <div className="hidden md:flex flex-wrap gap-1.5">
+                      {selectedPreview.tags.map((tag, index) => (
+                        <Badge key={index} variant="secondary" className="bg-white/10 hover:bg-white/20 text-white border-none text-xs px-2.5 py-1 rounded-full">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
-                  <div className="hidden md:flex flex-wrap gap-1">
-                    {selectedPreview.tags.map((tag, index) => (
-                      <Badge key={index} variant="secondary" className="bg-black/20 text-white border-none text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
+                  
+                  {/* Title with increased size and spacing */}
+                  <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mt-2">{selectedPreview.title}</h2>
                 </div>
               </div>
               
-              {/* Newsletter Content */}
+              {/* Updated tabs with better styling */}
               <Tabs defaultValue="content" className="w-full bg-white">
                 <div className="border-b border-gray-100">
-                  <div className="px-2">
-                    <TabsList className="h-10 bg-gray-50 mt-0 p-0 w-full justify-start">
+                  <div className="px-0">
+                    <TabsList className="h-12 bg-[#F8F6F3] mt-0 p-0 w-full justify-start">
                       <TabsTrigger 
                         value="content" 
-                        className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:shadow rounded-none px-4 h-10 text-gray-800 font-medium text-sm"
+                        className="data-[state=active]:bg-[#2A2127] data-[state=active]:text-white rounded-none px-6 h-12 text-[#2A2127] font-medium"
                       >
                         Newsletter Content
                       </TabsTrigger>
                       <TabsTrigger 
                         value="insights" 
-                        className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:shadow rounded-none px-4 h-10 text-gray-800 font-medium text-sm"
+                        className="data-[state=active]:bg-[#2A2127] data-[state=active]:text-white rounded-none px-6 h-12 text-[#2A2127] font-medium"
                       >
                         AI Insights
                       </TabsTrigger>
                       <TabsTrigger 
                         value="shop" 
-                        className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:shadow rounded-none px-4 h-10 text-gray-800 font-medium text-sm"
+                        className="data-[state=active]:bg-[#2A2127] data-[state=active]:text-white rounded-none px-6 h-12 text-[#2A2127] font-medium"
                       >
                         Shop The Look
                       </TabsTrigger>
                       <TabsTrigger 
                         value="social" 
-                        className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:shadow rounded-none px-4 h-10 text-gray-800 font-medium text-sm"
+                        className="data-[state=active]:bg-[#2A2127] data-[state=active]:text-white rounded-none px-6 h-12 text-[#2A2127] font-medium"
                       >
                         Social Proof
                       </TabsTrigger>
@@ -412,74 +411,170 @@ export default function NewsletterPreview() {
                 </div>
                 
                 <TabsContent value="content" className="p-0 m-0">
-                  <div className="p-6">
-                    <div className="prose max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: selectedPreview.content }} />
+                  <div className="p-8 bg-[#F8F6F3]">
+                    <article className="prose max-w-none prose-headings:font-display prose-headings:text-[#2A2127] prose-p:text-[#3D2C35] prose-p:text-base prose-strong:text-[#2A2127] prose-strong:font-semibold prose-li:text-[#3D2C35] prose-li:text-base">
+                      <p className="text-lg mb-8 leading-relaxed">
+                        In a world of volatile crypto markets and sky-high real estate, Gen Z and Millennials are turning to an unexpected alternative investment: ultra-luxury handbags. Unlike traditional investments, these status symbols offer both financial returns and the prestige of carrying a coveted piece.
+                      </p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                        <img 
+                          src="https://images.unsplash.com/photo-1590739293931-a28962e1afae?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGVybWVzJTIwYmFnfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop" 
+                          alt="Luxury handbag" 
+                          className="rounded-lg w-full h-64 object-cover"
+                        />
+                        <img 
+                          src="https://images.unsplash.com/photo-1592122996090-e8c68c8abb6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhbmVsJTIwYmFnfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop" 
+                          alt="Designer bag" 
+                          className="rounded-lg w-full h-64 object-cover"
+                        />
+                      </div>
+                      
+                      <h3 className="text-2xl font-bold mt-10 mb-6">The Numbers Don't Lie</h3>
+                      
+                      <p className="mb-5">
+                        According to Knight Frank's Luxury Investment Index, rare handbags have outperformed art, classic cars, and wine as investment assets. The data is compelling:
+                      </p>
+                      
+                      <ul className="space-y-3 mt-4 mb-8 pl-6">
+                        <li className="flex items-start">
+                          <span className="text-[#FAAD14] mr-2">•</span>
+                          <span>Hermès Birkins have appreciated <strong>500%</strong> in the past decade</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#FAAD14] mr-2">•</span>
+                          <span>Certain limited Chanel editions show <strong>12-17% annual returns</strong></span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-[#FAAD14] mr-2">•</span>
+                          <span>Bottega Veneta's Daniel Lee designs have seen <strong>30% appreciation</strong> since his 2021 departure</span>
+                        </li>
+                      </ul>
+                      
+                      <h3 className="text-2xl font-bold mt-10 mb-6">What Makes a Bag Investment-Worthy?</h3>
+                      
+                      <div className="bg-white rounded-xl p-6 shadow-sm mb-8 border border-gray-100">
+                        <ul className="space-y-3 mb-0 pl-6">
+                          <li className="flex items-start">
+                            <span className="text-[#FAAD14] mr-2">•</span>
+                            <div>
+                              <strong className="block mb-1">Scarcity</strong>
+                              <span className="text-[#8F8A95]">Limited production or discontinued styles</span>
+                            </div>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-[#FAAD14] mr-2">•</span>
+                            <div>
+                              <strong className="block mb-1">Heritage house</strong>
+                              <span className="text-[#8F8A95]">Established luxury brands with historical prestige</span>
+                            </div>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-[#FAAD14] mr-2">•</span>
+                            <div>
+                              <strong className="block mb-1">Unique attributes</strong>
+                              <span className="text-[#8F8A95]">Rare colors, materials, or hardware</span>
+                            </div>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-[#FAAD14] mr-2">•</span>
+                            <div>
+                              <strong className="block mb-1">Pristine condition</strong>
+                              <span className="text-[#8F8A95]">Original packaging and authenticity cards</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-[#F9F0FF] rounded-xl p-6 mt-10">
+                        <div className="flex gap-3">
+                          <div className="shrink-0">
+                            <InfoIcon className="h-5 w-5 text-[#722ED1] mt-0.5" />
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-[#2A2127] mb-1">DripDial Investment Alert</h4>
+                            <p className="text-sm text-[#3D2C35] m-0">
+                              Our algorithm predicts Phoebe Philo's debut collection accessories will appreciate by <strong>40-60%</strong> within 18 months of release. Her history with Céline bag designs suggests these will become instant collector's items.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
                   </div>
                 </TabsContent>
                 
                 <TabsContent value="insights" className="p-0 m-0">
-                  <div className="p-6">
-                    <div className="grid md:grid-cols-2 gap-5">
-                      <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
-                        <div className="flex items-center gap-2 mb-3">
-                          <TrendingUp className="h-4 w-4 text-[#722ED1]" />
-                          <h3 className="font-semibold text-[var(--color-primary-font)] text-sm">Growth Trajectory</h3>
+                  <div className="p-8 bg-[#F8F6F3]">
+                    <div className="mb-6">
+                      <h2 className="text-2xl font-bold font-display text-[#2A2127] mb-4">AI-Powered Market Analysis</h2>
+                      <p className="text-[#3D2C35]">Our algorithms continuously analyze market trends and social signals to predict how this investment piece will perform.</p>
+                    </div>
+                  
+                    <div className="grid md:grid-cols-2 gap-8 mb-8">
+                      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="bg-[#722ED1]/10 p-2 rounded-full">
+                            <TrendingUp className="h-5 w-5 text-[#722ED1]" />
+                          </div>
+                          <h3 className="font-bold text-[#2A2127] text-lg">Growth Trajectory</h3>
                         </div>
-                        <div className="space-y-3">
+                        <div className="space-y-5">
                           <div>
-                            <div className="flex justify-between items-center mb-1">
-                              <span className="text-xs font-medium text-gray-700">Instagram Engagement</span>
-                              <span className="text-xs font-bold text-[#722ED1]">+245%</span>
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-sm font-medium text-[#3D2C35]">Instagram Engagement</span>
+                              <span className="text-sm font-bold text-[#722ED1]">+245%</span>
                             </div>
-                            <div className="w-full h-1.5 bg-gray-100 rounded-sm">
-                              <div className="h-full bg-[#722ED1] rounded-sm" style={{width: '80%'}}></div>
+                            <div className="w-full h-2 bg-[#F8F6F3] rounded-full">
+                              <div className="h-full bg-[#722ED1] rounded-full" style={{width: '80%'}}></div>
                             </div>
                           </div>
                           
                           <div>
-                            <div className="flex justify-between items-center mb-1">
-                              <span className="text-xs font-medium text-gray-700">TikTok Adoption</span>
-                              <span className="text-xs font-bold text-[#722ED1]">+367%</span>
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-sm font-medium text-[#3D2C35]">TikTok Adoption</span>
+                              <span className="text-sm font-bold text-[#722ED1]">+367%</span>
                             </div>
-                            <div className="w-full h-1.5 bg-gray-100 rounded-sm">
-                              <div className="h-full bg-[#722ED1] rounded-sm" style={{width: '90%'}}></div>
+                            <div className="w-full h-2 bg-[#F8F6F3] rounded-full">
+                              <div className="h-full bg-[#722ED1] rounded-full" style={{width: '90%'}}></div>
                             </div>
                           </div>
                           
                           <div>
-                            <div className="flex justify-between items-center mb-1">
-                              <span className="text-xs font-medium text-gray-700">Search Volume</span>
-                              <span className="text-xs font-bold text-[#722ED1]">+128%</span>
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-sm font-medium text-[#3D2C35]">Search Volume</span>
+                              <span className="text-sm font-bold text-[#722ED1]">+128%</span>
                             </div>
-                            <div className="w-full h-1.5 bg-gray-100 rounded-sm">
-                              <div className="h-full bg-[#722ED1] rounded-sm" style={{width: '60%'}}></div>
+                            <div className="w-full h-2 bg-[#F8F6F3] rounded-full">
+                              <div className="h-full bg-[#722ED1] rounded-full" style={{width: '60%'}}></div>
                             </div>
                           </div>
                         </div>
                       </div>
                       
-                      <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
-                        <div className="flex items-center gap-2 mb-3">
-                          <MapPin className="h-4 w-4 text-[#FF4D4F]" />
-                          <h3 className="font-semibold text-[var(--color-primary-font)] text-sm">Geographic Hotspots</h3>
+                      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="bg-[#FAAD14]/10 p-2 rounded-full">
+                            <MapPin className="h-5 w-5 text-[#FAAD14]" />
+                          </div>
+                          <h3 className="font-bold text-[#2A2127] text-lg">Geographic Hotspots</h3>
                         </div>
-                        <div className="space-y-3">
+                        <div className="space-y-5">
                           {selectedPreview.locations ? (
                             selectedPreview.locations.map((location, index) => (
                               <div key={index}>
                                 <div className="flex items-center">
                                   <div className="flex-1">
-                                    <div className="flex justify-between items-center">
-                                      <h3 className="text-xs font-medium text-gray-700">{location}</h3>
-                                      <span className="text-xs font-bold text-[#FF4D4F]">
+                                    <div className="flex justify-between items-center mb-2">
+                                      <h3 className="text-sm font-medium text-[#3D2C35]">{location}</h3>
+                                      <span className="text-sm font-bold text-[#FAAD14]">
                                         {selectedPreview.stats?.searchSpikes && selectedPreview.stats.searchSpikes[index] 
                                           ? selectedPreview.stats.searchSpikes[index]
                                           : "+200%"}
                                       </span>
                                     </div>
-                                    <div className="w-full h-1.5 bg-gray-100 rounded-sm mt-1">
+                                    <div className="w-full h-2 bg-[#F8F6F3] rounded-full">
                                       <div 
-                                        className="h-full bg-[#FF4D4F] rounded-sm" 
+                                        className="h-full bg-[#FAAD14] rounded-full" 
                                         style={{width: `${90 - (index * 15)}%`}}
                                       ></div>
                                     </div>
@@ -488,7 +583,7 @@ export default function NewsletterPreview() {
                               </div>
                             ))
                           ) : (
-                            <div className="text-center py-4 text-gray-500 text-xs">
+                            <div className="text-center py-4 text-gray-500 text-sm">
                               No location data available
                             </div>
                           )}
@@ -496,14 +591,89 @@ export default function NewsletterPreview() {
                       </div>
                     </div>
                     
-                    <div className="mt-4 p-4 bg-[#F9F0FF] rounded-md">
-                      <div className="flex gap-2">
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h3 className="font-bold text-[#2A2127] text-lg mb-4">Price Forecast</h3>
+                        <div className="space-y-5">
+                          <div className="flex justify-between items-center bg-[#F8F6F3] p-3 rounded-lg">
+                            <span className="text-sm font-medium text-[#3D2C35]">Current Value</span>
+                            <span className="text-lg font-bold text-[#2A2127]">$19,995</span>
+                          </div>
+                          
+                          <div className="flex justify-between items-center bg-[#F8F6F3] p-3 rounded-lg">
+                            <span className="text-sm font-medium text-[#3D2C35]">6 Month Projection</span>
+                            <span className="text-lg font-bold text-[#FAAD14]">$22,400</span>
+                          </div>
+                          
+                          <div className="flex justify-between items-center bg-[#F8F6F3] p-3 rounded-lg">
+                            <span className="text-sm font-medium text-[#3D2C35]">1 Year Projection</span>
+                            <span className="text-lg font-bold text-[#FAAD14]">$26,800</span>
+                          </div>
+                          
+                          <div className="bg-[#FAAD14]/10 p-4 rounded-lg">
+                            <p className="text-sm text-[#3D2C35]">
+                              <span className="font-bold text-[#FAAD14]">+34%</span> estimated appreciation over the next 12 months
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h3 className="font-bold text-[#2A2127] text-lg mb-4">Market Signals</h3>
+                        <div className="space-y-4">
+                          <div className="flex items-start gap-3 pb-3 border-b border-[#F8F6F3]">
+                            <div className="bg-green-100 p-1.5 rounded-full mt-0.5">
+                              <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-[#2A2127] text-sm">Celebrity Endorsements</h4>
+                              <p className="text-sm text-[#8F8A95]">Spotted on 3 A-list celebrities in past month</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start gap-3 pb-3 border-b border-[#F8F6F3]">
+                            <div className="bg-green-100 p-1.5 rounded-full mt-0.5">
+                              <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-[#2A2127] text-sm">Auction Performance</h4>
+                              <p className="text-sm text-[#8F8A95]">Last 5 auctions closed above estimated value</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start gap-3 pb-3 border-b border-[#F8F6F3]">
+                            <div className="bg-yellow-100 p-1.5 rounded-full mt-0.5">
+                              <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-[#2A2127] text-sm">Market Availability</h4>
+                              <p className="text-sm text-[#8F8A95]">Moderate inventory levels at trusted resellers</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start gap-3">
+                            <div className="bg-green-100 p-1.5 rounded-full mt-0.5">
+                              <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-[#2A2127] text-sm">Resale Velocity</h4>
+                              <p className="text-sm text-[#8F8A95]">Average time to sell: 3.2 days (Very Fast)</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-8 p-6 bg-[#F9F0FF] rounded-xl border border-[#722ED1]/20">
+                      <div className="flex gap-4">
                         <div className="shrink-0">
-                          <InfoIcon className="h-4 w-4 text-[#722ED1] mt-0.5" />
+                          <div className="bg-[#722ED1] p-2 rounded-full">
+                            <InfoIcon className="h-5 w-5 text-white" />
+                          </div>
                         </div>
                         <div>
-                          <h3 className="text-xs font-semibold text-gray-900 mb-1">AI-POWERED INSIGHT</h3>
-                          <p className="text-xs text-gray-700">Our algorithms predict this trend will peak in 2 weeks, with 78% probability of mainstream adoption by major retailers within 45 days.</p>
+                          <h3 className="text-lg font-bold text-[#2A2127] mb-2">AI-POWERED MARKET PREDICTION</h3>
+                          <p className="text-[#3D2C35]">Our algorithms predict this Birkin model will experience an immediate 11% surge in market value following the upcoming Met Gala on May 6, 2025. We anticipate several A-list celebrities will showcase vintage Hermès pieces, driving significant social media interest and search volume. Consider this a strong BUY signal with a 6-month hold recommendation.</p>
                         </div>
                       </div>
                     </div>
@@ -511,58 +681,60 @@ export default function NewsletterPreview() {
                 </TabsContent>
                 
                 <TabsContent value="shop" className="p-0 m-0">
-                  <div className="p-6 bg-gradient-to-br from-white to-[var(--color-accent-3)]/5">
+                  <div className="p-8 bg-[#F8F6F3]">
                     {selectedPreview.buyLinks ? (
                       <div>
-                        <div className="mb-6 text-center">
-                          <h3 className="text-2xl font-display font-bold mb-2">Shop The Look</h3>
-                          <p className="text-[var(--color-secondary-font)]">DripDial exclusive deals on trending pieces</p>
+                        <div className="mb-8 text-center">
+                          <h2 className="text-2xl font-display font-bold mb-3 text-[#2A2127]">Shop The Look</h2>
+                          <p className="text-[#8F8A95] max-w-2xl mx-auto">DripDial members get exclusive access to authenticated luxury pieces at preferred rates through our trusted partner network</p>
                         </div>
-                        <div className="grid gap-6">
+                        
+                        <div className="grid gap-8">
                           {selectedPreview.buyLinks.map((item, index) => (
-                            <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-[var(--color-accent-3)]/10">
-                              <div className="md:flex">
-                                <div className="md:w-1/3 bg-gray-50 md:h-auto h-48 relative overflow-hidden">
+                            <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+                              <div className="md:grid md:grid-cols-12">
+                                <div className="md:col-span-4 bg-[#F8F6F3] relative overflow-hidden">
                                   <img 
                                     src={`https://source.unsplash.com/random/600x800/?fashion,${item.item.toLowerCase().replace(' ', '')}`} 
                                     alt={item.item} 
-                                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                                    className="w-full h-full object-cover md:h-[300px] transition-transform duration-700 hover:scale-105"
                                   />
+                                  
+                                  {/* Status indicator */}
+                                  {item.shopNowLabel === "INVESTMENT PIECE" && (
+                                    <div className="absolute top-4 left-0">
+                                      <div className="bg-[#FAAD14] text-[#2A2127] text-xs font-bold py-1.5 px-4 rounded-r-full uppercase tracking-wide shadow-sm">Investment Piece</div>
+                                    </div>
+                                  )}
+                                  {item.shopNowLabel === "HIGH RESALE VALUE" && (
+                                    <div className="absolute top-4 left-0">
+                                      <div className="bg-[#722ED1] text-white text-xs font-bold py-1.5 px-4 rounded-r-full uppercase tracking-wide shadow-sm">High Resale Value</div>
+                                    </div>
+                                  )}
                                   {item.shopNowLabel === "TRENDING NOW" && (
-                                    <div className="absolute top-3 left-0 bg-[var(--color-accent-1)] text-white text-xs font-bold py-1 px-3 rounded-r-full">HOT ITEM</div>
-                                  )}
-                                  {item.shopNowLabel === "EDITOR'S PICK" && (
-                                    <div className="absolute top-3 left-0 bg-[var(--color-accent-4)] text-white text-xs font-bold py-1 px-3 rounded-r-full">EDITOR'S PICK</div>
-                                  )}
-                                  {item.shopNowLabel === "ALMOST SOLD OUT" && (
-                                    <div className="absolute top-3 left-0 bg-[var(--color-accent-2)] text-white text-xs font-bold py-1 px-3 rounded-r-full">SELLING FAST</div>
-                                  )}
-                                  {item.shopNowLabel === "IN STOCK" && (
-                                    <div className="absolute top-3 left-0 bg-green-500 text-white text-xs font-bold py-1 px-3 rounded-r-full">IN STOCK</div>
-                                  )}
-                                  {item.shopNowLabel === "SELLING FAST" && (
-                                    <div className="absolute top-3 left-0 bg-[var(--color-accent-2)] text-white text-xs font-bold py-1 px-3 rounded-r-full">SELLING FAST</div>
+                                    <div className="absolute top-4 left-0">
+                                      <div className="bg-[#FF4D4F] text-white text-xs font-bold py-1.5 px-4 rounded-r-full uppercase tracking-wide shadow-sm">Trending Now</div>
+                                    </div>
                                   )}
                                 </div>
-                                <div className="p-6 md:w-2/3">
+                                
+                                <div className="p-8 md:col-span-8">
                                   <div className="flex flex-col h-full">
                                     <div>
-                                      <div className="flex justify-between items-start mb-3">
-                                        <div>
-                                          <h3 className="font-bold text-xl text-[var(--color-primary-font)]">{item.item}</h3>
-                                          <p className="text-sm text-[var(--color-secondary-font)] font-medium">{item.brand}</p>
-                                        </div>
+                                      <div className="flex flex-col space-y-1 mb-6">
+                                        <h3 className="font-bold text-2xl text-[#2A2127]">{item.item}</h3>
+                                        <p className="text-base text-[#8F8A95] font-medium">{item.brand}</p>
                                       </div>
                                       
-                                      <div className="grid md:grid-cols-2 gap-6 mb-5">
-                                        <div className="bg-[var(--color-accent-3)]/5 p-3 rounded-lg">
-                                          <div className="text-xs text-[var(--color-primary-font)] uppercase font-medium">Retail Price</div>
-                                          <div className="text-xl font-bold text-[var(--color-primary-font)] line-through">{item.originalPrice}</div>
+                                      <div className="grid md:grid-cols-2 gap-6 mb-8">
+                                        <div className="bg-[#F8F6F3] p-4 rounded-xl">
+                                          <div className="text-sm text-[#8F8A95] uppercase font-medium mb-1">Retail Price</div>
+                                          <div className="text-2xl font-bold text-[#2A2127]/50 line-through">{item.originalPrice}</div>
                                         </div>
-                                        <div className="bg-[var(--color-accent-1)]/5 p-3 rounded-lg">
-                                          <div className="text-xs text-[var(--color-accent-1)] uppercase font-medium">DripDial Price</div>
-                                          <div className="text-xl font-bold text-[var(--color-accent-1)]">{item.dupePrice}</div>
-                                          <div className="text-xs font-semibold bg-[var(--color-accent-1)] text-white px-2 py-1 rounded-full inline-block mt-1">Save {
+                                        <div className="bg-[#FAAD14]/5 p-4 rounded-xl">
+                                          <div className="text-sm text-[#FAAD14] uppercase font-medium mb-1">DripDial Price</div>
+                                          <div className="text-2xl font-bold text-[#FAAD14]">{item.dupePrice}</div>
+                                          <div className="text-xs font-semibold bg-[#FAAD14] text-white px-2 py-1 rounded-full inline-block mt-2">Save {
                                             Math.round(
                                               (parseInt(item.originalPrice.replace('$', '').replace(',', '')) - 
                                               parseInt(item.dupePrice.replace('$', '').replace(',', ''))) /
@@ -571,14 +743,24 @@ export default function NewsletterPreview() {
                                           </div>
                                         </div>
                                       </div>
+                                      
+                                      <div className="mb-4">
+                                        <div className="flex items-center mb-2">
+                                          <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
+                                          <span className="text-[#2A2127] font-medium">Authenticity guaranteed</span>
+                                        </div>
+                                        <div className="ml-6 text-sm text-[#8F8A95]">All items verified by our authentication team</div>
+                                      </div>
                                     </div>
                                     
-                                    <div className="flex justify-between items-center mt-auto">
-                                      <div className="text-sm">
-                                        <span className="font-medium">Exclusive at: </span>
-                                        <span className="text-[var(--color-accent-4)] font-semibold">{item.dupeStore}</span>
+                                    <div className="flex flex-col sm:flex-row justify-between items-center mt-8 pt-4 border-t border-gray-100">
+                                      <div className="mb-4 sm:mb-0">
+                                        <span className="text-[#8F8A95]">Available at: </span>
+                                        <span className="text-[#722ED1] font-semibold">{item.dupeStore}</span>
                                       </div>
-                                      <Button className="bg-[var(--color-accent-1)] hover:bg-[var(--color-accent-1)]/90">Shop Now</Button>
+                                      <Button className="bg-[#2A2127] hover:bg-[#2A2127]/90 text-white px-8 py-2.5 rounded-lg shadow-sm transition-all hover:shadow">
+                                        Shop Now
+                                      </Button>
                                     </div>
                                   </div>
                                 </div>
@@ -586,56 +768,210 @@ export default function NewsletterPreview() {
                             </div>
                           ))}
                         </div>
+                        
+                        <div className="mt-10 p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                          <div className="flex items-start gap-4">
+                            <div className="bg-[#FAAD14]/10 p-2 rounded-full shrink-0">
+                              <InfoIcon className="h-5 w-5 text-[#FAAD14]" />
+                            </div>
+                            <div>
+                              <h3 className="text-[#2A2127] font-bold text-lg mb-1">DripDial Members Only</h3>
+                              <p className="text-[#8F8A95]">
+                                As a DripDial premium member, you have exclusive access to our curated marketplace of authenticated luxury items. Each piece is thoroughly verified by our expert team and backed by our guarantee of authenticity.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     ) : (
-                      <div className="text-center py-10 text-gray-500">
-                        No shopping options available for this edition
+                      <div className="text-center py-20 text-[#8F8A95]">
+                        <div className="bg-white p-10 rounded-xl shadow-sm max-w-xl mx-auto">
+                          <h3 className="text-xl font-bold text-[#2A2127] mb-3">No Shopping Options Available</h3>
+                          <p>This exclusive edition doesn't have shopping options at this time.</p>
+                        </div>
                       </div>
                     )}
                   </div>
                 </TabsContent>
                 
                 <TabsContent value="social" className="p-0 m-0">
-                  <div className="p-6">
-                    <div className="text-center mb-6">
-                      <h3 className="text-2xl font-display font-bold mb-2">Social Media Buzz</h3>
-                      <p className="text-[var(--color-secondary-font)]">See how this trend is performing on social platforms</p>
+                  <div className="p-8 bg-[#F8F6F3]">
+                    <div className="mb-8">
+                      <h2 className="text-2xl font-display font-bold mb-3 text-[#2A2127]">Social Media Influence</h2>
+                      <p className="text-[#8F8A95] max-w-2xl">Track how this investment piece is performing across social platforms and celebrity appearances</p>
                     </div>
                     
-                    <div className="space-y-4">
-                      <div className="bg-gradient-to-r from-[var(--color-accent-1)]/5 to-[var(--color-accent-1)]/10 rounded-xl p-4 flex items-center gap-4 transition-transform hover:scale-[1.02] duration-300">
-                        <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200 shadow-lg ring-2 ring-white">
-                          <img 
-                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" 
-                            alt="Influencer" 
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex justify-between items-center">
-                            <h4 className="text-base font-bold text-[var(--color-primary-font)]">Luka Sabbat</h4>
-                            <div className="text-xs bg-[var(--color-accent-1)]/10 text-[var(--color-accent-1)] rounded-full px-2 py-1 font-medium">1d ago</div>
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div className="space-y-6">
+                        <h3 className="text-lg font-bold text-[#2A2127] mb-4">Celebrity Sightings</h3>
+                        
+                        <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 transition-transform hover:scale-[1.01] duration-300">
+                          <div className="flex gap-4">
+                            <div className="w-16 h-16 rounded-full overflow-hidden bg-[#F8F6F3] shadow-md ring-2 ring-white shrink-0">
+                              <img 
+                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" 
+                                alt="Influencer" 
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex justify-between items-start">
+                                <div>
+                                  <h4 className="text-lg font-bold text-[#2A2127]">Kendall Jenner</h4>
+                                  <p className="text-sm text-[#8F8A95] mb-3">Met Gala 2025 Afterparty</p>
+                                </div>
+                                <div className="bg-[#FF4D4F]/10 text-[#FF4D4F] text-xs font-medium px-2.5 py-1 rounded-full">2 days ago</div>
+                              </div>
+                              <div className="bg-[#F8F6F3] p-3 rounded-lg text-sm text-[#3D2C35]">
+                                "Kendall was photographed carrying the vintage Hermès Kelly in black box leather, paired with a minimalist Prada evening dress. The bag is estimated to be from the early 2000s collection."
+                              </div>
+                              <div className="flex gap-2 mt-3">
+                                <div className="text-xs font-medium bg-[#FF4D4F] text-white px-2.5 py-1 rounded-full">3.2M likes</div>
+                                <div className="text-xs font-medium bg-[#3D2C35] text-white px-2.5 py-1 rounded-full">428 articles</div>
+                              </div>
+                            </div>
                           </div>
-                          <p className="text-sm text-[var(--color-secondary-font)] my-1">Posted TikTok with vintage corset</p>
-                          <div className="text-xs font-medium bg-[var(--color-accent-1)] text-white px-2 py-0.5 rounded-full inline-block">2.1M likes</div>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 transition-transform hover:scale-[1.01] duration-300">
+                          <div className="flex gap-4">
+                            <div className="w-16 h-16 rounded-full overflow-hidden bg-[#F8F6F3] shadow-md ring-2 ring-white shrink-0">
+                              <img 
+                                src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6" 
+                                alt="Celebrity" 
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex justify-between items-start">
+                                <div>
+                                  <h4 className="text-lg font-bold text-[#2A2127]">Pharrell Williams</h4>
+                                  <p className="text-sm text-[#8F8A95] mb-3">Paris Fashion Week Appearance</p>
+                                </div>
+                                <div className="bg-[#722ED1]/10 text-[#722ED1] text-xs font-medium px-2.5 py-1 rounded-full">1 week ago</div>
+                              </div>
+                              <div className="bg-[#F8F6F3] p-3 rounded-lg text-sm text-[#3D2C35]">
+                                "Pharrell was seen front row at the Louis Vuitton show with a rare Hermès HAC (Haut à Courroies) bag in Barenia leather. The musician's personal style continues to influence luxury menswear trends."
+                              </div>
+                              <div className="flex gap-2 mt-3">
+                                <div className="text-xs font-medium bg-[#722ED1] text-white px-2.5 py-1 rounded-full">1.4M likes</div>
+                                <div className="text-xs font-medium bg-[#3D2C35] text-white px-2.5 py-1 rounded-full">216 articles</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       
-                      <div className="bg-gradient-to-r from-[var(--color-accent-4)]/5 to-[var(--color-accent-4)]/10 rounded-xl p-4 flex items-center gap-4 transition-transform hover:scale-[1.02] duration-300">
-                        <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200 shadow-lg ring-2 ring-white">
-                          <img 
-                            src="https://images.unsplash.com/photo-1517841905240-472988babdf9" 
-                            alt="Influencer" 
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex justify-between items-center">
-                            <h4 className="text-base font-bold text-[var(--color-primary-font)]">Emma Chamberlain</h4>
-                            <div className="text-xs bg-[var(--color-accent-4)]/10 text-[var(--color-accent-4)] rounded-full px-2 py-1 font-medium">3d ago</div>
+                      <div>
+                        <h3 className="text-lg font-bold text-[#2A2127] mb-4">Creator Content Impact</h3>
+                        
+                        <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                          <div className="p-5 border-b border-gray-100">
+                            <div className="flex items-center justify-between">
+                              <h4 className="font-bold text-[#2A2127]">Emma Chamberlain</h4>
+                              <div className="flex gap-1 items-center">
+                                <span className="text-[#8F8A95] text-sm">Creator Score:</span>
+                                <span className="font-bold text-[#FF4D4F]">92</span>
+                              </div>
+                            </div>
+                            <p className="text-sm text-[#8F8A95] mt-1">8.5M YouTube subscribers, 15.7M Instagram followers</p>
                           </div>
-                          <p className="text-sm text-[var(--color-secondary-font)] my-1">Featured in YouTube styling video</p>
-                          <div className="text-xs font-medium bg-[var(--color-accent-4)] text-white px-2 py-0.5 rounded-full inline-block">1.8M views</div>
+                          
+                          <div className="grid grid-cols-2 divide-x divide-gray-100">
+                            <div className="p-4">
+                              <div className="text-xs text-[#8F8A95] uppercase font-medium mb-1">Video Title</div>
+                              <div className="font-medium text-[#2A2127] mb-3">"My Luxury Bag Collection 2025"</div>
+                              <div className="flex flex-col gap-2">
+                                <div className="flex justify-between text-sm">
+                                  <span className="text-[#8F8A95]">Views</span>
+                                  <span className="font-semibold text-[#2A2127]">4.6M</span>
+                                </div>
+                                <div className="flex justify-between text-sm">
+                                  <span className="text-[#8F8A95]">Engagement</span>
+                                  <span className="font-semibold text-[#2A2127]">12.8%</span>
+                                </div>
+                                <div className="flex justify-between text-sm">
+                                  <span className="text-[#8F8A95]">Click-through</span>
+                                  <span className="font-semibold text-[#2A2127]">3.2%</span>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="p-4">
+                              <div className="text-xs text-[#8F8A95] uppercase font-medium mb-1">Market Impact</div>
+                              <div className="mb-3">
+                                <div className="font-semibold text-[#722ED1] text-lg">+16.4%</div>
+                                <div className="text-xs text-[#8F8A95]">Search volume increase</div>
+                              </div>
+                              
+                              <div className="bg-[#F8F6F3] rounded-lg p-3 text-xs">
+                                <p className="text-[#3D2C35]">
+                                  Emma's video mentioning this Birkin model caused a significant spike in Rebag searches and an estimated 9 sales within 48 hours of publication.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-6 bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                          <div className="grid grid-cols-2 divide-x divide-gray-100">
+                            <div className="p-5">
+                              <h4 className="font-bold text-[#2A2127] mb-1">TikTok Hashtag Metrics</h4>
+                              <p className="text-xs text-[#8F8A95] mb-4">Last 30 days performance</p>
+                              
+                              <div className="space-y-4">
+                                <div>
+                                  <div className="flex justify-between mb-1">
+                                    <span className="text-sm font-medium text-[#2A2127]">#BirkinBag</span>
+                                    <span className="text-sm font-bold text-[#FF4D4F]">142.8M</span>
+                                  </div>
+                                  <div className="w-full h-2 bg-[#F8F6F3] rounded-full">
+                                    <div className="h-full bg-[#FF4D4F] rounded-full" style={{width: '90%'}}></div>
+                                  </div>
+                                </div>
+                                
+                                <div>
+                                  <div className="flex justify-between mb-1">
+                                    <span className="text-sm font-medium text-[#2A2127]">#HermèsAuthentic</span>
+                                    <span className="text-sm font-bold text-[#FF4D4F]">67.5M</span>
+                                  </div>
+                                  <div className="w-full h-2 bg-[#F8F6F3] rounded-full">
+                                    <div className="h-full bg-[#FF4D4F] rounded-full" style={{width: '65%'}}></div>
+                                  </div>
+                                </div>
+                                
+                                <div>
+                                  <div className="flex justify-between mb-1">
+                                    <span className="text-sm font-medium text-[#2A2127]">#BagInvestment</span>
+                                    <span className="text-sm font-bold text-[#FF4D4F]">44.2M</span>
+                                  </div>
+                                  <div className="w-full h-2 bg-[#F8F6F3] rounded-full">
+                                    <div className="h-full bg-[#FF4D4F] rounded-full" style={{width: '42%'}}></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="p-5">
+                              <h4 className="font-bold text-[#2A2127] mb-1">Instagram Engagement</h4>
+                              <p className="text-xs text-[#8F8A95] mb-4">Compared to category average</p>
+                              
+                              <div className="bg-[#FAAD14]/10 p-4 rounded-lg space-y-2 mb-4">
+                                <div className="flex justify-between items-center">
+                                  <span className="text-sm text-[#8F8A95]">Luxury Bag Average</span>
+                                  <span className="text-sm font-bold text-[#2A2127]">2.3%</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                  <span className="text-sm text-[#2A2127] font-semibold">Birkin Models</span>
+                                  <span className="text-sm font-bold text-[#FAAD14]">7.8%</span>
+                                </div>
+                              </div>
+                              
+                              <div className="text-xs text-[#3D2C35] bg-[#F8F6F3] p-3 rounded-lg">
+                                Posts featuring authentic Birkin bags receive 3.4x higher engagement than the luxury handbag category average.
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
