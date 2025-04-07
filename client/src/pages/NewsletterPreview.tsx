@@ -16,131 +16,121 @@ import Footer from "@/components/Footer";
 const newsletterExamples = [
   {
     id: 1,
-    title: "Summer's Hottest Accessory Trend",
-    category: "TREND ALERT",
-    date: "JUNE 12",
-    description: "Our AI has spotted a 300% increase in oversized sunglasses across Instagram. Here's how to style them...",
-    imageUrl: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&h=400",
-    tags: ["#Y2KRevival", "#SummerStyle"],
+    title: "Bella Hadid's Viral Street Style Decoded",
+    category: "CELEBRITY INTEL",
+    date: "24 HOURS AGO",
+    description: "Our AI analyzed Bella's latest viral outfit that got 2.3M likes in just 24 hours. Here's how to recreate it...",
+    imageUrl: "https://images.unsplash.com/photo-1618333262707-35a5505e8613?auto=format&fit=crop&w=600&h=400",
+    videoUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGZhODIyMjZkMzA4NmRjMGJkNjE0YjY4NGQ0YTY5ZTI3NjI1YjNlNyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7btZ2VRVZxOaOikE/giphy.gif",
+    tags: ["#BellaHadid", "#StreetStyle", "#24HourFashion"],
+    stats: {
+      likes: "2.3M",
+      shares: "450K",
+      saves: "890K"
+    },
     content: `
-      <h1>Oversized Sunglasses: The Y2K Revival That's Taking Over</h1>
-      <p>Dear fashion enthusiast,</p>
-      <p>Our AI trend detection system has identified a significant surge in oversized sunglasses mentions and appearances across social platforms. With a 300% increase in the past month alone, this Y2K-inspired accessory is set to be summer's hottest trend.</p>
-      <h2>Why They're Trending Now</h2>
-      <p>Celebrity endorsements from Bella Hadid and Dua Lipa have catalyzed this revival, along with TikTok creators showcasing how versatile these statement pieces can be.</p>
-      <h2>How to Style Them</h2>
-      <ul>
-        <li>Pair with mini dresses and platform sandals for full Y2K vibes</li>
-        <li>Contrast with minimalist outfits for a focal statement piece</li>
-        <li>Match with slicked-back hair for a polished, high-fashion look</li>
-      </ul>
-      <h2>Where to Shop</h2>
-      <p>Budget-friendly options:</p>
-      <ul>
-        <li>ASOS - Oversized Rimless Sunglasses ($19.99)</li>
-        <li>H&M - Rectangular Frame Sunglasses ($12.99)</li>
-        <li>Zara - Shield Sunglasses with Colored Lenses ($25.90)</li>
-      </ul>
-      <p>Investment pieces:</p>
-      <ul>
-        <li>Le Specs - Outta Love ($79)</li>
-        <li>Quay - After Hours ($65)</li>
-        <li>Ray-Ban - State Street ($163)</li>
-      </ul>
-      <p>Stay ahead of the curve,</p>
-      <p>The DripDial Team</p>
+      <h1>24 Hours with Bella: The Outfit That Broke Instagram</h1>
+      <p>Fashion Insiders,</p>
+      <p>When Bella Hadid stepped out in NYC yesterday, our AI tracking system went into overdrive. Here's why this look matters and how to get it for less.</p>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="number">2.3M</span>
+          <span class="label">Likes in 24h</span>
+        </div>
+        <div class="stat-item">
+          <span class="number">450K</span>
+          <span class="label">Shares</span>
+        </div>
+        <div class="stat-item">
+          <span class="number">890K</span>
+          <span class="label">Saves</span>
+        </div>
+      </div>
+
+      <h2>The Breakdown</h2>
+      <div class="outfit-breakdown">
+        <div class="item">
+          <span class="brand">Vintage Jean Paul Gaultier</span>
+          <span class="price">$3,200</span>
+          <span class="dupe">Our find: Zara, $89</span>
+        </div>
+        <div class="item">
+          <span class="brand">The Row Boots</span>
+          <span class="price">$1,590</span>
+          <span class="dupe">Our find: Mango, $129</span>
+        </div>
+        <div class="item">
+          <span class="brand">Prada Re-Edition</span>
+          <span class="price">$995</span>
+          <span class="dupe">Our find: JW PEI, $79</span>
+        </div>
+      </div>
+
+      <div class="trending-alert">
+        <span class="pulse"></span>
+        <p>This look has triggered a +245% surge in "vintage corset" searches in the last 3 hours!</p>
+      </div>
     `
   },
   {
     id: 2,
-    title: "5 Complete Outfits Under $100",
-    category: "BUDGET BUYS",
-    date: "JUNE 5",
-    description: "Our AI scoured thousands of retailers to find these complete looks that won't break the bank...",
-    imageUrl: "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=600&h=400",
-    tags: ["#BudgetFashion", "#StyleDeals"],
+    title: "TikTok's Viral 'Clean Girl' Evolution",
+    category: "TREND REPORT",
+    date: "VIRAL NOW",
+    description: "The aesthetic that got 1B views is shifting. Our AI spotted these key changes first...",
+    imageUrl: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?auto=format&fit=crop&w=600&h=400",
+    videoUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzM5MzAwYzU3YzU4NjM5MjM1OTM1ZWU4ZjQ5ODZhZTM4ZDUxZDU0OCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7btZ2VRVZxOaOikE/giphy.gif",
+    tags: ["#CleanGirl2.0", "#TikTokFashion"],
+    viralStats: {
+      views: "1B+",
+      creators: "125K",
+      avgEngagement: "22.4%"
+    },
     content: `
-      <h1>Dress to Impress: 5 Complete Outfits Under $100</h1>
-      <p>Dear budget-conscious fashionista,</p>
-      <p>Who says style has to come with a hefty price tag? Our AI has analyzed thousands of products across dozens of retailers to curate these five complete outfits—each for less than $100 total.</p>
-      <h2>Outfit 1: Office Chic</h2>
-      <ul>
-        <li>H&M Wide-leg Trousers - $29.99</li>
-        <li>ASOS Short Sleeve Blouse - $22.00</li>
-        <li>Amazon Ballet Flats - $24.99</li>
-        <li>Accessory: Gold-tone Necklace - $12.99</li>
-        <li>Total: $89.97</li>
-      </ul>
-      <h2>Outfit 2: Weekend Casual</h2>
-      <ul>
-        <li>Gap High-Rise Jeans - $39.95 (on sale)</li>
-        <li>Target Striped Tee - $15.00</li>
-        <li>Old Navy Canvas Sneakers - $24.99</li>
-        <li>Accessory: Crossbody Bag - $19.99</li>
-        <li>Total: $99.93</li>
-      </ul>
-      <h2>Outfit 3: Date Night</h2>
-      <ul>
-        <li>SHEIN Slip Dress - $18.99</li>
-        <li>Forever 21 Cropped Cardigan - $19.99</li>
-        <li>Amazon Block Heels - $39.99</li>
-        <li>Accessory: Statement Earrings - $15.99</li>
-        <li>Total: $94.96</li>
-      </ul>
-      <h2>Outfit 4: Athleisure</h2>
-      <ul>
-        <li>Amazon Leggings - $25.99</li>
-        <li>Old Navy Sports Bra - $19.99</li>
-        <li>Walmart Oversized Sweatshirt - $22.98</li>
-        <li>Accessory: Baseball Cap - $12.99</li>
-        <li>Total: $81.95</li>
-      </ul>
-      <h2>Outfit 5: Brunch Ready</h2>
-      <ul>
-        <li>SHEIN Floral Midi Skirt - $17.99</li>
-        <li>H&M Crop Top - $12.99</li>
-        <li>Amazon Strappy Sandals - $32.99</li>
-        <li>Accessory: Woven Tote - $29.99</li>
-        <li>Total: $93.96</li>
-      </ul>
-      <p>Happy shopping,</p>
-      <p>The DripDial Team</p>
-    `
-  },
-  {
-    id: 3,
-    title: "10 Ways to Style Your White Tee",
-    category: "CLOSET HACKS",
-    date: "MAY 29",
-    description: "Transform this wardrobe basic into 10 completely different looks with these AI-generated styling ideas...",
-    imageUrl: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=600&h=400",
-    tags: ["#CapsulaWardrobe", "#StyleTips"],
-    content: `
-      <h1>10 Ways to Style Your Basic White Tee</h1>
-      <p>Dear fashion enthusiast,</p>
-      <p>The humble white t-shirt is perhaps the most versatile piece in your closet. Our AI stylist has generated 10 distinct outfits using this wardrobe staple as the foundation.</p>
-      <h2>1. Business Casual</h2>
-      <p>Tuck your white tee into high-waisted tailored trousers, add a blazer, and accessorize with a statement belt and loafers.</p>
-      <h2>2. French Girl Chic</h2>
-      <p>Pair with straight-leg jeans, a beret, delicate gold jewelry, and ballet flats for that effortless Parisian look.</p>
-      <h2>3. '90s Nostalgia</h2>
-      <p>Layer under a slip dress with chunky boots and add a choker necklace for peak '90s vibes.</p>
-      <h2>4. Athleisure</h2>
-      <p>Style with bike shorts, an oversized button-up shirt (worn open), white socks, and chunky sneakers.</p>
-      <h2>5. Vacation Ready</h2>
-      <p>Knot the front and pair with a flowy maxi skirt, straw hat, and sandals for a resort-worthy look.</p>
-      <h2>6. Edgy Evening</h2>
-      <p>Tuck into a leather midi skirt, add statement earrings, and finish with strappy heels.</p>
-      <h2>7. Preppy Classic</h2>
-      <p>Layer under a sweater vest with pleated shorts and loafers for scholarly style.</p>
-      <h2>8. Street Style</h2>
-      <p>Pair with cargo pants, a cropped puffer vest, chunky jewelry, and platform sneakers.</p>
-      <h2>9. Boho Dream</h2>
-      <p>Style with a tiered maxi skirt, lots of layered necklaces, and suede ankle boots.</p>
-      <h2>10. Minimalist</h2>
-      <p>Wear with wide-leg linen pants, simple slides, and a single delicate necklace for a clean, sophisticated look.</p>
-      <p>Style endlessly,</p>
-      <p>The DripDial Team</p>
+      <h1>Clean Girl 2.0: The Evolution of TikTok's Biggest Aesthetic</h1>
+      <p>Trend Spotters,</p>
+      <p>The 'Clean Girl' aesthetic isn't just evolving - it's revolutionizing. Our AI detected these major shifts in the last 48 hours.</p>
+
+      <div class="viral-metrics">
+        <div class="metric">
+          <span class="number">1B+</span>
+          <span class="label">Views</span>
+        </div>
+        <div class="metric">
+          <span class="number">125K</span>
+          <span class="label">Creators</span>
+        </div>
+        <div class="metric">
+          <span class="number">22.4%</span>
+          <span class="label">Engagement</span>
+        </div>
+      </div>
+
+      <h2>Key Changes Our AI Spotted</h2>
+      <div class="trend-shifts">
+        <div class="shift">
+          <span class="old">Slick Bun → Soft Waves</span>
+          <span class="growth">+156% Growth</span>
+        </div>
+        <div class="shift">
+          <span class="old">Neutral Palette → Pop of Color</span>
+          <span class="growth">+234% Growth</span>
+        </div>
+        <div class="shift">
+          <span class="old">Mini Bags → XXL Totes</span>
+          <span class="growth">+189% Growth</span>
+        </div>
+      </div>
+
+      <div class="creator-spotlight">
+        <h3>Rising Creator Alert</h3>
+        <div class="creator">
+          <span class="name">@sophia.lee</span>
+          <span class="stats">2.1M new followers in 48h</span>
+          <span class="prediction">Predicted to hit 5M by next week</span>
+        </div>
+      </div>
     `
   }
 ];
@@ -151,7 +141,7 @@ export default function NewsletterPreview() {
   return (
     <div className="bg-[var(--color-background)] min-h-screen">
       <Navigation />
-      
+
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-5xl mx-auto">
           <div className="mb-8">
@@ -165,7 +155,7 @@ export default function NewsletterPreview() {
               Get a taste of what lands in your inbox when you subscribe to DripDial. Each edition is thoughtfully curated with AI-powered insights.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 mb-10">
             {newsletterExamples.map((example) => (
               <Card 
@@ -179,6 +169,9 @@ export default function NewsletterPreview() {
                     alt={example.title} 
                     className="w-full h-full object-cover"
                   />
+                  {example.videoUrl && (
+                    <video src={example.videoUrl} autoPlay loop muted className="w-full h-full object-cover" />
+                  )}
                 </div>
                 <CardHeader className="pb-2">
                   <div className="flex justify-between items-center">
@@ -193,7 +186,7 @@ export default function NewsletterPreview() {
               </Card>
             ))}
           </div>
-          
+
           <motion.div 
             className="bg-white p-8 rounded-xl shadow-md mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -215,10 +208,10 @@ export default function NewsletterPreview() {
                 ))}
               </div>
             </div>
-            
+
             <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: selectedPreview.content }} />
           </motion.div>
-          
+
           <div className="bg-[var(--color-primary)] text-[var(--color-background)] p-8 rounded-xl text-center">
             <h3 className="font-display text-2xl font-semibold mb-4 text-[var(--color-background)]">Like What You See?</h3>
             <p className="mb-6 text-[var(--color-background)]">Subscribe to DripDial and get these insights delivered directly to your inbox every week.</p>
@@ -230,7 +223,7 @@ export default function NewsletterPreview() {
           </div>
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );
