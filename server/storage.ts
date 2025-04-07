@@ -1,4 +1,6 @@
 import { users, type User, type InsertUser, type Subscriber, type InsertSubscriber, subscribers } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 // modify the interface with any CRUD methods
 // you might need
@@ -11,46 +13,47 @@ export interface IStorage {
   getAllSubscribers(): Promise<Subscriber[]>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private subscribers: Map<number, Subscriber>;
-  private userCurrentId: number;
-  private subscriberCurrentId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.subscribers = new Map();
-    this.userCurrentId = 1;
-    this.subscriberCurrentId = 1;
-  }
-
+export class DatabaseStorage implements IStorage {
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.userCurrentId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
     return user;
   }
   
   async createSubscriber(subscriberData: InsertSubscriber & { createdAt: string }): Promise<Subscriber> {
-    const id = this.subscriberCurrentId++;
-    const subscriber: Subscriber = { ...subscriberData, id };
-    this.subscribers.set(id, subscriber);
+    // Ensure stylePreferences is never undefined
+    const data = {
+      ...subscriberData,
+      stylePreferences: subscriberData.stylePreferences || null
+    };
+    
+    const [subscriber] = await db
+      .insert(subscribers)
+      .values(data)
+      .returning();
     return subscriber;
   }
   
   async getAllSubscribers(): Promise<Subscriber[]> {
-    return Array.from(this.subscribers.values());
+    const result = await db.select().from(subscribers);
+    return result.map(subscriber => ({
+      ...subscriber,
+      stylePreferences: subscriber.stylePreferences || null
+    }));
   }
 }
 
-export const storage = new MemStorage();
+// Use the DatabaseStorage implementation since we have a database available
+export const storage = new DatabaseStorage();
