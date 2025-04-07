@@ -108,37 +108,55 @@ const newsletterExamples = [
       prediction: "Peak in 2 weeks"
     },
     content: `
-      <div class="trend-timeline relative p-4 bg-gradient-to-r from-violet-50 to-pink-50 rounded-lg mb-6">
-        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-300 to-pink-300"></div>
-        <h3 class="font-bold mb-3">👁️ AI TREND PREDICTION</h3>
-        <div class="grid grid-cols-3 gap-2 text-center">
-          <div>
-            <p class="text-xs text-gray-500">WEEK 1</p>
-            <p class="font-bold">TikTok Bubbling</p>
-          </div>
-          <div>
-            <p class="text-xs text-gray-500">WEEK 2</p>
-            <p class="font-bold">Celebrity Adoption</p>
-          </div>
-          <div>
-            <p class="text-xs text-gray-500">WEEK 3</p>
-            <p class="font-bold text-pink-500">YOU ARE HERE</p>
-          </div>
+      <h1>Y2K Revival: Butterfly Clips, Low-Rise Jeans & Baby Tees Take Over</h1>
+      <p>Fashion Futurists,</p>
+      <p>The Y2K revival has reached fever pitch, but our proprietary trend analysis shows this isn't just nostalgia - it's a complete reinterpretation for Gen Z audiences.</p>
+      
+      <h2>Y2K Outfits Taking Over Social Media</h2>
+      
+      <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+          <img src="https://images.unsplash.com/photo-1525171254930-643fc658b64e?w=600&h=900&fit=crop" style="width: 100%; border-radius: 0.5rem; margin-bottom: 0.5rem;" />
+          <h4 style="font-weight: bold; margin-bottom: 0.25rem;">Low-Rise Jeans & Baby Tee Combo</h4>
+          <p style="font-size: 0.875rem; color: #666;">The iconic low-rise baggy jeans paired with a fitted baby tee. Notice the visible underwear band and chunky platform sneakers completing the authentic Y2K silhouette.</p>
+        </div>
+        <div style="flex: 1; min-width: 300px;">
+          <img src="https://images.unsplash.com/photo-1618375531912-867984bdfd87?w=600&h=900&fit=crop" style="width: 100%; border-radius: 0.5rem; margin-bottom: 0.5rem;" />
+          <h4 style="font-weight: bold; margin-bottom: 0.25rem;">Butterfly Accessories Revival</h4>
+          <p style="font-size: 0.875rem; color: #666;">Full Y2K fantasy with mini shoulder bag, butterfly clips, and tinted sunglasses. This look has seen a 342% increase in search volume over the past month.</p>
         </div>
       </div>
-
-      <div class="key-pieces grid grid-cols-2 gap-4 mb-6">
-        <div class="piece text-center">
-          <img src="https://images.unsplash.com/photo-1617059063772-34929265c80c?w=200&h=200&fit=crop" class="w-full h-32 object-cover rounded-lg mb-2"/>
-          <p class="text-sm font-medium">Layered Mesh Tops</p>
-          <p class="text-xs text-green-500">+245% searches</p>
+      
+      <h2>Spotting the Differences</h2>
+      <p>Unlike the original Y2K era, today's interpretation features:</p>
+      <ul>
+        <li><strong>Sustainability focus:</strong> Thrifted and upcycled pieces</li>
+        <li><strong>Body inclusivity:</strong> Diverse models across sizes</li>
+        <li><strong>Digital integration:</strong> Designed for social sharing</li>
+      </ul>
+      
+      <div style="display: flex; gap: 1rem; margin: 1.5rem 0; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 260px;">
+          <img src="https://images.unsplash.com/photo-1608312149553-d31a9ccd7324?w=600&h=900&fit=crop" style="width: 100%; border-radius: 0.5rem; margin-bottom: 0.5rem;" />
+          <h4 style="font-weight: bold; margin-bottom: 0.25rem;">Modern Y2K Street Style</h4>
+          <p style="font-size: 0.875rem; color: #666;">Chunky platform boots paired with a mini skirt and oversized jacket. The layered accessories and statement sunglasses complete this contemporary Y2K look.</p>
         </div>
-        <div class="piece text-center">
-          <img src="https://images.unsplash.com/photo-1551489186-cf8726f514f8?w=200&h=200&fit=crop" class="w-full h-32 object-cover rounded-lg mb-2"/>
-          <p class="text-sm font-medium">Platform Mary Janes</p>
-          <p class="text-xs text-green-500">+189% searches</p>
+        <div style="flex: 1; min-width: 260px;">
+          <img src="https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=600&h=900&fit=crop" style="width: 100%; border-radius: 0.5rem; margin-bottom: 0.5rem;" />
+          <h4 style="font-weight: bold; margin-bottom: 0.25rem;">Y2K Sportswear Aesthetic</h4>
+          <p style="font-size: 0.875rem; color: #666;">Track pants with side snaps and a cropped athletic top. This sporty Y2K revival incorporates vintage-inspired logos and bright color blocking.</p>
         </div>
       </div>
+      
+      <h3>DripDial Exclusive: Demand Analysis</h3>
+      <p>Our heat map shows key cities driving this trend:</p>
+      <ul>
+        <li>Tokyo (+455% in last 30 days)</li>
+        <li>Los Angeles (+389%)</li>
+        <li>Berlin (+276%)</li>
+      </ul>
+      
+      <p>We've detected a 78% probability this trend will continue growing for the next 3-4 months before reaching saturation.</p>
     `
   },
   {
@@ -533,6 +551,21 @@ const newsletterExamples = [
         </div>
       </div>
 
+      <h2>This Week's Hottest Looks</h2>
+      
+      <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=900&fit=crop" style="width: 100%; border-radius: 0.5rem; margin-bottom: 0.5rem;" />
+          <h4 style="font-weight: bold; margin-bottom: 0.25rem;">The Relaxed Oversized Blazer</h4>
+          <p style="font-size: 0.875rem; color: #666;">Cream oversized blazer paired with loose fit jeans and a structured white tee. Accessorized with a statement gold necklace and minimal hoop earrings.</p>
+        </div>
+        <div style="flex: 1; min-width: 300px;">
+          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&h=900&fit=crop" style="width: 100%; border-radius: 0.5rem; margin-bottom: 0.5rem;" />
+          <h4 style="font-weight: bold; margin-bottom: 0.25rem;">Pop of Color Statement</h4>
+          <p style="font-size: 0.875rem; color: #666;">Classic white button-down with vibrant emerald wide-leg trousers. The structured silhouette is balanced with minimal accessories and slicked-back hair.</p>
+        </div>
+      </div>
+
       <h2>Key Changes Our AI Spotted</h2>
       <div class="trend-shifts">
         <div class="shift">
@@ -549,12 +582,29 @@ const newsletterExamples = [
         </div>
       </div>
 
+      <h2>Street Style Spotlight</h2>
+      <div style="display: flex; gap: 1rem; margin: 1rem 0; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 260px;">
+          <img src="https://images.unsplash.com/photo-1604336755604-65071bd79481?w=600&h=900&fit=crop" style="width: 100%; border-radius: 0.5rem; margin-bottom: 0.5rem;" />
+          <h4 style="font-weight: bold; margin-bottom: 0.25rem;">Oversized Denim Evolution</h4>
+          <p style="font-size: 0.875rem; color: #666;">Wide-leg jeans paired with a fitted crop top and chunky loafers. Note the structured shoulder bag as an accent piece.</p>
+        </div>
+        <div style="flex: 1; min-width: 260px;">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&h=900&fit=crop" style="width: 100%; border-radius: 0.5rem; margin-bottom: 0.5rem;" />
+          <h4 style="font-weight: bold; margin-bottom: 0.25rem;">Monochrome Reimagined</h4>
+          <p style="font-size: 0.875rem; color: #666;">All-black ensemble with varying textures: leather pants, silk top, and structured wool coat. The clean silhouette elevates the monochrome look.</p>
+        </div>
+      </div>
+
       <div class="creator-spotlight">
         <h3>Rising Creator Alert</h3>
-        <div class="creator">
-          <span class="name">@sophia.lee</span>
-          <span class="stats">2.1M new followers in 48h</span>
-          <span class="prediction">Predicted to hit 5M by next week</span>
+        <div class="creator" style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop" style="width: 60px; height: 60px; border-radius: 9999px; object-fit: cover;" />
+          <div>
+            <span class="name" style="font-weight: bold; display: block;">@sophia.lee</span>
+            <span class="stats" style="font-size: 0.875rem; color: #666; display: block;">2.1M new followers in 48h</span>
+            <span class="prediction" style="font-size: 0.875rem; color: #8b5cf6; display: block;">Predicted to hit 5M by next week</span>
+          </div>
         </div>
       </div>
     `
