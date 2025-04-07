@@ -14,6 +14,13 @@
   --color-link: #8F8A95;
   --color-overline: #C4B7BD;
   --color-underline: #3D2C35;
+  
+  /* Vibrant accent colors */
+  --color-accent-1: #FF6B6B;  /* Vibrant coral red */
+  --color-accent-2: #4ECDC4;  /* Teal */
+  --color-accent-3: #FFD166;  /* Golden yellow */
+  --color-accent-4: #6A0572;  /* Deep purple */
+  --color-accent-5: #FF928B;  /* Light coral */
 }
 
 @layer base {

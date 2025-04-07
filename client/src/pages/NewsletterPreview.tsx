@@ -618,80 +618,125 @@ export default function NewsletterPreview() {
     <div className="bg-[var(--color-background)] min-h-screen">
       <Navigation />
 
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-8">
+      <div className="container mx-auto px-4 py-8 md:py-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-8 text-center">
             <Link href="/">
-              <Button variant="outline" className="mb-6">
-                <i className="fas fa-arrow-left mr-2"></i> Back to Home
+              <Button variant="outline" className="mb-6" size="sm">
+                ← Back to Home
               </Button>
             </Link>
-            <h1 className="font-display text-3xl md:text-4xl font-bold mb-4">Newsletter Previews</h1>
-            <p className="text-lg opacity-80">
+            <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 relative inline-block">
+              <span className="relative z-10">Newsletter Previews</span>
+              <span className="absolute -bottom-2 left-0 w-full h-3 bg-[var(--color-accent-3)] opacity-30 rounded-full"></span>
+            </h1>
+            <p className="text-lg opacity-80 max-w-2xl mx-auto">
               Get a taste of what lands in your inbox when you subscribe to DripDial. Each edition is thoughtfully curated with AI-powered insights.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-10">
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
             {newsletterExamples.map((example) => (
               <Card 
                 key={example.id}
-                className={`cursor-pointer transition-all hover:-translate-y-1 hover:shadow-md ${selectedPreview.id === example.id ? 'ring-2 ring-[var(--color-primary)]' : ''}`}
+                className={`cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden ${
+                  selectedPreview.id === example.id 
+                    ? 'ring-2 ring-[var(--color-accent-1)] shadow-lg' 
+                    : 'hover:ring-1 hover:ring-[var(--color-secondary)]'
+                }`}
                 onClick={() => setSelectedPreview(example)}
               >
-                <div className="h-48 overflow-hidden rounded-t-xl">
+                <div className="h-52 overflow-hidden">
                   <img 
                     src={example.imageUrl} 
                     alt={example.title} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                   />
                   {example.videoUrl && (
                     <video src={example.videoUrl} autoPlay loop muted className="w-full h-full object-cover" />
                   )}
                 </div>
-                <CardHeader className="pb-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs font-medium bg-[var(--color-primary)] text-white px-2 py-1 rounded-full">{example.category}</span>
-                    <span className="text-xs text-gray-500">{example.date}</span>
+                <CardHeader className="pb-2 relative">
+                  <div className="flex justify-between items-center mb-1">
+                    {example.category === "⚡️ TRENDING NOW" && (
+                      <span className="text-xs font-medium bg-[var(--color-accent-1)] text-white px-3 py-1 rounded-full">{example.category}</span>
+                    )}
+                    {example.category === "🎯 MICRO-TREND ALERT" && (
+                      <span className="text-xs font-medium bg-[var(--color-accent-2)] text-white px-3 py-1 rounded-full">{example.category}</span>
+                    )}
+                    {example.category === "💰 INVESTMENT PIECE" && (
+                      <span className="text-xs font-medium bg-[var(--color-accent-3)] text-black px-3 py-1 rounded-full">{example.category}</span>
+                    )}
+                    {example.category === "CELEB STYLE" && (
+                      <span className="text-xs font-medium bg-[var(--color-accent-4)] text-white px-3 py-1 rounded-full">{example.category}</span>
+                    )}
+                    <span className="text-xs font-semibold text-[var(--color-secondary-font)]">{example.date}</span>
                   </div>
-                  <CardTitle className="text-xl mt-2">{example.title}</CardTitle>
+                  <CardTitle className="text-xl font-bold mt-2">{example.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription>{example.description}</CardDescription>
+                  <CardDescription className="text-[var(--color-secondary-font)]">{example.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
           </div>
 
           <motion.div 
-            className="max-w-4xl mx-auto rounded-xl shadow-lg mb-12 overflow-hidden"
+            className="max-w-4xl mx-auto rounded-2xl shadow-2xl mb-12 overflow-hidden relative"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             key={selectedPreview.id}
           >
+            {/* Decorative background elements */}
+            <div className="absolute -top-20 -right-20 w-40 h-40 bg-[var(--color-accent-3)] opacity-20 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-[var(--color-accent-1)] opacity-20 rounded-full blur-3xl"></div>
+            
             {/* Premium Newsletter Header */}
             <div 
-              className="relative p-6 text-white"
+              className="relative p-8 text-white"
               style={{ 
-                background: "linear-gradient(to right, var(--color-primary), var(--color-secondary))",
+                background: "linear-gradient(135deg, var(--color-primary), var(--color-accent-4))",
                 backgroundSize: "cover",
                 backgroundPosition: "center"
               }}
             >
+              {selectedPreview.category === "⚡️ TRENDING NOW" && (
+                <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden">
+                  <div className="bg-[var(--color-accent-1)] text-white text-xs font-bold py-1 px-8 absolute top-5 right-[-24px] transform rotate-45">HOT</div>
+                </div>
+              )}
+              
               <div className="md:flex md:items-center md:justify-between">
                 <div>
-                  <div className="flex items-center mb-2">
-                    <Badge variant="outline" className="bg-black/20 text-white border-white/20 mr-3">
-                      {selectedPreview.category}
-                    </Badge>
-                    <span className="text-sm text-white/90">{selectedPreview.date}</span>
+                  <div className="flex items-center mb-3">
+                    {selectedPreview.category === "⚡️ TRENDING NOW" && (
+                      <Badge variant="outline" className="bg-[var(--color-accent-1)]/80 text-white border-white/20 mr-3 px-3 py-1">
+                        {selectedPreview.category}
+                      </Badge>
+                    )}
+                    {selectedPreview.category === "🎯 MICRO-TREND ALERT" && (
+                      <Badge variant="outline" className="bg-[var(--color-accent-2)]/80 text-white border-white/20 mr-3 px-3 py-1">
+                        {selectedPreview.category}
+                      </Badge>
+                    )}
+                    {selectedPreview.category === "💰 INVESTMENT PIECE" && (
+                      <Badge variant="outline" className="bg-[var(--color-accent-3)]/80 text-white border-white/20 mr-3 px-3 py-1">
+                        {selectedPreview.category}
+                      </Badge>
+                    )}
+                    {selectedPreview.category === "CELEB STYLE" && (
+                      <Badge variant="outline" className="bg-[var(--color-accent-4)]/80 text-white border-white/20 mr-3 px-3 py-1">
+                        {selectedPreview.category}
+                      </Badge>
+                    )}
+                    <span className="text-sm text-white/90 bg-white/10 px-3 py-1 rounded-full font-medium">{selectedPreview.date}</span>
                   </div>
-                  <h2 className="font-display text-2xl md:text-3xl font-bold">{selectedPreview.title}</h2>
+                  <h2 className="font-display text-2xl md:text-4xl font-bold leading-tight">{selectedPreview.title}</h2>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-4 md:mt-0">
                   {selectedPreview.tags.map((tag, index) => (
-                    <Badge key={index} variant="secondary" className="bg-black/20 text-white hover:bg-black/30 transition-colors">
+                    <Badge key={index} variant="secondary" className="bg-white/15 text-white hover:bg-white/25 transition-colors px-3 py-1 rounded-full">
                       {tag}
                     </Badge>
                   ))}
@@ -702,29 +747,29 @@ export default function NewsletterPreview() {
             {/* Newsletter Content */}
             <Tabs defaultValue="content" className="w-full bg-white">
               <div className="border-b border-gray-100">
-                <div className="px-2">
-                  <TabsList className="h-12 bg-transparent mt-0 p-0 w-full justify-start space-x-2">
+                <div className="px-4">
+                  <TabsList className="h-14 bg-transparent mt-0 p-0 w-full justify-start space-x-4">
                     <TabsTrigger 
                       value="content" 
-                      className="data-[state=active]:bg-[#f0ebe8] data-[state=active]:text-[var(--color-primary)] rounded-t-lg rounded-b-none px-4 h-12"
+                      className="data-[state=active]:bg-[var(--color-primary)] data-[state=active]:text-white rounded-t-lg rounded-b-none px-5 h-14 text-[var(--color-primary)] font-medium transition-all duration-300"
                     >
                       Newsletter Content
                     </TabsTrigger>
                     <TabsTrigger 
                       value="insights" 
-                      className="data-[state=active]:bg-[#f0ebe8] data-[state=active]:text-[var(--color-primary)] rounded-t-lg rounded-b-none px-4 h-12"
+                      className="data-[state=active]:bg-[var(--color-accent-2)] data-[state=active]:text-white rounded-t-lg rounded-b-none px-5 h-14 text-[var(--color-primary)] font-medium transition-all duration-300"
                     >
                       AI Insights
                     </TabsTrigger>
                     <TabsTrigger 
                       value="shop" 
-                      className="data-[state=active]:bg-[#f0ebe8] data-[state=active]:text-[var(--color-primary)] rounded-t-lg rounded-b-none px-4 h-12"
+                      className="data-[state=active]:bg-[var(--color-accent-3)] data-[state=active]:text-[var(--color-primary)] rounded-t-lg rounded-b-none px-5 h-14 text-[var(--color-primary)] font-medium transition-all duration-300"
                     >
                       Shop The Look
                     </TabsTrigger>
                     <TabsTrigger 
                       value="social" 
-                      className="data-[state=active]:bg-[#f0ebe8] data-[state=active]:text-[var(--color-primary)] rounded-t-lg rounded-b-none px-4 h-12"
+                      className="data-[state=active]:bg-[var(--color-accent-1)] data-[state=active]:text-white rounded-t-lg rounded-b-none px-5 h-14 text-[var(--color-primary)] font-medium transition-all duration-300"
                     >
                       Social Proof
                     </TabsTrigger>
@@ -739,72 +784,84 @@ export default function NewsletterPreview() {
               </TabsContent>
               
               <TabsContent value="insights" className="p-0 m-0">
-                <div className="p-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-[#f3e8ff] p-4 rounded-lg">
-                      <div className="flex items-center gap-2 mb-3">
-                        <TrendingUp className="h-5 w-5 text-purple-600" />
-                        <h3 className="font-bold">Growth Trajectory</h3>
+                <div className="p-8">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-gradient-to-br from-[var(--color-accent-2)] to-[var(--color-accent-2)]/70 p-5 rounded-xl shadow-md">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="bg-white p-2 rounded-full shadow-sm">
+                          <TrendingUp className="h-5 w-5 text-[var(--color-accent-2)]" />
+                        </div>
+                        <h3 className="font-bold text-white text-lg">Growth Trajectory</h3>
                       </div>
-                      <div className="space-y-3">
-                        <div className="flex justify-between items-center">
-                          <span className="text-sm font-medium">Instagram Engagement</span>
-                          <span className="text-sm font-bold text-purple-700">+245%</span>
-                        </div>
-                        <div className="w-full h-1.5 bg-purple-100 rounded-full">
-                          <div className="h-full bg-purple-600 rounded-full" style={{width: '80%'}}></div>
-                        </div>
-                        
-                        <div className="flex justify-between items-center">
-                          <span className="text-sm font-medium">TikTok Adoption</span>
-                          <span className="text-sm font-bold text-purple-700">+367%</span>
-                        </div>
-                        <div className="w-full h-1.5 bg-purple-100 rounded-full">
-                          <div className="h-full bg-purple-600 rounded-full" style={{width: '90%'}}></div>
+                      <div className="space-y-4">
+                        <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-sm font-medium text-white">Instagram Engagement</span>
+                            <span className="text-sm font-bold text-white bg-white/20 px-2 py-1 rounded-full">+245%</span>
+                          </div>
+                          <div className="w-full h-2 bg-white/30 rounded-full">
+                            <div className="h-full bg-white rounded-full" style={{width: '80%'}}></div>
+                          </div>
                         </div>
                         
-                        <div className="flex justify-between items-center">
-                          <span className="text-sm font-medium">Search Volume</span>
-                          <span className="text-sm font-bold text-purple-700">+128%</span>
+                        <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-sm font-medium text-white">TikTok Adoption</span>
+                            <span className="text-sm font-bold text-white bg-white/20 px-2 py-1 rounded-full">+367%</span>
+                          </div>
+                          <div className="w-full h-2 bg-white/30 rounded-full">
+                            <div className="h-full bg-white rounded-full" style={{width: '90%'}}></div>
+                          </div>
                         </div>
-                        <div className="w-full h-1.5 bg-purple-100 rounded-full">
-                          <div className="h-full bg-purple-600 rounded-full" style={{width: '60%'}}></div>
+                        
+                        <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-sm font-medium text-white">Search Volume</span>
+                            <span className="text-sm font-bold text-white bg-white/20 px-2 py-1 rounded-full">+128%</span>
+                          </div>
+                          <div className="w-full h-2 bg-white/30 rounded-full">
+                            <div className="h-full bg-white rounded-full" style={{width: '60%'}}></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-[#fce7f3] p-4 rounded-lg">
-                      <div className="flex items-center gap-2 mb-3">
-                        <MapPin className="h-5 w-5 text-pink-600" />
-                        <h3 className="font-bold">Geographic Hotspots</h3>
+                    <div className="bg-gradient-to-br from-[var(--color-accent-1)] to-[var(--color-accent-1)]/70 p-5 rounded-xl shadow-md">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="bg-white p-2 rounded-full shadow-sm">
+                          <MapPin className="h-5 w-5 text-[var(--color-accent-1)]" />
+                        </div>
+                        <h3 className="font-bold text-white text-lg">Geographic Hotspots</h3>
                       </div>
-                      <div className="space-y-3">
+                      <div className="space-y-4">
                         {selectedPreview.locations ? (
                           selectedPreview.locations.map((location, index) => (
-                            <div key={index} className="flex items-center gap-2">
-                              <span className="inline-flex items-center justify-center w-7 h-7 bg-pink-100 text-pink-600 rounded-full">
-                                <MapPin className="h-3.5 w-3.5" />
-                              </span>
-                              <div className="flex-1">
-                                <div className="flex justify-between items-center">
-                                  <h3 className="text-sm font-medium">{location}</h3>
-                                  <span className="text-xs font-bold text-pink-600">
-                                    {selectedPreview.stats?.searchSpikes && selectedPreview.stats.searchSpikes[index] 
-                                      ? selectedPreview.stats.searchSpikes[index]
-                                      : "+200%"}
-                                  </span>
-                                </div>
-                                <div className="w-full h-1.5 bg-pink-100 rounded-full mt-1">
-                                  <div 
-                                    className="h-full bg-pink-500 rounded-full" 
-                                    style={{width: `${90 - (index * 15)}%`}}
-                                  ></div>
+                            <div key={index} className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
+                              <div className="flex items-center gap-3">
+                                <span className="inline-flex items-center justify-center w-8 h-8 bg-white text-[var(--color-accent-1)] rounded-full shadow-sm">
+                                  <MapPin className="h-4 w-4" />
+                                </span>
+                                <div className="flex-1">
+                                  <div className="flex justify-between items-center">
+                                    <h3 className="text-sm font-medium text-white">{location}</h3>
+                                    <span className="text-xs font-bold text-white bg-white/20 px-2 py-1 rounded-full">
+                                      {selectedPreview.stats?.searchSpikes && selectedPreview.stats.searchSpikes[index] 
+                                        ? selectedPreview.stats.searchSpikes[index]
+                                        : "+200%"}
+                                    </span>
+                                  </div>
+                                  <div className="w-full h-2 bg-white/30 rounded-full mt-2">
+                                    <div 
+                                      className="h-full bg-white rounded-full" 
+                                      style={{width: `${90 - (index * 15)}%`}}
+                                    ></div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           ))
                         ) : (
-                          <div className="text-center py-4 text-gray-500 text-sm">
+                          <div className="text-center py-8 text-white text-sm bg-white/10 rounded-lg">
                             No location data available
                           </div>
                         )}
@@ -812,16 +869,18 @@ export default function NewsletterPreview() {
                     </div>
                   </div>
                   
-                  <div className="mt-4 p-3 bg-purple-50 rounded-lg border border-purple-100">
-                    <div className="flex gap-3">
-                      <div className="text-purple-600 shrink-0 mt-1">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z" fill="currentColor"/>
-                        </svg>
+                  <div className="mt-6 p-4 bg-[var(--color-accent-3)]/10 rounded-xl border border-[var(--color-accent-3)]/30 shadow-sm backdrop-blur-sm">
+                    <div className="flex gap-4">
+                      <div className="shrink-0 mt-1">
+                        <div className="bg-[var(--color-accent-3)] p-3 rounded-full shadow-sm">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[var(--color-primary)]">
+                            <path d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z" fill="currentColor"/>
+                          </svg>
+                        </div>
                       </div>
                       <div>
-                        <h3 className="text-sm font-bold text-purple-800 mb-1">AI-POWERED INSIGHT</h3>
-                        <p className="text-xs text-purple-700">Our algorithms predict this trend will peak in 2 weeks, with 78% probability of mainstream adoption by major retailers within 45 days.</p>
+                        <h3 className="text-base font-bold text-[var(--color-primary)] mb-2">AI-POWERED INSIGHT</h3>
+                        <p className="text-sm text-[var(--color-primary-font)]">Our algorithms predict this trend will peak in 2 weeks, with 78% probability of mainstream adoption by major retailers within 45 days.</p>
                       </div>
                     </div>
                   </div>
@@ -829,139 +888,178 @@ export default function NewsletterPreview() {
               </TabsContent>
               
               <TabsContent value="shop" className="p-0 m-0">
-                <div className="p-6">
+                <div className="p-8 bg-gradient-to-br from-white to-[var(--color-accent-3)]/5">
                   {selectedPreview.buyLinks ? (
-                    <div className="grid gap-4">
-                      {selectedPreview.buyLinks.map((item, index) => (
-                        <div key={index} className="bg-[#f5f3ff] rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                          <div className="md:flex">
-                            <div className="md:w-1/4 bg-gray-100 md:h-auto h-32">
-                              <img 
-                                src={`https://source.unsplash.com/random/600x800/?fashion,${item.item.toLowerCase().replace(' ', '')}`} 
-                                alt={item.item} 
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
-                            <div className="p-4 md:w-3/4">
-                              <div className="flex justify-between items-start mb-2">
-                                <div>
-                                  <h3 className="font-bold text-lg">{item.item}</h3>
-                                  <p className="text-xs text-gray-600">{item.brand}</p>
-                                </div>
-                                <Badge className="bg-purple-600 text-white hover:bg-purple-700">{item.shopNowLabel}</Badge>
+                    <div>
+                      <div className="mb-6 text-center">
+                        <h3 className="text-2xl font-display font-bold mb-2">Shop The Look</h3>
+                        <p className="text-[var(--color-secondary-font)]">DripDial exclusive deals on trending pieces</p>
+                      </div>
+                      <div className="grid gap-6">
+                        {selectedPreview.buyLinks.map((item, index) => (
+                          <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-[var(--color-accent-3)]/10">
+                            <div className="md:flex">
+                              <div className="md:w-1/3 bg-gray-50 md:h-auto h-48 relative overflow-hidden">
+                                <img 
+                                  src={`https://source.unsplash.com/random/600x800/?fashion,${item.item.toLowerCase().replace(' ', '')}`} 
+                                  alt={item.item} 
+                                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                                />
+                                {item.shopNowLabel === "TRENDING NOW" && (
+                                  <div className="absolute top-3 left-0 bg-[var(--color-accent-1)] text-white text-xs font-bold py-1 px-3 rounded-r-full">HOT ITEM</div>
+                                )}
+                                {item.shopNowLabel === "EDITOR'S PICK" && (
+                                  <div className="absolute top-3 left-0 bg-[var(--color-accent-4)] text-white text-xs font-bold py-1 px-3 rounded-r-full">EDITOR'S PICK</div>
+                                )}
+                                {item.shopNowLabel === "ALMOST SOLD OUT" && (
+                                  <div className="absolute top-3 left-0 bg-[var(--color-accent-2)] text-white text-xs font-bold py-1 px-3 rounded-r-full">SELLING FAST</div>
+                                )}
+                                {item.shopNowLabel === "IN STOCK" && (
+                                  <div className="absolute top-3 left-0 bg-green-500 text-white text-xs font-bold py-1 px-3 rounded-r-full">IN STOCK</div>
+                                )}
+                                {item.shopNowLabel === "SELLING FAST" && (
+                                  <div className="absolute top-3 left-0 bg-[var(--color-accent-2)] text-white text-xs font-bold py-1 px-3 rounded-r-full">SELLING FAST</div>
+                                )}
                               </div>
-                              
-                              <div className="grid md:grid-cols-2 gap-4 mb-3">
-                                <div>
-                                  <div className="text-xs text-gray-500">Original Price</div>
-                                  <div className="text-lg font-bold">{item.originalPrice}</div>
-                                </div>
-                                <div>
-                                  <div className="text-xs text-gray-500">DripDial Price</div>
-                                  <div className="text-lg font-bold text-purple-700">{item.dupePrice}</div>
-                                  <div className="text-xs text-purple-700">Save {
-                                    Math.round(
-                                      (parseInt(item.originalPrice.replace('$', '').replace(',', '')) - 
-                                      parseInt(item.dupePrice.replace('$', '').replace(',', ''))) /
-                                      parseInt(item.originalPrice.replace('$', '').replace(',', '')) * 100
-                                    )}%
+                              <div className="p-6 md:w-2/3">
+                                <div className="flex flex-col h-full">
+                                  <div>
+                                    <div className="flex justify-between items-start mb-3">
+                                      <div>
+                                        <h3 className="font-bold text-xl text-[var(--color-primary-font)]">{item.item}</h3>
+                                        <p className="text-sm text-[var(--color-secondary-font)] font-medium">{item.brand}</p>
+                                      </div>
+                                    </div>
+                                    
+                                    <div className="grid md:grid-cols-2 gap-6 mb-5">
+                                      <div className="bg-[var(--color-accent-3)]/5 p-3 rounded-lg">
+                                        <div className="text-xs text-[var(--color-primary-font)] uppercase font-medium">Retail Price</div>
+                                        <div className="text-xl font-bold text-[var(--color-primary-font)] line-through">{item.originalPrice}</div>
+                                      </div>
+                                      <div className="bg-[var(--color-accent-1)]/5 p-3 rounded-lg">
+                                        <div className="text-xs text-[var(--color-accent-1)] uppercase font-medium">DripDial Price</div>
+                                        <div className="text-xl font-bold text-[var(--color-accent-1)]">{item.dupePrice}</div>
+                                        <div className="text-xs font-semibold bg-[var(--color-accent-1)] text-white px-2 py-1 rounded-full inline-block mt-1">Save {
+                                          Math.round(
+                                            (parseInt(item.originalPrice.replace('$', '').replace(',', '')) - 
+                                            parseInt(item.dupePrice.replace('$', '').replace(',', ''))) /
+                                            parseInt(item.originalPrice.replace('$', '').replace(',', '')) * 100
+                                          )}%
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div className="flex justify-between items-center mt-auto">
+                                    <div className="text-sm">
+                                      <span className="font-medium">Exclusive at: </span>
+                                      <span className="text-[var(--color-accent-4)] font-semibold">{item.dupeStore}</span>
+                                    </div>
+                                    <Button size="sm" className="bg-[var(--color-accent-3)] hover:bg-[var(--color-accent-3)]/90 text-[var(--color-primary)] h-9 px-4">
+                                      Shop Now
+                                      <ExternalLink className="ml-2 h-4 w-4" />
+                                    </Button>
                                   </div>
                                 </div>
                               </div>
-                              
-                              <div className="flex justify-between items-center">
-                                <div className="text-xs">
-                                  <span className="font-medium">Available at: </span>
-                                  <span className="text-gray-600">{item.dupeStore}</span>
-                                </div>
-                                <Button size="sm" className="bg-purple-600 hover:bg-purple-700 h-8">
-                                  Shop Now
-                                  <ExternalLink className="ml-1 h-3 w-3" />
-                                </Button>
-                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   ) : (
-                    <div className="bg-[#f5f3ff] rounded-lg p-6 text-center">
-                      <ShoppingBag className="h-10 w-10 text-purple-400 mx-auto mb-3" />
-                      <h3 className="text-lg font-bold mb-2">No Shopping Links Available</h3>
-                      <p className="text-sm text-gray-600 mb-3">This newsletter doesn't contain specific shopping recommendations.</p>
-                      <Button size="sm" variant="outline" className="border-purple-300 text-purple-600 hover:bg-purple-50">Browse Featured Items</Button>
+                    <div className="bg-white rounded-xl p-8 text-center shadow-lg border border-[var(--color-accent-3)]/10">
+                      <div className="bg-[var(--color-accent-3)]/10 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <ShoppingBag className="h-10 w-10 text-[var(--color-accent-3)]" />
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 text-[var(--color-primary-font)]">No Shopping Links Available</h3>
+                      <p className="text-[var(--color-secondary-font)] mb-4">This newsletter doesn't contain specific shopping recommendations.</p>
+                      <Button variant="outline" className="border-[var(--color-accent-3)] text-[var(--color-primary)] hover:bg-[var(--color-accent-3)]/5">
+                        Browse Featured Items
+                      </Button>
                     </div>
                   )}
                 </div>
               </TabsContent>
               
               <TabsContent value="social" className="p-0 m-0">
-                <div className="p-6">
-                  <div className="grid md:grid-cols-2 gap-4">
+                <div className="p-8 bg-gradient-to-br from-white to-[var(--color-accent-1)]/5">
+                  <div className="mb-6 text-center">
+                    <h3 className="text-2xl font-display font-bold mb-2">Social Impact</h3>
+                    <p className="text-[var(--color-secondary-font)]">See how this trend is dominating social media</p>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-8">
                     <div>
-                      <h3 className="text-sm font-bold mb-3 flex items-center gap-2">
-                        <Instagram className="h-4 w-4 text-pink-600" />
-                        Social Engagement
-                      </h3>
-                      
-                      <div className="grid grid-cols-3 gap-2 mb-4">
-                        <div className="bg-[#fdf2f8] rounded-lg p-3 text-center">
-                          <div className="text-lg font-bold text-pink-600">
-                            {selectedPreview.stats?.likes || "1.2M"}
+                      <div className="bg-white p-6 rounded-xl shadow-md border border-[var(--color-accent-1)]/10 mb-6">
+                        <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-[var(--color-primary-font)]">
+                          <div className="bg-[var(--color-accent-1)] w-8 h-8 rounded-full flex items-center justify-center">
+                            <Instagram className="h-4 w-4 text-white" />
                           </div>
-                          <div className="text-xs text-gray-500">Likes</div>
+                          Social Engagement
+                        </h3>
+                        
+                        <div className="grid grid-cols-3 gap-4 mb-6">
+                          <div className="bg-gradient-to-br from-[var(--color-accent-1)] to-[var(--color-accent-1)]/80 rounded-xl p-4 text-center text-white shadow-sm">
+                            <div className="text-2xl font-bold">
+                              {selectedPreview.stats?.likes || "1.2M"}
+                            </div>
+                            <div className="text-xs text-white/80 font-medium">Likes</div>
+                          </div>
+                          <div className="bg-gradient-to-br from-[var(--color-accent-2)] to-[var(--color-accent-2)]/80 rounded-xl p-4 text-center text-white shadow-sm">
+                            <div className="text-2xl font-bold">
+                              {selectedPreview.stats?.shares || "230K"}
+                            </div>
+                            <div className="text-xs text-white/80 font-medium">Shares</div>
+                          </div>
+                          <div className="bg-gradient-to-br from-[var(--color-accent-4)] to-[var(--color-accent-4)]/80 rounded-xl p-4 text-center text-white shadow-sm">
+                            <div className="text-2xl font-bold">
+                              {selectedPreview.stats?.saves || "450K"}
+                            </div>
+                            <div className="text-xs text-white/80 font-medium">Saves</div>
+                          </div>
                         </div>
-                        <div className="bg-[#fdf2f8] rounded-lg p-3 text-center">
-                          <div className="text-lg font-bold text-pink-600">
-                            {selectedPreview.stats?.shares || "230K"}
-                          </div>
-                          <div className="text-xs text-gray-500">Shares</div>
-                        </div>
-                        <div className="bg-[#fdf2f8] rounded-lg p-3 text-center">
-                          <div className="text-lg font-bold text-pink-600">
-                            {selectedPreview.stats?.saves || "450K"}
-                          </div>
-                          <div className="text-xs text-gray-500">Saves</div>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-[#fdf2f8] p-3 rounded-lg">
-                        <h4 className="text-sm font-medium mb-2">Content Performance</h4>
-                        <div className="space-y-2">
-                          <div>
-                            <div className="flex justify-between text-xs mb-1">
-                              <span>Engagement Rate</span>
-                              <span className="font-medium">22.4%</span>
-                            </div>
-                            <div className="w-full h-1.5 bg-pink-100 rounded-full">
-                              <div 
-                                className="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" 
-                                style={{width: '85%'}}
-                              ></div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex justify-between text-xs mb-1">
-                              <span>Viral Potential</span>
-                              <span className="font-medium">High</span>
-                            </div>
-                            <div className="w-full h-1.5 bg-pink-100 rounded-full">
-                              <div 
-                                className="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" 
-                                style={{width: '90%'}}
-                              ></div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex justify-between text-xs mb-1">
-                              <span>Creator Adoption</span>
-                              <span className="font-medium">Growing</span>
-                            </div>
-                            <div className="w-full h-1.5 bg-pink-100 rounded-full">
-                              <div 
-                                className="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" 
-                                style={{width: '65%'}}
-                              ></div>
+                        
+                        <div className="space-y-5">
+                          <div className="bg-[var(--color-accent-1)]/5 p-4 rounded-lg">
+                            <h4 className="text-sm font-bold mb-3 text-[var(--color-primary-font)]">Content Performance</h4>
+                            <div className="space-y-4">
+                              <div>
+                                <div className="flex justify-between text-sm mb-2">
+                                  <span className="font-medium">Engagement Rate</span>
+                                  <span className="font-bold text-[var(--color-accent-1)]">22.4%</span>
+                                </div>
+                                <div className="w-full h-2 bg-[var(--color-accent-1)]/10 rounded-full">
+                                  <div 
+                                    className="h-full bg-gradient-to-r from-[var(--color-accent-1)] to-[var(--color-accent-1)]/70 rounded-full" 
+                                    style={{width: '85%'}}
+                                  ></div>
+                                </div>
+                              </div>
+                              <div>
+                                <div className="flex justify-between text-sm mb-2">
+                                  <span className="font-medium">Viral Potential</span>
+                                  <span className="font-bold text-[var(--color-accent-2)]">High</span>
+                                </div>
+                                <div className="w-full h-2 bg-[var(--color-accent-2)]/10 rounded-full">
+                                  <div 
+                                    className="h-full bg-gradient-to-r from-[var(--color-accent-2)] to-[var(--color-accent-2)]/70 rounded-full" 
+                                    style={{width: '90%'}}
+                                  ></div>
+                                </div>
+                              </div>
+                              <div>
+                                <div className="flex justify-between text-sm mb-2">
+                                  <span className="font-medium">Creator Adoption</span>
+                                  <span className="font-bold text-[var(--color-accent-4)]">Growing</span>
+                                </div>
+                                <div className="w-full h-2 bg-[var(--color-accent-4)]/10 rounded-full">
+                                  <div 
+                                    className="h-full bg-gradient-to-r from-[var(--color-accent-4)] to-[var(--color-accent-4)]/70 rounded-full" 
+                                    style={{width: '65%'}}
+                                  ></div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -969,63 +1067,67 @@ export default function NewsletterPreview() {
                     </div>
                     
                     <div>
-                      <h3 className="text-sm font-bold mb-3 flex items-center gap-2">
-                        <Users className="h-4 w-4 text-purple-600" />
-                        Influencer Activity
-                      </h3>
-                      
-                      <div className="space-y-3">
-                        <div className="bg-[#f5f3ff] rounded-lg p-3 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200">
-                            <img 
-                              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" 
-                              alt="Influencer" 
-                              className="w-full h-full object-cover"
-                            />
+                      <div className="bg-white p-6 rounded-xl shadow-md border border-[var(--color-accent-1)]/10">
+                        <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-[var(--color-primary-font)]">
+                          <div className="bg-[var(--color-accent-4)] w-8 h-8 rounded-full flex items-center justify-center">
+                            <Users className="h-4 w-4 text-white" />
                           </div>
-                          <div className="flex-1">
-                            <div className="flex justify-between">
-                              <h4 className="text-sm font-bold">Gigi Hadid</h4>
-                              <div className="text-xs bg-purple-100 text-purple-600 rounded-full px-1.5 py-0.5">24h</div>
-                            </div>
-                            <p className="text-xs text-gray-600">Wore similar style at Paris Fashion Week</p>
-                            <div className="text-xs text-pink-500">3.4M likes</div>
-                          </div>
-                        </div>
+                          Influencer Activity
+                        </h3>
                         
-                        <div className="bg-[#f5f3ff] rounded-lg p-3 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200">
-                            <img 
-                              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" 
-                              alt="Influencer" 
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex justify-between">
-                              <h4 className="text-sm font-bold">Hailey Bieber</h4>
-                              <div className="text-xs bg-purple-100 text-purple-600 rounded-full px-1.5 py-0.5">48h</div>
+                        <div className="space-y-4">
+                          <div className="bg-gradient-to-r from-[var(--color-accent-1)]/5 to-[var(--color-accent-1)]/10 rounded-xl p-4 flex items-center gap-4 transition-transform hover:scale-[1.02] duration-300">
+                            <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200 shadow-lg ring-2 ring-white">
+                              <img 
+                                src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" 
+                                alt="Influencer" 
+                                className="w-full h-full object-cover"
+                              />
                             </div>
-                            <p className="text-xs text-gray-600">Posted TikTok with vintage corset</p>
-                            <div className="text-xs text-pink-500">2.1M likes</div>
-                          </div>
-                        </div>
-                        
-                        <div className="bg-[#f5f3ff] rounded-lg p-3 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200">
-                            <img 
-                              src="https://images.unsplash.com/photo-1517841905240-472988babdf9" 
-                              alt="Influencer" 
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex justify-between">
-                              <h4 className="text-sm font-bold">Emma Chamberlain</h4>
-                              <div className="text-xs bg-purple-100 text-purple-600 rounded-full px-1.5 py-0.5">3d</div>
+                            <div className="flex-1">
+                              <div className="flex justify-between items-center">
+                                <h4 className="text-base font-bold text-[var(--color-primary-font)]">Gigi Hadid</h4>
+                                <div className="text-xs bg-[var(--color-accent-1)]/10 text-[var(--color-accent-1)] rounded-full px-2 py-1 font-medium">24h ago</div>
+                              </div>
+                              <p className="text-sm text-[var(--color-secondary-font)] my-1">Wore similar style at Paris Fashion Week</p>
+                              <div className="text-xs font-medium bg-[var(--color-accent-1)] text-white px-2 py-0.5 rounded-full inline-block">3.4M likes</div>
                             </div>
-                            <p className="text-xs text-gray-600">Featured in YouTube styling video</p>
-                            <div className="text-xs text-pink-500">1.8M views</div>
+                          </div>
+                          
+                          <div className="bg-gradient-to-r from-[var(--color-accent-2)]/5 to-[var(--color-accent-2)]/10 rounded-xl p-4 flex items-center gap-4 transition-transform hover:scale-[1.02] duration-300">
+                            <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200 shadow-lg ring-2 ring-white">
+                              <img 
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" 
+                                alt="Influencer" 
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex justify-between items-center">
+                                <h4 className="text-base font-bold text-[var(--color-primary-font)]">Hailey Bieber</h4>
+                                <div className="text-xs bg-[var(--color-accent-2)]/10 text-[var(--color-accent-2)] rounded-full px-2 py-1 font-medium">48h ago</div>
+                              </div>
+                              <p className="text-sm text-[var(--color-secondary-font)] my-1">Posted TikTok with vintage corset</p>
+                              <div className="text-xs font-medium bg-[var(--color-accent-2)] text-white px-2 py-0.5 rounded-full inline-block">2.1M likes</div>
+                            </div>
+                          </div>
+                          
+                          <div className="bg-gradient-to-r from-[var(--color-accent-4)]/5 to-[var(--color-accent-4)]/10 rounded-xl p-4 flex items-center gap-4 transition-transform hover:scale-[1.02] duration-300">
+                            <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200 shadow-lg ring-2 ring-white">
+                              <img 
+                                src="https://images.unsplash.com/photo-1517841905240-472988babdf9" 
+                                alt="Influencer" 
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex justify-between items-center">
+                                <h4 className="text-base font-bold text-[var(--color-primary-font)]">Emma Chamberlain</h4>
+                                <div className="text-xs bg-[var(--color-accent-4)]/10 text-[var(--color-accent-4)] rounded-full px-2 py-1 font-medium">3d ago</div>
+                              </div>
+                              <p className="text-sm text-[var(--color-secondary-font)] my-1">Featured in YouTube styling video</p>
+                              <div className="text-xs font-medium bg-[var(--color-accent-4)] text-white px-2 py-0.5 rounded-full inline-block">1.8M views</div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1036,22 +1138,60 @@ export default function NewsletterPreview() {
             </Tabs>
           </motion.div>
 
-          <div 
-            className="max-w-4xl mx-auto rounded-xl text-center overflow-hidden mb-12"
-            style={{ 
-              background: "linear-gradient(to right, var(--color-primary), var(--color-secondary))",
-            }}
+          <motion.div 
+            className="max-w-4xl mx-auto rounded-2xl text-center overflow-hidden mb-12 relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="p-6 text-white">
-              <h3 className="font-display text-xl md:text-2xl font-semibold mb-3 text-white">Like What You See?</h3>
-              <p className="mb-4 text-white/90 text-sm md:text-base">Subscribe to DripDial and get these premium fashion insights delivered directly to your inbox every week.</p>
-              <Link href="/#subscribe">
-                <Button className="bg-white text-[var(--color-primary)] hover:bg-white/90 px-6 py-2 rounded-full font-medium transition-all">
-                  Subscribe Now - Just $10/month
-                </Button>
-              </Link>
+            {/* Background gradient with enhanced visual effects */}
+            <div 
+              className="absolute inset-0 z-0"
+              style={{ 
+                background: "linear-gradient(135deg, var(--color-accent-1), var(--color-accent-4))",
+                opacity: 0.97
+              }}
+            ></div>
+            
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/5 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
+            
+            <div className="relative z-10 p-8 md:p-10 text-white">
+              <div className="mb-1">
+                <Badge className="bg-white/20 text-white hover:bg-white/30 border-none">EXCLUSIVE OFFER</Badge>
+              </div>
+              <h3 className="font-display text-2xl md:text-3xl font-bold mb-4 text-white">Ready to Elevate Your Style Game?</h3>
+              <p className="mb-6 text-white/90 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                Subscribe to DripDial Premium for exclusive, AI-curated fashion insights delivered directly to your inbox every week. Never miss a trend again!
+              </p>
+              
+              <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl text-center flex-1 max-w-xs">
+                  <div className="text-xl font-bold">4x</div>
+                  <div className="text-sm text-white/80">Monthly Newsletters</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl text-center flex-1 max-w-xs">
+                  <div className="text-xl font-bold">Early</div>
+                  <div className="text-sm text-white/80">Trend Access</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl text-center flex-1 max-w-xs">
+                  <div className="text-xl font-bold">$$$</div>
+                  <div className="text-sm text-white/80">Exclusive Discounts</div>
+                </div>
+              </div>
+              
+              <div className="mt-8">
+                <Link href="/#subscribe">
+                  <Button className="bg-white hover:bg-white/90 text-[var(--color-accent-1)] font-bold px-8 py-6 rounded-xl text-lg transition-all shadow-xl hover:shadow-2xl group relative overflow-hidden">
+                    <span className="relative z-10">Subscribe Now - Just $10/month</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-white to-white/90 group-hover:scale-105 transition-transform duration-300"></span>
+                  </Button>
+                </Link>
+                <p className="text-xs text-white/70 mt-3">No commitment. Cancel anytime.</p>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
