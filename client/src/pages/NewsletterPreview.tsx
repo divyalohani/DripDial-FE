@@ -219,11 +219,11 @@ export default function NewsletterPreview() {
             <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: selectedPreview.content }} />
           </motion.div>
           
-          <div className="bg-[var(--color-primary)] text-white p-8 rounded-xl text-center">
-            <h3 className="font-display text-2xl font-semibold mb-4">Like What You See?</h3>
-            <p className="mb-6">Subscribe to DripDial and get these insights delivered directly to your inbox every week.</p>
+          <div className="bg-[var(--color-primary)] text-[var(--color-background)] p-8 rounded-xl text-center">
+            <h3 className="font-display text-2xl font-semibold mb-4 text-[var(--color-background)]">Like What You See?</h3>
+            <p className="mb-6 text-[var(--color-background)]">Subscribe to DripDial and get these insights delivered directly to your inbox every week.</p>
             <Link href="/#subscribe">
-              <Button className="bg-white text-plum hover:bg-white/90 px-6 py-3 rounded-full font-medium transition-all">
+              <Button className="bg-[var(--color-background)] text-[var(--color-primary)] hover:bg-[var(--color-background)]/90 px-6 py-3 rounded-full font-medium transition-all">
                 Subscribe Now - Just $5/month
               </Button>
             </Link>
