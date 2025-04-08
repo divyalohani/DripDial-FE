@@ -249,70 +249,109 @@ export default function NewsletterPreview() {
   const [selectedPreview, setSelectedPreview] = useState<PreviewData>(previewsData[0]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f0f0f0]">
+    <div className="min-h-screen flex flex-col bg-[#F8F6F3]">
       <Navigation />
       
-      <div className="flex-1 w-full max-w-6xl mx-auto p-4 md:p-6">
-        <div className="mb-6">
-          <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex-1 w-full max-w-7xl mx-auto p-4 md:p-8">
+        <div className="mb-8">
+          <h1 className="font-display text-3xl md:text-4xl font-bold mb-2 text-[#3D2C35]">
+            Newsletter Previews
+          </h1>
+          <p className="text-base text-[#8F8A95] max-w-2xl mb-6">
+            Get a taste of what lands in your inbox when you subscribe to DripDial. Each edition is thoughtfully curated with AI-powered insights.
+          </p>
+          
+          {/* Newsletter selection cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {previewsData.map((preview) => (
-              <Button
+              <div 
                 key={preview.id}
                 onClick={() => setSelectedPreview(preview)}
-                variant={selectedPreview.id === preview.id ? "default" : "outline"}
                 className={`
+                  cursor-pointer rounded-xl overflow-hidden border shadow-sm transition-all duration-300
                   ${selectedPreview.id === preview.id 
-                    ? 'bg-[#3D2C35] hover:bg-[#3D2C35]/90' 
-                    : 'hover:bg-gray-100 border border-gray-200'
+                    ? 'border-[#3D2C35] ring-2 ring-[#3D2C35] shadow-md' 
+                    : 'border-gray-200 hover:border-[#C4B7BD] hover:shadow'
                   }
                 `}
               >
-                {preview.date}
-              </Button>
+                <div className="bg-gradient-to-r from-[#3D2C35] to-[#3D2C35]/90 p-3 text-white">
+                  <div className="flex justify-between items-center">
+                    <Badge className="bg-[#FF4D4F] text-white border-none text-xs">
+                      {preview.category}
+                    </Badge>
+                    <div className="text-sm text-white/70">{preview.date}</div>
+                  </div>
+                </div>
+                
+                <div className="bg-white p-4">
+                  <h3 className="font-bold text-[#3D2C35] text-lg line-clamp-2 mb-2">
+                    {preview.title}
+                  </h3>
+                  <p className="text-[#8F8A95] text-sm line-clamp-3 mb-3">
+                    {preview.subtitle}
+                  </p>
+                  <div className="flex flex-wrap gap-1">
+                    {preview.tags.slice(0, 3).map((tag, index) => (
+                      <Badge key={index} variant="outline" className="bg-[#F8F6F3] text-[#8F8A95] text-xs border-none">
+                        {tag}
+                      </Badge>
+                    ))}
+                    {preview.tags.length > 3 && (
+                      <Badge variant="outline" className="bg-[#F8F6F3] text-[#8F8A95] text-xs border-none">
+                        +{preview.tags.length - 3}
+                      </Badge>
+                    )}
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
           
           {/* Email-style newsletter preview (no tabs) */}
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             {/* Newsletter Header */}
-            <div className="bg-[#3D2C35] text-white p-6 relative overflow-hidden">
+            <div className="bg-gradient-to-r from-[#3D2C35] to-[#3D2C35]/90 text-white p-8 relative overflow-hidden">
               {/* Decorative elements */}
-              <div className="absolute right-0 top-0 w-64 h-64 bg-[#C4B7BD]/10 blur-3xl rounded-full"></div>
+              <div className="absolute right-0 top-0 w-64 h-64 bg-[#FF4D4F]/5 blur-3xl rounded-full"></div>
               <div className="absolute left-0 bottom-0 w-48 h-48 bg-[#C4B7BD]/10 blur-3xl rounded-full"></div>
+              <div className="absolute bottom-0 right-20 w-32 h-32 bg-gradient-to-br from-[#FF4D4F]/10 to-[#C4B7BD]/10 blur-2xl rounded-full"></div>
               
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center">
-                  <div className="font-bold text-xl mr-2">DripDial</div>
-                  <Badge className="bg-white/20 text-white hover:bg-white/30 border-none">PREMIUM</Badge>
+              <div className="relative z-10">
+                <div className="flex justify-between items-start mb-5">
+                  <div className="flex items-center">
+                    <div className="font-bold text-2xl font-display mr-2">DripDial</div>
+                    <Badge className="bg-[#FF4D4F] text-white hover:bg-[#FF4D4F]/90 border-none">PREMIUM</Badge>
+                  </div>
+                  <div className="text-sm text-white/70 font-medium">{selectedPreview.date}</div>
                 </div>
-                <div className="text-sm text-white/70">{selectedPreview.date}</div>
-              </div>
-              
-              <Badge className="mb-2 bg-[#FF4D4F] text-white border-none">{selectedPreview.category}</Badge>
-              
-              <h1 className="font-display text-2xl md:text-3xl font-bold mb-2">
-                {selectedPreview.title}
-              </h1>
-              <p className="text-white/80 text-base md:text-lg">
-                {selectedPreview.subtitle}
-              </p>
-              
-              <div className="flex gap-2 flex-wrap mt-4">
-                {selectedPreview.tags.map((tag, index) => (
-                  <Badge key={index} variant="outline" className="bg-white/10 hover:bg-white/20 text-gray-100 border-none">
-                    {tag}
-                  </Badge>
-                ))}
+                
+                <Badge className="mb-3 bg-white/20 text-white border-none">{selectedPreview.category}</Badge>
+                
+                <h1 className="font-display text-3xl md:text-4xl font-bold mb-3 tracking-tight">
+                  {selectedPreview.title}
+                </h1>
+                <p className="text-white/90 text-lg md:text-xl max-w-3xl leading-relaxed">
+                  {selectedPreview.subtitle}
+                </p>
+                
+                <div className="flex gap-2 flex-wrap mt-5">
+                  {selectedPreview.tags.map((tag, index) => (
+                    <Badge key={index} variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/20 text-sm">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
               </div>
             </div>
             
             {/* Actual Newsletter Content - Everything in a single scrollable view */}
             <div className="newsletter-content">
               {/* Main Article Section */}
-              <div className="p-6 border-b border-gray-100">
-                <div className="prose prose-slate max-w-none">
+              <div className="p-8 border-b border-gray-100">
+                <div className="prose prose-slate max-w-4xl mx-auto">
                   {selectedPreview.content.split('\n\n').map((paragraph, idx) => (
-                    <p key={idx} className="mb-4 text-[#3D2C35] leading-relaxed">
+                    <p key={idx} className="mb-5 text-[#3D2C35] leading-relaxed text-lg font-serif">
                       {paragraph}
                     </p>
                   ))}
@@ -650,37 +689,47 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Premium Membership Footer */}
-              <div className="bg-[#3D2C35] text-white p-6 rounded-b-xl">
-                <div className="text-center">
-                  <div className="flex justify-center mb-3">
-                    <Badge className="bg-white/20 text-white hover:bg-white/30 border-none">EXCLUSIVE OFFER</Badge>
+              <div className="bg-gradient-to-r from-[#3D2C35] to-[#3D2C35]/90 text-white p-8 md:p-10 rounded-b-xl relative overflow-hidden">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF4D4F]/10 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#C4B7BD]/5 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
+                
+                <div className="relative z-10 text-center">
+                  <div className="inline-block mb-4 bg-[#FF4D4F] text-white px-4 py-1.5 rounded-full text-sm font-medium">
+                    EXCLUSIVE OFFER
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold mb-3">Unlock Premium Fashion Insights</h3>
-                  <p className="mb-5 text-white/80 text-sm md:text-base max-w-2xl mx-auto">
-                    Subscribe to DripDial Premium for exclusive, AI-powered fashion analysis and early access to emerging trends.
+                  
+                  <h3 className="font-display text-2xl md:text-3xl font-bold mb-3">
+                    Elevate Your Style Game with DripDial Premium
+                  </h3>
+                  
+                  <p className="mb-8 text-white/90 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                    Get exclusive, AI-powered fashion insights delivered directly to your inbox each week. Stay ahead of trends and make informed style decisions with our premium newsletter.
                   </p>
                   
-                  <div className="flex flex-col md:flex-row justify-center gap-4 mb-6">
-                    <div className="bg-white/10 p-3 rounded-lg text-center">
-                      <div className="text-lg font-bold">4x</div>
-                      <div className="text-xs text-white/70">Monthly Newsletters</div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 max-w-3xl mx-auto">
+                    <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg text-center">
+                      <div className="text-2xl font-bold">4x</div>
+                      <div className="text-sm text-white/80 font-medium">Monthly Newsletters</div>
                     </div>
-                    <div className="bg-white/10 p-3 rounded-lg text-center">
-                      <div className="text-lg font-bold">Early</div>
-                      <div className="text-xs text-white/70">Trend Access</div>
+                    <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg text-center">
+                      <div className="text-2xl font-bold">Early</div>
+                      <div className="text-sm text-white/80 font-medium">Trend Access</div>
                     </div>
-                    <div className="bg-white/10 p-3 rounded-lg text-center">
-                      <div className="text-lg font-bold">$$$</div>
-                      <div className="text-xs text-white/70">Exclusive Deals</div>
+                    <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg text-center">
+                      <div className="text-2xl font-bold">$$$</div>
+                      <div className="text-sm text-white/80 font-medium">Exclusive Deals</div>
                     </div>
                   </div>
                   
-                  <Link href="/#subscribe">
-                    <Button className="bg-white hover:bg-white/90 text-[#3D2C35] font-bold px-6 py-2 rounded-lg">
-                      Subscribe Now - Just $10/month
-                    </Button>
-                  </Link>
-                  <p className="text-xs text-white/50 mt-2">No commitment. Cancel anytime.</p>
+                  <div>
+                    <Link href="/#subscribe">
+                      <Button className="bg-white hover:bg-white/90 text-[#3D2C35] font-bold px-8 py-3 rounded-lg text-lg transition-all shadow-lg hover:shadow-xl">
+                        Subscribe Now - Just $10/month
+                      </Button>
+                    </Link>
+                    <p className="text-sm text-white/70 mt-3 font-medium">No commitment. Cancel anytime.</p>
+                  </div>
                 </div>
               </div>
             </div>
