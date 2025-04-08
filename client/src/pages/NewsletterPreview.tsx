@@ -311,33 +311,33 @@ export default function NewsletterPreview() {
           {/* Email-style newsletter preview (no tabs) */}
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             {/* Newsletter Header */}
-            <div className="bg-gradient-to-r from-[#3D2C35] to-[#3D2C35]/90 text-white p-8 relative overflow-hidden">
-              {/* Decorative elements */}
-              <div className="absolute right-0 top-0 w-64 h-64 bg-[#FF4D4F]/5 blur-3xl rounded-full"></div>
-              <div className="absolute left-0 bottom-0 w-48 h-48 bg-[#C4B7BD]/10 blur-3xl rounded-full"></div>
-              <div className="absolute bottom-0 right-20 w-32 h-32 bg-gradient-to-br from-[#FF4D4F]/10 to-[#C4B7BD]/10 blur-2xl rounded-full"></div>
+            <div className="bg-gradient-to-r from-[#FF4D4F] to-[#FF7070] text-white p-8 relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-64 h-64 bg-white/5 blur-3xl rounded-full"></div>
+              <div className="absolute left-0 bottom-0 w-48 h-48 bg-white/10 blur-3xl rounded-full"></div>
               
               <div className="relative z-10">
-                <div className="flex justify-between items-start mb-5">
+                <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center">
                     <div className="font-bold text-2xl font-display mr-2">DripDial</div>
-                    <Badge className="bg-[#FF4D4F] text-white hover:bg-[#FF4D4F]/90 border-none">PREMIUM</Badge>
+                    <Badge className="bg-white/20 text-white hover:bg-white/30 border-none">PREMIUM</Badge>
                   </div>
-                  <div className="text-sm text-white/70 font-medium">{selectedPreview.date}</div>
+                  <div className="text-sm text-white/80 font-medium">{selectedPreview.date}</div>
                 </div>
                 
-                <Badge className="mb-3 bg-white/20 text-white border-none">{selectedPreview.category}</Badge>
+                <Badge className="mb-4 bg-white/20 text-white border-none px-3 py-1 rounded-full text-xs uppercase font-medium">
+                  {selectedPreview.category.replace('💰 ', '')}
+                </Badge>
                 
                 <h1 className="font-display text-3xl md:text-4xl font-bold mb-3 tracking-tight">
                   {selectedPreview.title}
                 </h1>
-                <p className="text-white/90 text-lg md:text-xl max-w-3xl leading-relaxed">
+                <p className="text-white/90 text-lg max-w-3xl leading-relaxed">
                   {selectedPreview.subtitle}
                 </p>
                 
-                <div className="flex gap-2 flex-wrap mt-5">
+                <div className="flex gap-2 flex-wrap mt-4">
                   {selectedPreview.tags.map((tag, index) => (
-                    <Badge key={index} variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/20 text-sm">
+                    <Badge key={index} className="bg-white/10 hover:bg-white/20 text-white border-white/20 text-xs">
                       {tag}
                     </Badge>
                   ))}
@@ -349,9 +349,29 @@ export default function NewsletterPreview() {
             <div className="newsletter-content">
               {/* Main Article Section */}
               <div className="p-8 border-b border-gray-100">
+                {/* Feature Image Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-4xl mx-auto">
+                  <div>
+                    <img 
+                      src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?q=80&w=3270&auto=format&fit=crop" 
+                      alt="Model wearing Y2K style" 
+                      className="w-full h-auto rounded-lg shadow-md"
+                    />
+                    <p className="mt-2 text-sm text-[#666] italic">Influencer showcasing Y2K baggy jeans with a cropped top and vintage accessories</p>
+                  </div>
+                  <div>
+                    <img 
+                      src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=3387&auto=format&fit=crop" 
+                      alt="Streetwear model" 
+                      className="w-full h-auto rounded-lg shadow-md"
+                    />
+                    <p className="mt-2 text-sm text-[#666] italic">Street style: Y2K aesthetic with baggy denim and platform shoes</p>
+                  </div>
+                </div>
+
                 <div className="prose prose-slate max-w-4xl mx-auto">
                   {selectedPreview.content.split('\n\n').map((paragraph, idx) => (
-                    <p key={idx} className="mb-5 text-[#3D2C35] leading-relaxed text-lg font-serif">
+                    <p key={idx} className="mb-5 text-[#3D2C35] leading-relaxed text-base">
                       {paragraph}
                     </p>
                   ))}
@@ -614,34 +634,30 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Shop The Look Section */}
-              <div className="bg-white p-6 border-b border-gray-100">
+              <div className="bg-gradient-to-r from-[#FFF5F5] to-[#FFF9F9] p-6 border-b border-gray-100">
                 <div className="flex items-center gap-2 mb-5">
-                  <ShoppingBagIcon className="h-5 w-5 text-[#3D2C35]" />
+                  <ShoppingBagIcon className="h-5 w-5 text-[#FF4D4F]" />
                   <h2 className="text-xl font-bold text-[#3D2C35]">Shop The Look</h2>
                 </div>
                 
                 <div className="space-y-4">
                   {selectedPreview.buyLinks?.map((item, index) => (
-                    <div key={index} className="border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+                    <div key={index} className="border border-gray-100 bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="md:flex">
-                        <div className="md:w-1/3 bg-[#F8F6F3] relative overflow-hidden">
+                        <div className="md:w-2/5 relative overflow-hidden">
                           <img 
-                            src={`https://source.unsplash.com/random/600x800/?fashion,${item.item.toLowerCase().replace(' ', '')}`} 
-                            alt={item.item} 
-                            className="w-full h-48 md:h-full object-cover transition-transform duration-700 hover:scale-105"
+                            src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&auto=format&fit=crop"
+                            alt={`Model wearing ${item.item}`}
+                            className="w-full h-[280px] md:h-full object-cover transition-transform duration-700 hover:scale-105"
                           />
                           
-                          {/* Status indicator */}
-                          {item.shopNowLabel && (
-                            <div className="absolute top-3 left-0">
-                              <div className="bg-[#FF4D4F] text-white text-xs font-bold py-1 px-3 rounded-r-full">
-                                {item.shopNowLabel}
-                              </div>
-                            </div>
-                          )}
+                          {/* Price tag overlay */}
+                          <div className="absolute top-3 right-3 bg-[#FF4D4F] text-white px-2 py-1 rounded font-bold shadow-sm">
+                            {item.dupePrice}
+                          </div>
                         </div>
                         
-                        <div className="p-4 md:w-2/3">
+                        <div className="p-5 md:w-3/5">
                           <div className="flex flex-col h-full">
                             <div>
                               <div className="flex justify-between items-start">
@@ -649,9 +665,10 @@ export default function NewsletterPreview() {
                                   <h3 className="font-bold text-lg text-[#3D2C35] mb-1">{item.item}</h3>
                                   <p className="text-sm text-[#8F8A95] font-medium">{item.brand}</p>
                                 </div>
+                                <Badge className="bg-[#FF4D4F]/10 text-[#FF4D4F] border-[#FF4D4F]/20">HOT ITEM</Badge>
                               </div>
                               
-                              <div className="flex items-center gap-4 my-3">
+                              <div className="flex items-center gap-6 my-4">
                                 <div className="flex flex-col">
                                   <div className="text-xs text-[#8F8A95] uppercase">Retail Price</div>
                                   <div className="text-base font-semibold text-[#3D2C35]/60 line-through">{item.originalPrice}</div>
@@ -660,7 +677,7 @@ export default function NewsletterPreview() {
                                   <div className="text-xs text-[#FF4D4F] uppercase">DripDial Price</div>
                                   <div className="text-base font-semibold text-[#FF4D4F]">{item.dupePrice}</div>
                                 </div>
-                                <div className="ml-auto text-xs font-semibold bg-[#C4B7BD] text-white px-2 py-1 rounded-full">
+                                <div className="ml-auto text-xs font-semibold bg-[#FF4D4F]/10 text-[#FF4D4F] px-2 py-1 rounded-full">
                                   Save {
                                     Math.round(
                                       (parseInt(item.originalPrice.replace('$', '').replace(',', '')) - 
@@ -670,12 +687,12 @@ export default function NewsletterPreview() {
                                 </div>
                               </div>
                               
-                              <div className="flex justify-between items-center border-t border-gray-100 pt-3 mt-3">
+                              <div className="flex justify-between items-center border-t border-gray-100 pt-4 mt-3">
                                 <div className="text-sm">
                                   <span className="text-[#8F8A95]">Available at: </span>
-                                  <span className="text-[#C4B7BD] font-semibold">{item.dupeStore}</span>
+                                  <span className="text-[#3D2C35] font-semibold">{item.dupeStore}</span>
                                 </div>
-                                <Button className="bg-[#3D2C35] hover:bg-[#3D2C35]/90 text-white">
+                                <Button className="bg-[#FF4D4F] hover:bg-[#FF4D4F]/90 text-white">
                                   <ExternalLinkIcon className="h-4 w-4 mr-1" /> Shop Now
                                 </Button>
                               </div>
@@ -689,13 +706,13 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Premium Membership Footer */}
-              <div className="bg-gradient-to-r from-[#3D2C35] to-[#3D2C35]/90 text-white p-8 md:p-10 rounded-b-xl relative overflow-hidden">
+              <div className="bg-gradient-to-r from-[#FF4D4F] to-[#FF7070] text-white p-8 md:p-10 rounded-b-xl relative overflow-hidden">
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF4D4F]/10 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#C4B7BD]/5 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
                 
                 <div className="relative z-10 text-center">
-                  <div className="inline-block mb-4 bg-[#FF4D4F] text-white px-4 py-1.5 rounded-full text-sm font-medium">
+                  <div className="inline-block mb-4 bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-medium shadow-sm backdrop-blur-sm">
                     EXCLUSIVE OFFER
                   </div>
                   
