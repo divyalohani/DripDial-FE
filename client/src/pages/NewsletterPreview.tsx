@@ -311,33 +311,33 @@ export default function NewsletterPreview() {
           {/* Email-style newsletter preview (no tabs) */}
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             {/* Newsletter Header */}
-            <div className="bg-gradient-to-r from-[#3D2C35] to-[#4B373F] text-white p-8 relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-64 h-64 bg-[#C4B7BD]/5 blur-3xl rounded-full"></div>
-              <div className="absolute left-0 bottom-0 w-48 h-48 bg-[#C4B7BD]/10 blur-3xl rounded-full"></div>
+            <div className="bg-gradient-to-r from-[#C4B7BD] to-[#D6CCD1] text-[#3D2C35] p-8 relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-64 h-64 bg-white/30 blur-3xl rounded-full"></div>
+              <div className="absolute left-0 bottom-0 w-48 h-48 bg-white/40 blur-3xl rounded-full"></div>
               
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center">
-                    <div className="font-bold text-2xl font-display mr-2">DripDial</div>
-                    <Badge className="bg-white/20 text-white hover:bg-white/30 border-none">PREMIUM</Badge>
+                    <div className="font-bold text-2xl font-display mr-2 text-[#3D2C35]">DripDial</div>
+                    <Badge className="bg-[#3D2C35] text-white hover:bg-[#3D2C35]/90 border-none">PREMIUM</Badge>
                   </div>
-                  <div className="text-sm text-white/80 font-medium">{selectedPreview.date}</div>
+                  <div className="text-sm text-[#3D2C35]/80 font-medium">{selectedPreview.date}</div>
                 </div>
                 
-                <Badge className="mb-4 bg-white/20 text-white border-none px-3 py-1 rounded-full text-xs uppercase font-medium">
+                <Badge className="mb-4 bg-[#3D2C35] text-white border-none px-3 py-1 rounded-full text-xs uppercase font-medium shadow-sm">
                   {selectedPreview.category.replace('💰 ', '')}
                 </Badge>
                 
-                <h1 className="font-display text-3xl md:text-4xl font-bold mb-3 tracking-tight">
+                <h1 className="font-display text-3xl md:text-4xl font-bold mb-3 tracking-tight text-[#3D2C35]">
                   {selectedPreview.title}
                 </h1>
-                <p className="text-white/90 text-lg max-w-3xl leading-relaxed">
+                <p className="text-[#3D2C35]/90 text-lg max-w-3xl leading-relaxed">
                   {selectedPreview.subtitle}
                 </p>
                 
                 <div className="flex gap-2 flex-wrap mt-4">
                   {selectedPreview.tags.map((tag, index) => (
-                    <Badge key={index} className="bg-white/10 hover:bg-white/20 text-white border-white/20 text-xs">
+                    <Badge key={index} className="bg-white/50 hover:bg-white/60 text-[#3D2C35] border-[#3D2C35]/10 text-xs shadow-sm">
                       {tag}
                     </Badge>
                   ))}
@@ -391,9 +391,9 @@ export default function NewsletterPreview() {
                     <div className="flex justify-between items-start mb-4">
                       <div>
                         <h3 className="text-sm text-[#8F8A95] uppercase mb-1">DripDial Trend Score™</h3>
-                        <div className="text-3xl font-bold text-[#FF4D4F]">{selectedPreview.trendStats?.trendScore}</div>
+                        <div className="text-3xl font-bold text-[#3D2C35]">{selectedPreview.trendStats?.trendScore}</div>
                       </div>
-                      <Badge className="bg-[#FF4D4F]/10 text-[#FF4D4F] border-[#FF4D4F]/20 hover:bg-[#FF4D4F]/20">
+                      <Badge className="bg-[#C4B7BD]/20 text-[#3D2C35] border-[#C4B7BD]/30 hover:bg-[#C4B7BD]/30">
                         Very Strong
                       </Badge>
                     </div>
@@ -482,7 +482,7 @@ export default function NewsletterPreview() {
                     
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       <div className="flex items-center gap-2 p-3 bg-[#F8F6F3] rounded-lg">
-                        <RiTiktokFill className="h-4 w-4 text-[#FF4D4F]" />
+                        <RiTiktokFill className="h-4 w-4 text-[#3D2C35]" />
                         <div>
                           <div className="text-xs text-[#8F8A95]">TikTok Views</div>
                           <div className="text-base font-semibold text-[#3D2C35]">
@@ -491,7 +491,7 @@ export default function NewsletterPreview() {
                         </div>
                       </div>
                       <div className="flex items-center gap-2 p-3 bg-[#F8F6F3] rounded-lg">
-                        <RiInstagramLine className="h-4 w-4 text-[#C4B7BD]" />
+                        <RiInstagramLine className="h-4 w-4 text-[#8F8A95]" />
                         <div>
                           <div className="text-xs text-[#8F8A95]">Instagram</div>
                           <div className="text-base font-semibold text-[#3D2C35]">
@@ -504,11 +504,11 @@ export default function NewsletterPreview() {
                     <div className="text-sm mt-3">
                       <div className="flex items-center gap-2 mb-1">
                         <div className="font-semibold text-[#3D2C35]">Celebrity Adoption:</div>
-                        <div className="font-bold text-[#FF4D4F]">{selectedPreview.socialMetrics?.celebrityAdoption}</div>
+                        <div className="font-bold text-[#3D2C35]">{selectedPreview.socialMetrics?.celebrityAdoption}</div>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="font-semibold text-[#3D2C35]">Red Carpet Appearances:</div>
-                        <div className="font-bold text-[#C4B7BD]">{selectedPreview.socialMetrics?.redCarpetAppearances}</div>
+                        <div className="font-bold text-[#8F8A95]">{selectedPreview.socialMetrics?.redCarpetAppearances}</div>
                       </div>
                     </div>
                   </div>
@@ -547,7 +547,7 @@ export default function NewsletterPreview() {
                             "{celeb.description}"
                           </p>
                           <div className="flex gap-2">
-                            <div className="text-xs font-medium bg-[#FF4D4F] text-white px-2 py-0.5 rounded-full">
+                            <div className="text-xs font-medium bg-[#C4B7BD] text-white px-2 py-0.5 rounded-full">
                               {celeb.likes} likes
                             </div>
                             <div className="text-xs font-medium bg-[#3D2C35] text-white px-2 py-0.5 rounded-full">
@@ -575,7 +575,7 @@ export default function NewsletterPreview() {
                         <h4 className="font-bold text-[#3D2C35]">{selectedPreview.creatorImpacts?.name}</h4>
                         <p className="text-xs text-[#8F8A95]">{selectedPreview.creatorImpacts?.platform}</p>
                       </div>
-                      <div className="text-xs bg-[#FF4D4F]/10 text-[#FF4D4F] px-2 py-1 rounded">
+                      <div className="text-xs bg-[#C4B7BD]/20 text-[#3D2C35] px-2 py-1 rounded shadow-sm">
                         Creator Score: 92
                       </div>
                     </div>
@@ -601,7 +601,7 @@ export default function NewsletterPreview() {
                     
                     <div className="flex items-center mb-2">
                       <div className="text-sm text-[#8F8A95]">Market Impact:</div>
-                      <div className="ml-2 font-semibold text-[#FF4D4F]">{selectedPreview.creatorImpacts?.impactPercent}</div>
+                      <div className="ml-2 font-semibold text-[#3D2C35]">{selectedPreview.creatorImpacts?.impactPercent}</div>
                     </div>
                     
                     <div className="text-xs text-[#3D2C35] bg-[#F8F6F3] p-2 rounded">
@@ -618,11 +618,11 @@ export default function NewsletterPreview() {
                         <div key={index}>
                           <div className="flex justify-between mb-1">
                             <span className="text-xs font-medium text-[#3D2C35]">{tag.name}</span>
-                            <span className="text-xs font-bold text-[#FF4D4F]">{tag.count}</span>
+                            <span className="text-xs font-bold text-[#3D2C35]">{tag.count}</span>
                           </div>
                           <div className="w-full h-1.5 bg-[#F8F6F3] rounded-full">
                             <div 
-                              className="h-full bg-[#FF4D4F] rounded-full" 
+                              className="h-full bg-[#C4B7BD] rounded-full" 
                               style={{width: tag.percent}}
                             ></div>
                           </div>
@@ -706,46 +706,46 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Premium Membership Footer */}
-              <div className="bg-gradient-to-r from-[#3D2C35] to-[#4B373F] text-white p-8 md:p-10 rounded-b-xl relative overflow-hidden">
+              <div className="bg-gradient-to-r from-[#C4B7BD] to-[#D6CCD1] text-[#3D2C35] p-8 md:p-10 rounded-b-xl relative overflow-hidden">
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#C4B7BD]/5 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#C4B7BD]/10 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/30 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/40 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
                 
                 <div className="relative z-10 text-center">
-                  <div className="inline-block mb-4 bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-medium shadow-sm backdrop-blur-sm">
+                  <div className="inline-block mb-4 bg-[#3D2C35] text-white px-4 py-1.5 rounded-full text-sm font-medium shadow-sm">
                     EXCLUSIVE OFFER
                   </div>
                   
-                  <h3 className="font-display text-2xl md:text-3xl font-bold mb-3">
+                  <h3 className="font-display text-2xl md:text-3xl font-bold mb-3 text-[#3D2C35]">
                     Elevate Your Style Game with DripDial Premium
                   </h3>
                   
-                  <p className="mb-8 text-white/90 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                  <p className="mb-8 text-[#3D2C35]/90 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
                     Get exclusive, AI-powered fashion insights delivered directly to your inbox each week. Stay ahead of trends and make informed style decisions with our premium newsletter.
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 max-w-3xl mx-auto">
-                    <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg text-center">
-                      <div className="text-2xl font-bold">4x</div>
-                      <div className="text-sm text-white/80 font-medium">Monthly Newsletters</div>
+                    <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg text-center shadow-sm">
+                      <div className="text-2xl font-bold text-[#3D2C35]">4x</div>
+                      <div className="text-sm text-[#3D2C35]/80 font-medium">Monthly Newsletters</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg text-center">
-                      <div className="text-2xl font-bold">Early</div>
-                      <div className="text-sm text-white/80 font-medium">Trend Access</div>
+                    <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg text-center shadow-sm">
+                      <div className="text-2xl font-bold text-[#3D2C35]">Early</div>
+                      <div className="text-sm text-[#3D2C35]/80 font-medium">Trend Access</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg text-center">
-                      <div className="text-2xl font-bold">$$$</div>
-                      <div className="text-sm text-white/80 font-medium">Exclusive Deals</div>
+                    <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg text-center shadow-sm">
+                      <div className="text-2xl font-bold text-[#3D2C35]">$$$</div>
+                      <div className="text-sm text-[#3D2C35]/80 font-medium">Exclusive Deals</div>
                     </div>
                   </div>
                   
                   <div>
                     <Link href="/#subscribe">
-                      <Button className="bg-white hover:bg-white/90 text-[#3D2C35] font-bold px-8 py-3 rounded-lg text-lg transition-all shadow-lg hover:shadow-xl">
+                      <Button className="bg-[#3D2C35] hover:bg-[#3D2C35]/90 text-white font-bold px-8 py-3 rounded-lg text-lg transition-all shadow-lg hover:shadow-xl">
                         Subscribe Now - Just $10/month
                       </Button>
                     </Link>
-                    <p className="text-sm text-white/70 mt-3 font-medium">No commitment. Cancel anytime.</p>
+                    <p className="text-sm text-[#3D2C35]/70 mt-3 font-medium">No commitment. Cancel anytime.</p>
                   </div>
                 </div>
               </div>
