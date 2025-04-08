@@ -311,9 +311,9 @@ export default function NewsletterPreview() {
           {/* Email-style newsletter preview (no tabs) */}
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             {/* Newsletter Header */}
-            <div className="bg-gradient-to-r from-[#C4B7BD] to-[#D6CCD1] text-[#3D2C35] p-8 relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-64 h-64 bg-white/30 blur-3xl rounded-full"></div>
-              <div className="absolute left-0 bottom-0 w-48 h-48 bg-white/40 blur-3xl rounded-full"></div>
+            <div className="bg-gradient-to-r from-[#F8F5F2] to-[#F2EDE8] text-[#3D2C35] p-8 relative overflow-hidden border-b border-[#E8E0D8]">
+              <div className="absolute right-0 top-0 w-64 h-64 bg-[#E8E0D8]/30 blur-3xl rounded-full"></div>
+              <div className="absolute left-0 bottom-0 w-48 h-48 bg-[#E8E0D8]/40 blur-3xl rounded-full"></div>
               
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-4">
@@ -348,7 +348,7 @@ export default function NewsletterPreview() {
             {/* Actual Newsletter Content - Everything in a single scrollable view */}
             <div className="newsletter-content">
               {/* Main Article Section */}
-              <div className="p-8 border-b border-gray-100">
+              <div className="p-8 border-b border-[#E8E0D8]">
                 {/* Feature Image Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-4xl mx-auto">
                   <div>
@@ -379,7 +379,7 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Stats & Analysis Section */}
-              <div className="bg-[#F8F6F3] p-6 border-b border-gray-100">
+              <div className="bg-[#F8F5F2] p-6 border-b border-[#E8E0D8]">
                 <div className="flex items-center gap-2 mb-5">
                   <ZapIcon className="h-5 w-5 text-[#3D2C35]" />
                   <h2 className="text-xl font-bold text-[#3D2C35]">Trend Analysis</h2>
@@ -516,7 +516,7 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Celebrity Sightings Section */}
-              <div className="bg-white p-6 border-b border-gray-100">
+              <div className="bg-white p-6 border-b border-[#E8E0D8]">
                 <div className="flex items-center gap-2 mb-5">
                   <InfoIcon className="h-5 w-5 text-[#3D2C35]" />
                   <h2 className="text-xl font-bold text-[#3D2C35]">Celebrity Sightings</h2>
@@ -524,7 +524,7 @@ export default function NewsletterPreview() {
                 
                 <div className="grid md:grid-cols-2 gap-5">
                   {selectedPreview.celebSightings?.map((celeb, index) => (
-                    <div key={index} className="p-4 border border-gray-100 rounded-lg shadow-sm">
+                    <div key={index} className="p-4 border border-[#E8E0D8]/50 rounded-lg shadow-sm">
                       <div className="flex gap-3">
                         <div className="w-12 h-12 rounded-full overflow-hidden bg-[#F8F6F3] ring-1 ring-[#C4B7BD] shrink-0">
                           <img 
@@ -543,7 +543,7 @@ export default function NewsletterPreview() {
                               {celeb.timeAgo}
                             </div>
                           </div>
-                          <p className="text-xs text-[#3D2C35] my-2 bg-[#F8F6F3] p-2 rounded">
+                          <p className="text-xs text-[#3D2C35] my-2 bg-[#F8F5F2] p-2 rounded">
                             "{celeb.description}"
                           </p>
                           <div className="flex gap-2">
@@ -562,14 +562,14 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Creator Impact Section */}
-              <div className="bg-[#F8F6F3] p-6 border-b border-gray-100">
+              <div className="bg-[#F8F5F2] p-6 border-b border-[#E8E0D8]">
                 <div className="flex items-center gap-2 mb-5">
                   <TrendingUpIcon className="h-5 w-5 text-[#3D2C35]" />
                   <h2 className="text-xl font-bold text-[#3D2C35]">Creator Impact</h2>
                 </div>
                 
                 <div className="bg-white rounded-lg overflow-hidden shadow-sm">
-                  <div className="p-4 border-b border-gray-100">
+                  <div className="p-4 border-b border-[#E8E0D8]/50">
                     <div className="flex justify-between items-center">
                       <div>
                         <h4 className="font-bold text-[#3D2C35]">{selectedPreview.creatorImpacts?.name}</h4>
@@ -585,15 +585,15 @@ export default function NewsletterPreview() {
                     <div className="font-medium text-[#3D2C35] mb-3">"{selectedPreview.creatorImpacts?.title}"</div>
                     
                     <div className="grid grid-cols-3 gap-2 mb-4">
-                      <div className="bg-[#F8F6F3] p-2 rounded">
+                      <div className="bg-[#F8F5F2] p-2 rounded">
                         <div className="text-xs text-[#8F8A95]">Views</div>
                         <div className="font-semibold text-[#3D2C35]">{selectedPreview.creatorImpacts?.views}</div>
                       </div>
-                      <div className="bg-[#F8F6F3] p-2 rounded">
+                      <div className="bg-[#F8F5F2] p-2 rounded">
                         <div className="text-xs text-[#8F8A95]">Engagement</div>
                         <div className="font-semibold text-[#3D2C35]">{selectedPreview.creatorImpacts?.engagement}</div>
                       </div>
-                      <div className="bg-[#F8F6F3] p-2 rounded">
+                      <div className="bg-[#F8F5F2] p-2 rounded">
                         <div className="text-xs text-[#8F8A95]">Click-through</div>
                         <div className="font-semibold text-[#3D2C35]">{selectedPreview.creatorImpacts?.clickThrough}</div>
                       </div>
@@ -604,7 +604,7 @@ export default function NewsletterPreview() {
                       <div className="ml-2 font-semibold text-[#3D2C35]">{selectedPreview.creatorImpacts?.impactPercent}</div>
                     </div>
                     
-                    <div className="text-xs text-[#3D2C35] bg-[#F8F6F3] p-2 rounded">
+                    <div className="text-xs text-[#3D2C35] bg-[#F8F5F2] p-2 rounded">
                       {selectedPreview.creatorImpacts?.impactDescription}
                     </div>
                   </div>
@@ -620,7 +620,7 @@ export default function NewsletterPreview() {
                             <span className="text-xs font-medium text-[#3D2C35]">{tag.name}</span>
                             <span className="text-xs font-bold text-[#3D2C35]">{tag.count}</span>
                           </div>
-                          <div className="w-full h-1.5 bg-[#F8F6F3] rounded-full">
+                          <div className="w-full h-1.5 bg-[#F8F5F2] rounded-full">
                             <div 
                               className="h-full bg-[#C4B7BD] rounded-full" 
                               style={{width: tag.percent}}
@@ -633,69 +633,57 @@ export default function NewsletterPreview() {
                 </div>
               </div>
               
-              {/* Shop The Look Section */}
-              <div className="bg-gradient-to-r from-[#F8F6F3] to-[#F9F7F5] p-6 border-b border-gray-100">
-                <div className="flex items-center gap-2 mb-5">
-                  <ShoppingBagIcon className="h-5 w-5 text-[#3D2C35]" />
-                  <h2 className="text-xl font-bold text-[#3D2C35]">Shop The Look</h2>
+              {/* Shop The Look Section - Made Smaller */}
+              <div className="bg-gradient-to-r from-[#F8F5F2] to-[#F2EDE8] p-5 border-b border-[#E8E0D8]">
+                <div className="flex items-center gap-2 mb-3">
+                  <ShoppingBagIcon className="h-4 w-4 text-[#3D2C35]" />
+                  <h2 className="text-lg font-bold text-[#3D2C35]">Shop The Look</h2>
                 </div>
                 
-                <div className="space-y-4">
-                  {selectedPreview.buyLinks?.map((item, index) => (
-                    <div key={index} className="border border-gray-100 bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
-                      <div className="md:flex">
-                        <div className="md:w-2/5 relative overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {selectedPreview.buyLinks?.slice(0, 2).map((item, index) => (
+                    <div key={index} className="border border-[#E8E0D8] bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+                      <div className="flex">
+                        <div className="w-1/3 relative overflow-hidden">
                           <img 
                             src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&auto=format&fit=crop"
                             alt={`Model wearing ${item.item}`}
-                            className="w-full h-[280px] md:h-full object-cover transition-transform duration-700 hover:scale-105"
+                            className="w-full h-[120px] object-cover transition-transform duration-700 hover:scale-105"
                           />
                           
                           {/* Price tag overlay */}
-                          <div className="absolute top-3 right-3 bg-[#3D2C35] text-white px-2 py-1 rounded font-bold shadow-sm">
+                          <div className="absolute top-2 right-2 bg-[#3D2C35] text-white px-1.5 py-0.5 text-xs rounded font-bold shadow-sm">
                             {item.dupePrice}
                           </div>
                         </div>
                         
-                        <div className="p-5 md:w-3/5">
-                          <div className="flex flex-col h-full">
-                            <div>
-                              <div className="flex justify-between items-start">
-                                <div>
-                                  <h3 className="font-bold text-lg text-[#3D2C35] mb-1">{item.item}</h3>
-                                  <p className="text-sm text-[#8F8A95] font-medium">{item.brand}</p>
-                                </div>
-                                <Badge className="bg-[#3D2C35]/10 text-[#3D2C35] border-[#3D2C35]/20">TRENDING</Badge>
+                        <div className="p-3 w-2/3">
+                          <div>
+                            <div className="flex justify-between items-start mb-1">
+                              <div>
+                                <h3 className="font-bold text-sm text-[#3D2C35]">{item.item}</h3>
+                                <p className="text-xs text-[#8F8A95]">{item.brand}</p>
                               </div>
-                              
-                              <div className="flex items-center gap-6 my-4">
-                                <div className="flex flex-col">
-                                  <div className="text-xs text-[#8F8A95] uppercase">Retail Price</div>
-                                  <div className="text-base font-semibold text-[#3D2C35]/60 line-through">{item.originalPrice}</div>
-                                </div>
-                                <div className="flex flex-col">
-                                  <div className="text-xs text-[#8F8A95] uppercase">DripDial Price</div>
-                                  <div className="text-base font-semibold text-[#3D2C35]">{item.dupePrice}</div>
-                                </div>
-                                <div className="ml-auto text-xs font-semibold bg-[#3D2C35]/10 text-[#3D2C35] px-2 py-1 rounded-full">
-                                  Save {
-                                    Math.round(
-                                      (parseInt(item.originalPrice.replace('$', '').replace(',', '')) - 
-                                      parseInt(item.dupePrice.replace('$', '').replace(',', ''))) /
-                                      parseInt(item.originalPrice.replace('$', '').replace(',', '')) * 100
-                                    )}%
-                                </div>
+                            </div>
+                            
+                            <div className="flex items-center gap-3 mb-2">
+                              <div className="text-xs">
+                                <span className="text-[#8F8A95]">Retail: </span>
+                                <span className="text-[#3D2C35]/60 line-through">{item.originalPrice}</span>
                               </div>
-                              
-                              <div className="flex justify-between items-center border-t border-gray-100 pt-4 mt-3">
-                                <div className="text-sm">
-                                  <span className="text-[#8F8A95]">Available at: </span>
-                                  <span className="text-[#3D2C35] font-semibold">{item.dupeStore}</span>
-                                </div>
-                                <Button className="bg-[#3D2C35] hover:bg-[#3D2C35]/90 text-white">
-                                  <ExternalLinkIcon className="h-4 w-4 mr-1" /> Shop Now
-                                </Button>
+                              <div className="text-xs">
+                                <span className="text-[#8F8A95]">Our Price: </span>
+                                <span className="text-[#3D2C35] font-semibold">{item.dupePrice}</span>
                               </div>
+                            </div>
+                            
+                            <div className="flex justify-between items-center">
+                              <div className="text-xs text-[#8F8A95]">
+                                {item.dupeStore}
+                              </div>
+                              <Button size="sm" variant="outline" className="h-7 text-xs border-[#3D2C35] text-[#3D2C35] hover:bg-[#3D2C35] hover:text-white">
+                                Shop Now
+                              </Button>
                             </div>
                           </div>
                         </div>
@@ -706,10 +694,10 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Premium Membership Footer */}
-              <div className="bg-gradient-to-r from-[#C4B7BD] to-[#D6CCD1] text-[#3D2C35] p-8 md:p-10 rounded-b-xl relative overflow-hidden">
+              <div className="bg-gradient-to-r from-[#F8F5F2] to-[#F2EDE8] text-[#3D2C35] p-8 md:p-10 rounded-b-xl relative overflow-hidden border-t border-[#E8E0D8]">
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/30 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/40 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#E8E0D8]/30 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#E8E0D8]/40 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
                 
                 <div className="relative z-10 text-center">
                   <div className="inline-block mb-4 bg-[#3D2C35] text-white px-4 py-1.5 rounded-full text-sm font-medium shadow-sm">
