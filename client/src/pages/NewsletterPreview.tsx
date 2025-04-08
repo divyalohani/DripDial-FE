@@ -311,9 +311,9 @@ export default function NewsletterPreview() {
           {/* Email-style newsletter preview (no tabs) */}
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             {/* Newsletter Header */}
-            <div className="bg-gradient-to-r from-[#FF4D4F] to-[#FF7070] text-white p-8 relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-64 h-64 bg-white/5 blur-3xl rounded-full"></div>
-              <div className="absolute left-0 bottom-0 w-48 h-48 bg-white/10 blur-3xl rounded-full"></div>
+            <div className="bg-gradient-to-r from-[#3D2C35] to-[#4B373F] text-white p-8 relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-64 h-64 bg-[#C4B7BD]/5 blur-3xl rounded-full"></div>
+              <div className="absolute left-0 bottom-0 w-48 h-48 bg-[#C4B7BD]/10 blur-3xl rounded-full"></div>
               
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-4">
@@ -634,9 +634,9 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Shop The Look Section */}
-              <div className="bg-gradient-to-r from-[#FFF5F5] to-[#FFF9F9] p-6 border-b border-gray-100">
+              <div className="bg-gradient-to-r from-[#F8F6F3] to-[#F9F7F5] p-6 border-b border-gray-100">
                 <div className="flex items-center gap-2 mb-5">
-                  <ShoppingBagIcon className="h-5 w-5 text-[#FF4D4F]" />
+                  <ShoppingBagIcon className="h-5 w-5 text-[#3D2C35]" />
                   <h2 className="text-xl font-bold text-[#3D2C35]">Shop The Look</h2>
                 </div>
                 
@@ -652,7 +652,7 @@ export default function NewsletterPreview() {
                           />
                           
                           {/* Price tag overlay */}
-                          <div className="absolute top-3 right-3 bg-[#FF4D4F] text-white px-2 py-1 rounded font-bold shadow-sm">
+                          <div className="absolute top-3 right-3 bg-[#3D2C35] text-white px-2 py-1 rounded font-bold shadow-sm">
                             {item.dupePrice}
                           </div>
                         </div>
@@ -665,7 +665,7 @@ export default function NewsletterPreview() {
                                   <h3 className="font-bold text-lg text-[#3D2C35] mb-1">{item.item}</h3>
                                   <p className="text-sm text-[#8F8A95] font-medium">{item.brand}</p>
                                 </div>
-                                <Badge className="bg-[#FF4D4F]/10 text-[#FF4D4F] border-[#FF4D4F]/20">HOT ITEM</Badge>
+                                <Badge className="bg-[#3D2C35]/10 text-[#3D2C35] border-[#3D2C35]/20">TRENDING</Badge>
                               </div>
                               
                               <div className="flex items-center gap-6 my-4">
@@ -674,10 +674,10 @@ export default function NewsletterPreview() {
                                   <div className="text-base font-semibold text-[#3D2C35]/60 line-through">{item.originalPrice}</div>
                                 </div>
                                 <div className="flex flex-col">
-                                  <div className="text-xs text-[#FF4D4F] uppercase">DripDial Price</div>
-                                  <div className="text-base font-semibold text-[#FF4D4F]">{item.dupePrice}</div>
+                                  <div className="text-xs text-[#8F8A95] uppercase">DripDial Price</div>
+                                  <div className="text-base font-semibold text-[#3D2C35]">{item.dupePrice}</div>
                                 </div>
-                                <div className="ml-auto text-xs font-semibold bg-[#FF4D4F]/10 text-[#FF4D4F] px-2 py-1 rounded-full">
+                                <div className="ml-auto text-xs font-semibold bg-[#3D2C35]/10 text-[#3D2C35] px-2 py-1 rounded-full">
                                   Save {
                                     Math.round(
                                       (parseInt(item.originalPrice.replace('$', '').replace(',', '')) - 
@@ -692,7 +692,7 @@ export default function NewsletterPreview() {
                                   <span className="text-[#8F8A95]">Available at: </span>
                                   <span className="text-[#3D2C35] font-semibold">{item.dupeStore}</span>
                                 </div>
-                                <Button className="bg-[#FF4D4F] hover:bg-[#FF4D4F]/90 text-white">
+                                <Button className="bg-[#3D2C35] hover:bg-[#3D2C35]/90 text-white">
                                   <ExternalLinkIcon className="h-4 w-4 mr-1" /> Shop Now
                                 </Button>
                               </div>
@@ -706,10 +706,10 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Premium Membership Footer */}
-              <div className="bg-gradient-to-r from-[#FF4D4F] to-[#FF7070] text-white p-8 md:p-10 rounded-b-xl relative overflow-hidden">
+              <div className="bg-gradient-to-r from-[#3D2C35] to-[#4B373F] text-white p-8 md:p-10 rounded-b-xl relative overflow-hidden">
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#C4B7BD]/5 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#C4B7BD]/10 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
                 
                 <div className="relative z-10 text-center">
                   <div className="inline-block mb-4 bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-medium shadow-sm backdrop-blur-sm">
