@@ -312,8 +312,12 @@ export default function NewsletterPreview() {
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             {/* Newsletter Header */}
             <div className="bg-gradient-to-r from-[#F8F5F2] to-[#F2EDE8] text-[#3D2C35] p-8 relative overflow-hidden border-b border-[#E8E0D8]">
-              <div className="absolute right-0 top-0 w-64 h-64 bg-[#E8E0D8]/30 blur-3xl rounded-full"></div>
-              <div className="absolute left-0 bottom-0 w-48 h-48 bg-[#E8E0D8]/40 blur-3xl rounded-full"></div>
+              {/* Added interesting background elements */}
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1604147706283-d7119b5b822c?q=80&w=2187&auto=format&fit=crop')] opacity-[0.03] bg-cover bg-center mix-blend-overlay"></div>
+              <div className="absolute right-0 top-0 w-64 h-64 bg-[#C4B7BD]/20 blur-3xl rounded-full"></div>
+              <div className="absolute left-0 bottom-0 w-64 h-64 bg-[#E8E0D8]/40 blur-3xl rounded-full"></div>
+              <div className="absolute left-1/4 top-1/3 w-32 h-32 bg-[#C4B7BD]/10 blur-xl rounded-full"></div>
+              <div className="absolute right-1/4 bottom-1/3 w-24 h-24 bg-[#3D2C35]/5 blur-xl rounded-full"></div>
               
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-4">
@@ -348,7 +352,9 @@ export default function NewsletterPreview() {
             {/* Actual Newsletter Content - Everything in a single scrollable view */}
             <div className="newsletter-content">
               {/* Main Article Section */}
-              <div className="p-8 border-b border-[#E8E0D8]">
+              <div className="p-8 border-b border-[#E8E0D8] relative overflow-hidden">
+                {/* Added subtle pattern background */}
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] opacity-[0.07] mix-blend-overlay"></div>
                 {/* Feature Image Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-4xl mx-auto">
                   <div>
@@ -379,7 +385,9 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Stats & Analysis Section */}
-              <div className="bg-[#F8F5F2] p-6 border-b border-[#E8E0D8]">
+              <div className="bg-[#F8F5F2] p-6 border-b border-[#E8E0D8] relative overflow-hidden">
+                {/* Added diagonal stripes pattern background */}
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png')] opacity-[0.03] mix-blend-overlay"></div>
                 <div className="flex items-center gap-2 mb-5">
                   <ZapIcon className="h-5 w-5 text-[#3D2C35]" />
                   <h2 className="text-xl font-bold text-[#3D2C35]">Trend Analysis</h2>
@@ -516,7 +524,9 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Celebrity Sightings Section */}
-              <div className="bg-white p-6 border-b border-[#E8E0D8]">
+              <div className="bg-white p-6 border-b border-[#E8E0D8] relative overflow-hidden">
+                {/* Added subtle noise pattern */}
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/white-diamond.png')] opacity-[0.05] mix-blend-overlay"></div>
                 <div className="flex items-center gap-2 mb-5">
                   <InfoIcon className="h-5 w-5 text-[#3D2C35]" />
                   <h2 className="text-xl font-bold text-[#3D2C35]">Celebrity Sightings</h2>
@@ -562,7 +572,9 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Creator Impact Section */}
-              <div className="bg-[#F8F5F2] p-6 border-b border-[#E8E0D8]">
+              <div className="bg-[#F8F5F2] p-6 border-b border-[#E8E0D8] relative overflow-hidden">
+                {/* Added subtle geometric pattern background */}
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png')] opacity-[0.05] mix-blend-overlay"></div>
                 <div className="flex items-center gap-2 mb-5">
                   <TrendingUpIcon className="h-5 w-5 text-[#3D2C35]" />
                   <h2 className="text-xl font-bold text-[#3D2C35]">Creator Impact</h2>
@@ -634,7 +646,9 @@ export default function NewsletterPreview() {
               </div>
               
               {/* Shop The Look Section - Made Smaller */}
-              <div className="bg-gradient-to-r from-[#F8F5F2] to-[#F2EDE8] p-5 border-b border-[#E8E0D8]">
+              <div className="bg-gradient-to-r from-[#F8F5F2] to-[#F2EDE8] p-5 border-b border-[#E8E0D8] relative overflow-hidden">
+                {/* Added subtle fabric pattern background */}
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/fabric-of-squares.png')] opacity-[0.04] mix-blend-overlay"></div>
                 <div className="flex items-center gap-2 mb-3">
                   <ShoppingBagIcon className="h-4 w-4 text-[#3D2C35]" />
                   <h2 className="text-lg font-bold text-[#3D2C35]">Shop The Look</h2>
@@ -695,9 +709,12 @@ export default function NewsletterPreview() {
               
               {/* Premium Membership Footer */}
               <div className="bg-gradient-to-r from-[#F8F5F2] to-[#F2EDE8] text-[#3D2C35] p-8 md:p-10 rounded-b-xl relative overflow-hidden border-t border-[#E8E0D8]">
-                {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#E8E0D8]/30 rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#E8E0D8]/40 rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
+                {/* Added richer decorative elements and texture pattern */}
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/clean-gray-paper.png')] opacity-[0.07] mix-blend-overlay"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#C4B7BD]/20 to-transparent rounded-full blur-3xl -mr-20 -mt-20 z-0"></div>
+                <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#3D2C35]/10 to-transparent rounded-full blur-3xl -ml-20 -mb-20 z-0"></div>
+                <div className="absolute top-1/3 left-1/4 w-40 h-40 bg-[#C4B7BD]/10 rounded-full blur-3xl z-0"></div>
+                <div className="absolute bottom-1/3 right-1/4 w-40 h-40 bg-[#3D2C35]/5 rounded-full blur-3xl z-0"></div>
                 
                 <div className="relative z-10 text-center">
                   <div className="inline-block mb-4 bg-[#3D2C35] text-white px-4 py-1.5 rounded-full text-sm font-medium shadow-sm">
