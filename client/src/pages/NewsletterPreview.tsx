@@ -311,37 +311,80 @@ export default function NewsletterPreview() {
           {/* Email-style newsletter preview (no tabs) */}
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             {/* Newsletter Header */}
-            <div className="bg-gradient-to-r from-[#F8F5F2] to-[#F2EDE8] text-[#3D2C35] p-8 relative overflow-hidden border-b border-[#E8E0D8]">
-              {/* Added interesting background elements */}
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1604147706283-d7119b5b822c?q=80&w=2187&auto=format&fit=crop')] opacity-[0.03] bg-cover bg-center mix-blend-overlay"></div>
-              <div className="absolute right-0 top-0 w-64 h-64 bg-[#C4B7BD]/20 blur-3xl rounded-full"></div>
-              <div className="absolute left-0 bottom-0 w-64 h-64 bg-[#E8E0D8]/40 blur-3xl rounded-full"></div>
-              <div className="absolute left-1/4 top-1/3 w-32 h-32 bg-[#C4B7BD]/10 blur-xl rounded-full"></div>
-              <div className="absolute right-1/4 bottom-1/3 w-24 h-24 bg-[#3D2C35]/5 blur-xl rounded-full"></div>
+            <div className="bg-gradient-to-br from-[#3D2C35]/10 via-[#F2EDE8] to-[#E8E0D8] text-[#3D2C35] p-8 pt-12 pb-14 relative overflow-hidden border-b border-[#E8E0D8]">
+              {/* Enhanced background elements */}
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?q=80&w=2070')] opacity-[0.04] bg-cover bg-center mix-blend-overlay"></div>
               
+              {/* Decorative corner elements */}
+              <div className="absolute top-0 left-0 w-32 h-32 bg-[#3D2C35]/5 rounded-br-full"></div>
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#3D2C35]/5 rounded-tl-full"></div>
+              
+              {/* Gradient blobs */}
+              <div className="absolute right-0 top-0 w-72 h-72 bg-[#C4B7BD]/30 blur-3xl rounded-full transform translate-x-1/4 -translate-y-1/4"></div>
+              <div className="absolute left-0 bottom-0 w-72 h-72 bg-[#E8E0D8]/50 blur-3xl rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
+              <div className="absolute left-1/3 top-1/4 w-36 h-36 bg-[#FF4D4F]/5 blur-xl rounded-full animate-pulse"></div>
+              <div className="absolute right-1/3 bottom-1/4 w-28 h-28 bg-[#3D2C35]/10 blur-xl rounded-full"></div>
+              
+              {/* Decorative pattern overlays */}
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diamond-upholstery.png')] opacity-[0.06] mix-blend-overlay"></div>
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-[0.03] mix-blend-multiply"></div>
+              
+              {/* Subtle diagonal line decoration */}
+              <div className="absolute inset-0 overflow-hidden">
+                <div className="w-full h-full border-t-2 border-dashed border-[#3D2C35]/5 transform -rotate-3"></div>
+                <div className="w-full h-full border-b-2 border-dashed border-[#3D2C35]/5 transform rotate-3"></div>
+              </div>
+              
+              {/* Content with enhanced styling */}
               <div className="relative z-10">
-                <div className="flex justify-between items-start mb-4">
+                {/* Header with logo area */}
+                <div className="flex justify-between items-start mb-6">
                   <div className="flex items-center">
-                    <div className="font-bold text-2xl font-display mr-2 text-[#3D2C35]">DripDial</div>
-                    <Badge className="bg-[#3D2C35] text-white hover:bg-[#3D2C35]/90 border-none">PREMIUM</Badge>
+                    <div className="font-bold text-2xl font-display mr-2 text-[#3D2C35] tracking-tight relative">
+                      DripDial
+                      <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-[#FF4D4F]/70 via-[#FF4D4F] to-[#FF4D4F]/70 rounded-full transform"></span>
+                    </div>
+                    <Badge className="bg-[#3D2C35] text-white hover:bg-[#3D2C35]/90 border-none shadow-sm">PREMIUM</Badge>
                   </div>
-                  <div className="text-sm text-[#3D2C35]/80 font-medium">{selectedPreview.date}</div>
+                  <div className="text-sm text-[#3D2C35]/80 font-medium bg-white/50 px-3 py-1 rounded-full shadow-sm">
+                    {selectedPreview.date}
+                  </div>
                 </div>
                 
-                <Badge className="mb-4 bg-[#3D2C35] text-white border-none px-3 py-1 rounded-full text-xs uppercase font-medium shadow-sm">
-                  {selectedPreview.category.replace('💰 ', '')}
-                </Badge>
+                {/* Category badge with enhanced styling */}
+                <div className="mb-7 flex">
+                  <Badge className="bg-[#3D2C35] text-white border-none px-4 py-1.5 rounded-full text-xs uppercase font-medium shadow-md relative overflow-hidden">
+                    <span className="relative z-10">{selectedPreview.category.replace('💰 ', '').replace('🎯 ', '')}</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-[#3D2C35] via-[#524950] to-[#3D2C35] mix-blend-overlay"></span>
+                    <span className="absolute top-0 left-0 right-0 h-px bg-white/20"></span>
+                  </Badge>
+                  <div className="ml-3 h-px w-24 bg-gradient-to-r from-[#3D2C35]/40 to-transparent self-center"></div>
+                </div>
                 
-                <h1 className="font-display text-3xl md:text-4xl font-bold mb-3 tracking-tight text-[#3D2C35]">
-                  {selectedPreview.title}
-                </h1>
-                <p className="text-[#3D2C35]/90 text-lg max-w-3xl leading-relaxed">
+                {/* Title with decorative elements */}
+                <div className="relative">
+                  <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-tight text-[#3D2C35] relative inline-block">
+                    {selectedPreview.title}
+                    <div className="absolute -right-3 -top-3 w-6 h-6 text-[#FF4D4F]/70 opacity-60">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9.42 4.3L10.5 1.9L11.58 4.3L14.28 4.62L12.4 6.44L12.77 9.14L10.5 7.87L8.23 9.14L8.6 6.44L6.72 4.62L9.42 4.3ZM16.94 11.8L18.35 8.67L19.76 11.8L23.21 12.22L20.79 14.58L21.29 18L18.35 16.38L15.41 18L15.92 14.58L13.5 12.22L16.94 11.8Z" />
+                      </svg>
+                    </div>
+                  </h1>
+                </div>
+                
+                {/* Subtitle with enhanced styling */}
+                <p className="text-[#3D2C35]/90 text-lg max-w-3xl leading-relaxed mb-5 pl-1 border-l-2 border-[#FF4D4F]/30">
                   {selectedPreview.subtitle}
                 </p>
                 
-                <div className="flex gap-2 flex-wrap mt-4">
+                {/* Tags with enhanced styling */}
+                <div className="flex gap-2 flex-wrap mt-6 pt-4 border-t border-dashed border-[#3D2C35]/10">
                   {selectedPreview.tags.map((tag, index) => (
-                    <Badge key={index} className="bg-white/50 hover:bg-white/60 text-[#3D2C35] border-[#3D2C35]/10 text-xs shadow-sm">
+                    <Badge 
+                      key={index} 
+                      className="bg-white/70 hover:bg-white/90 text-[#3D2C35] border border-[#3D2C35]/10 text-xs shadow-sm px-3 py-1"
+                    >
                       {tag}
                     </Badge>
                   ))}
@@ -352,76 +395,145 @@ export default function NewsletterPreview() {
             {/* Actual Newsletter Content - Everything in a single scrollable view */}
             <div className="newsletter-content">
               {/* Main Article Section */}
-              <div className="p-8 border-b border-[#E8E0D8] relative overflow-hidden">
-                {/* Added subtle pattern background */}
+              <div className="p-8 pt-16 pb-16 border-b border-[#E8E0D8] relative overflow-hidden">
+                {/* Enhanced pattern background with multiple layers */}
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] opacity-[0.07] mix-blend-overlay"></div>
-                {/* Feature Image Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-4xl mx-auto">
-                  <div>
-                    <img 
-                      src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?q=80&w=3270&auto=format&fit=crop" 
-                      alt="Model wearing Y2K style" 
-                      className="w-full h-auto rounded-lg shadow-md"
-                    />
-                    <p className="mt-2 text-sm text-[#666] italic">Influencer showcasing Y2K baggy jeans with a cropped top and vintage accessories</p>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#F8F6F3]/70 via-white to-[#F8F6F3]/50"></div>
+                
+                {/* Decorative elements */}
+                <div className="absolute top-4 left-8 w-24 h-1 bg-gradient-to-r from-[#3D2C35]/20 to-transparent"></div>
+                <div className="absolute top-4 right-8 w-24 h-1 bg-gradient-to-l from-[#3D2C35]/20 to-transparent"></div>
+                
+                {/* Feature Image Grid with enhanced styling */}
+                <div className="relative">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+                    <div className="group">
+                      <div className="relative rounded-lg shadow-md overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#3D2C35]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <img 
+                          src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?q=80&w=3270&auto=format&fit=crop" 
+                          alt="Model wearing Y2K style" 
+                          className="w-full h-auto transform group-hover:scale-[1.02] transition-transform duration-700"
+                        />
+                        <div className="absolute top-3 right-3">
+                          <div className="bg-white/80 backdrop-blur-sm text-[#3D2C35] text-xs px-2 py-1 rounded shadow-sm">
+                            FEATURED
+                          </div>
+                        </div>
+                      </div>
+                      <p className="mt-3 text-sm text-[#666] italic pl-2 border-l-2 border-[#FF4D4F]/30">
+                        Influencer showcasing Y2K baggy jeans with a cropped top and vintage accessories
+                      </p>
+                    </div>
+                    <div className="group">
+                      <div className="relative rounded-lg shadow-md overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#3D2C35]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <img 
+                          src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=3387&auto=format&fit=crop" 
+                          alt="Streetwear model" 
+                          className="w-full h-auto transform group-hover:scale-[1.02] transition-transform duration-700"
+                        />
+                      </div>
+                      <p className="mt-3 text-sm text-[#666] italic pl-2 border-l-2 border-[#FF4D4F]/30">
+                        Street style: Y2K aesthetic with baggy denim and platform shoes
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <img 
-                      src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=3387&auto=format&fit=crop" 
-                      alt="Streetwear model" 
-                      className="w-full h-auto rounded-lg shadow-md"
-                    />
-                    <p className="mt-2 text-sm text-[#666] italic">Street style: Y2K aesthetic with baggy denim and platform shoes</p>
+                
+                  {/* Styled content with drop cap and enhanced typography */}
+                  <div className="prose prose-slate max-w-4xl mx-auto relative">
+                    <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FF4D4F]/0 via-[#FF4D4F]/20 to-[#FF4D4F]/0"></div>
+                    {selectedPreview.content.split('\n\n').map((paragraph, idx) => (
+                      <p key={idx} className={`mb-6 text-[#3D2C35] leading-relaxed text-base ${idx === 0 ? 'first-letter:text-3xl first-letter:font-bold first-letter:text-[#3D2C35] first-letter:mr-1 first-letter:float-left first-letter:leading-none' : ''}`}>
+                        {paragraph}
+                      </p>
+                    ))}
+                    <div className="flex justify-center mt-12 mb-4 opacity-30">
+                      <div className="inline-flex items-center">
+                        <div className="h-px w-12 bg-[#3D2C35]"></div>
+                        <div className="mx-4">●</div>
+                        <div className="h-px w-12 bg-[#3D2C35]"></div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-
-                <div className="prose prose-slate max-w-4xl mx-auto">
-                  {selectedPreview.content.split('\n\n').map((paragraph, idx) => (
-                    <p key={idx} className="mb-5 text-[#3D2C35] leading-relaxed text-base">
-                      {paragraph}
-                    </p>
-                  ))}
                 </div>
               </div>
               
               {/* Stats & Analysis Section */}
-              <div className="bg-[#F8F5F2] p-6 border-b border-[#E8E0D8] relative overflow-hidden">
-                {/* Added diagonal stripes pattern background */}
+              <div className="bg-gradient-to-br from-[#F8F5F2] to-[#F2EDE8] p-8 pt-14 pb-14 border-b border-[#E8E0D8] relative overflow-hidden">
+                {/* Enhanced layered backgrounds */}
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png')] opacity-[0.03] mix-blend-overlay"></div>
-                <div className="flex items-center gap-2 mb-5">
-                  <ZapIcon className="h-5 w-5 text-[#3D2C35]" />
-                  <h2 className="text-xl font-bold text-[#3D2C35]">Trend Analysis</h2>
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')] opacity-[0.02] mix-blend-overlay"></div>
+                
+                {/* Decorative circular elements */}
+                <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-gradient-to-br from-[#3D2C35]/5 to-transparent opacity-50"></div>
+                <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-gradient-to-tr from-[#3D2C35]/5 to-transparent opacity-50"></div>
+                
+                {/* Heading with enhanced styling */}
+                <div className="flex items-center gap-3 mb-8 border-b border-dashed border-[#3D2C35]/10 pb-4 relative">
+                  <div className="bg-[#3D2C35] rounded-full p-2 shadow-sm">
+                    <ZapIcon className="h-5 w-5 text-white" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-[#3D2C35] tracking-tight">Trend Analysis</h2>
+                  <div className="ml-auto mr-2 bg-white px-3 py-1 rounded-full text-xs text-[#3D2C35] shadow-sm">
+                    DripDial Exclusive
+                  </div>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-6">
-                  {/* Trend Score Card */}
-                  <div className="bg-white rounded-lg p-5 shadow-sm">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-sm text-[#8F8A95] uppercase mb-1">DripDial Trend Score™</h3>
-                        <div className="text-3xl font-bold text-[#3D2C35]">{selectedPreview.trendStats?.trendScore}</div>
+                  {/* Enhanced Trend Score Card */}
+                  <div className="bg-white rounded-lg p-6 shadow-md relative overflow-hidden group transition-all duration-300 hover:shadow-lg">
+                    {/* Decorative background elements */}
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#FF4D4F]/5 to-transparent rounded-bl-full"></div>
+                    <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-[#3D2C35]/5 to-transparent rounded-tr-full"></div>
+                    
+                    <div className="flex justify-between items-start mb-5 relative">
+                      <div className="relative">
+                        <h3 className="text-sm text-[#8F8A95] uppercase mb-1 tracking-wide">DripDial Trend Score™</h3>
+                        <div className="flex items-center gap-2">
+                          <div className="text-4xl font-bold text-[#3D2C35] relative">
+                            {selectedPreview.trendStats?.trendScore}
+                            <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-[#FF4D4F]/0 via-[#FF4D4F]/70 to-[#FF4D4F]/0"></span>
+                          </div>
+                          <div className="text-sm text-[#8F8A95]">/10</div>
+                        </div>
                       </div>
-                      <Badge className="bg-[#C4B7BD]/20 text-[#3D2C35] border-[#C4B7BD]/30 hover:bg-[#C4B7BD]/30">
+                      <Badge className="bg-gradient-to-r from-[#3D2C35] to-[#524950] text-white border-none shadow-md uppercase tracking-wider px-3 py-1">
                         Very Strong
                       </Badge>
                     </div>
                     
-                    <div className="grid grid-cols-2 gap-3">
-                      <div>
-                        <div className="text-xs text-[#8F8A95]">Growth Rate</div>
-                        <div className="font-semibold text-[#3D2C35]">{selectedPreview.trendStats?.growthRate}</div>
+                    <div className="relative">
+                      {/* Progress indicator */}
+                      <div className="w-full h-1 bg-[#F8F5F2] mb-6 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-[#3D2C35] to-[#FF4D4F] w-[85%] rounded-full"></div>
                       </div>
-                      <div>
-                        <div className="text-xs text-[#8F8A95]">Current Phase</div>
-                        <div className="font-semibold text-[#3D2C35]">{selectedPreview.trendStats?.currentPhase}</div>
-                      </div>
-                      <div>
-                        <div className="text-xs text-[#8F8A95]">Forecasted Peak</div>
-                        <div className="font-semibold text-[#3D2C35]">{selectedPreview.trendStats?.forecastedPeak}</div>
-                      </div>
-                      <div>
-                        <div className="text-xs text-[#8F8A95]">Market Saturation</div>
-                        <div className="font-semibold text-[#3D2C35]">{selectedPreview.trendStats?.marketSaturation}</div>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="bg-[#F8F5F2] p-3 rounded-lg group-hover:bg-[#F2EDE8] transition-colors duration-300">
+                          <div className="text-xs text-[#8F8A95] uppercase tracking-wide mb-1">Growth Rate</div>
+                          <div className="font-semibold text-[#3D2C35] flex items-center">
+                            <span className="text-[#FF4D4F] mr-1">↗</span> {selectedPreview.trendStats?.growthRate}
+                          </div>
+                        </div>
+                        <div className="bg-[#F8F5F2] p-3 rounded-lg group-hover:bg-[#F2EDE8] transition-colors duration-300">
+                          <div className="text-xs text-[#8F8A95] uppercase tracking-wide mb-1">Current Phase</div>
+                          <div className="font-semibold text-[#3D2C35]">
+                            {selectedPreview.trendStats?.currentPhase}
+                          </div>
+                        </div>
+                        <div className="bg-[#F8F5F2] p-3 rounded-lg group-hover:bg-[#F2EDE8] transition-colors duration-300">
+                          <div className="text-xs text-[#8F8A95] uppercase tracking-wide mb-1">Forecasted Peak</div>
+                          <div className="font-semibold text-[#3D2C35]">
+                            {selectedPreview.trendStats?.forecastedPeak}
+                          </div>
+                        </div>
+                        <div className="bg-[#F8F5F2] p-3 rounded-lg group-hover:bg-[#F2EDE8] transition-colors duration-300">
+                          <div className="text-xs text-[#8F8A95] uppercase tracking-wide mb-1">Market Saturation</div>
+                          <div className="font-semibold text-[#3D2C35]">
+                            {selectedPreview.trendStats?.marketSaturation}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
