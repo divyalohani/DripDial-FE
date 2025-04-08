@@ -252,17 +252,17 @@ export default function NewsletterPreview() {
     <div className="min-h-screen flex flex-col bg-[#F8F6F3]">
       <Navigation />
       
-      <div className="flex-1 w-full max-w-7xl mx-auto p-4 md:p-8">
-        <div className="mb-8">
-          <h1 className="font-display text-3xl md:text-4xl font-bold mb-2 text-[#3D2C35]">
+      <div className="flex-1 w-full max-w-7xl mx-auto p-4 md:p-12">
+        <div className="mb-16 mt-8">
+          <h1 className="font-display text-3xl md:text-4xl font-bold mb-3 text-[#3D2C35]">
             Newsletter Previews
           </h1>
-          <p className="text-base text-[#8F8A95] max-w-2xl mb-6">
+          <p className="text-base text-[#8F8A95] max-w-2xl mb-8">
             Get a taste of what lands in your inbox when you subscribe to DripDial. Each edition is thoughtfully curated with AI-powered insights.
           </p>
           
           {/* Newsletter selection cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {previewsData.map((preview) => (
               <div 
                 key={preview.id}
